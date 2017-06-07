@@ -1,0 +1,35 @@
+header, main, footer {
+    padding-left: 256px;
+}
+
+@media only screen and (max-width: 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+.navbar-fixed {
+    z-index: 99999 !important;
+}
+
+.side-nav {
+    padding-top: 72px;
+}
+
+nav .brand-logo.left {
+    left: 6%;
+}
+
+@media only screen and (max-width: 992px) {
+    nav .brand-logo.left {
+        left: 10%;
+    }
+}
+
+/*
+@media only screen and (min-width: 993px) {
+    nav a.button-collapse {
+        display: block;
+    }
+}
+*/
