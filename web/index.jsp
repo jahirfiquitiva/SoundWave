@@ -2,7 +2,6 @@
   Created by IntelliJ IDEA.
   User: jahir
   Date: 6/7/17
-  Time: 10:29 a.m.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
