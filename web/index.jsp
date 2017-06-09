@@ -41,8 +41,8 @@
             </nav>
         </div>
         <ul id="slide-out" class="side-nav">
-            <li><a class="waves-effect" href="#!">First Sidebar Link</a></li>
-            <li><a class="waves-effect" href="#!">Second Sidebar Link</a></li>
+            <li><a class="waves-effect" href="#!">Canciones</a></li>
+            <li><a class="waves-effect" href="#!">Artistas</a></li>
         </ul>
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
