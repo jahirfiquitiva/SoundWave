@@ -1,5 +1,5 @@
 header, main, footer {
-    padding-left: 256px;
+    padding-left: 0px; /* 256px */
 }
 
 @media only screen and (max-width: 992px) {
@@ -17,16 +17,14 @@ header, main, footer {
 }
 
 nav .brand-logo.left {
-    left: 2%; /* 6 */
+    left: 6%; /* 2 */
 }
 
-/*
 @media only screen and (max-width: 992px) {
     nav .brand-logo.left {
         left: 10%;
     }
 }
-*/
 
 /*
 @media only screen and (min-width: 993px) {
@@ -51,4 +49,12 @@ nav .brand-logo.left {
 
 .btn {
     float: right;
+}
+
+.slides .caption h3, h4, h5 {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.slides .indicators .indicator-item.active {
+    background-color: #00B8D4;
 }

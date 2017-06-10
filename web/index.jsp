@@ -53,34 +53,37 @@
             <li><a class="waves-effect" href="#!">Registro</a></li>
         </ul>
         <!-- fin MENU INTEMS-->
-        <!-- slider median-->
-        <div class="slider">
-            <ul class="slides">
-                <li>
-                    <img src="assets/images/imag1.PNG"/>
-                    <div class="caption center-align">
-                        <h3>Disfruta tus mejores canciones</h3>
-                        <h5 class="light grey-text text-lighten-3">Busca las mejores canciones y artistas.</h5>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/images/imag2.jpg"/>  <!-- random image -->
-                    <div class="caption left-align">
-                        <h3>Se parte de nuestro Proyecto</h3>
 
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/images/imag3.jpg"/> <!-- random image -->
-                    <div class="caption right-align">
-                        <h3>Arma tu propia playList</h3>
-                        <h5 class="light grey-text text-lighten-3">Seleciona tu musica favorita</h5>
-                    </div>
-                </li>
 
-            </ul>
-        </div>
-        <!-- fin slider median-->
+        <main>
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="assets/images/imag1.PNG"/>
+                        <div class="caption center-align">
+                            <h3>Disfruta tus mejores canciones</h3>
+                            <h5 class="light grey-text text-lighten-3">Busca las mejores canciones y
+                                                                       artistas.</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/images/imag2.jpg"/>  <!-- random image -->
+                        <div class="caption left-align">
+                            <h3>Se parte de nuestro proyecto</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/images/imag3.jpg"/> <!-- random image -->
+                        <div class="caption right-align">
+                            <h3>Crea tus propias playlists</h3>
+                            <h5 class="light grey-text text-lighten-3">Selecciona tu musica
+                                                                       favorita</h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script type="text/javascript">
@@ -91,7 +94,10 @@
                                               draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
-            $('.slider').slider();
+            $('.slider').slider({
+                                    indicators: false,
+                                    interval: 2500
+                                });
         </script>
 
     </body>
