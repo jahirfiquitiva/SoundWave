@@ -57,21 +57,21 @@
         <div class="slider">
             <ul class="slides">
                 <li>
-                    <img src="assets/images/img1.jgp">
+                    <img src="assets/images/imag1.PNG"/>
                     <div class="caption center-align">
                         <h3>Disfruta tus mejores canciones</h3>
                         <h5 class="light grey-text text-lighten-3">Busca las mejores canciones y artistas.</h5>
                     </div>
                 </li>
                 <li>
-                    <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+                    <img src="assets/images/imag2.jpg"/>  <!-- random image -->
                     <div class="caption left-align">
                         <h3>Se parte de nuestro Proyecto</h3>
 
                     </div>
                 </li>
                 <li>
-                    <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+                    <img src="assets/images/imag3.jpg"/> <!-- random image -->
                     <div class="caption right-align">
                         <h3>Arma tu propia playList</h3>
                         <h5 class="light grey-text text-lighten-3">Seleciona tu musica favorita</h5>
