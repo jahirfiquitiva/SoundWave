@@ -2,11 +2,10 @@
   Created by IntelliJ IDEA.
   User: jahir
   Date: 6/7/17
-  Time: 10:29 a.m.
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+    <!-- -->
     <head>
         <title>Soul Music</title>
         <meta lang="es"/>
@@ -14,6 +13,7 @@
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
     </head>
+
     <body>
         <div class="navbar-fixed">
             <nav>
@@ -42,11 +42,45 @@
                 </div>
             </nav>
         </div>
-        <ul id="slide-out" class="side-nav">
-            <li><a class="waves-effect" href="#!">First Sidebar Link</a></li>
-            <li><a class="waves-effect" href="#!">Second Sidebar Link</a></li>
-        </ul>
 
+        <!-- MENU ITEMS-->
+        <ul id="slide-out" class="side-nav">
+            <li><a class="waves-effect" href="#!">Canciones</a></li>
+            <li><a class="waves-effect" href="#!">Artistas</a></li>
+            <li><a class="waves-effect" href="#!">Generos</a></li>
+            <li><a class="waves-effect" href="#!">PlayList</a></li>
+            <li><a class="waves-effect" href="#!">Favoritos</a></li>
+            <li><a class="waves-effect" href="#!">Registro</a></li>
+        </ul>
+        <!-- fin MENU INTEMS-->
+        <!-- slider median-->
+        <div class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="assets/images/imag1.PNG"/>
+                    <div class="caption center-align">
+                        <h3>Disfruta tus mejores canciones</h3>
+                        <h5 class="light grey-text text-lighten-3">Busca las mejores canciones y artistas.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/imag2.jpg"/>  <!-- random image -->
+                    <div class="caption left-align">
+                        <h3>Se parte de nuestro Proyecto</h3>
+
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/imag3.jpg"/> <!-- random image -->
+                    <div class="caption right-align">
+                        <h3>Arma tu propia playList</h3>
+                        <h5 class="light grey-text text-lighten-3">Seleciona tu musica favorita</h5>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- fin slider median-->
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script type="text/javascript">
@@ -57,6 +91,7 @@
                                               draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
+            $('.slider').slider();
         </script>
 
     </body>
