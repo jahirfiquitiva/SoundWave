@@ -22,7 +22,7 @@
                         <li><a href="#" data-activates="slide-out"
                                class="button-collapse waves-effect waves-light show-on-large"><i
                                 class="mdi mdi-menu material-icons"></i></a></li>
-                        <a href="#" class="brand-logo left waves-effect waves-light">Soul Music</a>
+                        <a href="#" class="brand-logo left waves-effect waves-light">SoundWave</a>
                     </ul>
                     <ul class="right">
                         <li>
@@ -36,6 +36,9 @@
                             </form>
                         </li>
                         <li><a class="waves-effect waves-light" href="#"><i
+                                class="mdi mdi-upload material-icons"></i></a>
+                        </li>
+                        <li><a class="waves-effect waves-light" href="#"><i
                                 class="mdi mdi-account-circle material-icons"></i></a>
                         </li>
                     </ul>
@@ -47,7 +50,7 @@
         <ul id="slide-out" class="side-nav">
             <li>
                 <div class="nav-title">
-                    <h5>Soul Music</h5><a onclick="closeDrawer()"
+                    <h5 class="cyan-text">SoundWave</h5><a onclick="closeDrawer()"
                                           class="waves-effect show-on-large"><i class="mdi mdi-chevron-left"></i></a>
                 </div>
             </li>
@@ -65,6 +68,7 @@
             <li>
                 <div class="divider"></div>
             </li>
+            <li><a class="subheader">Personal</a></li>
             <li><a class="waves-effect" href="#!"><i class="mdi mdi-heart"></i>Favoritos</a></li>
             <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Listas de reproduccion</a></li>
             <li><a class="waves-effect" href="#!">Registro</a></li>
@@ -73,6 +77,7 @@
 
 
         <main>
+            <!-- Comienzo slider -->
             <div class="slider">
                 <ul class="slides">
                     <li>
@@ -99,6 +104,10 @@
                     </li>
                 </ul>
             </div>
+            <!-- Fin slider -->
+
+            
+
             <!-- Inicio Boton Pulse -->
             <a class="btn btn-floating btn-large cyan pulse fab"><i
                     class="mdi mdi-play"></i></a>
