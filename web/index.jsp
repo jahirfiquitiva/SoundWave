@@ -7,7 +7,7 @@
 <html>
     <!-- -->
     <head>
-        <title>Soul Music</title>
+        <title>SoundWave</title>
         <meta lang="es"/>
         <link rel="stylesheet" href="assets/css/materialize.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
@@ -59,14 +59,14 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!"><i class="mdi mdi-music-circle"></i>Canciones.</a>
+                <a class="waves-effect" href="#!"><i class="mdi mdi-music-circle"></i>Canciones</a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-account-box"></i>Artistas.</a>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-account-box"></i>Artistas</a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes.</a>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes</a>
             </li>
 
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos.</a></li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos</a></li>
 
             <li>
                 <div class="divider"></div>
