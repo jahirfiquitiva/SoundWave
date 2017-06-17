@@ -66,7 +66,7 @@
                 <div class="divider"></div>
             </li>
             <li><a class="waves-effect" href="#!"><i class="mdi mdi-heart"></i>Favoritos</a></li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Playlists</a></li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Listas de reproduccion</a></li>
             <li><a class="waves-effect" href="#!">Registro</a></li>
         </ul>
         <!-- fin MENU INTEMS-->
@@ -110,7 +110,7 @@
         <script src="assets/js/ui.js"></script>
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth: 256, // Default is 300
+                                              menuWidth: 280, // Default is 300
                                               edge: 'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                                               draggable: true // Choose whether you can drag to open on touch screens
