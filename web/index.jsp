@@ -51,7 +51,8 @@
             <li>
                 <div class="nav-title">
                     <h5 class="cyan-text">SoundWave</h5><a onclick="closeDrawer()"
-                                          class="waves-effect show-on-large"><i class="mdi mdi-chevron-left"></i></a>
+                                                           class="waves-effect show-on-large"><i
+                        class="mdi mdi-chevron-left"></i></a>
                 </div>
             </li>
             <li>
@@ -64,13 +65,17 @@
             </li>
             <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes</a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos</a></li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos</a>
+            </li>
             <li>
                 <div class="divider"></div>
             </li>
             <li><a class="subheader">Personal</a></li>
             <li><a class="waves-effect" href="#!"><i class="mdi mdi-heart"></i>Favoritos</a></li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Listas de reproduccion</a></li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Listas
+                                                                                                 de
+                                                                                                 reproduccion</a>
+            </li>
             <li><a class="waves-effect" href="#!">Registro</a></li>
         </ul>
         <!-- fin MENU INTEMS-->
@@ -106,8 +111,38 @@
             </div>
             <!-- Fin slider -->
 
-            
-
+            <div class="login-container">
+                <div class="row">
+                    <div class="col s4 m6 l6">
+                        <div class="card-panel">
+                            <div class="row">
+                                <h4 class="primary-text">Iniciar sesion</h4>
+                                <h6 class="primary-text">con tu cuenta de SoundWave</h6>
+                            </div>
+                            <div id="main-fields">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="username" type="text" class="validate">
+                                        <label for="username">Nombre de usuario</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="password" type="password" class="validate">
+                                        <label for="password">Contraseña</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a id="login" class="waves-effect btn cyan"
+                                   onclick="process();">Iniciar sesion</a>
+                                <a id="logout" class="waves-effect btn cyan"
+                                   onclick="logOut();">Cerrar sesion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Inicio Boton Pulse -->
             <a class="btn btn-floating btn-large cyan pulse fab"><i
                     class="mdi mdi-play"></i></a>
