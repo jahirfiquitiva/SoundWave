@@ -6,6 +6,10 @@
     color: #4285f4 !important;
 }
 
+body {
+    background-color: #fafafa;
+}
+
 header, main, footer {
     padding-left: 0px; /* 256px */
 }
@@ -14,6 +18,11 @@ header, main, footer {
     header, main, footer {
         padding-left: 0;
     }
+}
+
+main {
+    background-color: #fafafa;
+    margin-top: 16px;
 }
 
 .navbar-fixed {
@@ -120,7 +129,7 @@ nav .brand-logo.left {
 }
 
 .login-container {
-    margin-left: 30%;
+    margin-left: 33%;
 }
 
 .primary-text {
@@ -133,4 +142,23 @@ nav .brand-logo.left {
 
 .tertiary-text {
     color: rgba(0, 0, 0, 0.38);
+}
+
+.text-link {
+    color: #4285f4;
+    cursor: pointer;
+    margin-bottom: -16px;
+    margin-left: 12px;
+}
+
+.grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.grid-item .grid-item-content {
+    padding: 2px 16px 10px;
+    background-color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

@@ -7,7 +7,7 @@
 <html>
     <!-- -->
     <head>
-        <title>Soul Music</title>
+        <title>SoundWave</title>
         <meta lang="es"/>
         <link rel="stylesheet" href="assets/css/materialize.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
@@ -19,9 +19,12 @@
             <nav>
                 <div class="nav-wrapper cyan">
                     <ul class="left">
-                        <li><a href="#" data-activates="slide-out"
-                               class="button-collapse waves-effect waves-light show-on-large"><i
-                                class="mdi mdi-menu material-icons"></i></a></li>
+                        <li>
+                            <a href="#" data-activates="slide-out"
+                               class="button-collapse waves-effect waves-light show-on-large">
+                                <i class="mdi mdi-menu material-icons"></i>
+                            </a>
+                        </li>
                         <a href="#" class="brand-logo left waves-effect waves-light">SoundWave</a>
                     </ul>
                     <ul class="right">
@@ -29,17 +32,22 @@
                             <form>
                                 <div class="input-field">
                                     <input id="search" type="search" required>
-                                    <label class="label-icon" for="search"><i
-                                            class="mdi mdi-magnify material-icons"></i></label>
+                                    <label class="label-icon" for="search">
+                                        <i class="mdi mdi-magnify material-icons"></i>
+                                    </label>
                                     <i class="mdi mdi-close material-icons"></i>
                                 </div>
                             </form>
                         </li>
-                        <li><a class="waves-effect waves-light" href="#"><i
-                                class="mdi mdi-upload material-icons"></i></a>
+                        <li>
+                            <a class="waves-effect waves-light" href="#">
+                                <i class="mdi mdi-upload material-icons"></i>
+                            </a>
                         </li>
-                        <li><a class="waves-effect waves-light" href="#"><i
-                                class="mdi mdi-account-circle material-icons"></i></a>
+                        <li>
+                            <a class="waves-effect waves-light" href="#">
+                                <i class="mdi mdi-account-circle material-icons"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -50,41 +58,118 @@
         <ul id="slide-out" class="side-nav">
             <li>
                 <div class="nav-title">
-                    <h5 class="cyan-text">SoundWave</h5><a onclick="closeDrawer()"
-                                                           class="waves-effect show-on-large"><i
-                        class="mdi mdi-chevron-left"></i></a>
+                    <h5 class="cyan-text">SoundWave</h5>
+                    <a onclick="closeDrawer()"
+                       class="waves-effect show-on-large">
+                        <i class="mdi mdi-chevron-left"></i>
+                    </a>
                 </div>
             </li>
             <li>
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!"><i class="mdi mdi-music-circle"></i>Canciones.</a>
+                <a class="waves-effect" href="#!">
+                    <i class="mdi mdi-music-circle"></i>
+                    Canciones
+                </a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-account-box"></i>Artistas.</a>
+            <li>
+                <a class="waves-effect" href="#!">
+                    <i class="mdi mdi-account-box"></i>
+                    Artistas
+                </a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes.</a>
+            <li>
+                <a class="waves-effect" href="#!">
+                    <i class="mdi mdi-album"></i>
+                    Albumes
+                </a>
             </li>
 
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos.</a></li>
+            <li>
+                <a class="waves-effect" href="#!">
+                    <i class="mdi mdi-tag-multiple"></i>
+                    Generos
+                </a>
+            </li>
 
             <li>
                 <div class="divider"></div>
             </li>
-            <li><a class="subheader">Personal</a></li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-heart"></i>Favoritos</a></li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Listas
-                                                                                                 de
-                                                                                                 reproduccion</a>
+            <li>
+                <a class="subheader">Personal</a>
             </li>
-            <li><a class="waves-effect" href="#!">Registro</a></li>
+            <li>
+                <a class="waves-effect" href="#!">
+                    <i class="mdi mdi-heart"></i>
+                    Favoritos
+                </a>
+            </li>
+            <li>
+                <a class="waves-effect" href="#!">
+                    <i class="mdi mdi-checkbox-multiple-blank"></i>
+                    Listas de reproduccion
+                </a>
+            </li>
+            <li>
+                <a class="waves-effect" href="#!">Registro</a>
+            </li>
         </ul>
         <!-- fin MENU INTEMS-->
 
+        <!-- Comienzo slider -->
+        <div class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="assets/images/imag1.PNG"/>
+                    <div class="caption center-align">
+                        <h3>Disfruta tus mejores canciones</h3>
+                        <h5 class="light grey-text text-lighten-3">
+                            Busca las mejores canciones y artistas.
+                        </h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/imag2.jpg"/>  <!-- random image -->
+                    <div class="caption left-align">
+                        <h3>Se parte de nuestro proyecto</h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/images/imag3.jpg"/> <!-- random image -->
+                    <div class="caption right-align">
+                        <h3>Crea tus propias playlists</h3>
+                        <h5 class="light grey-text text-lighten-3">
+                            Selecciona tu musica favorita
+                        </h5>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Fin slider -->
+
 
         <main>
+            <!-- Inicio canciones -->
+            <div id="songs">
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="https://is3-ssl.mzstatic.com/image/thumb/Music127/v4/af/54/b0/af54b078-b4ee-f3f9-e55e-4178110159e3/source/600x0w.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Sleeping Powder</p>
+                                <h6 class="secondary-text">Gorillaz</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Final canciones -->
 
-
+            <!-- Inicio Login -->
             <div class="login-container">
                 <div class="row">
                     <div class="col s4 m6 l6">
@@ -108,20 +193,71 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <a id="login" class="waves-effect btn cyan"
-                                   onclick="process();">Iniciar sesion</a>
-                                <a id="logout" class="waves-effect btn cyan"
-                                   onclick="logOut();">Cerrar sesion</a>
+                                <a id="create-account" class="text-link">Aun no tienes cuenta?</a>
+                                <a id="login" class="waves-effect btn cyan" onclick="process();">
+                                    Iniciar sesion
+                                </a>
+                                <a id="logout" class="waves-effect btn cyan" onclick="logOut();">
+                                    Cerrar sesion
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Fin login-->
+
+            <!-- Inicio crear cuenta -->
+            <div class="login-container">
+                <div class="row">
+                    <div class="col s4 m6 l6">
+                        <div class="card-panel">
+                            <div class="row">
+                                <h4 class="primary-text">Registrate</h4>
+                                <h6 class="primary-text">para tener tu cuenta de SoundWave</h6>
+                            </div>
+                            <div id="create-account-fields">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-fullname" type="text" class="validate">
+                                        <label for="new-fullname">Nombre completo</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-email" type="email" class="validate">
+                                        <label for="new-email">Correo electronico</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-username" type="text" class="validate">
+                                        <label for="new-username">Nombre de usuario</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-password" type="password" class="validate">
+                                        <label for="new-password">Contraseña</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a id="create" class="waves-effect btn cyan" onclick="process();">
+                                    Crear cuenta
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin crear cuenta-->
 
 
             <!-- Inicio Boton Pulse -->
-            <a class="btn btn-floating btn-large cyan pulse fab"><i
-                    class="mdi mdi-play"></i></a>
+            <a class="btn btn-floating btn-large cyan pulse fab">
+                <i class="mdi mdi-play"></i>
+            </a>
             <!-- Final boton pulse -->
         </main>
 
