@@ -1,3 +1,11 @@
+.cyan {
+    background-color: #4285f4 !important;
+}
+
+.cyan-text {
+    color: #4285f4 !important;
+}
+
 header, main, footer {
     padding-left: 0px; /* 256px */
 }
@@ -8,16 +16,41 @@ header, main, footer {
     }
 }
 
-main {
-    padding-top: 8px;
-}
-
 .navbar-fixed {
-    z-index: 99999 !important;
+    z-index: 100 !important;
 }
 
 .side-nav {
-    padding-top: 72px;
+    z-index: 99999 !important;
+    padding-top: 0;
+}
+
+.side-nav .divider {
+    margin: 8px 0;
+    display: block;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.side-nav .mdi {
+    margin-top: 1px;
+    font-size: 24px;
+}
+
+.side-nav .nav-title {
+    display: inline-block;
+    height: 56px;
+    vertical-align: middle;
+    padding: 8px 0 8px 34px;
+}
+
+.side-nav .nav-title a {
+    float: right;
+    margin-top: -48px;
+    margin-right: -84px;
+    padding: 0;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.54);
 }
 
 nav .brand-logo.left {
@@ -55,7 +88,7 @@ nav .brand-logo.left {
     float: right;
 }
 
-.slides .caption h3, h4, h5 {
+.slides .caption {
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -81,7 +114,7 @@ nav .brand-logo.left {
 
 .fab {
     position: fixed;
-    z-index: 9999 !important;
+    z-index: 10 !important;
     right: 16px;
     bottom: 16px;
 }

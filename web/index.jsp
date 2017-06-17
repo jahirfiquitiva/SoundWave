@@ -45,11 +45,28 @@
 
         <!-- MENU ITEMS-->
         <ul id="slide-out" class="side-nav">
-            <li><a class="waves-effect" href="#!">Canciones</a></li>
-            <li><a class="waves-effect" href="#!">Artistas</a></li>
-            <li><a class="waves-effect" href="#!">Generos</a></li>
-            <li><a class="waves-effect" href="#!">PlayList</a></li>
-            <li><a class="waves-effect" href="#!">Favoritos</a></li>
+            <li>
+                <div class="nav-title">
+                    <h5>Soul Music</h5><a onclick="closeDrawer()"
+                                          class="waves-effect show-on-large"><i class="mdi mdi-chevron-left"></i></a>
+                </div>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a class="waves-effect" href="#!"><i class="mdi mdi-music-circle"></i>Canciones</a>
+            </li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-account-box"></i>Artistas</a>
+            </li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes</a>
+            </li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-heart"></i>Favoritos</a></li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-checkbox-multiple-blank"></i>Playlists</a></li>
             <li><a class="waves-effect" href="#!">Registro</a></li>
         </ul>
         <!-- fin MENU INTEMS-->
@@ -83,13 +100,14 @@
                 </ul>
             </div>
             <!-- Inicio Boton Pulse -->
-                        <a class="btn btn-floating btn-large cyan pulse fab"><i
-                                class="mdi mdi-play"></i></a>
+            <a class="btn btn-floating btn-large cyan pulse fab"><i
+                    class="mdi mdi-play"></i></a>
             <!-- Final boton pulse -->
         </main>
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
+        <script src="assets/js/ui.js"></script>
         <script type="text/javascript">
             $('.button-collapse').sideNav({
                                               menuWidth: 256, // Default is 300
