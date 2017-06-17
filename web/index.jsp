@@ -80,8 +80,6 @@
         </ul>
         <!-- fin MENU INTEMS-->
 
-
-        <main>
             <!-- Comienzo slider -->
             <div class="slider">
                 <ul class="slides">
@@ -111,6 +109,9 @@
             </div>
             <!-- Fin slider -->
 
+
+        <main>
+            <!-- Inicio Login -->
             <div class="login-container">
                 <div class="row">
                     <div class="col s4 m6 l6">
@@ -134,6 +135,7 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <a id="create-account" class="text-link">Aun no tienes cuenta?</a>
                                 <a id="login" class="waves-effect btn cyan"
                                    onclick="process();">Iniciar sesion</a>
                                 <a id="logout" class="waves-effect btn cyan"
@@ -143,6 +145,54 @@
                     </div>
                 </div>
             </div>
+            <!-- Fin login-->
+
+            <!-- Inicio crear cuenta -->
+            <div class="login-container">
+                <div class="row">
+                    <div class="col s4 m6 l6">
+                        <div class="card-panel">
+                            <div class="row">
+                                <h4 class="primary-text">Registrate</h4>
+                                <h6 class="primary-text">para tener tu cuenta de SoundWave</h6>
+                            </div>
+                            <div id="create-account-fields">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-fullname" type="text" class="validate">
+                                        <label for="new-fullname">Nombre completo</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-email" type="email" class="validate">
+                                        <label for="new-email">Correo electronico</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-username" type="text" class="validate">
+                                        <label for="new-username">Nombre de usuario</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="new-password" type="password" class="validate">
+                                        <label for="new-password">Contraseña</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a id="create" class="waves-effect btn cyan"
+                                   onclick="process();">Crear cuenta</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin crear cuenta-->
+
+
             <!-- Inicio Boton Pulse -->
             <a class="btn btn-floating btn-large cyan pulse fab"><i
                     class="mdi mdi-play"></i></a>

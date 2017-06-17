@@ -16,6 +16,10 @@ header, main, footer {
     }
 }
 
+main {
+    margin-top: 16px;
+}
+
 .navbar-fixed {
     z-index: 100 !important;
 }
@@ -133,4 +137,11 @@ nav .brand-logo.left {
 
 .tertiary-text {
     color: rgba(0, 0, 0, 0.38);
+}
+
+.text-link {
+    color: #4285f4;
+    cursor: pointer;
+    margin-bottom: -16px;
+    margin-left: 12px;
 }
