@@ -6,6 +6,10 @@
     color: #4285f4 !important;
 }
 
+body {
+    background-color: #fafafa;
+}
+
 header, main, footer {
     padding-left: 0px; /* 256px */
 }
@@ -17,6 +21,7 @@ header, main, footer {
 }
 
 main {
+    background-color: #fafafa;
     margin-top: 16px;
 }
 
@@ -144,4 +149,16 @@ nav .brand-logo.left {
     cursor: pointer;
     margin-bottom: -16px;
     margin-left: 12px;
+}
+
+.grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.grid-item .grid-item-content {
+    padding: 2px 16px 10px;
+    background-color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

@@ -151,6 +151,26 @@
 
 
         <main>
+
+            <!-- Inicio canciones -->
+            <div id="songs">
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="https://is3-ssl.mzstatic.com/image/thumb/Music127/v4/af/54/b0/af54b078-b4ee-f3f9-e55e-4178110159e3/source/600x0w.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Sleeping Powder</p>
+                                <h6 class="secondary-text">Gorillaz</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Final canciones -->
+
+
             <!-- Inicio Login -->
             <div class="login-container">
                 <div class="row">
