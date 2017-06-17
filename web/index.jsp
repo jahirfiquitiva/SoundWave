@@ -152,7 +152,7 @@
 
         <main>
             <!-- Inicio Login -->
-            <div class="center-align">
+            <div class="login-container">
                 <div class="row">
                     <div class="col s4 m6 l6">
                         <div class="card-panel">
