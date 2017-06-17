@@ -83,34 +83,7 @@
 
 
         <main>
-            <!-- Comienzo slider -->
-            <div class="slider">
-                <ul class="slides">
-                    <li>
-                        <img src="assets/images/imag1.PNG"/>
-                        <div class="caption center-align">
-                            <h3>Disfruta tus mejores canciones</h3>
-                            <h5 class="light grey-text text-lighten-3">Busca las mejores canciones y
-                                                                       artistas.</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/images/imag2.jpg"/>  <!-- random image -->
-                        <div class="caption left-align">
-                            <h3>Se parte de nuestro proyecto</h3>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/images/imag3.jpg"/> <!-- random image -->
-                        <div class="caption right-align">
-                            <h3>Crea tus propias playlists</h3>
-                            <h5 class="light grey-text text-lighten-3">Selecciona tu musica
-                                                                       favorita</h5>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- Fin slider -->
+
 
             <div class="login-container">
                 <div class="row">
@@ -144,6 +117,8 @@
                     </div>
                 </div>
             </div>
+
+
             <!-- Inicio Boton Pulse -->
             <a class="btn btn-floating btn-large cyan pulse fab"><i
                     class="mdi mdi-play"></i></a>
