@@ -126,12 +126,12 @@
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
                             <img class="responsive-img" crossorigin=""
-                                 src="https://is3-ssl.mzstatic.com/image/thumb/Music127/v4/af/54/b0/af54b078-b4ee-f3f9-e55e-4178110159e3/source/600x0w.jpg"
+                                 src="https://i1.sndcdn.com/artworks-000219688327-32sd7f-t500x500.jpg"
                             onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Sleeping Powder</p>
-                                <h6 class="secondary-text">Gorillaz</h6>
+                                <p class="primary-text">Where do I go?</p>
+                                <h6 class="secondary-text">Brandon Jonak & Pep.B</h6>
                             </div>
                         </div>
                     </div>
