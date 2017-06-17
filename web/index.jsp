@@ -55,13 +55,13 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!"><i class="mdi mdi-music-circle"></i>Canciones</a>
+                <a class="waves-effect" href="#!"><i class="mdi mdi-music-circle"></i>Canciones.</a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-account-box"></i>Artistas</a>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-account-box"></i>Artistas.</a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes</a>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-album"></i>Albumes.</a>
             </li>
-            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos</a></li>
+            <li><a class="waves-effect" href="#!"><i class="mdi mdi-tag-multiple"></i>Generos.</a></li>
             <li>
                 <div class="divider"></div>
             </li>
