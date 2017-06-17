@@ -153,12 +153,22 @@ nav .brand-logo.left {
 
 .grid-item {
     border: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: white;
 }
 
 .grid-item .grid-item-content {
     padding: 2px 16px 10px;
-    background-color: white;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.section-content {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.section-title{
+    padding-left:8px;
+    padding-bottom: 16px;
 }

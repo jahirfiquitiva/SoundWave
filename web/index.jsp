@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
     </head>
 
-    <body>
+    <body >
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -118,47 +118,16 @@
         </ul>
         <!-- fin MENU INTEMS-->
 
-        <!-- Comienzo slider -->
-        <div class="slider">
-            <ul class="slides">
-                <li>
-                    <img src="assets/images/imag1.PNG"/>
-                    <div class="caption center-align">
-                        <h3>Disfruta tus mejores canciones</h3>
-                        <h5 class="light grey-text text-lighten-3">
-                            Busca las mejores canciones y artistas.
-                        </h5>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/images/imag2.jpg"/>  <!-- random image -->
-                    <div class="caption left-align">
-                        <h3>Se parte de nuestro proyecto</h3>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/images/imag3.jpg"/> <!-- random image -->
-                    <div class="caption right-align">
-                        <h3>Crea tus propias playlists</h3>
-                        <h5 class="light grey-text text-lighten-3">
-                            Selecciona tu musica favorita
-                        </h5>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- Fin slider -->
-
-
         <main>
-
             <!-- Inicio canciones -->
-            <div id="songs">
+            <div id="songs" class="section-content">
+                <h3 class="cyan-text section-title">Canciones</h3>
                 <div class="row">
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="https://is3-ssl.mzstatic.com/image/thumb/Music127/v4/af/54/b0/af54b078-b4ee-f3f9-e55e-4178110159e3/source/600x0w.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://is3-ssl.mzstatic.com/image/thumb/Music127/v4/af/54/b0/af54b078-b4ee-f3f9-e55e-4178110159e3/source/600x0w.jpg"
+                            onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Sleeping Powder</p>
@@ -265,6 +234,7 @@
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
+        <script src="assets/js/vibrant.min.js"></script>
         <script src="assets/js/ui.js"></script>
         <script type="text/javascript">
             $('.button-collapse').sideNav({
