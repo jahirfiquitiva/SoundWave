@@ -74,14 +74,14 @@ nav .brand-logo.left {
 /* label focus color */
 .input-field input[type=text]:focus + label,
 .input-field input[type=password]:focus + label {
-    color: #00B8D4;
+    color: #4285f4;
 }
 
 /* label underline focus color */
 .input-field input[type=text]:focus,
 .input-field input[type=password]:focus {
-    border-bottom: 1px solid #00B8D4;
-    box-shadow: 0 1px 0 0 #00B8D4;
+    border-bottom: 1px solid #4285f4;
+    box-shadow: 0 1px 0 0 #4285f4;
 }
 
 .btn {
@@ -93,7 +93,7 @@ nav .brand-logo.left {
 }
 
 .slides .indicators .indicator-item.active {
-    background-color: #00B8D4;
+    background-color: #4285f4;
 }
 
 #admin-content {
@@ -117,4 +117,20 @@ nav .brand-logo.left {
     z-index: 10 !important;
     right: 16px;
     bottom: 16px;
+}
+
+.login-container {
+    margin-left: 30%;
+}
+
+.primary-text {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.secondary-text {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.tertiary-text {
+    color: rgba(0, 0, 0, 0.38);
 }
