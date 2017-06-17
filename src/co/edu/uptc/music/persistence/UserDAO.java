@@ -40,15 +40,11 @@ public class UserDAO {
         return null;
     }
 
-    public void insertUser(User user) {
+    public void insertUser(User user) throws Exception {
         if (connection.connectToDB()) {
-            try {
-                Statement statement = connection.getConnection().createStatement();
-                statement.executeQuery(sqlUser.insertUser(user.getId(), user.getType().toString(),
-                        user.getName(), user.getPassword()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Statement statement = connection.getConnection().createStatement();
+            statement.executeUpdate(sqlUser.insertUser(user.getId(), user.getType().getName(),
+                    user.getName(), user.getPassword()));
         }
     }
 

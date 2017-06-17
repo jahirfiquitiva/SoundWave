@@ -4,14 +4,17 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.DatatypeConverter;
 
 import co.edu.uptc.music.logic.User;
+import co.edu.uptc.music.logic.UserType;
 import co.edu.uptc.music.logic.UsersManager;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
@@ -28,16 +31,48 @@ public class LoginServlet extends HttpServlet {
             try (PrintWriter out = response.getWriter()) {
                 String name = request.getParameter("username");
                 String pass = request.getParameter("password");
-                User user = usersManager.findUser(name);
-                if (user != null) {
-                    if (user.validateUser(pass)) {
-                        String aux = gson.toJson(user);
-                        String myJson = "{\"code\":0,".concat(aux.substring(1));
+                String login = request.getParameter("login");
+                int loginValue = Integer.parseInt(login);
+                if (loginValue == 1) {
+                    User user = usersManager.findUser(name);
+                    if (user != null) {
+                        MessageDigest digest = MessageDigest.getInstance("MD5");
+                        digest.update(pass.getBytes());
+                        byte[] chainAux = digest.digest();
+                        String myHash = DatatypeConverter.printHexBinary(chainAux);
+                        if (user.validateUser(myHash)) {
+                            String aux = gson.toJson(user);
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("{\"code\":2,");
+                            sb.append(aux.substring(1, aux.length() - 1));
+                            if (user.getType() == UserType.ADMIN) {
+                                String usersList = gson.toJson(usersManager.getUsers());
+                                sb.append(",\"list\": ").append(usersList);
+                            }
+                            sb.append("}");
+                            out.println(sb.toString());
+                        } else {
+                            out.println("{\"code\":1,\"error\":\"User exists but password is " +
+                                    "incorrect.\"}");
+                        }
+                    } else {
+                        out.println("{\"code\":0,\"error\":\"User not found.\"}");
+                    }
+                } else if (loginValue == 2) {
+                    String type = request.getParameter("type");
+                    if (usersManager.addUser(name, pass, type)) {
+                        usersManager.load();
+                        out.println("{\"code\": 4, \"list\": " +
+                                gson.toJson(usersManager.getUsers()) + "}");
+                    } else {
+                        out.println("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
+                                "registrado en la base de datos\"}");
                     }
                 }
+                out.close();
+            } catch (Exception ignored) {
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
     }
 

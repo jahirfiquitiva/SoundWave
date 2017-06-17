@@ -8,6 +8,10 @@ header, main, footer {
     }
 }
 
+main {
+    padding-top: 8px;
+}
+
 .navbar-fixed {
     z-index: 99999 !important;
 }
@@ -57,4 +61,27 @@ nav .brand-logo.left {
 
 .slides .indicators .indicator-item.active {
     background-color: #00B8D4;
+}
+
+#admin-content {
+    display: none;
+}
+
+#normal-content {
+    display: none;
+}
+
+#guest-content {
+    display: block;
+}
+
+#logout {
+    display: none;
+}
+
+.fab {
+    position: fixed;
+    z-index: 9999 !important;
+    right: 16px;
+    bottom: 16px;
 }

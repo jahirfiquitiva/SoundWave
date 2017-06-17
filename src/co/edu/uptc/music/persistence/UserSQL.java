@@ -10,11 +10,11 @@ public class UserSQL {
     }
 
     public String insertUser(String id, String type, String name, String password) {
-        return "INSERT INTO USER VALUES(\'" + id + "\', \'" + type + "\', \'" + name + "\', \'" +
-                password + "\');";
+        return "INSERT INTO USER VALUES(\'" + id + "\', \'" + type + "\', \'" + name + "\', MD5(\'" +
+                password + "\'));";
     }
 
     public String deleteUser(String id) {
-        return "DROP USER WHERE USER_ID='" + id + "'";
+        return "DROP USER WHERE USER_ID='" + id + "';";
     }
 }

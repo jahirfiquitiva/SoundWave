@@ -82,6 +82,10 @@
                     </li>
                 </ul>
             </div>
+            <!-- Inicio Boton Pulse -->
+                        <a class="btn btn-floating btn-large cyan pulse fab"><i
+                                class="mdi mdi-play"></i></a>
+            <!-- Final boton pulse -->
         </main>
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>

@@ -30,6 +30,17 @@ public class User {
     }
 
     public boolean validateUser(String password) {
-        return password.equals(this.password);
+        System.out.println("Expected: " + this.password + " - Result: " + password);
+        return password.equalsIgnoreCase(this.password);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", type=" + type +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
