@@ -164,6 +164,14 @@ nav .brand-logo.left {
     white-space: nowrap;
 }
 
+.grid-item .grid-item-content .mdi {
+    margin-top: -44px;
+    margin-right: -6px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.38);
+    float: right;
+}
+
 .grid-item .divider {
     padding: 0;
     margin: 0;

@@ -134,6 +134,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Spirit of Things</h5>
                                 <p class="secondary-text">Floatinurboat NCS</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -147,6 +148,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Sleepless</h5>
                                 <p class="secondary-text">NCS Release</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -159,6 +161,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Lightning</h5>
                                 <p class="secondary-text">NCS Release</p>
+                                <i class="mdi mdi-dots-vertical menu" data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -171,6 +174,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Gave To Me</h5>
                                 <p class="secondary-text">NCS Release</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -183,6 +187,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Where do I go?</h5>
                                 <p class="secondary-text">Brandon Jonak & Pep.B</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -410,6 +415,31 @@
                 <i class="mdi mdi-play"></i>
             </a>
             <!-- Final boton pulse -->
+
+            <!-- Menu canciones -->
+            <ul id='songs-menu' class='dropdown-content'>
+                <li>
+                    <a href="#!">one</a>
+                </li>
+                <li>
+                    <a href="#!">two</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#!">
+                        <i class="material-icons">view_module</i>
+                        four
+                    </a>
+                </li>
+                <li>
+                    <a href="#!">
+                        <i class="material-icons">cloud</i>
+                        five
+                    </a>
+                </li>
+            </ul>
+            <!-- Fin menu canciones -->
+
         </main>
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
@@ -428,6 +458,14 @@
                                     indicators: false,
                                     interval: 2500
                                 });
+            $('.menu').dropdown({
+                                               constrainWidth: false, // Does not change width of dropdown to that of the activator
+                                               gutter: 0, // Spacing from edge
+                                               belowOrigin: false, // Displays dropdown below the button
+                                               alignment: 'left', // Displays dropdown with edge aligned to the left of button
+                                               stopPropagation: false // Stops event propagation
+                                           }
+            );
         </script>
 
     </body>

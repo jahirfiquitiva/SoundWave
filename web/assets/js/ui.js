@@ -27,12 +27,19 @@ function loadCardColors(e) {
             var firstChild = panel.childNodes[i];
             if (firstChild.className === "grid-item-content") {
                 for (var j = 0; j < firstChild.childNodes.length; j++) {
-                    if (firstChild.childNodes[j].className === "primary-text") {
-                        firstChild.childNodes[j].style.color =
-                            isLight ? "rgba(0,0,0,0.87)" : "rgba(255,255,255,255)";
-                    } else if (firstChild.childNodes[j].className === "secondary-text") {
-                        firstChild.childNodes[j].style.color =
-                            isLight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.75)";
+                    var item = firstChild.childNodes[j];
+                    var classname = item.className;
+                    if (classname !== undefined) {
+                        if (classname === "primary-text") {
+                            item.style.color =
+                                isLight ? "rgba(0,0,0,0.87)" : "rgba(255,255,255,255)";
+                        } else if (classname === "secondary-text") {
+                            item.style.color =
+                                isLight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.75)";
+                        } else if (classname.indexOf("menu") !== -1) {
+                            item.style.color =
+                                isLight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.75)";
+                        }
                     }
                 }
                 break;
