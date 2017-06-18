@@ -16,7 +16,7 @@
         <!--<link rel="shortcut icon" type="image/x-icon" href="/images/icon1.ico" /> -->
     </head>
 
-    <body>
+    <body >
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -120,10 +120,10 @@
         </ul>
         <!-- fin MENU INTEMS-->
 
-
         <main>
             <!-- Inicio canciones -->
-            <div id="songs">
+            <div id="songs" class="section-content">
+                <h3 class="cyan-text section-title">Canciones</h3>
                 <div class="row">
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
@@ -167,6 +167,13 @@
                             <div class="grid-item-content">
                                 <p class="primary-text">Gave To Me</p>
                                 <h6 class="secondary-text">NCS Release</h6>
+  <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000219688327-32sd7f-t500x500.jpg"
+                            onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Where do I go?</h5>
+                                <p class="secondary-text">Brandon Jonak & Pep.B</p>
                             </div>
                         </div>
                     </div>
@@ -383,6 +390,7 @@
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
+        <script src="assets/js/vibrant.min.js"></script>
         <script src="assets/js/ui.js"></script>
         <script type="text/javascript">
             $('.button-collapse').sideNav({
