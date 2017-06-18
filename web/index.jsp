@@ -324,7 +324,7 @@
                                  onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <h5 class="primary-text">Don't Let It Go</h5>
+                                <h5 class="primary-text">Don't Left It Go</h5>
                                 <p class="secondary-text">Anikdote & Culture Code</p>
                             </div>
 
@@ -338,7 +338,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">We do</h5>
-                                <p class="secondary-text">Monstercat</p>
+                                <p class="secondary-text">Monsterscat</p>
                             </div>
 
                         </div>
@@ -351,7 +351,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Discovery</h5>
-                                <p class="secondary-text">Monstercat</p>
+                                <p class="secondary-text">Monsterscat</p>
                             </div>
 
                         </div>
@@ -364,7 +364,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Bass Drop</h5>
-                                <p class="secondary-text">Monstercat</p>
+                                <p class="secondary-text">Monsterscat</p>
                             </div>
 
                         </div>
@@ -404,7 +404,7 @@
                                  onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <h5 class="primary-text">All eyer on me</h5>
+                                <h5 class="primary-text">All eyes on me</h5>
                                 <p class="secondary-text">Michael White-NCS </p>
                             </div>
 
