@@ -16,10 +16,11 @@ function playSong(e, play) {
 
 function updateSongProgress() {
     var player = document.getElementById("song-player");
-    var played = 100 * player.currentTime / player.duration;
+    var played = (100 * player.currentTime) / player.duration;
     document.getElementById("song-progress").style.width = played + "%";
 }
 
+<<<<<<< HEAD
 function MoveSong(e) {
 
     var playIcon = document.getElementById("song-player");
@@ -35,6 +36,32 @@ function MoveSong(e) {
         progress.style.width=ratonX+'px';
             updateSongProgress();
     }*/
+=======
+function seek(forward) {
+    var player = document.getElementById("song-player");
+    var duration = player.duration;
+    var currentTime = player.currentTime;
+    var nTime = forward ? (currentTime + 5) : (currentTime - 5);
+    player.currentTime = nTime >= duration ? duration : nTime <= 0 ? 0 : nTime;
+    updateSongProgress();
+}
+
+function moveSong(e) {
+    var player = document.getElementById("song-player");
+    var progress = document.getElementById("song-progress");
+
+    var w = window,
+        d = document,
+        el = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        realWidth = w.innerWidth || el.clientWidth || g.clientWidth,
+        realHeight = w.innerHeight || el.clientHeight || g.clientHeight;
+
+    var newProgress = (100 * e.pageX) / realWidth;
+    console.log(newProgress);
+    player.currentTime = (player.duration * newProgress) / 100;
+    updateSongProgress();
+>>>>>>> c233714902b493f3fdb29401e2c6bc0d6dbfd174
 }
 
 /* OLD METHODS */
@@ -84,9 +111,12 @@ function process() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
     } else {
-        alert("Los campos estan vacios.");
+        Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
     }
-}
+
+};
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send(toSend);
 
 function changeVisibility(id, show) {
     document.getElementById(id).style.display = show ? 'block' : 'none';
@@ -163,13 +193,18 @@ function createUser() {
                     Materialize.toast("Error!<br>" + json.error, 2000);
                 }
             }
+
         };
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
     } else {
-        alert("Los campos estan vacios.");
+        Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
+
     }
-}
+
+};
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send(toSend);
 
 function logOut() {
     Materialize.toast("Adios " + document.getElementById("user-title").innerHTML, 2000);
@@ -183,4 +218,5 @@ function logOut() {
     changeVisibility("normal-content", false);
     changeVisibility("guest-content", true);
 }
+
 
