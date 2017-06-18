@@ -157,7 +157,7 @@ nav .brand-logo.left {
 }
 
 .grid-item .grid-item-content {
-    padding: 2px 16px 10px;
+    padding: 2px 16px 0;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

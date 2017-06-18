@@ -130,8 +130,8 @@
                             onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Where do I go?</p>
-                                <h6 class="secondary-text">Brandon Jonak & Pep.B</h6>
+                                <h5 class="primary-text">Where do I go?</h5>
+                                <p class="secondary-text">Brandon Jonak & Pep.B</p>
                             </div>
                         </div>
                     </div>
