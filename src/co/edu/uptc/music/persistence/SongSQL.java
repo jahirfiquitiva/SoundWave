@@ -7,20 +7,17 @@ public class SongSQL {
     }
 
     public String querySong(String idSong) {
-        return "SELECT * FROM SONGS WHERE USER_ID=\'" + idSong + "\';";
+        return "SELECT * FROM SONGS WHERE SONG_ID=\'" + idSong + "\';";
     }
 
-    public String insertSong(String idSong, String nameSong, String artistSong, String gender,
-                             String lenght,
-                             String file_Path) {
-
-        return "insert into songs values ('" + idSong + "','" + nameSong + "','" + artistSong +
-                "','" + gender
-                + "','" + lenght + "','" + file_Path + "')";
+    public String insertSong(String id, String name, String artist, String genre, String length,
+                             String path) {
+        return "INSERT INTO SONGS VALUES(\'" + id + "\',\'" + name + "\',\'" + artist +
+                "\',\'" + genre + "\'," + length + ",\'" + path + "\')";
     }
 
     public String deleteSong(String idSong) {
-        return "DROP songs WHERE USER_ID='" + idSong + "';";
+        return "DROP SONGS WHERE SONG_ID='" + idSong + "';";
     }
 
 }

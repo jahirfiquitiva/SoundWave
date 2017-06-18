@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import co.edu.uptc.music.logic.models.Song;
-import co.edu.uptc.music.logic.models.User;
 
 public class SongDAO {
 
@@ -43,8 +42,9 @@ public class SongDAO {
     public void insertSong(Song song) throws Exception {
         if (connection.connectToDB()) {
             Statement statement = connection.getConnection().createStatement();
-            statement.executeUpdate(songSQL.insertSong(song.getIdSong(),song.getName(),
-                    String.valueOf(song.getLength()), song.getGenre(), song.getArtist(),song.getFilePaht()));
+            statement.executeUpdate(songSQL.insertSong(song.getId(), song.getName(),
+                    String.valueOf(song.getLength()), song.getGenre(), song.getArtist(), song
+                            .getPath()));
         }
     }
 
@@ -61,6 +61,5 @@ public class SongDAO {
         }
         return false;
     }
-
 
 }

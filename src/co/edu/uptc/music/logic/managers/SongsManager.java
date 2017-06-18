@@ -10,14 +10,12 @@ public class SongsManager extends BaseManager<Song> {
     private SongDAO songDAO;
 
     public SongsManager() {
-
         songDAO = new SongDAO();
-
     }
 
-    public boolean addSong(String idSong, String name, int length, String genre, String artist,
-                           String filePath) {
-        return addItem(new Song(idSong, name, length, genre, artist, filePath));
+    public boolean addSong(String id, String name, String artist, String genre, int length,
+                           String path) {
+        return addItem(new Song(id, name, artist, genre, length, path));
     }
 
     public boolean removeSong(String name) {
@@ -32,32 +30,21 @@ public class SongsManager extends BaseManager<Song> {
         return null;
     }
 
-
-    public void loadSong() {
+    public void loadSongs() {
         ResultSet rs = songDAO.querySongs();
-
-
         if (rs != null) {
-
-        }
-
-        try {
-
-            while (rs.next()) {
-
-                String idSonG = rs.getString("SONG_ID");
-                String nameSong = rs.getString("NAME");
-                String artistSong = rs.getString("ARTIST");
-                String GenderSong = rs.getString("GENRE");
-                String length = rs.getString("LENGTH");
-                String filePath = rs.getString("FILE_PATH");
-
-                addItem(new Song(idSonG, nameSong, Integer.parseInt(length), GenderSong,
-                        artistSong, filePath));
+            try {
+                while (rs.next()) {
+                    String id = rs.getString("SONG_ID");
+                    String name = rs.getString("NAME");
+                    String artist = rs.getString("ARTIST");
+                    String genre = rs.getString("GENRE");
+                    String length = rs.getString("LENGTH");
+                    String path = rs.getString("FILE_PATH");
+                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path));
+                }
+            } catch (Exception ignored) {
             }
-        } catch (Exception ignored) {
-
         }
-
     }
 }

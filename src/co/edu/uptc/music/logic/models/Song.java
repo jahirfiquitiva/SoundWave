@@ -1,48 +1,60 @@
 package co.edu.uptc.music.logic.models;
 
 public class Song {
+
+    private String id;
     private String name;
-    private int length;
-    private String genre;
     private String artist;
-    private String idSong;
-    private String filePaht;
+    private String genre;
+    private int length;
+    private String path;
 
-    public Song(String idSong, String name, int length, String genre, String artist,String filePaht) {
-
-        this.filePaht=filePaht;
-        this.idSong = idSong;
+    public Song(String id, String name, String artist, String genre, int length, String path) {
+        this.id = id;
         this.name = name;
-        this.length = length;
-        this.genre = genre;
         this.artist = artist;
+        this.genre = genre;
+        this.length = length;
+        this.path = path;
     }
 
-    public String getName() { return name;  }
-
-    public String getFilePaht() { return filePaht;  }
-
-    public String getIdSong() { return idSong;  }
-
-    public int getLength() {
-        return length;
+    public String getId() {
+        return id;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getName() {
+        return name;
     }
 
     public String getArtist() {
         return artist;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public String getReadableLength() {
+        return String.format("%02d:%02d", getLength() / 60, getLength() % 60);
+    }
+
+    public String getPath() {
+        return path;
+    }
+
     @Override
     public String toString() {
-        return "Song{" + "idSong" + idSong + '\'' +
-                "name='" + name + '\'' +
-                ", length=" + length +
-                ", genre='" + genre + '\'' +
+        return "Song{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", artist='" + artist + '\'' +
+                ", genre='" + genre + '\'' +
+                ", length=" + length +
+                ", path='" + path + '\'' +
                 '}';
     }
 }

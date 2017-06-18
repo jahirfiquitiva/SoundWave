@@ -1,5 +1,7 @@
 package co.edu.uptc.music.servlets;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -9,40 +11,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "Servlet", urlPatterns = {"/Servlet"})
-public class Servlet extends HttpServlet {
+import co.edu.uptc.music.logic.managers.SongsManager;
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        // response.setContentType("text/xml");
+@WebServlet(name = "SongsServlet")
+
+public class SongsServlet extends HttpServlet {
+
+    SongsManager mngSong = new SongsManager();
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        StringBuilder sb = new StringBuilder();
+        Gson gson = new Gson();
+
         try (PrintWriter out = response.getWriter()) {
-            String auxValue = request.getParameter("ip");
+
+        }
+    }
 
 
-            sb.append("}");
-
-            out.println(sb.toString());
-            out.close();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
+            ServletException, IOException {
+        try {
+            processRequest(req, resp);
         } catch (Exception ignored) {
         }
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
-            ServletException, IOException {
-        processRequest(req, resp);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {
-        processRequest(req, resp);
+        try {
+            processRequest(req, resp);
+        } catch (Exception ignored) {
+        }
     }
 
     @Override
     public String getServletInfo() {
-        return super.getServletInfo();
+        return "Songs servlet";
     }
+
 }
