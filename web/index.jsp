@@ -694,13 +694,7 @@
             </ul>
             <!-- Fin menu canciones -->
         </main>
-
-
-        <!-- Inicio Boton Pulse -->
-        <a class="btn btn-floating btn-large cyan pulse fab">
-            <i class="mdi mdi-play"></i>
-        </a>
-        <!-- Final boton pulse -->
+        
 
         <!-- inicio player -->
         <div class="player">
