@@ -23,7 +23,7 @@ header, main, footer {
 main {
     background-color: #fafafa;
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 116px;
 }
 
 .navbar-fixed {
@@ -126,7 +126,7 @@ nav .brand-logo.left {
     position: fixed;
     z-index: 10 !important;
     right: 16px;
-    bottom: 16px;
+    bottom: 116px;
 }
 
 .login-container {
@@ -170,6 +170,7 @@ nav .brand-logo.left {
     font-size: 24px;
     color: rgba(0, 0, 0, 0.38);
     float: right;
+    cursor: pointer;
 }
 
 .grid-item .divider {
@@ -200,3 +201,57 @@ nav .brand-logo.left {
     margin-top: 16px;
     margin-bottom: 24px;
 }
+
+.player {
+    display: block;
+    position: fixed;
+    z-index: 9999 !important;
+    bottom: 1px;
+    height: 96px;
+    width: 100%;
+    background-color: white;
+    -webkit-box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.player .buttons {
+    display: inline-block;
+    margin-top: 16px;
+}
+
+.player .buttons .mdi {
+    margin-top: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 36px;
+    color: rgba(0, 0, 0, 0.54);
+    cursor: pointer;
+}
+
+#pause-button {
+    display: none;
+}
+
+#song-player {
+    display: none;
+}
+
+.range-field {
+    margin: 0 0;
+    color: #4285f4;
+}
+
+.progress {
+    width: 100%;
+    margin: 0;
+}
+
+/*
+.player .mdi-play-circle {
+    margin-top: 8px;
+    font-size: 48px;
+}
+*/

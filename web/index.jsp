@@ -161,7 +161,8 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Lightning</h5>
                                 <p class="secondary-text">NCS Release</p>
-                                <i class="mdi mdi-dots-vertical menu" data-activates="songs-menu"></i>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -410,12 +411,6 @@
             </div>
             <!-- fin de lista de playlists -->
 
-            <!-- Inicio Boton Pulse -->
-            <a class="btn btn-floating btn-large cyan pulse fab">
-                <i class="mdi mdi-play"></i>
-            </a>
-            <!-- Final boton pulse -->
-
             <!-- Menu canciones -->
             <ul id='songs-menu' class='dropdown-content'>
                 <li>
@@ -439,13 +434,49 @@
                 </li>
             </ul>
             <!-- Fin menu canciones -->
-
         </main>
+
+
+        <!-- Inicio Boton Pulse -->
+        <a class="btn btn-floating btn-large cyan pulse fab">
+            <i class="mdi mdi-play"></i>
+        </a>
+        <!-- Final boton pulse -->
+
+        <!-- inicio player -->
+        <div class="player">
+            <!--
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" readonly id="song-progress" min="0" max="100" value="0"/>
+                </p>
+            </form>
+            -->
+            <div class="progress">
+                <div class="determinate" id="song-progress" style="width: 0%"></div>
+            </div>
+            <div class="buttons">
+                <i class="mdi mdi-skip-previous waves-ripple"></i>
+                <a href="#" class="waves-ripple pulse" onclick="playSong(event,true)">
+                    <i id="play-button" class="mdi mdi-play-circle">
+                    </i>
+                </a>
+                <a href="#" class="waves-ripple pulse" onclick="playSong(event,false)">
+                    <i id="pause-button" class="mdi mdi-pause-circle"></i>
+                </a>
+                <i class="mdi mdi-skip-next waves-ripple"></i>
+            </div>
+            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()">
+                <source src="assets/music/where_do_i_go.mp3" type="audio/mpeg"/>
+            </audio>
+        </div>
+        <!-- fin player -->
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/vibrant.min.js"></script>
         <script src="assets/js/ui.js"></script>
+        <script src="assets/js/core.js"></script>
         <script type="text/javascript">
             $('.button-collapse').sideNav({
                                               menuWidth: 280, // Default is 300
@@ -459,12 +490,12 @@
                                     interval: 2500
                                 });
             $('.menu').dropdown({
-                                               constrainWidth: false, // Does not change width of dropdown to that of the activator
-                                               gutter: 0, // Spacing from edge
-                                               belowOrigin: false, // Displays dropdown below the button
-                                               alignment: 'left', // Displays dropdown with edge aligned to the left of button
-                                               stopPropagation: false // Stops event propagation
-                                           }
+                                    constrainWidth: false, // Does not change width of dropdown to that of the activator
+                                    gutter: 0, // Spacing from edge
+                                    belowOrigin: false, // Displays dropdown below the button
+                                    alignment: 'left', // Displays dropdown with edge aligned to the left of button
+                                    stopPropagation: false // Stops event propagation
+                                }
             );
         </script>
 
