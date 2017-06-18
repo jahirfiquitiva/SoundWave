@@ -20,7 +20,16 @@ function updateSongProgress() {
     document.getElementById("song-progress").style.width = played + "%";
 }
 
-function MoveSong(e) {
+function seek(forward) {
+    var player = document.getElementById("song-player");		
+    var duration = player.duration;		
+    var currentTime = player.currentTime;		
+    var nTime = forward ? (currentTime + 5) : (currentTime - 5);		
+    player.currentTime = nTime >= duration ? duration : nTime <= 0 ? 0 : nTime;		
+    updateSongProgress();
+}
+
+function moveSong(e) {
 
     var playIcon = document.getElementById("song-player");
     var progress = document.getElementById("song-progress");
