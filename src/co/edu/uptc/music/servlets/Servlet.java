@@ -22,7 +22,7 @@ public class Servlet extends HttpServlet {
 
 
             sb.append("}");
-         
+
             out.println(sb.toString());
             out.close();
         } catch (Exception ignored) {
