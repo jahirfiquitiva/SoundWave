@@ -20,23 +20,6 @@ function updateSongProgress() {
     document.getElementById("song-progress").style.width = played + "%";
 }
 
-<<<<<<< HEAD
-function MoveSong(e) {
-
-    var playIcon = document.getElementById("song-player");
-    var progress = document.getElementById("song-progress");
-
-
-   /* if(!playIcon.paused $$! playIcon.ended){
-
-
-        var ratonX=e.pageX-progress.offsetLeft;
-        var newTime=ratonX*playIcon.duration;
-        playIcon.currentTime=newTime;
-        progress.style.width=ratonX+'px';
-            updateSongProgress();
-    }*/
-=======
 function seek(forward) {
     var player = document.getElementById("song-player");
     var duration = player.duration;
@@ -60,7 +43,6 @@ function moveSong(e) {
     var newProgress = (100 * e.pageX) / realWidth;
     player.currentTime = (player.duration * newProgress) / 100;
     updateSongProgress();
->>>>>>> c233714902b493f3fdb29401e2c6bc0d6dbfd174
 }
 
 function playSong(e) {
