@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
     </head>
 
-    <body >
+    <body>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -127,7 +127,7 @@
                         <div class="grid-item">
                             <img class="responsive-img" crossorigin=""
                                  src="https://i1.sndcdn.com/artworks-000219688327-32sd7f-t500x500.jpg"
-                            onload="loadCardColors(event)"/>
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Where do I go?</h5>
