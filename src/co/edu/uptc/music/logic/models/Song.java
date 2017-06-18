@@ -5,17 +5,24 @@ public class Song {
     private int length;
     private String genre;
     private String artist;
+    private String idSong;
+    private String filePaht;
 
-    public Song(String name, int length, String genre, String artist) {
+    public Song(String idSong, String name, int length, String genre, String artist,String filePaht) {
+
+        this.filePaht=filePaht;
+        this.idSong = idSong;
         this.name = name;
         this.length = length;
         this.genre = genre;
         this.artist = artist;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name;  }
+
+    public String getFilePaht() { return filePaht;  }
+
+    public String getIdSong() { return idSong;  }
 
     public int getLength() {
         return length;
@@ -31,7 +38,7 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
+        return "Song{" + "idSong" + idSong + '\'' +
                 "name='" + name + '\'' +
                 ", length=" + length +
                 ", genre='" + genre + '\'' +

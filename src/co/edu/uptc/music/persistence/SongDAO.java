@@ -3,24 +3,24 @@ package co.edu.uptc.music.persistence;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import co.edu.uptc.music.logic.models.Song;
 import co.edu.uptc.music.logic.models.User;
 
-// DAO: Data Access Object
-public class UserDAO {
+public class SongDAO {
 
     private DatabaseConnection connection;
-    private UserSQL sqlUser;
+    private SongSQL songSQL;
 
-    public UserDAO() {
+    public SongDAO() {
         connection = new DatabaseConnection();
-        sqlUser = new UserSQL();
+        songSQL = new SongSQL();
     }
 
-    public ResultSet queryUsers() {
+    public ResultSet querySongs() {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                return statement.executeQuery(sqlUser.queryUsers());
+                return statement.executeQuery(songSQL.querySongs());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -28,11 +28,11 @@ public class UserDAO {
         return null;
     }
 
-    public ResultSet queryUser(String id) {
+    public ResultSet querySong(String idSong) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                return statement.executeQuery(sqlUser.queryUser(id));
+                return statement.executeQuery(songSQL.querySong(idSong));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -40,19 +40,19 @@ public class UserDAO {
         return null;
     }
 
-    public void insertUser(User user) throws Exception {
+    public void insertSong(Song song) throws Exception {
         if (connection.connectToDB()) {
             Statement statement = connection.getConnection().createStatement();
-            statement.executeUpdate(sqlUser.insertUser(user.getId(), user.getType().getName(),
-                    user.getName(), user.getEmail(), user.getName(), user.getPassword()));
+            statement.executeUpdate(songSQL.insertSong(song.getIdSong(),song.getName(),
+                    String.valueOf(song.getLength()), song.getGenre(), song.getArtist(),song.getFilePaht()));
         }
     }
 
-    public boolean deleteUser(String id) {
+    public boolean deleteSong(String idSong) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                statement.executeQuery(sqlUser.deleteUser(id));
+                statement.executeQuery(songSQL.deleteSong(idSong));
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
