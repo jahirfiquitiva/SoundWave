@@ -189,7 +189,7 @@
                 </div>
             </div>
             <!-- Final canciones -->
-
+            <div class="divider"></div>
             <!-- Inicio Login -->
             <div class="login-container">
                 <div class="row">
@@ -229,8 +229,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin login-->
-
+            <!-- Fin login -->
+            <div class="divider"></div>
             <!-- Inicio crear cuenta -->
             <div class="login-container">
                 <div class="row">
@@ -278,12 +278,12 @@
                 </div>
             </div>
             <!-- Fin crear cuenta-->
-
+            <div class="divider"></div>
             <!-- Inicio de lista de artistas-->
             <div id="artists-list" class="section-content">
                 <div class="container">
                     <!-- Page Content goes here -->
-                    <ul class="collection">
+                    <ul class="collection with-header">
                         <li class="collection-header"><h4>Artistas</h4></li>
                         <li class="collection-item avatar">
                             <img src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
@@ -329,10 +329,11 @@
                     </ul>
                 </div>
             </div>
-            <!-- Fin de lista de artistas->
-
+            <!-- Fin de lista de artistas -->
+            <div class="divider"></div>
             <!-- Inicio lista de generos -->
             <div id="genres" class="section-content">
+                <h3 class="cyan-text section-title">Generos</h3>
                 <div class="row">
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
@@ -368,20 +369,18 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <!-- fin de lista de generos -->
-
-
+            <div class="divider"></div>
             <!-- Inicio de lista de playlists -->
-            <div id="playlists-list">
+            <div id="playlists-list" class="section-content">
                 <div class="container">
                     <ul class="collection with-header">
-                        <li class="collection-header"><h4>PlayList</h4></li>
+                        <li class="collection-header"><h4>Listas de reproduccion</h4></li>
                         <li class="collection-item">
-                            <div>MUSIC
+                            <div class="playlist-title">
+                                Music
                                 <a href="#!" class="secondary-content">
                                     <i class="mdi mdi-play"></i>
                                 </a>
@@ -395,7 +394,7 @@
                             </div>
                         </li>
                         <li class="collection-item">
-                            <div>GYM
+                            <div>Gym
                                 <a href="#!" class="secondary-content">
                                     <i class="mdi mdi-play"></i>
                                 </a>
