@@ -20,48 +20,24 @@ function updateSongProgress() {
     document.getElementById("song-progress").style.width = played + "%";
 }
 
-function MoveSong(e) {
+function seek(forward) {
+    var player = document.getElementById("song-player");
+    var duration = player.duration;
+    var currentTime = player.currentTime;
+    var nTime = forward ? (currentTime + 5) : (currentTime - 5);
+    player.currentTime = nTime >= duration ? duration : nTime <= 0 ? 0 : nTime;
+    updateSongProgress();
+}
 
-    function seek(forward) {
-        var player = document.getElementById("song-player");
-        var duration = player.duration;
-        var currentTime = player.currentTime;
-        var nTime = forward ? (currentTime + 5) : (currentTime - 5);
-        player.currentTime = nTime >= duration ? duration : nTime <= 0 ? 0 : nTime;
-        updateSongProgress();
-    }
+function moveSong(e) {
+    var player = document.getElementById("song-player");
+    var progress = document.getElementById("song-progress");
 
-    function moveSong(e) {
-
-        var playIcon = document.getElementById("song-player");
-        var progress = document.getElementById("song-progress");
-
-        /* if(!playIcon.paused $$! playIcon.ended){
-
-
-         var ratonX=e.pageX-progress.offsetLeft;
-         var newTime=ratonX*playIcon.duration;
-         playIcon.currentTime=newTime;
-         progress.style.width=ratonX+'px';
-         updateSongProgress();
-         }*/
-
-        function seek(forward) {
-            var player = document.getElementById("song-player");
-            var duration = player.duration;
-            var currentTime = player.currentTime;
-            var nTime = forward ? (currentTime + 5) : (currentTime - 5);
-            player.currentTime = nTime >= duration ? duration : nTime <= 0 ? 0 : nTime;
-            updateSongProgress();
-
-            var ratonX = e.pageX - progress.offsetLeft;
-            var newTime = ratonX * playIcon.duration;
-            playIcon.currentTime = newTime;
-            progress.style.width = ratonX + 'px';
-            updateSongProgress();
-        }
-    }
-
+    var ratonX = e.pageX - progress.offsetLeft;
+    var newTime = ratonX * player.duration;
+    player.currentTime = newTime;
+    progress.style.width = ratonX + 'px';
+    updateSongProgress();
 }
 
 /* OLD METHODS */
@@ -117,8 +93,6 @@ function process() {
 };
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xhr.send(toSend);
-
-
 
 function changeVisibility(id, show) {
     document.getElementById(id).style.display = show ? 'block' : 'none';
@@ -204,11 +178,9 @@ function createUser() {
 
     }
 
-
 };
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xhr.send(toSend);
-
 
 function logOut() {
     Materialize.toast("Adios " + document.getElementById("user-title").innerHTML, 2000);
