@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="assets/css/materialize.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--<link rel="shortcut icon" type="image/x-icon" href="/images/icon1.ico" /> -->
     </head>
 
     <body>
@@ -118,37 +120,6 @@
         </ul>
         <!-- fin MENU INTEMS-->
 
-        <!-- Comienzo slider -->
-        <div class="slider">
-            <ul class="slides">
-                <li>
-                    <img src="assets/images/imag1.PNG"/>
-                    <div class="caption center-align">
-                        <h3>Disfruta tus mejores canciones</h3>
-                        <h5 class="light grey-text text-lighten-3">
-                            Busca las mejores canciones y artistas.
-                        </h5>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/images/imag2.jpg"/>  <!-- random image -->
-                    <div class="caption left-align">
-                        <h3>Se parte de nuestro proyecto</h3>
-                    </div>
-                </li>
-                <li>
-                    <img src="assets/images/imag3.jpg"/> <!-- random image -->
-                    <div class="caption right-align">
-                        <h3>Crea tus propias playlists</h3>
-                        <h5 class="light grey-text text-lighten-3">
-                            Selecciona tu musica favorita
-                        </h5>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- Fin slider -->
-
 
         <main>
             <!-- Inicio canciones -->
@@ -157,14 +128,49 @@
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
                             <img class="responsive-img"
-                                 src="https://is3-ssl.mzstatic.com/image/thumb/Music127/v4/af/54/b0/af54b078-b4ee-f3f9-e55e-4178110159e3/source/600x0w.jpg"/>
+                                 src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Sleeping Powder</p>
-                                <h6 class="secondary-text">Gorillaz</h6>
+                                <p class="primary-text">Spirit of Things</p>
+                                <h6 class="secondary-text">Floatinurboat NCS</h6>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Sleepless</p>
+                                <h6 class="secondary-text">NCS Release</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="https://i1.sndcdn.com/artworks-000225852881-pk95lg-t500x500.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Lightning</p>
+                                <h6 class="secondary-text">NCS Release</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Gave To Me</p>
+                                <h6 class="secondary-text">NCS Release</h6>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- Final canciones -->
@@ -252,8 +258,122 @@
                 </div>
             </div>
             <!-- Fin crear cuenta-->
+            <!-- Inicio de lista Artista-->
+            <div id="list-Artist">
+                <div class="container">
+                    <!-- Page Content goes here -->
+                    <ul class="collection">
+                        <li class="collection-header"><h4>Artistas</h4></li>
+                        <li class="collection-item avatar">
+                            <img src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
+                                 alt="" class="circle">
+                            <span class="title">NCS </span>
+                            <p>NCS Release <br>
+                               Genero: Mix ING.Electronica
+                            </p>
+                            <a href="#!" class="secondary-content"><i
+                                    class="material-icons">library_music</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle">img art</i>
+                            <span class="title">SARL</span>
+                            <p>First Line <br>
+                               Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i
+                                    class="material-icons">library_music</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle green">img art</i>
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                               Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i
+                                    class="material-icons">library_music</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle red">play_arrow</i>
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                               Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i
+                                    class="material-icons">library_music</i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- -fin de lista Artista->
+
+            <!-- inicio de genero-->
+            <div id="genre">
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="http://musicserver.cz/img/64759.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Electronica</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Pop</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img"
+                                 src="http://k35.kn3.net/taringa/0/2/7/7/1/5/chizzo73/E52.jpg?8045"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Rock</p>
+                            </div>
+                        </div>
+                    </div>
 
 
+                </div>
+            </div>
+            <!-- fin de genro -->
+
+            <!-- Inicio de List -playList -->
+
+            <div id="list-playlist">
+                <div class="container">
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h4>PlayList</h4></li>
+                        <li class="collection-item">
+                            <div>MUSIC<a href="#!" class="secondary-content"><i
+                                    class="material-icons">play_arrow</i></a></div>
+                        </li>
+                        <li class="collection-item">
+                            <div>Colegio<a href="#!" class="secondary-content"><i
+                                    class="material-icons">play_arrow</i></a></div>
+                        </li>
+                        <li class="collection-item">
+                            <div>GYM<a href="#!" class="secondary-content"><i
+                                    class="material-icons">play_arrow</i></a></div>
+                        </li>
+                        <li class="collection-item">
+                            <div>Carranga<a href="#!" class="secondary-content"><i
+                                    class="material-icons">play_arrow</i></a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- fin de list- playlist-->
             <!-- Inicio Boton Pulse -->
             <a class="btn btn-floating btn-large cyan pulse fab">
                 <i class="mdi mdi-play"></i>
