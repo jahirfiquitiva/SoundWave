@@ -170,10 +170,6 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
 
-                                <p class="primary-text">Gave To Me</p>
-                                <h6 class="secondary-text">NCS Release</h6>
-                              
-
                                 <h5 class="primary-text">Gave To Me</h5>
                                 <p class="secondary-text">NCS Release</p>
                             </div>
@@ -192,6 +188,262 @@
 
                         </div>
                     </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000227526682-qlodkc-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Imposible</h5>
+                                <p class="secondary-text">Alien</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000228761930-uw4sqw-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Droeloe</h5>
+                                <p class="secondary-text">Monsterscat</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000228011793-1mp015-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Slushii</h5>
+                                <p class="secondary-text">Monsterscat</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000227210598-cg71d7-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">RIOT</h5>
+                                <p class="secondary-text">Monsterscat</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000225651456-ypd7ay-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Dirty audio</h5>
+                                <p class="secondary-text">Monsterscat</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000224978962-mn9lmp-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Kontinuum</h5>
+                                <p class="secondary-text">NCS Release</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000224616021-j9uv1f-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Skyline</h5>
+                                <p class="secondary-text">Kovan & Electro Light</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000223136404-gh0bj7-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Unknown Brain</h5>
+                                <p class="secondary-text">Marvin Divine - NCS Release</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000222434012-2yqck6-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Sicc</h5>
+                                <p class="secondary-text">RetroVision & Domastic</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000222122845-o35pkp-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Don't Let It Go</h5>
+                                <p class="secondary-text">Anikdote & Culture Code</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000224856191-2t8qlj-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">We do</h5>
+                                <p class="secondary-text">Monstercat</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000224856191-2t8qlj-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Discovery</h5>
+                                <p class="secondary-text">Monstercat</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000220489672-uqnbk6-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Bass Drop</h5>
+                                <p class="secondary-text">Monstercat</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000221373876-hm35dg-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Make me move</h5>
+                                <p class="secondary-text">Karra & NCS Release</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000220484881-v2muub-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Whole</h5>
+                                <p class="secondary-text">Chime & Adam Tell</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000219943203-3go96g-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">All eyer on me</h5>
+                                <p class="secondary-text">Michael White-NCS </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000219341859-7euouf-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Free</h5>
+                                <p class="secondary-text">Elektronomia & JJD</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000218689296-qxjf8b-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Psycho</h5>
+                                <p class="secondary-text">Four eyes-NCS</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000220114872-2lx5v1-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Sweet</h5>
+                                <p class="secondary-text">Unlike Pluto</p>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- Final canciones -->
@@ -450,4 +702,4 @@
         </script>
 
     </body>
-</html>
+    </htm
