@@ -7,7 +7,7 @@ function closeDrawer() {
 }
 
 function loadCardColors(e) {
-    var image = document.querySelector('img');
+    var image = e.target;
     var vibrant = new Vibrant(image);
 
     var panel = e.target.parentElement;
