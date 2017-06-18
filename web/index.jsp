@@ -134,6 +134,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Spirit of Things</h5>
                                 <p class="secondary-text">Floatinurboat NCS</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -147,6 +148,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Sleepless</h5>
                                 <p class="secondary-text">NCS Release</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -159,6 +161,8 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Lightning</h5>
                                 <p class="secondary-text">NCS Release</p>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -172,6 +176,7 @@
 
                                 <h5 class="primary-text">Gave To Me</h5>
                                 <p class="secondary-text">NCS Release</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
                         </div>
                     </div>
@@ -184,6 +189,7 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Where do I go?</h5>
                                 <p class="secondary-text">Brandon Jonak & Pep.B</p>
+                                <i class="mdi mdi-dots-vertical menu"></i>
                             </div>
 
                         </div>
@@ -447,7 +453,7 @@
                 </div>
             </div>
             <!-- Final canciones -->
-
+            <div class="divider"></div>
             <!-- Inicio Login -->
             <div class="login-container">
                 <div class="row">
@@ -487,8 +493,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin login-->
-
+            <!-- Fin login -->
+            <div class="divider"></div>
             <!-- Inicio crear cuenta -->
             <div class="login-container">
                 <div class="row">
@@ -536,11 +542,12 @@
                 </div>
             </div>
             <!-- Fin crear cuenta-->
-            <!-- Inicio de lista Artista-->
-            <div id="list-Artist">
+            <div class="divider"></div>
+            <!-- Inicio de lista de artistas-->
+            <div id="artists-list" class="section-content">
                 <div class="container">
                     <!-- Page Content goes here -->
-                    <ul class="collection">
+                    <ul class="collection with-header">
                         <li class="collection-header"><h4>Artistas</h4></li>
                         <li class="collection-item avatar">
                             <img src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
@@ -585,18 +592,18 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
-
-            <!-- -fin de lista Artista->
-
-            <!-- inicio de genero-->
-            <div id="genre">
+            <!-- Fin de lista de artistas -->
+            <div class="divider"></div>
+            <!-- Inicio lista de generos -->
+            <div id="genres" class="section-content">
+                <h3 class="cyan-text section-title">Generos</h3>
                 <div class="row">
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="http://musicserver.cz/img/64759.jpg"/>
+                            <img class="responsive-img" crossorigin="anonymous"
+                                 src="http://musicserver.cz/img/64759.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Electronica</p>
@@ -606,8 +613,9 @@
 
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Pop</p>
@@ -616,77 +624,117 @@
                     </div>
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="http://k35.kn3.net/taringa/0/2/7/7/1/5/chizzo73/E52.jpg?8045"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="http://k35.kn3.net/taringa/0/2/7/7/1/5/chizzo73/E52.jpg?8045"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Rock</p>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-            <!-- fin de genro -->
-
-            <!-- Inicio de List -playList -->
-
-            <div id="list-playlist">
+            <!-- fin de lista de generos -->
+            <div class="divider"></div>
+            <!-- Inicio de lista de playlists -->
+            <div id="playlists-list" class="section-content">
                 <div class="container">
                     <ul class="collection with-header">
-                        <li class="collection-header"><h4>PlayList</h4></li>
+                        <li class="collection-header"><h4>Listas de reproduccion</h4></li>
                         <li class="collection-item">
-                            <div>MUSIC
+                            <div class="playlist-title">
+                                Music
                                 <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
+                                    <i class="mdi mdi-play"></i>
                                 </a>
                             </div>
                         </li>
                         <li class="collection-item">
                             <div>Colegio
                                 <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
+                                    <i class="mdi mdi-play"></i>
                                 </a>
                             </div>
                         </li>
                         <li class="collection-item">
-                            <div>GYM
+                            <div>Gym
                                 <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Carranga
-                                <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
+                                    <i class="mdi mdi-play"></i>
                                 </a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <!-- fin de list- playlist-->
-            <!-- Inicio Boton Pulse -->
-            <a class="btn btn-floating btn-large cyan pulse fab">
-                <i class="mdi mdi-play"></i>
-            </a>
-            <!-- Final boton pulse -->
+            <!-- fin de lista de playlists -->
+
+            <!-- Menu canciones -->
+            <ul id='songs-menu' class='dropdown-content'>
+                <li>
+                    <a href="#!">one</a>
+                </li>
+                <li>
+                    <a href="#!">two</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#!">
+                        <i class="material-icons">view_module</i>
+                        four
+                    </a>
+                </li>
+                <li>
+                    <a href="#!">
+                        <i class="material-icons">cloud</i>
+                        five
+                    </a>
+                </li>
+            </ul>
+            <!-- Fin menu canciones -->
         </main>
+
+
+        <!-- Inicio Boton Pulse -->
+        <a class="btn btn-floating btn-large cyan pulse fab">
+            <i class="mdi mdi-play"></i>
+        </a>
+        <!-- Final boton pulse -->
+
+        <!-- inicio player -->
+        <div class="player">
+            <!--
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" readonly id="song-progress" min="0" max="100" value="0"/>
+                </p>
+            </form>
+            -->
+            <div class="progress">
+                <div class="determinate" id="song-progress" style="width: 0%"></div>
+            </div>
+            <div class="buttons">
+                <i class="mdi mdi-skip-previous waves-ripple"></i>
+                <a href="#" class="waves-ripple pulse" onclick="playSong(event,true)">
+                    <i id="play-button" class="mdi mdi-play-circle">
+                    </i>
+                </a>
+                <a href="#" class="waves-ripple pulse" onclick="playSong(event,false)">
+                    <i id="pause-button" class="mdi mdi-pause-circle"></i>
+                </a>
+                <i class="mdi mdi-skip-next waves-ripple"></i>
+            </div>
+            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()">
+                <source src="assets/music/where_do_i_go.mp3" type="audio/mpeg"/>
+            </audio>
+        </div>
+        <!-- fin player -->
 
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/vibrant.min.js"></script>
         <script src="assets/js/ui.js"></script>
+        <script src="assets/js/core.js"></script>
         <script type="text/javascript">
             $('.button-collapse').sideNav({
                                               menuWidth: 280, // Default is 300
@@ -699,6 +747,14 @@
                                     indicators: false,
                                     interval: 2500
                                 });
+            $('.menu').dropdown({
+                                    constrainWidth: false, // Does not change width of dropdown to that of the activator
+                                    gutter: 0, // Spacing from edge
+                                    belowOrigin: false, // Displays dropdown below the button
+                                    alignment: 'left', // Displays dropdown with edge aligned to the left of button
+                                    stopPropagation: false // Stops event propagation
+                                }
+            );
         </script>
 
     </body>

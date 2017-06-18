@@ -2,6 +2,27 @@
  * Created by jahir on 6/9/17.
  */
 
+function playSong(e, play) {
+    var playIcon = document.getElementById("play-button");
+    var pauseIcon = document.getElementById("pause-button");
+    playIcon.style.display = !play ? "inline-block" : "none";
+    pauseIcon.style.display = play ? "inline-block" : "none";
+    var player = document.getElementById("song-player");
+    var method = play ? "play" : "pause";
+    player[method]();
+    updateSongProgress();
+    return false;
+}
+
+function updateSongProgress() {
+    var player = document.getElementById("song-player");
+    var played = 100 * player.currentTime / player.duration;
+    // document.getElementById("song-progress").value = played;
+    document.getElementById("song-progress").style.width = played + "%";
+}
+
+/* OLD METHODS */
+
 function process() {
     var xhr = new XMLHttpRequest();
     var name = document.getElementById("username").value;
