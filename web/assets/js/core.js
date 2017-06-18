@@ -17,7 +17,6 @@ function playSong(e, play) {
 function updateSongProgress() {
     var player = document.getElementById("song-player");
     var played = 100 * player.currentTime / player.duration;
-    // document.getElementById("song-progress").value = played;
     document.getElementById("song-progress").style.width = played + "%";
 }
 

@@ -217,7 +217,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Droeloe</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -230,7 +230,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Slushii</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -244,7 +244,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">RIOT</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -257,7 +257,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Dirty audio</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -715,11 +715,11 @@
             </div>
             <div class="buttons">
                 <i class="mdi mdi-skip-previous waves-ripple"></i>
-                <a href="#" class="waves-ripple pulse" onclick="playSong(event,true)">
+                <a class="waves-ripple pulse" onclick="playSong(event,true)">
                     <i id="play-button" class="mdi mdi-play-circle">
                     </i>
                 </a>
-                <a href="#" class="waves-ripple pulse" onclick="playSong(event,false)">
+                <a class="waves-ripple pulse" onclick="playSong(event,false)">
                     <i id="pause-button" class="mdi mdi-pause-circle"></i>
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple"></i>
@@ -757,5 +757,21 @@
             );
         </script>
 
+        <!-- Fin crear cuenta-->
+
+        <!--
+         <form method="POST" action="ServUpload" enctype="multipart/form-data">
+
+            File: <input type="file" name="file" id="file"/> <br/>
+            Destination:<input type="text" value="/tmp" name="destination"/> </br>
+
+            <input type="submit" value="Upload" name="upload" id="upload"/>
+
+        </form>
+
+
+
+
+        -->
     </body>
-    </htm
+</html>

@@ -3,7 +3,7 @@ package co.edu.uptc.music.persistence;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import co.edu.uptc.music.logic.User;
+import co.edu.uptc.music.logic.models.User;
 
 // DAO: Data Access Object
 public class UserDAO {
