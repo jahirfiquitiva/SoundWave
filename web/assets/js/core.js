@@ -2,7 +2,7 @@
  * Created by jahir on 6/9/17.
  */
 
-function playSong(e, play) {
+function playPauseSong(play) {
     var playIcon = document.getElementById("play-button");
     var pauseIcon = document.getElementById("pause-button");
     playIcon.style.display = !play ? "inline-block" : "none";
@@ -41,9 +41,28 @@ function moveSong(e) {
         realHeight = w.innerHeight || el.clientHeight || g.clientHeight;
 
     var newProgress = (100 * e.pageX) / realWidth;
-    console.log(newProgress);
     player.currentTime = (player.duration * newProgress) / 100;
     updateSongProgress();
+}
+
+function playSong(e) {
+    try {
+        var panel = e.target.parentElement;
+        if (panel !== null && panel !== undefined) {
+            var contains = panel.classList.contains('grid-item');
+            while (!contains) {
+                panel = panel.parentElement;
+                contains = panel.classList.contains('grid-item');
+            }
+            var path = panel.getAttribute("data-path");
+            if (path !== null && path !== undefined) {
+                var player = document.getElementById("song-player");
+                player.src = path;
+                playPauseSong(true);
+            }
+        }
+    } catch (ignored) {
+    }
 }
 
 /* OLD METHODS */
@@ -95,10 +114,7 @@ function process() {
     } else {
         Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
     }
-
-};
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send(toSend);
+}
 
 function changeVisibility(id, show) {
     document.getElementById(id).style.display = show ? 'block' : 'none';

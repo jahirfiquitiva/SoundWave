@@ -141,7 +141,8 @@
                     </div>
 
                     <div class="col s4 m3 l2">
-                        <div class="grid-item">
+                        <div class="grid-item" ondblclick="playSong(event)"
+                             data-path="assets/music/sleepless.mp3">
                             <img class="responsive-img" crossorigin=""
                                  src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"
                                  onload="loadCardColors(event)"/>
@@ -677,34 +678,32 @@
 
             <!-- Menu canciones -->
             <ul id='songs-menu' class='dropdown-content'>
-                <li class="divider"></li>
                 <li>
-                    <a href="#!">
+                    <a>
                         <i class="material-icons">play_circle_filled</i>
                         Reproducir
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#!">
+                    <a>
                         <i class="material-icons">queue</i>
                         Agregar a PlayList
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="material-icons">heart</i>
+                        Agregar a favoritos
                     </a>
                 </li>
             </ul>
             <!-- Fin menu canciones -->
         </main>
-        
+
 
         <!-- inicio player -->
         <div class="player">
-            <!--
-            <form action="#">
-                <p class="range-field">
-                    <input type="range" readonly id="song-progress" min="0" max="100" value="0"/>
-                </p>
-            </form>
-            -->
             <div class="progress" onmousedown="moveSong(event)">
                 <div class="determinate" id="song-progress" style="width: 0"></div>
             </div>
@@ -713,11 +712,11 @@
                 <a class="waves-ripple" onclick="seek(false)">
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
                 </a>
-                <a class="waves-ripple pulse" onclick="playSong(event,true)">
+                <a class="waves-ripple pulse" onmousedown="playPauseSong(true)">
                     <i id="play-button" class="mdi mdi-play-circle">
                     </i>
                 </a>
-                <a class="waves-ripple pulse" onclick="playSong(event,false)">
+                <a class="waves-ripple pulse" onclick="playPauseSong(false)">
                     <i id="pause-button" class="mdi mdi-pause-circle"></i>
                 </a>
                 <a class="waves-ripple" onclick="seek(true)">
