@@ -167,14 +167,7 @@
                             <div class="grid-item-content">
                                 <p class="primary-text">Gave To Me</p>
                                 <h6 class="secondary-text">NCS Release</h6>
-  <img class="responsive-img" crossorigin=""
-                                 src="https://i1.sndcdn.com/artworks-000219688327-32sd7f-t500x500.jpg"
-                            onload="loadCardColors(event)"/>
-                            <div class="divider"></div>
-                            <div class="grid-item-content">
-                                <h5 class="primary-text">Where do I go?</h5>
-                                <p class="secondary-text">Brandon Jonak & Pep.B</p>
-                            </div>
+                              
                         </div>
                     </div>
 
