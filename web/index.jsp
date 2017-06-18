@@ -16,7 +16,7 @@
         <!--<link rel="shortcut icon" type="image/x-icon" href="/images/icon1.ico" /> -->
     </head>
 
-    <body >
+    <body>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -127,50 +127,71 @@
                 <div class="row">
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Spirit of Things</p>
-                                <h6 class="secondary-text">Floatinurboat NCS</h6>
+                                <h5 class="primary-text">Spirit of Things</h5>
+                                <p class="secondary-text">Floatinurboat NCS</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Sleepless</p>
-                                <h6 class="secondary-text">NCS Release</h6>
+                                <h5 class="primary-text">Sleepless</h5>
+                                <p class="secondary-text">NCS Release</p>
                             </div>
                         </div>
                     </div>
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="https://i1.sndcdn.com/artworks-000225852881-pk95lg-t500x500.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000225852881-pk95lg-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Lightning</p>
-                                <h6 class="secondary-text">NCS Release</h6>
+                                <h5 class="primary-text">Lightning</h5>
+                                <p class="secondary-text">NCS Release</p>
                             </div>
                         </div>
                     </div>
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000225347036-c2bg8r-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
+
                                 <p class="primary-text">Gave To Me</p>
                                 <h6 class="secondary-text">NCS Release</h6>
                               
+
+                                <h5 class="primary-text">Gave To Me</h5>
+                                <p class="secondary-text">NCS Release</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000219688327-32sd7f-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <h5 class="primary-text">Where do I go?</h5>
+                                <p class="secondary-text">Brandon Jonak & Pep.B</p>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Final canciones -->
@@ -199,11 +220,14 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <a id="create-account" class="text-link">Aun no tienes cuenta?</a>
-                                <a id="login" class="waves-effect btn cyan" onclick="process();">
+                                <a id="create-account" class="text-link">Aun no tienes cuenta?
+                                </a>
+                                <a id="login" class="waves-effect btn cyan"
+                                   onclick="process();">
                                     Iniciar sesion
                                 </a>
-                                <a id="logout" class="waves-effect btn cyan" onclick="logOut();">
+                                <a id="logout" class="waves-effect btn cyan"
+                                   onclick="logOut();">
                                     Cerrar sesion
                                 </a>
                             </div>
@@ -243,13 +267,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="new-password" type="password" class="validate">
+                                        <input id="new-password" type="password"
+                                               class="validate">
                                         <label for="new-password">Contraseña</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <a id="create" class="waves-effect btn cyan" onclick="process();">
+                                <a id="create" class="waves-effect btn cyan"
+                                   onclick="process();">
                                     Crear cuenta
                                 </a>
                             </div>
@@ -271,8 +297,9 @@
                             <p>NCS Release <br>
                                Genero: Mix ING.Electronica
                             </p>
-                            <a href="#!" class="secondary-content"><i
-                                    class="material-icons">library_music</i></a>
+                            <a href="#!" class="secondary-content">
+                                <i class="mdi mdi-library-music"></i>
+                            </a>
                         </li>
                         <li class="collection-item avatar">
                             <i class="material-icons circle">img art</i>
@@ -280,8 +307,9 @@
                             <p>First Line <br>
                                Second Line
                             </p>
-                            <a href="#!" class="secondary-content"><i
-                                    class="material-icons">library_music</i></a>
+                            <a href="#!" class="secondary-content">
+                                <i class="mdi mdi-library-music"></i>
+                            </a>
                         </li>
                         <li class="collection-item avatar">
                             <i class="material-icons circle green">img art</i>
@@ -289,8 +317,9 @@
                             <p>First Line <br>
                                Second Line
                             </p>
-                            <a href="#!" class="secondary-content"><i
-                                    class="material-icons">library_music</i></a>
+                            <a href="#!" class="secondary-content">
+                                <i class="mdi mdi-library-music"></i>
+                            </a>
                         </li>
                         <li class="collection-item avatar">
                             <i class="material-icons circle red">play_arrow</i>
@@ -298,8 +327,9 @@
                             <p>First Line <br>
                                Second Line
                             </p>
-                            <a href="#!" class="secondary-content"><i
-                                    class="material-icons">library_music</i></a>
+                            <a href="#!" class="secondary-content">
+                                <i class="mdi mdi-library-music"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -355,20 +385,40 @@
                     <ul class="collection with-header">
                         <li class="collection-header"><h4>PlayList</h4></li>
                         <li class="collection-item">
-                            <div>MUSIC<a href="#!" class="secondary-content"><i
-                                    class="material-icons">play_arrow</i></a></div>
+                            <div>MUSIC
+                                <a href="#!" class="secondary-content">
+                                    <i
+                                            class="material-icons">play_arrow
+                                    </i>
+                                </a>
+                            </div>
                         </li>
                         <li class="collection-item">
-                            <div>Colegio<a href="#!" class="secondary-content"><i
-                                    class="material-icons">play_arrow</i></a></div>
+                            <div>Colegio
+                                <a href="#!" class="secondary-content">
+                                    <i
+                                            class="material-icons">play_arrow
+                                    </i>
+                                </a>
+                            </div>
                         </li>
                         <li class="collection-item">
-                            <div>GYM<a href="#!" class="secondary-content"><i
-                                    class="material-icons">play_arrow</i></a></div>
+                            <div>GYM
+                                <a href="#!" class="secondary-content">
+                                    <i
+                                            class="material-icons">play_arrow
+                                    </i>
+                                </a>
+                            </div>
                         </li>
                         <li class="collection-item">
-                            <div>Carranga<a href="#!" class="secondary-content"><i
-                                    class="material-icons">play_arrow</i></a></div>
+                            <div>Carranga
+                                <a href="#!" class="secondary-content">
+                                    <i
+                                            class="material-icons">play_arrow
+                                    </i>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
