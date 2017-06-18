@@ -16,7 +16,7 @@ function playSong(e, play) {
 
 function updateSongProgress() {
     var player = document.getElementById("song-player");
-    var played = 100 * player.currentTime / player.duration;
+    var played = (100 * player.currentTime) / player.duration;
     document.getElementById("song-progress").style.width = played + "%";
 }
 
@@ -33,10 +33,16 @@ function moveSong(e) {
     var player = document.getElementById("song-player");
     var progress = document.getElementById("song-progress");
 
-    var ratonX = e.pageX - progress.offsetLeft;
-    var newTime = ratonX * player.duration;
-    player.currentTime = newTime;
-    progress.style.width = ratonX + 'px';
+    var w = window,
+        d = document,
+        el = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        realWidth = w.innerWidth || el.clientWidth || g.clientWidth,
+        realHeight = w.innerHeight || el.clientHeight || g.clientHeight;
+
+    var newProgress = (100 * e.pageX) / realWidth;
+    console.log(newProgress);
+    player.currentTime = (player.duration * newProgress) / 100;
     updateSongProgress();
 }
 

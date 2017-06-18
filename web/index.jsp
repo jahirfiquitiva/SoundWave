@@ -705,8 +705,8 @@
                 </p>
             </form>
             -->
-            <div class="progress">
-                <div class="determinate" id="song-progress" style="width: 0%"></div>
+            <div class="progress" onmousedown="moveSong(event)">
+                <div class="determinate" id="song-progress" style="width: 0"></div>
             </div>
             <div class="buttons">
                 <i class="mdi mdi-skip-previous waves-ripple"></i>
