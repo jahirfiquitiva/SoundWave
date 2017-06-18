@@ -715,11 +715,11 @@
             </div>
             <div class="buttons">
                 <i class="mdi mdi-skip-previous waves-ripple"></i>
-                <a href="#" class="waves-ripple pulse" onclick="playSong(event,true)">
+                <a class="waves-ripple pulse" onclick="playSong(event,true)">
                     <i id="play-button" class="mdi mdi-play-circle">
                     </i>
                 </a>
-                <a href="#" class="waves-ripple pulse" onclick="playSong(event,false)">
+                <a class="waves-ripple pulse" onclick="playSong(event,false)">
                     <i id="pause-button" class="mdi mdi-pause-circle"></i>
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple"></i>
