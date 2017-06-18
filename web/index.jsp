@@ -134,7 +134,8 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Spirit of Things</h5>
                                 <p class="secondary-text">Floatinurboat NCS</p>
-                                <i class="mdi mdi-dots-vertical menu"></i>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -148,7 +149,8 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Sleepless</h5>
                                 <p class="secondary-text">NCS Release</p>
-                                <i class="mdi mdi-dots-vertical menu"></i>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -162,7 +164,7 @@
                                 <h5 class="primary-text">Lightning</h5>
                                 <p class="secondary-text">NCS Release</p>
                                 <i class="mdi mdi-dots-vertical menu"
-                                   data-activates="songs-menu"></i>
+                                   data-activates="songs-menu" data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -176,7 +178,8 @@
 
                                 <h5 class="primary-text">Gave To Me</h5>
                                 <p class="secondary-text">NCS Release</p>
-                                <i class="mdi mdi-dots-vertical menu"></i>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -189,7 +192,8 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Where do I go?</h5>
                                 <p class="secondary-text">Brandon Jonak & Pep.B</p>
-                                <i class="mdi mdi-dots-vertical menu"></i>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
 
                         </div>
@@ -203,6 +207,8 @@
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Imposible</h5>
                                 <p class="secondary-text">Alien</p>
+                                <i class="mdi mdi-dots-vertical menu"
+                                   data-activates="songs-menu"></i>
                             </div>
                         </div>
                     </div>
@@ -671,23 +677,18 @@
 
             <!-- Menu canciones -->
             <ul id='songs-menu' class='dropdown-content'>
+                <li class="divider"></li>
                 <li>
-                    <a href="#!">one</a>
-                </li>
-                <li>
-                    <a href="#!">two</a>
+                    <a href="#!">
+                        <i class="material-icons">play_circle_filled</i>
+                        Reproducir
+                    </a>
                 </li>
                 <li class="divider"></li>
                 <li>
                     <a href="#!">
-                        <i class="material-icons">view_module</i>
-                        four
-                    </a>
-                </li>
-                <li>
-                    <a href="#!">
-                        <i class="material-icons">cloud</i>
-                        five
+                        <i class="material-icons">queue</i>
+                        Agregar a PlayList
                     </a>
                 </li>
             </ul>

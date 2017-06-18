@@ -76,7 +76,8 @@ function process() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
     } else {
-        alert("Los campos estan vacios.");
+        Materialize.toast('Los campos estan vacios.', 3000, 'rounded');
+
     }
 }
 
@@ -159,7 +160,8 @@ function createUser() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
     } else {
-        alert("Los campos estan vacios.");
+        Materialize.toast('Los campos estan vacios.', 3000, 'rounded');
+
     }
 }
 
