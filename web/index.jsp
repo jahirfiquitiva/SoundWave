@@ -278,8 +278,9 @@
                 </div>
             </div>
             <!-- Fin crear cuenta-->
-            <!-- Inicio de lista Artista-->
-            <div id="list-Artist">
+
+            <!-- Inicio de lista de artistas-->
+            <div id="artists-list" class="section-content">
                 <div class="container">
                     <!-- Page Content goes here -->
                     <ul class="collection">
@@ -327,18 +328,17 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
+            <!-- Fin de lista de artistas->
 
-            <!-- -fin de lista Artista->
-
-            <!-- inicio de genero-->
-            <div id="genre">
+            <!-- Inicio lista de generos -->
+            <div id="genres" class="section-content">
                 <div class="row">
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="http://musicserver.cz/img/64759.jpg"/>
+                            <img class="responsive-img" crossorigin="anonymous"
+                                 src="http://musicserver.cz/img/64759.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Electronica</p>
@@ -348,8 +348,9 @@
 
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Pop</p>
@@ -358,8 +359,9 @@
                     </div>
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
-                            <img class="responsive-img"
-                                 src="http://k35.kn3.net/taringa/0/2/7/7/1/5/chizzo73/E52.jpg?8045"/>
+                            <img class="responsive-img" crossorigin=""
+                                 src="http://k35.kn3.net/taringa/0/2/7/7/1/5/chizzo73/E52.jpg?8045"
+                                 onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <p class="primary-text">Rock</p>
@@ -370,54 +372,40 @@
 
                 </div>
             </div>
-            <!-- fin de genro -->
+            <!-- fin de lista de generos -->
 
-            <!-- Inicio de List -playList -->
 
-            <div id="list-playlist">
+            <!-- Inicio de lista de playlists -->
+            <div id="playlists-list">
                 <div class="container">
                     <ul class="collection with-header">
                         <li class="collection-header"><h4>PlayList</h4></li>
                         <li class="collection-item">
                             <div>MUSIC
                                 <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
+                                    <i class="mdi mdi-play"></i>
                                 </a>
                             </div>
                         </li>
                         <li class="collection-item">
                             <div>Colegio
                                 <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
+                                    <i class="mdi mdi-play"></i>
                                 </a>
                             </div>
                         </li>
                         <li class="collection-item">
                             <div>GYM
                                 <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Carranga
-                                <a href="#!" class="secondary-content">
-                                    <i
-                                            class="material-icons">play_arrow
-                                    </i>
+                                    <i class="mdi mdi-play"></i>
                                 </a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <!-- fin de list- playlist-->
+            <!-- fin de lista de playlists -->
+
             <!-- Inicio Boton Pulse -->
             <a class="btn btn-floating btn-large cyan pulse fab">
                 <i class="mdi mdi-play"></i>
