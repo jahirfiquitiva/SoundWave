@@ -20,6 +20,23 @@ function updateSongProgress() {
     document.getElementById("song-progress").style.width = played + "%";
 }
 
+<<<<<<< HEAD
+function MoveSong(e) {
+
+    var playIcon = document.getElementById("song-player");
+    var progress = document.getElementById("song-progress");
+
+
+   /* if(!playIcon.paused $$! playIcon.ended){
+
+
+        var ratonX=e.pageX-progress.offsetLeft;
+        var newTime=ratonX*playIcon.duration;
+        playIcon.currentTime=newTime;
+        progress.style.width=ratonX+'px';
+            updateSongProgress();
+    }*/
+=======
 function seek(forward) {
     var player = document.getElementById("song-player");
     var duration = player.duration;
@@ -27,6 +44,7 @@ function seek(forward) {
     var nTime = forward ? (currentTime + 5) : (currentTime - 5);
     player.currentTime = nTime >= duration ? duration : nTime <= 0 ? 0 : nTime;
     updateSongProgress();
+>>>>>>> 82fdfd373dffc4b8eca422026997b5a116a46983
 }
 
 /* OLD METHODS */
@@ -177,3 +195,4 @@ function logOut() {
     changeVisibility("normal-content", false);
     changeVisibility("guest-content", true);
 }
+
