@@ -602,11 +602,11 @@
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
                             <img class="responsive-img" crossorigin="anonymous"
-                                 src="http://musicserver.cz/img/64759.jpg"
+                                 src="https://i1.sndcdn.com/artworks-000227378436-y07in3-t500x500.jpg"
                                  onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Electronica</p>
+                                <p class="primary-text">Electro House</p>
                             </div>
                         </div>
                     </div>
@@ -618,18 +618,18 @@
                                  onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Pop</p>
+                                <p class="primary-text">Dubstep</p>
                             </div>
                         </div>
                     </div>
                     <div class="col s4 m3 l2">
                         <div class="grid-item">
                             <img class="responsive-img" crossorigin=""
-                                 src="http://k35.kn3.net/taringa/0/2/7/7/1/5/chizzo73/E52.jpg?8045"
+                                 src="https://i1.sndcdn.com/artworks-000228571109-9v1ty0-t500x500.jpg"
                                  onload="loadCardColors(event)"/>
                             <div class="divider"></div>
                             <div class="grid-item-content">
-                                <p class="primary-text">Rock</p>
+                                <p class="primary-text">Electro Dance</p>
                             </div>
                         </div>
                     </div>
