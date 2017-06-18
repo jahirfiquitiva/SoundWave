@@ -217,7 +217,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Droeloe</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -230,7 +230,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Slushii</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -244,7 +244,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">RIOT</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
@@ -257,7 +257,7 @@
                             <div class="divider"></div>
                             <div class="grid-item-content">
                                 <h5 class="primary-text">Dirty audio</h5>
-                                <p class="secondary-text">Monsterscat</p>
+                                <p class="secondary-text">Monstercat</p>
                             </div>
 
                         </div>
