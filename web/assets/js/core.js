@@ -20,6 +20,23 @@ function updateSongProgress() {
     document.getElementById("song-progress").style.width = played + "%";
 }
 
+function MoveSong(e) {
+
+    var playIcon = document.getElementById("song-player");
+    var progress = document.getElementById("song-progress");
+
+
+   /* if(!playIcon.paused $$! playIcon.ended){
+
+
+        var ratonX=e.pageX-progress.offsetLeft;
+        var newTime=ratonX*playIcon.duration;
+        playIcon.currentTime=newTime;
+        progress.style.width=ratonX+'px';
+            updateSongProgress();
+    }*/
+}
+
 /* OLD METHODS */
 
 function process() {
@@ -166,3 +183,4 @@ function logOut() {
     changeVisibility("normal-content", false);
     changeVisibility("guest-content", true);
 }
+
