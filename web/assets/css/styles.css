@@ -206,7 +206,7 @@ nav .brand-logo.left {
     display: block;
     position: fixed;
     z-index: 9999 !important;
-    bottom: 1px;
+    bottom: 0;
     height: 96px;
     width: 100%;
     background-color: white;
@@ -248,10 +248,3 @@ nav .brand-logo.left {
     width: 100%;
     margin: 0;
 }
-
-/*
-.player .mdi-play-circle {
-    margin-top: 8px;
-    font-size: 48px;
-}
-*/
