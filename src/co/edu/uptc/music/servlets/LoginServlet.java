@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 
 import co.edu.uptc.music.logic.User;
-import co.edu.uptc.music.logic.UserType;
-import co.edu.uptc.music.logic.UsersManager;
+import co.edu.uptc.music.logic.models.UserType;
+import co.edu.uptc.music.logic.managers.UsersManager;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
