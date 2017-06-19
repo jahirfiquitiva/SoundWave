@@ -34,8 +34,11 @@
                             <form>
                                 <div class="input-field">
                                     <input id="search" type="search" required>
+
                                     <label class="label-icon" for="search">
+
                                         <i class="mdi mdi-magnify material-icons"></i>
+
                                     </label>
                                     <i class="mdi mdi-close material-icons"></i>
                                 </div>

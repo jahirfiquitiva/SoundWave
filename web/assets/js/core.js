@@ -98,18 +98,23 @@ function updateVolume() {
 
 function process() {
 
-    alert('entrando');
-
     var xhr = new XMLHttpRequest();
     var name = document.getElementById("username").value;
     var pass = document.getElementById("password").value;
+
     if (name.length > 0 && pass.length > 0) {
+
         var toSend = "username=" + name + "&password=" + pass + "&login=1";
+
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById("user-title").innerHTML = "User";
+
+                // document.getElementById("user-title").innerHTML = "User";
+                // alert('entrando' + pass);
+
                 var jsonContent = JSON.parse(xhr.responseText);
+
                 if (jsonContent.name !== undefined) {
 
                     Materialize.toast("Bienvenido " + jsonContent.name, 2000);
@@ -145,6 +150,12 @@ function process() {
     } else {
         Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
     }
+}
+
+function loadMusic() {
+
+    var xhr = new XMLHttpRequest();
+
 }
 
 function changeVisibility(id, show) {
