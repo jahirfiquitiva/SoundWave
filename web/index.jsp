@@ -50,7 +50,8 @@
                             </a>
                         </li>
                         <li>
-                            <a class="waves-effect waves-light" href="#">
+                            <a class="waves-effect waves-light" href="#!"
+                               onclick="showCompoMenu('login')">
                                 <i class="mdi mdi-account-circle material-icons"></i>
                             </a>
                         </li>
