@@ -162,7 +162,6 @@ function loadSong() {
 
 function loadSongArtis() {
 
-
     var xhr = new XMLHttpRequest();
     var songs = document.getElementById("songs");
 
@@ -244,7 +243,6 @@ function loadSongArtis() {
 
 }
 
-
 function loadSongGender() {
 
     var xhr = new XMLHttpRequest();
@@ -321,7 +319,6 @@ function loadSongGender() {
             }
         }
     };
-
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(toSend);

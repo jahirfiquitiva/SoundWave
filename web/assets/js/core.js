@@ -103,32 +103,15 @@ function logout() {
     removeFocuses();
 }
 
-
-
 function showCompoMenu(idMenu) {
-    alert(idMenu);
-    if (idMenu==='songs'){
-        document.getElementById(idMenu).style.display = 'block' ;
-    }else if(idMenu==='artists-list') {
-        document.getElementById(idMenu).style.display = 'block';
-    }else if(idMenu==='genres') {
-        document.getElementById(idMenu).style.display = 'block';
-    }else if(idMenu==='playlists-list') {
-        document.getElementById(idMenu).style.display = 'block';
-    }else if(idMenu==='list-favorite') {
-        document.getElementById(idMenu).style.display = 'block';
-    }else if(idMenu==='register-section') {
-        document.getElementById(idMenu).style.display = 'block';
-    }
-
+    changeVisibility("songs", idMenu === "songs");
+    changeVisibility("login-section", idMenu === "login");
 }
-
 
 function showRegister() {
     changeVisibility("user-details", false);
     changeVisibility("login-section", false);
     changeVisibility("register-section", true);
-
 }
 
 function hideRegister() {

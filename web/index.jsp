@@ -74,33 +74,26 @@
                 <div class="divider"></div>
             </li>
             <li>
-
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('songs')">
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('songs');loadSong()">
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
+
             </li>
             <li>
-
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('artists-list')">
-
-                    <a class="waves-effect" href="#!" onclick="loadSongArtis()">
-
-                        <i class="mdi mdi-account-box"></i>
-                        Artistas
-                    </a>
+                <a class="waves-effect" href="#!"
+                   onclick="showCompoMenu('artists-list');loadSongArtis();">
+                    <i class="mdi mdi-account-box"></i>
+                    Artistas
                 </a>
             </li>
 
             <li>
 
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('genres')">
-
-                    <a class="waves-effect" href="#!" onclick="loadSongGender()">
-
-                        <i class="mdi mdi-tag-multiple"></i>
-                        Generos
-                    </a>
+                <a class="waves-effect" href="#!"
+                   onclick="showCompoMenu('genres');loadSongGender()">
+                    <i class="mdi mdi-tag-multiple"></i>
+                    Generos
                 </a>
             </li>
 
@@ -123,8 +116,7 @@
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('register-section')">Registro</a>
-
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('login')">Cuenta</a>
             </li>
         </ul>
         <!-- fin MENU INTEMS-->

@@ -48,9 +48,7 @@ public class SongsServlet extends HttpServlet {
                     writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
                 }
 
-            }
-
-            else  if(opc==3){
+            } else if (opc == 3) {
 
                 mngSong.songGender();
 
