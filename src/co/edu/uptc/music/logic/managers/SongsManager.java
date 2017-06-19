@@ -31,6 +31,7 @@ public class SongsManager extends BaseManager<Song> {
     }
 
     public void loadSongs() {
+
         ResultSet rs = songDAO.querySongs();
         if (rs != null) {
             try {
@@ -42,8 +43,48 @@ public class SongsManager extends BaseManager<Song> {
                     String genre = rs.getString("GENRE");
                     String length = rs.getString("LENGTH");
                     String path = rs.getString("FILE_PATH");
-                    String img = rs.getString("IMG_PATH");
-                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path, img));
+                  //  String img = rs.getString("IMG_PATH");
+                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path, " "));
+                }
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
+    public void songArtist() {
+
+        ResultSet rs = songDAO.QuerysongArtis();
+        if (rs != null) {
+            try {clearList();
+                while (rs.next()) {
+                    String id = rs.getString("SONG_ID");
+                    String name = rs.getString("NAME");
+                    String artist = rs.getString("ARTIST");
+                    String genre = rs.getString("GENRE");
+                    String length = rs.getString("LENGTH");
+                    String path = rs.getString("FILE_PATH");
+                    //  String img = rs.getString("IMG_PATH");
+                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path, " "));
+                }
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
+    public void songGender() {
+
+        ResultSet rs = songDAO.QuerysongGender();
+        if (rs != null) {
+            try {clearList();
+                while (rs.next()) {
+                    String id = rs.getString("SONG_ID");
+                    String name = rs.getString("NAME");
+                    String artist = rs.getString("ARTIST");
+                    String genre = rs.getString("GENRE");
+                    String length = rs.getString("LENGTH");
+                    String path = rs.getString("FILE_PATH");
+                    //  String img = rs.getString("IMG_PATH");
+                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path, " "));
                 }
             } catch (Exception ignored) {
             }

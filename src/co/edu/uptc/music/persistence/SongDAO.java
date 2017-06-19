@@ -27,6 +27,29 @@ public class SongDAO {
         return null;
     }
 
+    public ResultSet QuerysongArtis() {
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                return statement.executeQuery(songSQL.songsByArtists());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public ResultSet QuerysongGender() {
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                return statement.executeQuery(songSQL.songsByArtists());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
     public ResultSet querySong(String idSong) {
         if (connection.connectToDB()) {
             try {

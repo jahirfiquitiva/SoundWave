@@ -21,19 +21,42 @@ public class SongSQL {
     }
 
 
-    public String songsArstis() {
-
-        return "select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs group by songs" +
-                ".ARTIST ";
-
+    public String songsByArtists() {
+        return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM SONGS GROUP BY SONGS" +
+                ".ARTIST";
     }
 
 
-    public String songsGender() {
+    public String songsByGenre() {
+        return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM SONGS INNER JOIN " +
+                "GENRES ON SONGS.GENRE=GENRES.GENRE_ID ORDER BY GENRE_ID";
+    }
 
-        return "    select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs inner join" +
-                " genres on songs.GENRE=genres.GENRE_ID order by GENRE_ID ";
 
+    public String userPlaylist(String userId) {
+        //despues cuando ya tengamos listas mandamos el nombre de usuario
+        return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM USERS INNER JOIN " +
+                "(PLAYLISTS_USERS INNER JOIN (PLAYLISTS INNER JOIN (SONGS_PLAYLISTS INNER JOIN " +
+                "SONGS ON SONGS_PLAYLISTS.F_SONG_ID=SONGS.SONG_ID) ON PLAYLISTS" +
+                ".PL_ID=SONGS_PLAYLISTS.F_PL_ID) ON PLAYLISTS_USERS.F_PL_ID=PLAYLISTS.PL_ID) ON " +
+                "USERS.USER_ID=PLAYLISTS_USERS.F_USER_ID WHERE USERS.USER_ID=\'" + userId + "\'";
+
+    }
+
+    public String addPlayList(String id, String name) {
+        return "INSERT INTO PLAYLISTS VALUES (\'" + id + "\',\'" + name + "\')";
+    }
+
+    public String addSongsToPlaylist(String listId, String songId) {
+        return "INSERT INTO SONGS_PLAYLISTS VALUES(\'" + songId + "\',\'" + listId + "\');";
+    }
+
+    public String addListToUser(String listId, String songId) {
+        return "INSERT INTO PLAYLISTS_USERS VALUES(\'" + songId + "\',\'" + listId + "\');";
+    }
+
+    public String addSongstoUser(String songId, String userId) {
+        return "INSERT INTO USERS_SONGS VALUES(\'" + userId + "\',\'" + songId + "\');";
     }
 
 }
