@@ -20,4 +20,12 @@ public class SongSQL {
         return "DROP SONGS WHERE SONG_ID='" + idSong + "';";
     }
 
+
+    public String UserSongs(String iduser){
+
+        return  "select *from users inner join songs where  ";
+
+    }
+
+
 }
