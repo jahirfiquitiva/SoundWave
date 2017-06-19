@@ -386,7 +386,7 @@
                 <a class="waves-ripple" onclick="seek(false)">
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
                 </a>
-                <a class="waves-ripple pulse" onmousedown="playPauseSong(true)">
+                <a class="waves-ripple pulse" onclick="playPauseSong(true)">
                     <i id="play-button" class="mdi mdi-play-circle">
                     </i>
                 </a>
@@ -397,6 +397,18 @@
                     <i class="mdi mdi-skip-forward waves-ripple"></i>
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple"></i>
+            </div>
+            <div class="whole-volume-container">
+                <i class="mdi mdi-volume-high volume-icon-low"></i>
+                <div class="volume-container">
+                    <form>
+                        <p class="range-field">
+                            <input type="range" id="volume-slider" min="0" max="100" value="100"
+                                   onmousedown="updateVolume()"/>
+                        </p>
+                    </form>
+                </div>
+                <i class="mdi mdi-volume-low volume-icon"></i>
             </div>
             <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()">
                 <source src="" type="audio/mpeg"/>

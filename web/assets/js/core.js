@@ -89,6 +89,11 @@ function playSong(e) {
     }
 }
 
+function updateVolume() {
+    var value = document.getElementById("volume-slider").value;
+    document.getElementById("song-player").volume = value / 100;
+}
+
 /* OLD METHODS */
 
 function process() {

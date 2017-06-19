@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.edu.uptc.music.logic.managers.SongsManager;
 
-@WebServlet(name = "SongsServlet")
-
+@WebServlet(name = "SongsServlet", urlPatterns = {"/SongsServlet"})
 public class SongsServlet extends HttpServlet {
 
     SongsManager mngSong = new SongsManager();
@@ -25,16 +24,12 @@ public class SongsServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
         mngSong.loadSongs();
-
-        try (PrintWriter out = response.getWriter()) {
-
+        try (PrintWriter writer = response.getWriter()) {
             if (mngSong.getList().size() > 0) {
-
-                out.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
-
+                writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
             }
-
-
+            writer.close();
+        } catch (Exception ignored) {
         }
     }
 
