@@ -74,22 +74,33 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!"  onclick="loadSong()">
+
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('songs')">
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!"   onclick="loadSongArtis()" >
-                    <i class="mdi mdi-account-box"></i>
-                    Artistas
+
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('artists-list')">
+
+                    <a class="waves-effect" href="#!" onclick="loadSongArtis()">
+
+                        <i class="mdi mdi-account-box"></i>
+                        Artistas
+                    </a>
                 </a>
             </li>
 
             <li>
-                <a class="waves-effect" href="#!" onclick="loadSongGender()">
-                    <i class="mdi mdi-tag-multiple"></i>
-                    Generos
+
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('genres')">
+
+                    <a class="waves-effect" href="#!" onclick="loadSongGender()">
+
+                        <i class="mdi mdi-tag-multiple"></i>
+                        Generos
+                    </a>
                 </a>
             </li>
 
@@ -100,29 +111,30 @@
                 <a class="subheader">Personal</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!">
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('list-favorite')">
                     <i class="mdi mdi-heart"></i>
                     Favoritos
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!">
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('playlists-list')">
                     <i class="material-icons">queue_music</i>
                     Listas de reproduccion
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!">Registro</a>
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('register-section')">Registro</a>
+
             </li>
         </ul>
         <!-- fin MENU INTEMS-->
 
         <main>
             <!-- Inicio canciones -->
-            <div id="songs" class="section-content">
+            <div id="songs" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Canciones</h3>
             </div>
-            <!-- Final canciones -->
+            <!-- Final canciones
             <div class="divider"></div>
             <!-- Inicio Login -->
             <div class="login-container" id="login-section">
@@ -249,10 +261,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin crear cuenta-->
+            <!-- Fin crear cuenta
             <div class="divider"></div>
             <!-- Inicio de lista de artistas-->
-            <div id="artists-list" class="section-content">
+            <div id="artists-list" style="display:none;" class="section-content">
                 <div class="container">
                     <!-- Page Content goes here -->
                     <ul class="collection with-header">
@@ -301,10 +313,10 @@
                     </ul>
                 </div>
             </div>
-            <!-- Fin de lista de artistas -->
+            <!-- Fin de lista de artistas
             <div class="divider"></div>
             <!-- Inicio lista de generos -->
-            <div id="genres" class="section-content">
+            <div id="genres" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Generos</h3>
                 <div class="row">
                     <div class="col s4 m3 l2">
@@ -343,10 +355,10 @@
                     </div>
                 </div>
             </div>
-            <!-- fin de lista de generos -->
+            <!-- fin de lista de generos
             <div class="divider"></div>
             <!-- Inicio de lista de playlists -->
-            <div id="playlists-list" class="section-content">
+            <div id="playlists-list" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Tus PlayLists</h3>
                 <div class="container">
                     <ul class="collection with-header">
@@ -376,10 +388,10 @@
                     </ul>
                 </div>
             </div>
-            <!-- fin de lista de playlists -->
+            <!-- fin de lista de playlists
             <div class="divider"></div>
             <!-- Lista de Facoritos -->
-            <div id="list-favorite" class="section-content">
+            <div id="list-favorite" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Favoritos</h3>
                 <div class="container">
                     <ul class="collection with-header">
