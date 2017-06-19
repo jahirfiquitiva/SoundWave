@@ -227,6 +227,7 @@ nav .brand-logo.left {
     font-size: 36px;
     color: rgba(0, 0, 0, 0.54);
     cursor: pointer;
+    z-index: 10;
 }
 
 #pause-button {

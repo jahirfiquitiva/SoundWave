@@ -7,7 +7,6 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private String genre;
 
     public User(String id, UserType type, String name, String email, String username,
                 String password) {
@@ -17,12 +16,6 @@ public class User {
         this.email = email;
         this.username = username;
         this.password = password;
-    }
-
-    public User(String id, UserType type, String name, String email, String username,
-                String password, String genre) {
-        this(id, type, name, email, username, password);
-        this.genre = genre;
     }
 
     public String getId() {
@@ -49,16 +42,7 @@ public class User {
         return password;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public boolean isArtist() {
-        return genre != null && genre.length() > 0;
-    }
-
     public boolean validateUser(String password) {
-        System.out.println("Expected: " + this.password + " - Result: " + password);
         return password.equalsIgnoreCase(this.password);
     }
 
@@ -71,7 +55,6 @@ public class User {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", genre='" + genre + '\'' +
                 '}';
     }
 }

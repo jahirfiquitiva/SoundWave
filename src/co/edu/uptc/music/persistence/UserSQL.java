@@ -12,7 +12,7 @@ public class UserSQL {
 
     public String insertUser(String type, String id, String name, String email, String userName,
                              String password) {
-        return "INSERT INTO USERS VALUES(\'" + type + "\', \'" + id + "\', \'" + name + "\', \'"
+        return "INSERT INTO USERS VALUES(\'" + id + "\', \'" + type + "\', \'" + name + "\', \'"
                 + email + "\', \'" + userName + "\', MD5" + "(\'" + password + "\'));";
 
     }

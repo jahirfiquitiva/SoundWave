@@ -39,22 +39,20 @@ public class UsersManager extends BaseManager<User> {
     @Override
     public User findItem(String text) {
         for (User user : getList()) {
-            System.out.println(user.toString());
             if (user.getEmail().equalsIgnoreCase(text) || user.getUsername().equalsIgnoreCase(text))
                 return user;
         }
         return null;
     }
 
-    public boolean addNewUser(String name, String email, String username, String password, String
-            type) {
-        if (findItem(name) != null) return false;
+    public boolean addNewUser(String name, String email, String username, String password,
+                              String type) {
+        if (findItem(username) != null) return false;
         DecimalFormat formatter = new DecimalFormat("0000");
         String num = formatter.format(getListSize() + 1);
         try {
-            dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name, email,
-                    username, password));
-            return true;
+            return dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name,
+                    email, username, password));
         } catch (Exception ignored) {
         }
         return false;
