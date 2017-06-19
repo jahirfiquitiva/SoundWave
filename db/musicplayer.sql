@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS `GENRES`;
 CREATE TABLE `GENRES` (
   `GENRE_ID` varchar(4) NOT NULL,
   `DESCRIPTION` varchar(40) NOT NULL,
-  `IMG_PATH` varchar(50) NOT NULL,
+  `IMG_PATH` varchar(200) NOT NULL,
   PRIMARY KEY (`GENRE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -44,7 +44,7 @@ CREATE TABLE `GENRES` (
 
 LOCK TABLES `GENRES` WRITE;
 /*!40000 ALTER TABLE `GENRES` DISABLE KEYS */;
-INSERT INTO `GENRES` VALUES ('G001','ElectroHouse','https://i1.sndcdn.com/artworks-000227378436-y07in3'),('G002','Dubstep','http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/'),('G003','ElectroDance','https://i1.sndcdn.com/artworks-000228571109-9v1ty0');
+INSERT INTO `GENRES` VALUES ('G001','ElectroHouse','https://i1.sndcdn.com/artworks-000227378436-y07in3-t500x500.jpg'),('G002','Dubstep','http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg'),('G003','ElectroDance','https://i1.sndcdn.com/artworks-000228571109-9v1ty0-t500x500.jpg');
 /*!40000 ALTER TABLE `GENRES` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `SONGS` (
   `GENRE` varchar(4) NOT NULL,
   `LENGTH` int(11) NOT NULL,
   `FILE_PATH` varchar(100) NOT NULL,
-  `IMG_PATH` varchar(100) NOT NULL,
+  `IMG_PATH` varchar(200) NOT NULL,
   PRIMARY KEY (`SONG_ID`),
   KEY `GENRE` (`GENRE`),
   CONSTRAINT `SONGS_ibfk_1` FOREIGN KEY (`GENRE`) REFERENCES `GENRES` (`GENRE_ID`)
@@ -243,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-19 17:12:53
+-- Dump completed on 2017-06-19 17:15:22
