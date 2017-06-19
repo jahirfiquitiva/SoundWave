@@ -8,7 +8,8 @@ public class DatabaseConnection {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/musicplayer";
     private static final String USER = "root";
-    private static final String PASSWORD = "VASC";
+    // TODO: Quitar contraseña antes de subirlo a GitHub
+    private static final String PASSWORD = "";
 
     private Connection connection;
 
