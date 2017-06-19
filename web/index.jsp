@@ -125,7 +125,7 @@
             <!-- Final canciones -->
             <div class="divider"></div>
             <!-- Inicio Login -->
-            <div class="login-container">
+            <div class="login-container" id="login-section">
                 <div class="row">
                     <div class="col s4 m6 l6">
                         <div class="card-panel">
@@ -137,7 +137,8 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="username" type="text" class="validate">
-                                        <label for="username">Nombre de usuario</label>
+                                        <label for="username">Correo electronico o nombre de
+                                                              usuario</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -148,15 +149,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <a id="create-account" class="text-link">Aun no tienes cuenta?
+                                <a id="create-account" class="text-link" onclick="showRegister()">
+                                    Aun no tienes cuenta?
                                 </a>
+                                <br>
                                 <a id="login" class="waves-effect btn cyan"
-                                   onclick="process();">
+                                   onclick="login();">
                                     Iniciar sesion
-                                </a>
-                                <a id="logout" class="waves-effect btn cyan"
-                                   onclick="logOut();">
-                                    Cerrar sesion
                                 </a>
                             </div>
                         </div>
@@ -164,9 +163,29 @@
                 </div>
             </div>
             <!-- Fin login -->
+            <!-- Inicio detalles usuario -->
+            <div class="login-container" id="user-details" style="display: none;">
+                <div class="row">
+                    <div class="col s4 m6 l6">
+                        <div class="card-panel">
+                            <div class="row">
+                                <h4 id="user-name" class="primary-text"></h4>
+                                <h6 id="user-type" class="primary-text"></h6>
+                            </div>
+                            <div class="row">
+                                <a id="logout" class="waves-effect btn cyan"
+                                   onclick="logout();">
+                                    Cerrar sesion
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Final detalles usuario
             <div class="divider"></div>
             <!-- Inicio crear cuenta -->
-            <div class="login-container">
+            <div class="login-container" id="register-section" style="display: none;">
                 <div class="row">
                     <div class="col s4 m6 l6">
                         <div class="card-panel">
@@ -200,10 +219,29 @@
                                         <label for="new-password">Contraseña</label>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="new-type">
+                                            <option value="US04" disabled selected>Normal
+                                            </option>
+                                            <option value="US01">Admin</option>
+                                            <option value="US02">Premium</option>
+                                            <option value="US03">Artista</option>
+                                            <option value="US04">Normal</option>
+                                            <option value="US05">Invitado</option>
+                                        </select>
+                                        <label>Tipo</label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
+                                <a id="cancel" class="waves-effect btn cyan"
+                                   onclick="hideRegister();">
+                                    Cancelar
+                                </a>
+                                <br><br>
                                 <a id="create" class="waves-effect btn cyan"
-                                   onclick="process();">
+                                   onclick="createUser();">
                                     Crear cuenta
                                 </a>
                             </div>
@@ -433,12 +471,15 @@
         </div>
         <!-- fin player -->
 
+
+        <script src="assets/js/load.js"></script>
+        <script src="assets/js/core.js"></script>
+        <script src="assets/js/music.js"></script>
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/vibrant.min.js"></script>
         <script src="assets/js/ui.js"></script>
-        <script src="assets/js/core.js"></script>
-        <script src="assets/js/load.js"></script>
+
         <script type="text/javascript">
             $('.button-collapse').sideNav({
                                               menuWidth: 280, // Default is 300
@@ -451,14 +492,11 @@
                                     indicators: false,
                                     interval: 2500
                                 });
-            $('.menu').dropdown({
-                                    constrainWidth: false, // Does not change width of dropdown to that of the activator
-                                    gutter: 0, // Spacing from edge
-                                    belowOrigin: false, // Displays dropdown below the button
-                                    alignment: 'left', // Displays dropdown with edge aligned to the left of button
-                                    stopPropagation: false // Stops event propagation
-                                }
-            );
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').material_select();
+            });
         </script>
 
         <!--

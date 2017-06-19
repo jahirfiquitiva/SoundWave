@@ -29,9 +29,8 @@ public class LoginServlet extends HttpServlet {
             usersManager.load();
 
             Gson gson = new Gson();
-            try (PrintWriter out = response.getWriter()) {
+            try (PrintWriter writer = response.getWriter()) {
                 String name = request.getParameter("username");
-                String email = request.getParameter("email");
                 String pass = request.getParameter("password");
                 String login = request.getParameter("login");
                 int loginValue = Integer.parseInt(login);
@@ -55,29 +54,27 @@ public class LoginServlet extends HttpServlet {
                                 sb.append(",\"list\": ").append(usersList);
                             }
                             sb.append("}");
-                            out.println(sb.toString());
+                            writer.print(sb.toString());
                         } else {
-                            out.println("{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}");
+                            writer.print("{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}");
                         }
                     } else {
-                        out.println("{\"code\":0,\"error\":\"El usuario no se encuentra " +
+                        writer.print("{\"code\":0,\"error\":\"El usuario no se encuentra " +
                                 "registrado" +
                                 ".\"}");
                     }
-                    /*  } else if (loginValue == 2) {
-
+                } else if (loginValue == 2) {
+                    String fullname = request.getParameter("fullname");
+                    String email = request.getParameter("email");
                     String type = request.getParameter("type");
-                    if (usersManager.addNewUser(name, email, pass, type)) {
-                        usersManager.load();
-                        out.println("{\"code\": 4, \"list\": " +
-                                gson.toJson(usersManager.getList()) + "}");
+                    if (usersManager.addNewUser(fullname, email, name, pass, type)) {
+                        writer.print("{\"code\": 4}");
                     } else {
-                        out.println("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
+                        writer.print("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
                                 "registrado en la base de datos\"}");
                     }
-                    */
                 }
-                out.close();
+                writer.close();
             } catch (Exception ignored) {
             }
         } catch (Exception ignored) {
