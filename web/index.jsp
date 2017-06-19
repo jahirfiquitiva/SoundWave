@@ -376,6 +376,14 @@
             <div class="progress" onmousedown="moveSong(event)">
                 <div class="determinate" id="song-progress" style="width: 0"></div>
             </div>
+            <div id="song-picture">
+                <img id="current-album" src="" crossorigin=""
+                     class="responsive-img player-img"/>
+            </div>
+            <div class="song-details">
+                <h5 id="song-detail-name" class="primary-text"></h5>
+                <h6 id="song-detail-artist" class="secondary-text"></h6>
+            </div>
             <div class="buttons">
                 <i class="mdi mdi-skip-previous waves-ripple"></i>
                 <a class="waves-ripple" onclick="seek(false)">
@@ -394,7 +402,7 @@
                 <i class="mdi mdi-skip-next waves-ripple"></i>
             </div>
             <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()">
-                <source src="assets/music/where_do_i_go.mp3" type="audio/mpeg"/>
+                <source src="" type="audio/mpeg"/>
             </audio>
         </div>
         <!-- fin player -->

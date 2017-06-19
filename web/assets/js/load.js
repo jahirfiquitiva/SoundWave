@@ -29,10 +29,12 @@ function loadSongs() {
                         item.setAttribute("class", "grid-item");
                         item.setAttribute("data-song-id", json.songs[i].id);
                         item.setAttribute("data-path", json.songs[i].path);
+                        item.setAttribute("data-name", json.songs[i].name);
+                        item.setAttribute("data-artist", json.songs[i].artist);
                         item.setAttribute("ondblclick", "playSong(event)");
 
                         var img = document.createElement("img");
-                        img.setAttribute("class", "responsive-img");
+                        img.setAttribute("class", "responsive-img album");
                         img.setAttribute("crossorigin", "");
                         img.setAttribute("src", imgPath);
 

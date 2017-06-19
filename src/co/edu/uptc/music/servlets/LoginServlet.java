@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
                 String name = request.getParameter("username");
                 //String email = request.getParameter("email");
                 String pass = request.getParameter("password");
+<<<<<<< HEAD
 
                 //String login = request.getParameter("login");
                 //int loginValue = Integer.parseInt(login);
@@ -77,6 +78,32 @@ public class LoginServlet extends HttpServlet {
                             }*/
                         sb.append("}");
                         out.println(sb.toString());
+=======
+                String login = request.getParameter("login");
+                int loginValue = Integer.parseInt(login);
+                if (loginValue == 1) {
+                    User user = usersManager.findItem(name);
+                    if (user != null) {
+                        MessageDigest digest = MessageDigest.getInstance("MD5");
+                        digest.update(pass.getBytes());
+                        byte[] chainAux = digest.digest();
+                        String myHash = DatatypeConverter.printHexBinary(chainAux);
+                        if (user.validateUser(myHash)) {
+                            String aux = gson.toJson(user);
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("{\"code\":2,");
+                            sb.append(aux.substring(1, aux.length() - 1));
+                            if (user.getType() == UserType.ADMIN) {
+                                String usersList = gson.toJson(usersManager.getList());
+                                sb.append(",\"list\": ").append(usersList);
+                            }
+                            sb.append("}");
+                            out.println(sb.toString());
+                        } else {
+                            out.println("{\"code\":1,\"error\":\"User exists but password is " +
+                                    "incorrect.\"}");
+                        }
+>>>>>>> 0c473746720d8200771dbff93021e4b97de0a418
                     } else {
                         out.println("{\"code\":1,\"error\":\"User exists but password is " +
                                 "incorrect.\"}");
