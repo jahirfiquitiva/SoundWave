@@ -3,7 +3,7 @@ package co.edu.uptc.music.persistence;
 public class UserSQL {
 
     public String queryUsers() {
-        return "SELECT * FROM USER;";
+        return "SELECT * FROM USERS;";
     }
 
     public String queryUser(String id) {

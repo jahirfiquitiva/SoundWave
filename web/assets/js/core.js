@@ -92,6 +92,9 @@ function playSong(e) {
 /* OLD METHODS */
 
 function process() {
+
+    alert('entrando');
+
     var xhr = new XMLHttpRequest();
     var name = document.getElementById("username").value;
     var pass = document.getElementById("password").value;
@@ -110,7 +113,6 @@ function process() {
                     changeVisibility("admin-content", jsonContent.type === "ADMIN");
                     changeVisibility("normal-content", jsonContent.type === "NORMAL");
                     changeVisibility("guest-content", jsonContent.type === "GUEST");
-
                     if (jsonContent.list !== undefined) {
                         buildTable(jsonContent.list);
                     }

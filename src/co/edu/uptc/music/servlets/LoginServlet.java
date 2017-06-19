@@ -41,12 +41,29 @@ public class LoginServlet extends HttpServlet {
                         digest.update(pass.getBytes());
                         byte[] chainAux = digest.digest();
                         String myHash = DatatypeConverter.printHexBinary(chainAux);
+                        out.print("clave"+myHash);
                         if (user.validateUser(myHash)) {
                             String aux = gson.toJson(user);
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"code\":2,");
                             sb.append(aux.substring(1, aux.length() - 1));
                             if (user.getType() == UserType.ADMIN) {
+                                String usersList = gson.toJson(usersManager.getList());
+                                sb.append(",\"list\": ").append(usersList);
+                            } else if (user.getType() == UserType.PREMIUM) {
+                                String usersList = gson.toJson(usersManager.getList());
+                                sb.append(",\"list\": ").append(usersList);
+
+                            } else if (user.getType() == UserType.ARTIST) {
+
+                                String usersList = gson.toJson(usersManager.getList());
+                                sb.append(",\"list\": ").append(usersList);
+                            } else if (user.getType() == UserType.NORMAL) {
+                                String usersList = gson.toJson(usersManager.getList());
+                                sb.append(",\"list\": ").append(usersList);
+
+                            } else if (user.getType() == UserType.GUEST) {
+
                                 String usersList = gson.toJson(usersManager.getList());
                                 sb.append(",\"list\": ").append(usersList);
                             }
