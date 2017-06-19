@@ -9,12 +9,26 @@
     <head>
         <title>SoundWave</title>
         <meta lang="es"/>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="assets/css/materialize.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
 
+        <!-- 'theme-color' will set background color in Chrome browser on Android 5.0+ -->
+        <meta name="theme-color" content="#4285F4">
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="assets/favicons/sw-72.png">
+        <link rel="apple-touch-icon" href="assets/favicons/sw-57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw-72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw-114.png">
+        <link rel="apple-touch-icon-precomposed" href="favicons/sw-32.png">
+
+        <link rel="icon" href="assets/favicons/sw-32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#4285F4">
+        <meta name="msapplication-TileImage" content="assets/favicons/sw-72.png">
     </head>
 
     <body onload="loadSongs()">
@@ -488,15 +502,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth:    280, // Default is 300
-                                              edge:         'left', // Choose the horizontal origin
+                                              menuWidth: 280, // Default is 300
+                                              edge: 'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable:    true // Choose whether you can drag to open on touch screens
+                                              draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval:   2500
+                                    interval: 2500
                                 });
         </script>
         <script type="text/javascript">
