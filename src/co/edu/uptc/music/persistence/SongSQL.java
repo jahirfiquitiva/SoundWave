@@ -20,4 +20,20 @@ public class SongSQL {
         return "DROP SONGS WHERE SONG_ID='" + idSong + "';";
     }
 
+
+    public String songsArstis() {
+
+        return "select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs group by songs" +
+                ".ARTIST ";
+
+    }
+
+
+    public String songsGender() {
+
+        return "    select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs inner join" +
+                " genres on songs.GENRE=genres.GENRE_ID order by GENRE_ID ";
+
+    }
+
 }
