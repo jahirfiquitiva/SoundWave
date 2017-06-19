@@ -39,7 +39,7 @@ public class UsersManager extends BaseManager<User> {
     @Override
     public User findItem(String name) {
         for (User user : getList()) {
-            if (user.getName().equalsIgnoreCase(name) || user.getEmail().equalsIgnoreCase(name))
+            if (user.getUsername().equalsIgnoreCase(name) || user.getEmail().equalsIgnoreCase(name))
                 return user;
         }
         return null;
@@ -48,7 +48,8 @@ public class UsersManager extends BaseManager<User> {
 
     public boolean addNewUser(String name, String email, String username, String password,
                               String type) {
-        if (findItem(username) != null || findItem(email) != null) return false;
+        if (findItem(username) != null) return false;
+        if(findItem(email) != null) return false;
         DecimalFormat formatter = new DecimalFormat("0000");
         String num = formatter.format(getListSize() + 1);
         try {

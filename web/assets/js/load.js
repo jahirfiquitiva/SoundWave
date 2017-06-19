@@ -87,9 +87,10 @@ function getShortText(text) {
 }
 
 function addfavorites() {
-    alert("Añadidos favoritos")
+    alert("Añadidos favoritos");
+
 }
 
 function addplayList() {
-    alert("Añadido a playList")
+    alert("Añadido a playList");
 }

@@ -19,6 +19,8 @@ function login() {
                     document.getElementById("password").value = "";
                     document.getElementById("user-name").innerHTML = jsonContent.name;
                     document.getElementById("user-type").innerHTML = camelize(jsonContent.type);
+                    document.getElementById("username").focus();
+                    document.getElementById("username").blur();
                     changeVisibility("user-details", true);
                     changeVisibility("login", false);
                     changeVisibility("logout", true);
