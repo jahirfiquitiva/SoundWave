@@ -24,8 +24,16 @@ public class SongsServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
+        mngSong.loadSongs();
 
         try (PrintWriter out = response.getWriter()) {
+
+            if (mngSong.getList().size() > 0) {
+
+                out.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
+
+            }
+
 
         }
     }
