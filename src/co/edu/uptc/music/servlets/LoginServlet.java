@@ -47,8 +47,11 @@ public class LoginServlet extends HttpServlet {
                         String myHash = DatatypeConverter.printHexBinary(chainAux);
 
                         if (user.validateUser(myHash)) {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> db8e8f09cfdde20ada3922c148156cb0f7bf8ffd
                             String aux = gson.toJson(user);
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"code\":2,");
@@ -68,14 +71,20 @@ public class LoginServlet extends HttpServlet {
                                 ".\"}");
                     }
                 } else if (loginValue == 2) {
+<<<<<<< HEAD
 
                     String type = request.getParameter("type");
+=======
+>>>>>>> db8e8f09cfdde20ada3922c148156cb0f7bf8ffd
                     String fullname = request.getParameter("fullname");
                     String email = request.getParameter("type");
 
                     if (usersManager.addNewUser(fullname, email, name, pass, type)) {
                         writer.print("{\"code\": 4}");
+<<<<<<< HEAD
 
+=======
+>>>>>>> db8e8f09cfdde20ada3922c148156cb0f7bf8ffd
                     } else {
                         writer.print("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
                                 "registrado en la base de datos\"}");
