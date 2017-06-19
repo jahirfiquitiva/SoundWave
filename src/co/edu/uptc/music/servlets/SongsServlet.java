@@ -13,20 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.edu.uptc.music.logic.managers.SongsManager;
 
-@WebServlet(name = "SongsServlet")
-
+@WebServlet(name = "SongsServlet", urlPatterns = {"/SongsServlet"})
 public class SongsServlet extends HttpServlet {
 
     SongsManager mngSong = new SongsManager();
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public void processRequest(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
-
-        try (PrintWriter out = response.getWriter()) {
-
+        try (PrintWriter writer = response.getWriter()) {
+            mngSong.loadSongs();
+            if (mngSong.getList().size() > 0) {
+                writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
+            }
+            writer.close();
+        } catch (Exception ignored) {
         }
     }
 
