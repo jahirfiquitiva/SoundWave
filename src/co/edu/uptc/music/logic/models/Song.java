@@ -8,14 +8,17 @@ public class Song {
     private String genre;
     private int length;
     private String path;
+    private String img;
 
-    public Song(String id, String name, String artist, String genre, int length, String path) {
+    public Song(String id, String name, String artist, String genre, int length, String path,
+                String img) {
         this.id = id;
         this.name = name;
         this.artist = artist;
         this.genre = genre;
         this.length = length;
         this.path = path;
+        this.img = img;
     }
 
     public String getId() {
@@ -46,6 +49,10 @@ public class Song {
         return path;
     }
 
+    public String getImg() {
+        return img;
+    }
+
     @Override
     public String toString() {
         return "Song{" +
@@ -55,6 +62,7 @@ public class Song {
                 ", genre='" + genre + '\'' +
                 ", length=" + length +
                 ", path='" + path + '\'' +
+                ", img='" + img + '\'' +
                 '}';
     }
 }

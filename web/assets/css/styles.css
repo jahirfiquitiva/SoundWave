@@ -159,12 +159,10 @@ nav .brand-logo.left {
 }
 
 .grid-item .grid-item-content {
-    padding: 2px 16px 0;
+    padding: 0 16px 8px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    pointer-events: none;
-    cursor: default;
 }
 
 .grid-item .grid-item-content .mdi {

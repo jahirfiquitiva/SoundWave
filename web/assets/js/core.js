@@ -199,12 +199,8 @@ function createUser() {
         xhr.send(toSend);
     } else {
         Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
-
     }
-
-};
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send(toSend);
+}
 
 function logOut() {
     Materialize.toast("Adios " + document.getElementById("user-title").innerHTML, 2000);
@@ -218,5 +214,3 @@ function logOut() {
     changeVisibility("normal-content", false);
     changeVisibility("guest-content", true);
 }
-
-

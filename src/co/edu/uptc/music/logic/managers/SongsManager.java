@@ -14,8 +14,8 @@ public class SongsManager extends BaseManager<Song> {
     }
 
     public boolean addSong(String id, String name, String artist, String genre, int length,
-                           String path) {
-        return addItem(new Song(id, name, artist, genre, length, path));
+                           String path, String img) {
+        return addItem(new Song(id, name, artist, genre, length, path, img));
     }
 
     public boolean removeSong(String name) {
@@ -34,6 +34,7 @@ public class SongsManager extends BaseManager<Song> {
         ResultSet rs = songDAO.querySongs();
         if (rs != null) {
             try {
+                clearList();
                 while (rs.next()) {
                     String id = rs.getString("SONG_ID");
                     String name = rs.getString("NAME");
@@ -41,7 +42,8 @@ public class SongsManager extends BaseManager<Song> {
                     String genre = rs.getString("GENRE");
                     String length = rs.getString("LENGTH");
                     String path = rs.getString("FILE_PATH");
-                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path));
+                    String img = rs.getString("IMG_PATH");
+                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path, img));
                 }
             } catch (Exception ignored) {
             }

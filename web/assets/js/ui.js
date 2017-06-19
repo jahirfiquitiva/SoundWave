@@ -25,7 +25,11 @@ function loadCardColors(e) {
 
         for (var i = 0; i < panel.childNodes.length; i++) {
             var firstChild = panel.childNodes[i];
-            if (firstChild.className === "grid-item-content") {
+            if (firstChild.className === "divider") {
+                firstChild.style.color = isLight ? "rgba(0,0,0,0.12)" : "rgba(255,255,255,0.12)";
+                firstChild.style.backgroundColor =
+                    isLight ? "rgba(0,0,0,0.12)" : "rgba(255,255,255,0.12)";
+            } else if (firstChild.className === "grid-item-content") {
                 for (var j = 0; j < firstChild.childNodes.length; j++) {
                     var item = firstChild.childNodes[j];
                     var classname = item.className;
