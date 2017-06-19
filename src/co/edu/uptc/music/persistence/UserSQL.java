@@ -3,11 +3,11 @@ package co.edu.uptc.music.persistence;
 public class UserSQL {
 
     public String queryUsers() {
-        return "SELECT * FROM USERS;";
+        return "select *from users";
     }
 
     public String queryUser(String id) {
-        return "SELECT * FROM USER WHERE USER_ID=\'" + id + "\';";
+        return "SELECT * FROM USERS WHERE USER_ID=\'" + id + "\';";
     }
 
     public String insertUser(String type, String id, String name, String email, String userName,
@@ -16,7 +16,7 @@ public class UserSQL {
        (\'" +
                 password + "\'));";
 */
-        return "insert into usuario values ('" + id + "','" + type + "','" + name + "','" + email
+        return "insert into USERS values ('" + id + "','" + type + "','" + name + "','" + email
                 + "','" + userName + "','" + "\', MD5(\'" +
                 password + "\'));";
 
@@ -24,6 +24,6 @@ public class UserSQL {
     }
 
     public String deleteUser(String id) {
-        return "DROP USER WHERE USER_ID='" + id + "';";
+        return "DROP USERS WHERE USER_ID='" + id + "';";
     }
 }

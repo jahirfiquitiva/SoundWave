@@ -27,30 +27,38 @@ public class LoginServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         try {
             usersManager.load();
+
             Gson gson = new Gson();
             try (PrintWriter out = response.getWriter()) {
+
                 String name = request.getParameter("username");
-                String email = request.getParameter("email");
+                //String email = request.getParameter("email");
                 String pass = request.getParameter("password");
-                String login = request.getParameter("login");
-                int loginValue = Integer.parseInt(login);
-                if (loginValue == 1) {
-                    User user = usersManager.findItem(name);
-                    if (user != null) {
-                        MessageDigest digest = MessageDigest.getInstance("MD5");
-                        digest.update(pass.getBytes());
-                        byte[] chainAux = digest.digest();
-                        String myHash = DatatypeConverter.printHexBinary(chainAux);
-                        out.print("clave"+myHash);
-                        if (user.validateUser(myHash)) {
-                            String aux = gson.toJson(user);
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("{\"code\":2,");
-                            sb.append(aux.substring(1, aux.length() - 1));
-                            if (user.getType() == UserType.ADMIN) {
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-                            } else if (user.getType() == UserType.PREMIUM) {
+
+                //String login = request.getParameter("login");
+                //int loginValue = Integer.parseInt(login);
+                // if (loginValue == 1) {
+                User user = usersManager.findItem(name);
+
+                if (user != null) {
+
+                    MessageDigest digest = MessageDigest.getInstance("MD5");
+
+                    digest.update(pass.getBytes());
+                    byte[] chainAux = digest.digest();
+                    String myHash = DatatypeConverter.printHexBinary(chainAux);
+
+                    if (user.validateUser(myHash)) {
+                        System.out.println("entrando" + myHash);
+
+                        String aux = gson.toJson(user);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("{\"code\":2,");
+                        sb.append(aux.substring(1, aux.length() - 1));
+                        if (user.getType() == UserType.ADMIN) {
+                            String usersList = gson.toJson(usersManager.getList());
+                            sb.append(",\"list\": ").append(usersList);
+                        } /*else if (user.getType() == UserType.PREMIUM) {
                                 String usersList = gson.toJson(usersManager.getList());
                                 sb.append(",\"list\": ").append(usersList);
 
@@ -66,17 +74,18 @@ public class LoginServlet extends HttpServlet {
 
                                 String usersList = gson.toJson(usersManager.getList());
                                 sb.append(",\"list\": ").append(usersList);
-                            }
-                            sb.append("}");
-                            out.println(sb.toString());
-                        } else {
-                            out.println("{\"code\":1,\"error\":\"User exists but password is " +
-                                    "incorrect.\"}");
-                        }
+                            }*/
+                        sb.append("}");
+                        out.println(sb.toString());
                     } else {
-                        out.println("{\"code\":0,\"error\":\"User not found.\"}");
+                        out.println("{\"code\":1,\"error\":\"User exists but password is " +
+                                "incorrect.\"}");
                     }
-                } else if (loginValue == 2) {
+                } else {
+                    out.println("{\"code\":0,\"error\":\"User not found.\"}");
+                }
+                //  } else if (loginValue == 2) {
+                    /*
                     String type = request.getParameter("type");
                     if (usersManager.addNewUser(name, email, pass, type)) {
                         usersManager.load();
@@ -86,7 +95,7 @@ public class LoginServlet extends HttpServlet {
                         out.println("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
                                 "registrado en la base de datos\"}");
                     }
-                }
+                }*/
                 out.close();
             } catch (Exception ignored) {
             }
