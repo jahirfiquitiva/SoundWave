@@ -202,7 +202,7 @@ nav .brand-logo.left {
 .player {
     display: block;
     position: fixed;
-    z-index: 9999 !important;
+    z-index: 15 !important;
     bottom: 0;
     height: 96px;
     width: 100%;
