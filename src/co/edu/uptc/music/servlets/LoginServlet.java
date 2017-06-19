@@ -61,11 +61,11 @@ public class LoginServlet extends HttpServlet {
                         sb.append("}");
                         out.println(sb.toString());
                     } else {
-                        out.println("{\"code\":1,\"error\":\"User exists but password is " +
-                                "incorrect.\"}");
+                        out.println("{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}");
                     }
                 } else {
-                    out.println("{\"code\":0,\"error\":\"User not found.\"}");
+                    out.println("{\"code\":0,\"error\":\"El usuario no se encuentra registrado" +
+                            ".\"}");
                 }
                 //  } else if (loginValue == 2) {
                     /*
