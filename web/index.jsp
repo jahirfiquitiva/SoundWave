@@ -209,7 +209,7 @@
                             </div>
                             <div class="row">
                                 <a id="create" class="waves-effect btn cyan"
-                                   onclick="process();">
+                                   onclick="createUser();">
                                     Crear cuenta
                                 </a>
                             </div>

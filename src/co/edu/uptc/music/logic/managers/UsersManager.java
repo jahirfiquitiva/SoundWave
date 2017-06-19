@@ -37,7 +37,9 @@ public class UsersManager extends BaseManager<User> {
 
     @Override
     public User findItem(String name) {
+
         for (User user : getList()) {
+            System.out.print(user.getName());
             if (user.getName().equalsIgnoreCase(name)) return user;
         }
         return null;

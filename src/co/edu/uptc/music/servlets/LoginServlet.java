@@ -32,9 +32,11 @@ public class LoginServlet extends HttpServlet {
             try (PrintWriter out = response.getWriter()) {
 
                 String name = request.getParameter("username");
+                String nameUser = request.getParameter("name");
                 String email = request.getParameter("email");
                 String pass = request.getParameter("password");
                 String login = request.getParameter("login");
+
                 int loginValue = Integer.parseInt(login);
                 if (loginValue == 1) {
                     User user = usersManager.findItem(name);
@@ -49,7 +51,6 @@ public class LoginServlet extends HttpServlet {
 
                         if (user.validateUser(myHash)) {
 
-<<<<<<< HEAD
                             String aux = gson.toJson(user);
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"code\":2,");
@@ -84,32 +85,14 @@ public class LoginServlet extends HttpServlet {
                         out.println("{\"code\":0,\"error\":\"User not found.\"}");
                     }
                 } else if (loginValue == 2) {
-=======
-                    if (user.validateUser(myHash)) {
+                    System.out.print("entrando");
 
-                        String aux = gson.toJson(user);
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("{\"code\":2,");
-                        sb.append(aux.substring(1, aux.length() - 1));
-                        if (user.getType() == UserType.ADMIN) {
-                            String usersList = gson.toJson(usersManager.getList());
-                            sb.append(",\"list\": ").append(usersList);
-                        }
-                        sb.append("}");
-                        out.println(sb.toString());
-                    } else {
-                        out.println("{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}");
-                    }
-                } else {
-                    out.println("{\"code\":0,\"error\":\"El usuario no se encuentra registrado" +
-                            ".\"}");
-                }
-                //  } else if (loginValue == 2) {
-                    /*
->>>>>>> 0c42998ae421fad7005e9db59bf4416eabd79d92
                     String type = request.getParameter("type");
+
                     if (usersManager.addNewUser(name, email, pass, type)) {
                         usersManager.load();
+
+                        System.out.print("entrando");
                         out.println("{\"code\": 4, \"list\": " +
                                 gson.toJson(usersManager.getList()) + "}");
                     } else {

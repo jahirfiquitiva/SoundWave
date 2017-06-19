@@ -152,6 +152,68 @@ function process() {
     }
 }
 
+function CreateAccount() {
+    alert('entrando');
+
+    var xhr = new XMLHttpRequest();
+    alert('entrando');
+
+    var name = document.getElementById("new-fullname").value;
+    var email = document.getElementById("new-email").value;
+    var username = document.getElementById("new-username").value;
+    var password = document.getElementById("new-password").value;
+
+    if (name.length > 0 && password.length > 0 && username.length > 0 && password.length > 0) {
+
+        var toSend = "username=" + name + "&password=" + password + "&email=" + email + "&name=" +
+                     name + "&login=2" + login;
+
+        xhr.open("POST", "LoginServlet", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+
+                // document.getElementById("user-title").innerHTML = "User";
+                // alert('entrando' + pass);
+
+                var jsonContent = JSON.parse(xhr.responseText);
+
+                if (jsonContent.name !== undefined) {
+                    Materialize.toast("Bienvenido " + jsonContent.name, 2000);
+                    document.getElementById("user-title").innerHTML = jsonContent.name;
+
+                    changeVisibility("admin-content", jsonContent.type === "ADMIN");
+                    changeVisibility("normal-content", jsonContent.type === "NORMAL");
+                    changeVisibility("guest-content", jsonContent.type === "GUEST");
+                    if (jsonContent.list !== undefined) {
+                        buildTable(jsonContent.list);
+                    }
+
+                    if (jsonContent.type === "NORMAL") {
+                        document.getElementById("id").innerHTML = jsonContent.id;
+                        document.getElementById("user-name").innerHTML = jsonContent.name;
+                    }
+
+                    document.getElementById("username").value = "";
+                    document.getElementById("password").value = "";
+                    changeVisibility("main-fields", false);
+                    changeVisibility("login", false);
+                    changeVisibility("logout", true);
+                } else {
+                    Materialize.toast("Error!<br>" + jsonContent.error, 2000);
+                    changeVisibility("admin-content", false);
+                    changeVisibility("normal-content", false);
+                    changeVisibility("guest-content", true);
+                }
+            }
+        };
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(toSend);
+    } else {
+        Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
+    }
+
+}
+
 function changeVisibility(id, show) {
     document.getElementById(id).style.display = show ? 'block' : 'none';
 }
