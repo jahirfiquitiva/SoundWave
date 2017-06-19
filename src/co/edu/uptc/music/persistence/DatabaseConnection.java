@@ -29,6 +29,10 @@ public class DatabaseConnection {
     }
 
     public void close() {
+        try {
+            if (connection != null) connection.close();
+        } catch (Exception ignored) {
+        }
     }
 
     public Connection getConnection() {

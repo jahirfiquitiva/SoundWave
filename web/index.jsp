@@ -143,7 +143,7 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="username" type="text" class="validate">
-                                        <label for="username">Nombre de usuario</label>
+                                        <label for="username">Correo electronico o nombre de usuario</label>
                                     </div>
                                 </div>
                                 <div class="row">

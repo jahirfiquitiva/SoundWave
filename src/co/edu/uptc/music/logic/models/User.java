@@ -5,20 +5,23 @@ public class User {
     private UserType type;
     private String name;
     private String email;
+    private String username;
     private String password;
     private String genre;
 
-    public User(String id, UserType type, String name, String email, String password) {
+    public User(String id, UserType type, String name, String email, String username,
+                String password) {
         this.id = id;
         this.type = type;
         this.name = name;
         this.email = email;
+        this.username = username;
         this.password = password;
     }
 
-    public User(String id, UserType type, String name, String email, String password,
-                String genre) {
-        this(id, type, name, email, password);
+    public User(String id, UserType type, String name, String email, String username,
+                String password, String genre) {
+        this(id, type, name, email, username, password);
         this.genre = genre;
     }
 
@@ -36,6 +39,10 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
@@ -62,7 +69,9 @@ public class User {
                 ", type=" + type +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", genre='" + genre + '\'' +
                 '}';
     }
 }
