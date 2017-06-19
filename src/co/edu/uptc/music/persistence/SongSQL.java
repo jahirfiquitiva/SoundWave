@@ -21,11 +21,19 @@ public class SongSQL {
     }
 
 
-    public String UserSongs(String iduser){
+    public String songsArstis() {
 
-        return  "select *from users inner join songs where  ";
+        return "select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs group by songs" +
+                ".ARTIST ";
 
     }
 
+
+    public String songsGender() {
+
+        return "    select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs inner join" +
+                " genres on songs.GENRE=genres.GENRE_ID order by GENRE_ID ";
+
+    }
 
 }
