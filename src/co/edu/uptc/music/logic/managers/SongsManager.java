@@ -58,6 +58,7 @@ public class SongsManager extends BaseManager<Song> {
             try {clearList();
                 while (rs.next()) {
                     String id = rs.getString("SONG_ID");
+                    System.out.print("asd"+":"+id);
                     String name = rs.getString("NAME");
                     String artist = rs.getString("ARTIST");
                     String genre = rs.getString("GENRE");
