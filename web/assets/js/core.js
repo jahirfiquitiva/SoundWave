@@ -89,6 +89,11 @@ function playSong(e) {
     }
 }
 
+function updateVolume() {
+    var value = document.getElementById("volume-slider").value;
+    document.getElementById("song-player").volume = value / 100;
+}
+
 /* OLD METHODS */
 
 function process() {
@@ -145,12 +150,6 @@ function process() {
     } else {
         Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
     }
-}
-
-function loadMusic() {
-
-    var xhr = new XMLHttpRequest();
-
 }
 
 function changeVisibility(id, show) {

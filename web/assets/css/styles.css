@@ -262,6 +262,34 @@ nav .brand-logo.left {
     display: block;
     float: left;
     text-align: left;
-    margin-top: 8px;
+    margin-top: 4px;
     margin-left: 16px;
+}
+
+.whole-volume-container {
+    display: inline-block;
+    float: right;
+}
+
+.volume-container {
+    margin-top: 40px;
+    margin-right: 8px;
+    width: 50%;
+    float: right;
+}
+
+.volume-icon {
+    font-size: 24px;
+    float: right;
+    color: rgba(0, 0, 0, 0.38);
+    margin-top: -36px;
+    margin-right: 95%;
+}
+
+.volume-icon-low {
+    font-size: 24px;
+    float: right;
+    color: rgba(0, 0, 0, 0.38);
+    margin-top: 24px;
+    margin-right: 25%;
 }
