@@ -48,6 +48,7 @@ public class UsersManager extends BaseManager<User> {
     public boolean addNewUser(String name, String email, String username, String password,
                               String type) {
         if (findItem(username) != null) return false;
+        if (findItem(email) != null) return false;
         DecimalFormat formatter = new DecimalFormat("0000");
         String num = formatter.format(getListSize() + 1);
         try {
