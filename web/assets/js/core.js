@@ -33,18 +33,18 @@ function login() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
     } else {
-        Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
+        Materialize.toast("Los campos estan vacios.", 2000, "rounded");
     }
 }
 
 function changeVisibility(id, show) {
-    document.getElementById(id).style.display = show ? 'block' : 'none';
+    document.getElementById(id).style.display = show ? "block" : "none";
 }
 
 function camelize(str) {
     return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
         return index === 0 ? letter.toUpperCase() : letter.toLowerCase();
-    }).replace(/\s+/g, '');
+    }).replace(/\s+/g, "");
 }
 
 function createUser() {
@@ -86,7 +86,7 @@ function createUser() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
     } else {
-        Materialize.toast('Los campos estan vacios.', 2000, 'rounded');
+        Materialize.toast("Los campos estan vacios.", 2000, "rounded");
     }
 }
 
@@ -103,14 +103,13 @@ function logout() {
     removeFocuses();
 }
 
-function showCompoMenu(idMenu) {
+function updateComponents(idMenu) {
     changeVisibility("songs", idMenu === "songs");
-    changeVisibility("login-section", idMenu === "login");
+    changeVisibility("account-container", idMenu === "account-container");
     changeVisibility("artists-list", idMenu === "artists-list");
     changeVisibility("genres", idMenu === "genres");
     changeVisibility("list-favorite", idMenu === "list-favorite");
     changeVisibility("playlists-list", idMenu === "playlists-list");
-
 }
 
 function showRegister() {

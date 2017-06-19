@@ -54,9 +54,17 @@ function loadSongsByGenre() {
 }
 
 function loadSongsViews(list) {
+    var songs = document.getElementById("songs");
+    songs.innerHTML = "<h3 class=\"cyan-text section-title\">Canciones</h3>";
+    songs.innerHTML +=
+        "<div><a class=\"waves-effect btn cyan\" onclick=\"loadSongsByGenre()\">Genero</a>";
+    songs.innerHTML +=
+        "<a class=\"waves-effect btn cyan\" onclick=\"loadSongsByArtist()\">Artista</a>";
+    songs.innerHTML +=
+        "<a class=\"waves-effect btn cyan\" onclick=\"loadSongs()\">Sin filtros</a></div>";
+
     var row = document.createElement("div");
     row.setAttribute("class", "row");
-    var songs = document.getElementById("songs");
     for (var i = 0; i < list.length; i++) {
         var imgPath = list[i].img;
         if (i % 6 === 0) {

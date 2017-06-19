@@ -51,7 +51,7 @@
                         </li>
                         <li>
                             <a class="waves-effect waves-light" href="#!"
-                               onclick="showCompoMenu('login')">
+                               onclick="updateComponents('account-container')">
                                 <i class="mdi mdi-account-circle material-icons"></i>
                             </a>
                         </li>
@@ -75,7 +75,7 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('songs');loadSongs()">
+                <a class="waves-effect" href="#!" onclick="updateComponents('songs');loadSongs()">
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
@@ -83,21 +83,19 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!"
-                   onclick="showCompoMenu('artists-list');loadSongsByArtist();">
+                   onclick="updateComponents('artists-list');">
                     <i class="mdi mdi-account-box"></i>
                     Artistas
                 </a>
             </li>
 
             <li>
-
                 <a class="waves-effect" href="#!"
-                   onclick="showCompoMenu('genres');loadSongsByGenre()">
+                   onclick="updateComponents('genres');">
                     <i class="mdi mdi-tag-multiple"></i>
                     Generos
                 </a>
             </li>
-
             <li>
                 <div class="divider"></div>
             </li>
@@ -105,19 +103,19 @@
                 <a class="subheader">Personal</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('list-favorite')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('list-favorite')">
                     <i class="mdi mdi-heart"></i>
                     Favoritos
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('playlists-list')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('playlists-list')">
                     <i class="material-icons">queue_music</i>
                     Listas de reproduccion
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('login')">Cuenta</a>
+                <a class="waves-effect" href="#!" onclick="updateComponents('account-container')">Cuenta</a>
             </li>
         </ul>
         <!-- fin MENU INTEMS-->
@@ -125,137 +123,141 @@
         <main>
             <!-- Inicio canciones -->
             <div id="songs" style="display:none;" class="section-content">
-                <h3 class="cyan-text section-title">Canciones</h3>
             </div>
-            <!-- Final canciones
-            <div class="divider"></div>
-            <!-- Inicio Login -->
-            <div class="login-container" id="login-section">
-                <div class="row">
-                    <div class="col s4 m6 l6">
-                        <div class="card-panel">
-                            <div class="row">
-                                <h4 class="primary-text">Iniciar sesion</h4>
-                                <h6 class="primary-text">con tu cuenta de SoundWave</h6>
-                            </div>
-                            <div id="main-fields">
+            <!-- Final canciones -->
+
+            <!-- Inicio seccion cuenta -->
+            <div id="account-container">
+                <!-- Inicio Login -->
+                <div class="login-container" id="login-section">
+                    <div class="row">
+                        <div class="col s4 m6 l6">
+                            <div class="card-panel">
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="username" type="text" class="validate">
-                                        <label for="username">Correo electronico o nombre de
-                                                              usuario</label>
+                                    <h4 class="primary-text">Iniciar sesion</h4>
+                                    <h6 class="primary-text">con tu cuenta de SoundWave</h6>
+                                </div>
+                                <div id="main-fields">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="username" type="text" class="validate">
+                                            <label for="username">Correo electronico o nombre de
+                                                                  usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="password" type="password" class="validate">
+                                            <label for="password">Contraseña</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="password" type="password" class="validate">
-                                        <label for="password">Contraseña</label>
-                                    </div>
+                                    <a id="create-account" class="text-link"
+                                       onclick="showRegister()">
+                                        Aun no tienes cuenta?
+                                    </a>
+                                    <br>
+                                    <a id="login" class="waves-effect btn cyan"
+                                       onclick="login();">
+                                        Iniciar sesion
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <a id="create-account" class="text-link" onclick="showRegister()">
-                                    Aun no tienes cuenta?
-                                </a>
-                                <br>
-                                <a id="login" class="waves-effect btn cyan"
-                                   onclick="login();">
-                                    Iniciar sesion
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Fin login -->
-            <!-- Inicio detalles usuario -->
-            <div class="login-container" id="user-details" style="display: none;">
-                <div class="row">
-                    <div class="col s4 m6 l6">
-                        <div class="card-panel">
-                            <div class="row">
-                                <h4 id="user-name" class="primary-text"></h4>
-                                <h6 id="user-type" class="primary-text"></h6>
-                            </div>
-                            <div class="row">
-                                <a id="logout" class="waves-effect btn cyan"
-                                   onclick="logout();">
-                                    Cerrar sesion
-                                </a>
+                <!-- Fin login -->
+                <!-- Inicio detalles usuario -->
+                <div class="login-container" id="user-details" style="display: none;">
+                    <div class="row">
+                        <div class="col s4 m6 l6">
+                            <div class="card-panel">
+                                <div class="row">
+                                    <h4 id="user-name" class="primary-text"></h4>
+                                    <h6 id="user-type" class="primary-text"></h6>
+                                </div>
+                                <div class="row">
+                                    <a id="logout" class="waves-effect btn cyan"
+                                       onclick="logout();">
+                                        Cerrar sesion
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Final detalles usuario
-            <div class="divider"></div>
-            <!-- Inicio crear cuenta -->
-            <div class="login-container" id="register-section" style="display: none;">
-                <div class="row">
-                    <div class="col s4 m6 l6">
-                        <div class="card-panel">
-                            <div class="row">
-                                <h4 class="primary-text">Registrate</h4>
-                                <h6 class="primary-text">para tener tu cuenta de SoundWave</h6>
-                            </div>
-                            <div id="create-account-fields">
+                <!-- Final detalles usuario -->
+
+                <!-- Inicio crear cuenta -->
+                <div class="login-container" id="register-section" style="display: none;">
+                    <div class="row">
+                        <div class="col s4 m6 l6">
+                            <div class="card-panel">
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="new-fullname" type="text" class="validate">
-                                        <label for="new-fullname">Nombre completo</label>
+                                    <h4 class="primary-text">Registrate</h4>
+                                    <h6 class="primary-text">para tener tu cuenta de SoundWave</h6>
+                                </div>
+                                <div id="create-account-fields">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-fullname" type="text" class="validate">
+                                            <label for="new-fullname">Nombre completo</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-email" type="email" class="validate">
+                                            <label for="new-email">Correo electronico</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-username" type="text" class="validate">
+                                            <label for="new-username">Nombre de usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-password" type="password"
+                                                   class="validate">
+                                            <label for="new-password">Contraseña</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <select id="new-type">
+                                                <option value="US04" disabled selected>Normal
+                                                </option>
+                                                <option value="US01">Admin</option>
+                                                <option value="US02">Premium</option>
+                                                <option value="US03">Artista</option>
+                                                <option value="US04">Normal</option>
+                                                <option value="US05">Invitado</option>
+                                            </select>
+                                            <label>Tipo</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="new-email" type="email" class="validate">
-                                        <label for="new-email">Correo electronico</label>
-                                    </div>
+                                    <a id="cancel" class="waves-effect btn cyan"
+                                       onclick="hideRegister();">
+                                        Cancelar
+                                    </a>
+                                    <br><br>
+                                    <a id="create" class="waves-effect btn cyan"
+                                       onclick="createUser();">
+                                        Crear cuenta
+                                    </a>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="new-username" type="text" class="validate">
-                                        <label for="new-username">Nombre de usuario</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="new-password" type="password"
-                                               class="validate">
-                                        <label for="new-password">Contraseña</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <select id="new-type">
-                                            <option value="US04" disabled selected>Normal
-                                            </option>
-                                            <option value="US01">Admin</option>
-                                            <option value="US02">Premium</option>
-                                            <option value="US03">Artista</option>
-                                            <option value="US04">Normal</option>
-                                            <option value="US05">Invitado</option>
-                                        </select>
-                                        <label>Tipo</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <a id="cancel" class="waves-effect btn cyan"
-                                   onclick="hideRegister();">
-                                    Cancelar
-                                </a>
-                                <br><br>
-                                <a id="create" class="waves-effect btn cyan"
-                                   onclick="createUser();">
-                                    Crear cuenta
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Fin crear cuenta -->
             </div>
-            <!-- Fin crear cuenta
-            <div class="divider"></div>
+            <!-- Fin cuenta -->
+
             <!-- Inicio de lista de artistas-->
             <div id="artists-list" style="display:none;" class="section-content">
                 <div class="container">
@@ -306,8 +308,8 @@
                     </ul>
                 </div>
             </div>
-            <!-- Fin de lista de artistas
-            <div class="divider"></div>
+            <!-- Fin de lista de artistas -->
+
             <!-- Inicio lista de generos -->
             <div id="genres" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Generos</h3>
@@ -348,8 +350,8 @@
                     </div>
                 </div>
             </div>
-            <!-- fin de lista de generos
-            <div class="divider"></div>
+            <!-- fin de lista de generos -->
+
             <!-- Inicio de lista de playlists -->
             <div id="playlists-list" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Tus PlayLists</h3>
@@ -381,8 +383,8 @@
                     </ul>
                 </div>
             </div>
-            <!-- fin de lista de playlists
-            <div class="divider"></div>
+            <!-- fin de lista de playlists -->
+
             <!-- Lista de Facoritos -->
             <div id="list-favorite" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Favoritos</h3>
@@ -416,7 +418,6 @@
             </div>
             <!-- Fin lista de favoritos -->
         </main>
-
 
         <!-- inicio player -->
         <div class="player">
@@ -476,7 +477,6 @@
         </div>
         <!-- fin player -->
 
-
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>
         <script src="assets/js/music.js"></script>
@@ -487,15 +487,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth: 280, // Default is 300
-                                              edge: 'left', // Choose the horizontal origin
+                                              menuWidth:    280, // Default is 300
+                                              edge:         'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable: true // Choose whether you can drag to open on touch screens
+                                              draggable:    true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval: 2500
+                                    interval:   2500
                                 });
         </script>
         <script type="text/javascript">
