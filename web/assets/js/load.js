@@ -332,10 +332,14 @@ function getShortText(text) {
 }
 
 function addfavorites() {
+
     alert("Añadidos favoritos");
+
+
 
 }
 
 function addplayList() {
     alert("Añadido a playList");
+
 }

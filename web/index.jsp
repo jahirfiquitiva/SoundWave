@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--<link rel="shortcut icon" type="image/x-icon" href="/images/icon1.ico" /> -->
+      
+
     </head>
 
     <body onload="loadSongs()">
