@@ -43,14 +43,14 @@ public class SongsServlet extends HttpServlet {
             } else if (opc == 2) {
 
                 mngSong.songArtist();
-
+                System.out.print("ENTRANDO");
                 if (mngSong.getList().size() > 0) {
                     writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
                 }
 
             }
-
             else  if(opc==3){
+
 
                 mngSong.songGender();
 

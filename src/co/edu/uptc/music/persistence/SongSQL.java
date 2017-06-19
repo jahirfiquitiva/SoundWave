@@ -22,14 +22,23 @@ public class SongSQL {
 
 
     public String songsByArtists() {
-        return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM SONGS GROUP BY SONGS" +
-                ".ARTIST";
+
+        /*return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM SONGS GROUP BY
+        SONGS" +
+                ".ARTIST";*/
+        return "select songs.SONG_ID,songs.NAME,songs.ARTIST,songs.GENRE,songs.LENGTH,songs" +
+                ".FILE_PATH " +
+                "from songs order by songs.ARTIST";
     }
 
 
     public String songsByGenre() {
-        return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM SONGS INNER JOIN " +
+        /*return "SELECT SONGS.NAME,SONGS.GENRE,SONGS.ARTIST,SONGS.LENGTH FROM SONGS INNER JOIN " +
                 "GENRES ON SONGS.GENRE=GENRES.GENRE_ID ORDER BY GENRE_ID";
+        */
+        return "select songs.SONG_ID,songs.NAME,songs.ARTIST,songs.GENRE,songs.LENGTH,songs" +
+                ".FILE_PATH " +
+                "from songs inner join genres on songs.GENRE=genres.GENRE_ID order by GENRE_ID";
     }
 
 

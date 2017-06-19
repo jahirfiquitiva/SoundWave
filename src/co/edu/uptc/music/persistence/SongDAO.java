@@ -43,7 +43,7 @@ public class SongDAO {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                return statement.executeQuery(songSQL.songsByArtists());
+                return statement.executeQuery(songSQL.songsByGenre());
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -165,9 +165,8 @@ function loadSongArtis() {
 
     var xhr = new XMLHttpRequest();
     var songs = document.getElementById("songs");
-
-    xhr.open("GET", "SongsServlet", true);
     var toSend = "data=2";
+    xhr.open("POST", "SongsServlet", true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
@@ -244,13 +243,12 @@ function loadSongArtis() {
 
 }
 
-
 function loadSongGender() {
 
     var xhr = new XMLHttpRequest();
     var songs = document.getElementById("songs");
-    xhr.open("GET", "SongsServlet", true);
     var toSend = "data=3";
+    xhr.open("POST", "SongsServlet", true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
