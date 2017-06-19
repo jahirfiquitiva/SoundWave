@@ -27,7 +27,7 @@ public class SongDAO {
         return null;
     }
 
-    public ResultSet QuerysongArtis() {
+    public ResultSet querySongsByArtist() {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
@@ -39,7 +39,7 @@ public class SongDAO {
         return null;
     }
 
-    public ResultSet QuerysongGender() {
+    public ResultSet querySongsByGenre() {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
@@ -50,6 +50,7 @@ public class SongDAO {
         }
         return null;
     }
+
     public ResultSet querySong(String idSong) {
         if (connection.connectToDB()) {
             try {

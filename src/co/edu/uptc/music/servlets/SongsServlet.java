@@ -24,46 +24,26 @@ public class SongsServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
         String data = request.getParameter("data");
-
         int opc = Integer.parseInt(data);
-
-        //System.out.print("pos"+Integer.parseInt(login));
-
         try (PrintWriter writer = response.getWriter()) {
-
-            System.out.print("entrando al servlet" + mngSong.getList().size() + data);
-
-            if (opc == 1) {
-                mngSong.loadSongs();
-
-
-                if (mngSong.getList().size() > 0) {
-                    writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
-                }
-            } else if (opc == 2) {
-
-                mngSong.songArtist();
-                System.out.print("ENTRANDO");
-                if (mngSong.getList().size() > 0) {
-                    writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
-                }
-
-
-            } else if (opc == 3) {
-
+            switch (opc) {
+                default:
+                case 1:
+                    mngSong.loadSongs();
+                    break;
+                case 2:
+                    mngSong.loadSongsByArtist();
+                    break;
+                case 3:
+                    mngSong.loadSongsByGenre();
+                    break;
             }
-
-
-            mngSong.songGender();
-
             if (mngSong.getList().size() > 0) {
                 writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");
             }
             writer.close();
         }
-
-    } 
-
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws

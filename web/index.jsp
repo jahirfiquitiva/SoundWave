@@ -74,7 +74,7 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="showCompoMenu('songs');loadSong()">
+                <a class="waves-effect" href="#!" onclick="showCompoMenu('songs');loadSongs()">
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
@@ -82,7 +82,7 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!"
-                   onclick="showCompoMenu('artists-list');loadSongArtis();">
+                   onclick="showCompoMenu('artists-list');loadSongsByArtist();">
                     <i class="mdi mdi-account-box"></i>
                     Artistas
                 </a>
@@ -91,7 +91,7 @@
             <li>
 
                 <a class="waves-effect" href="#!"
-                   onclick="showCompoMenu('genres');loadSongGender()">
+                   onclick="showCompoMenu('genres');loadSongsByGenre()">
                     <i class="mdi mdi-tag-multiple"></i>
                     Generos
                 </a>
