@@ -74,34 +74,33 @@
                 <div class="divider"></div>
             </li>
             <li>
-<<<<<<< HEAD
+
                 <a class="waves-effect" href="#!" onclick="showCompoMenu('songs')">
-=======
-                <a class="waves-effect" href="#!"  onclick="loadSong()">
->>>>>>> 60ab449d077ef56be363d60cb52fb7ac4621ad0c
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
             </li>
             <li>
-<<<<<<< HEAD
+
                 <a class="waves-effect" href="#!" onclick="showCompoMenu('artists-list')">
-=======
-                <a class="waves-effect" href="#!"   onclick="loadSongArtis()" >
->>>>>>> 60ab449d077ef56be363d60cb52fb7ac4621ad0c
-                    <i class="mdi mdi-account-box"></i>
-                    Artistas
+
+                    <a class="waves-effect" href="#!" onclick="loadSongArtis()">
+
+                        <i class="mdi mdi-account-box"></i>
+                        Artistas
+                    </a>
                 </a>
             </li>
 
             <li>
-<<<<<<< HEAD
+
                 <a class="waves-effect" href="#!" onclick="showCompoMenu('genres')">
-=======
-                <a class="waves-effect" href="#!" onclick="loadSongGender()">
->>>>>>> 60ab449d077ef56be363d60cb52fb7ac4621ad0c
-                    <i class="mdi mdi-tag-multiple"></i>
-                    Generos
+
+                    <a class="waves-effect" href="#!" onclick="loadSongGender()">
+
+                        <i class="mdi mdi-tag-multiple"></i>
+                        Generos
+                    </a>
                 </a>
             </li>
 
