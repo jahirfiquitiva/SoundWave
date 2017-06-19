@@ -37,38 +37,26 @@ public class UsersManager extends BaseManager<User> {
     }
 
     @Override
-
     public User findItem(String name) {
-
         for (User user : getList()) {
-            System.out.print(user.getName());
-            if (user.getName().equalsIgnoreCase(name)) return user;
-
+            if (user.getName().equalsIgnoreCase(name) || user.getEmail().equalsIgnoreCase(name))
+                return user;
         }
-        return  null;
+        return null;
     }
-        public User findItems(String text){
-            for (User user : getList()) {
-                if (user.getEmail().equalsIgnoreCase(text) || user.getUsername().equalsIgnoreCase
-                        (text))
-                    return user;
-            }
-            return null;
+
+
+    public boolean addNewUser(String name, String email, String username, String password,
+                              String type) {
+        if (findItem(username) != null || findItem(email) != null) return false;
+        DecimalFormat formatter = new DecimalFormat("0000");
+        String num = formatter.format(getListSize() + 1);
+        try {
+            return dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name,
+                    email, username, password));
+        } catch (Exception ignored) {
         }
-
-
-
-        public boolean addNewUser (String name, String email, String username, String password,
-                String type){
-            if (findItems(username) != null || findItems(email)!=null) return false;
-            DecimalFormat formatter = new DecimalFormat("0000");
-            String num = formatter.format(getListSize() + 1);
-            try {
-                return dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name,
-                        email, username, password));
-            } catch (Exception ignored) {
-            }
-            return false;
-        }
-
+        return false;
     }
+
+}

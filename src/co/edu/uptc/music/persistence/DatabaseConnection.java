@@ -9,7 +9,7 @@ public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/musicplayer";
     private static final String USER = "root";
     // TODO: Quitar contraseña antes de subirlo a GitHub
-    private static final String PASSWORD = "VASC";
+    private static final String PASSWORD = "";
 
     private Connection connection;
 
