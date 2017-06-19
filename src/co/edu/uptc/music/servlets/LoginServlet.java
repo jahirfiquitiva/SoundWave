@@ -31,11 +31,6 @@ public class LoginServlet extends HttpServlet {
             Gson gson = new Gson();
             try (PrintWriter writer = response.getWriter()) {
                 String name = request.getParameter("username");
-<<<<<<< HEAD
-                String nameUser = request.getParameter("name");
-                String email = request.getParameter("email");
-=======
->>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
                 String pass = request.getParameter("password");
                 String login = request.getParameter("login");
 
@@ -51,10 +46,6 @@ public class LoginServlet extends HttpServlet {
                         String myHash = DatatypeConverter.printHexBinary(chainAux);
 
                         if (user.validateUser(myHash)) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
                             String aux = gson.toJson(user);
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"code\":2,");
@@ -74,24 +65,11 @@ public class LoginServlet extends HttpServlet {
                                 ".\"}");
                     }
                 } else if (loginValue == 2) {
-<<<<<<< HEAD
-                    System.out.print("entrando");
-
-                    String type = request.getParameter("type");
-
-                    if (usersManager.addNewUser(name, email, pass, type)) {
-                        usersManager.load();
-
-                        System.out.print("entrando");
-                        out.println("{\"code\": 4, \"list\": " +
-                                gson.toJson(usersManager.getList()) + "}");
-=======
                     String fullname = request.getParameter("fullname");
                     String email = request.getParameter("email");
                     String type = request.getParameter("type");
                     if (usersManager.addNewUser(fullname, email, name, pass, type)) {
                         writer.print("{\"code\": 4}");
->>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
                     } else {
                         writer.print("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
                                 "registrado en la base de datos\"}");
