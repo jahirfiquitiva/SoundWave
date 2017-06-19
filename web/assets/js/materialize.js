@@ -119,16 +119,16 @@ jQuery.extend(jQuery.easing,
                       return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
                   },
                   easeInExpo: function (x, t, b, c, d) {
-                      return (t == 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
+                      return (t === 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
                   },
                   easeOutExpo: function (x, t, b, c, d) {
-                      return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+                      return (t === d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
                   },
                   easeInOutExpo: function (x, t, b, c, d) {
-                      if (t == 0) {
+                      if (t === 0) {
                           return b;
                       }
-                      if (t == d) {
+                      if (t === d) {
                           return b + c;
                       }
                       if ((t /= d / 2) < 1) {
@@ -152,10 +152,10 @@ jQuery.extend(jQuery.easing,
                       var s = 1.70158;
                       var p = 0;
                       var a = c;
-                      if (t == 0) {
+                      if (t === 0) {
                           return b;
                       }
-                      if ((t /= d) == 1) {
+                      if ((t /= d) === 1) {
                           return b + c;
                       }
                       if (!p) {
@@ -175,10 +175,10 @@ jQuery.extend(jQuery.easing,
                       var s = 1.70158;
                       var p = 0;
                       var a = c;
-                      if (t == 0) {
+                      if (t === 0) {
                           return b;
                       }
-                      if ((t /= d) == 1) {
+                      if ((t /= d) === 1) {
                           return b + c;
                       }
                       if (!p) {
@@ -198,10 +198,10 @@ jQuery.extend(jQuery.easing,
                       var s = 1.70158;
                       var p = 0;
                       var a = c;
-                      if (t == 0) {
+                      if (t === 0) {
                           return b;
                       }
-                      if ((t /= d / 2) == 2) {
+                      if ((t /= d / 2) === 2) {
                           return b + c;
                       }
                       if (!p) {
@@ -222,19 +222,19 @@ jQuery.extend(jQuery.easing,
                               (t * d - s) * (2 * Math.PI) / p) * .5 + c + b;
                   },
                   easeInBack: function (x, t, b, c, d, s) {
-                      if (s == undefined) {
+                      if (s === undefined) {
                           s = 1.70158;
                       }
                       return c * (t /= d) * t * ((s + 1) * t - s) + b;
                   },
                   easeOutBack: function (x, t, b, c, d, s) {
-                      if (s == undefined) {
+                      if (s === undefined) {
                           s = 1.70158;
                       }
                       return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
                   },
                   easeInOutBack: function (x, t, b, c, d, s) {
-                      if (s == undefined) {
+                      if (s === undefined) {
                           s = 1.70158;
                       }
                       if ((t /= d / 2) < 1) {
@@ -317,7 +317,7 @@ jQuery.Velocity ? console.log(
         return "function" === a || r.isWindow(e) ? !1 : 1 === e.nodeType && t ? !0 : "array" === a
                                                                                      || 0 === t
                                                                                      || "number"
-                                                                                        == typeof t
+                                                                                        === typeof t
                                                                                         && t > 0
                                                                                         && t - 1
                                                                                            in e
@@ -328,9 +328,9 @@ jQuery.Velocity ? console.log(
             return new r.fn.init(e, t)
         };
         r.isWindow = function (e) {
-            return null != e && e == e.window
+            return null != e && e === e.window
         }, r.type = function (e) {
-            return null == e ? e + "" : "object" == typeof e || "function" == typeof e ? n[i.call(
+            return null === e ? e + "" : "object" === typeof e || "function" === typeof e ? n[i.call(
                                                                                            e)]
                                                                                          || "object"
                 : typeof e
@@ -401,7 +401,7 @@ jQuery.Velocity ? console.log(
             })
         }, r.extend = function () {
             var e, t, a, n, o, i, s = arguments[0] || {}, l = 1, u = arguments.length, c = !1;
-            for ("boolean" == typeof s && (c = s, s = arguments[l] || {}, l++), "object" != typeof s
+            for ("boolean" === typeof s && (c = s, s = arguments[l] || {}, l++), "object" != typeof s
                                                                                 && "function"
                                                                                    !== r.type(s)
                                                                                 && (s = {}), l === u
@@ -433,7 +433,7 @@ jQuery.Velocity ? console.log(
                         }
                     }
                     return e.length = n, e
-                }(a, "string" == typeof e ? [e] : e) : [].push.call(a, e)), a
+                }(a, "string" === typeof e ? [e] : e) : [].push.call(a, e)), a
             }
 
             if (e) {
@@ -499,8 +499,8 @@ jQuery.Velocity ? console.log(
         r.fn.init.prototype = r.fn, e.Velocity = {Utilities: r}
     }
 }(window), function (e) {
-    "object" == typeof module && "object" == typeof module.exports ? module.exports = e()
-        : "function" == typeof define && define.amd ? define(e) : e()
+    "object" === typeof module && "object" === typeof module.exports ? module.exports = e()
+        : "function" === typeof define && define.amd ? define(e) : e()
 }(function () {
     return function (e, t, r, a) {
         function n(e) {
@@ -580,7 +580,7 @@ jQuery.Velocity ? console.log(
                 }
                 --n;
                 var i = (t - w[n]) / (w[n + 1] - w[n]), s = r + i * x, l = u(s, e, a);
-                return l >= y ? c(t, s) : 0 == l ? s : f(t, r, r + x)
+                return l >= y ? c(t, s) : 0 === l ? s : f(t, r, r + x)
             }
 
             function g() {
@@ -790,7 +790,7 @@ jQuery.Velocity ? console.log(
                 }
         }(), m = {
             isString: function (e) {
-                return "string" == typeof e
+                return "string" === typeof e
             }, isArray: Array.isArray || function (e) {
                 return "[object Array]" === Object.prototype.toString.call(e)
             }, isFunction: function (e) {
@@ -798,10 +798,10 @@ jQuery.Velocity ? console.log(
             }, isNode: function (e) {
                 return e && e.nodeType
             }, isNodeList: function (e) {
-                return "object" == typeof e && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(
+                return "object" === typeof e && /^\[object (HTMLCollection|NodeList|Object)\]$/.test(
                         Object.prototype.toString.call(e)) && e.length !== a && (0 === e.length
                                                                                  || "object"
-                                                                                    == typeof e[0]
+                                                                                    === typeof e[0]
                                                                                     && e[0].nodeType
                                                                                        > 0)
             }, isWrapped: function (e) {
@@ -1184,7 +1184,7 @@ jQuery.Velocity ? console.log(
                         }), t = a.exec(e), t ? [parseInt(t[1], 16), parseInt(t[2], 16),
                                                 parseInt(t[3], 16)] : [0, 0, 0]
                     }, isCSSNullValue: function (e) {
-                        return 0 == e || /^(none|auto|transparent|(rgba\(0, ?0, ?0, ?0\)))$/i.test(
+                        return 0 === e || /^(none|auto|transparent|(rgba\(0, ?0, ?0, ?0\)))$/i.test(
                                 e)
                     }, getUnitType: function (e) {
                         return /^(rotate|skew)/i.test(e) ? "deg"
@@ -1906,7 +1906,7 @@ jQuery.Velocity ? console.log(
     }
 
     function r(a, b) {
-        return typeof a == g ? a.apply(b ? b[0] || d : d, b) : a
+        return typeof a === g ? a.apply(b ? b[0] || d : d, b) : a
     }
 
     function s(a, b) {
@@ -1927,7 +1927,7 @@ jQuery.Velocity ? console.log(
 
     function v(a, b) {
         for (; a;) {
-            if (a == b) {
+            if (a === b) {
                 return !0;
             }
             a = a.parentNode
@@ -1948,7 +1948,7 @@ jQuery.Velocity ? console.log(
             return a.indexOf(b);
         }
         for (var d = 0; d < a.length;) {
-            if (c && a[d][c] == b || !c && a[d] === b) {
+            if (c && a[d][c] === b || !c && a[d] === b) {
                 return d;
             }
             d++
@@ -2161,7 +2161,7 @@ jQuery.Velocity ? console.log(
     }
 
     function $b(a) {
-        return a == W ? "down" : a == V ? "up" : a == T ? "left" : a == U ? "right" : ""
+        return a === W ? "down" : a === V ? "up" : a === T ? "left" : a === U ? "right" : ""
     }
 
     function _b(a, b) {
@@ -2262,7 +2262,7 @@ jQuery.Velocity ? console.log(
         wb, ab, {
             handler: function (a) {
                 var b = this.store, c = !1, d = a.type.toLowerCase().replace("ms", ""), e = sb[d],
-                    f = tb[a.pointerType] || a.pointerType, g = f == J,
+                    f = tb[a.pointerType] || a.pointerType, g = f === J,
                     h = y(b, a.pointerId, "pointerId");
                 e & O && (0 === a.button || g) ? 0 > h && (b.push(a), h = b.length - 1) : e & (Q
                                                                                                | R)
@@ -2303,7 +2303,7 @@ jQuery.Velocity ? console.log(
         }
     }), p(Gb, ab, {
         handler: function (a, b, c) {
-            var d = c.pointerType == J, e = c.pointerType == L;
+            var d = c.pointerType === J, e = c.pointerType === L;
             if (d) {
                 this.mouse.allow = !1;
             } else if (e && !this.mouse.allow) {
@@ -2318,7 +2318,7 @@ jQuery.Velocity ? console.log(
         Lb = "manipulation", Mb = "none", Nb = "pan-x", Ob = "pan-y";
     Pb.prototype = {
         set: function (a) {
-            a == Jb && (a = this.compute()), Ib && (this.manager.element.style[Hb] =
+            a === Jb && (a = this.compute()), Ib && (this.manager.element.style[Hb] =
                 a), this.actions =
                 a.toLowerCase().trim()
         }, update: function () {
@@ -2541,7 +2541,7 @@ jQuery.Velocity ? console.log(
         }, reset: function () {
             clearTimeout(this._timer)
         }, emit: function () {
-            this.state == Vb && (this._input.tapCount = this.count, this.manager.emit(
+            this.state === Vb && (this._input.tapCount = this.count, this.manager.emit(
                 this.options.event, this._input))
         }
     }), hc.VERSION = "2.0.4", hc.defaults =
@@ -2590,7 +2590,7 @@ jQuery.Velocity ? console.log(
             }
             for (var b = this.recognizers, c = 0; c < b.length; c++) {
                 if (b[c].options.event
-                    == a) {
+                    === a) {
                     return b[c];
                 }
             }
@@ -2677,7 +2677,7 @@ jQuery.Velocity ? console.log(
         inherit: p,
         bindFn: q,
         prefixed: B
-    }), typeof define == g && define.amd ? define(function () {
+    }), typeof define === g && define.amd ? define(function () {
         return hc
     }) : "undefined" != typeof module && module.exports ? module.exports = hc : a[c] = hc
 }(window, document, "Hammer");
@@ -3344,7 +3344,7 @@ if (jQuery) {
                 origin.unbind('click.' + origin.attr('id'));
                 origin.bind('click.' + origin.attr('id'), function (e) {
                     if (!isFocused) {
-                        if (origin[0] == e.currentTarget &&
+                        if (origin[0] === e.currentTarget &&
                             !origin.hasClass('active') &&
                             ($(e.target).closest('.dropdown-content').length === 0)) {
                             e.preventDefault(); // Prevents button click from moving window
@@ -4982,7 +4982,7 @@ if (jQuery) {
                     $dragTarget = $();
                 }
 
-                if (options.edge == 'left') {
+                if (options.edge === 'left') {
                     menu.css('transform', 'translateX(-100%)');
                     $dragTarget.css({'left': 0}); // Add Touch Area
                 }
@@ -5103,7 +5103,7 @@ if (jQuery) {
                                            prevent_default: false
                                        }).bind('pan', function (e) {
 
-                        if (e.gesture.pointerType == "touch") {
+                        if (e.gesture.pointerType === "touch") {
 
                             var direction = e.gesture.direction;
                             var x = e.gesture.center.x;
@@ -5188,7 +5188,7 @@ if (jQuery) {
 
                     }).bind('panend', function (e) {
 
-                        if (e.gesture.pointerType == "touch") {
+                        if (e.gesture.pointerType === "touch") {
                             var $overlay = $('#sidenav-overlay');
                             var velocityX = e.gesture.velocityX;
                             var x = e.gesture.center.x;
@@ -5461,7 +5461,7 @@ if (jQuery) {
         // determine which elements are no longer in view
         $.each(elementsInView, function (i, element) {
             var lastTick = element.data('scrollSpy:ticks');
-            if (typeof lastTick == 'number' && lastTick !== ticks) {
+            if (typeof lastTick === 'number' && lastTick !== ticks) {
                 // exited from view
                 element.triggerHandler('scrollSpy:exit');
                 element.data('scrollSpy:ticks', null);
@@ -5967,8 +5967,12 @@ if (jQuery) {
                             beforeMatch = $el.text().slice(0, matchStart),
                             matchText = $el.text().slice(matchStart, matchEnd + 1),
                             afterMatch = $el.text().slice(matchEnd + 1);
-                        $el.html("<span>" + beforeMatch + "<span class='highlight'>" + matchText
-                                 + "</span>" + afterMatch + "</span>");
+                        $el.html("<span>" + beforeMatch + "<span class="
+                        highlight
+                        ">" + matchText
+                        + "</span>" + afterMatch + "</span>"
+                        )
+                        ;
                         if (img.length) {
                             $el.prepend(img);
                         }
@@ -6335,19 +6339,19 @@ if (jQuery) {
             var filterQuery = [],
                 onKeyDown = function (e) {
                     // TAB - switch to another input
-                    if (e.which == 9) {
+                    if (e.which === 9) {
                         $newSelect.trigger('close');
                         return;
                     }
 
                     // ARROW DOWN WHEN SELECT IS CLOSED - open select options
-                    if (e.which == 40 && !options.is(':visible')) {
+                    if (e.which === 40 && !options.is(':visible')) {
                         $newSelect.trigger('open');
                         return;
                     }
 
                     // ENTER WHEN SELECT IS CLOSED - submit form
-                    if (e.which == 13 && !options.is(':visible')) {
+                    if (e.which === 13 && !options.is(':visible')) {
                         return;
                     }
 
@@ -6370,7 +6374,7 @@ if (jQuery) {
                     }
 
                     // ENTER - select option and close when select options are opened
-                    if (e.which == 13) {
+                    if (e.which === 13) {
                         var activeOption = options.find('li.selected:not(.disabled)')[0];
                         if (activeOption) {
                             $(activeOption).trigger('click');
@@ -6381,7 +6385,7 @@ if (jQuery) {
                     }
 
                     // ARROW DOWN - move to next not disabled option
-                    if (e.which == 40) {
+                    if (e.which === 40) {
                         if (options.find('li.selected').length) {
                             newOption = options.find('li.selected').next('li:not(.disabled)')[0];
                         } else {
@@ -6391,12 +6395,12 @@ if (jQuery) {
                     }
 
                     // ESC - close options
-                    if (e.which == 27) {
+                    if (e.which === 27) {
                         $newSelect.trigger('close');
                     }
 
                     // ARROW UP - move to previous not disabled option
-                    if (e.which == 38) {
+                    if (e.which === 38) {
                         newOption = options.find('li.selected').prev('li:not(.disabled)')[0];
                         if (newOption) {
                             activateOption(options, newOption);
@@ -6589,7 +6593,7 @@ if (jQuery) {
                             $interval = setInterval(
                                 function () {
                                     $active_index = $slider.find('.active').index();
-                                    if ($slides.length == $active_index + 1) {
+                                    if ($slides.length === $active_index + 1) {
                                         $active_index = 0;
                                     }// loop to start
                                     else {
@@ -6762,7 +6766,7 @@ if (jQuery) {
                         $interval = setInterval(
                             function () {
                                 $active_index = $slider.find('.active').index();
-                                if ($slides.length == $active_index + 1) {
+                                if ($slides.length === $active_index + 1) {
                                     $active_index = 0;
                                 }// loop to start
                                 else {
@@ -6785,7 +6789,7 @@ if (jQuery) {
                     $interval = setInterval(
                         function () {
                             $active_index = $slider.find('.active').index();
-                            if ($slides.length == $active_index + 1) {
+                            if ($slides.length === $active_index + 1) {
                                 $active_index = 0;
                             }// loop to start
                             else {
@@ -7790,10 +7794,10 @@ if (jQuery) {
 (function (factory) {
 
     // AMD.
-    if (typeof define == 'function' && define.amd) {
+    if (typeof define === 'function' && define.amd) {
         define('picker', ['jquery'], factory)
     }// Node.js/browserify.
-    else if (typeof exports == 'object') {
+    else if (typeof exports === 'object') {
         module.exports = factory(require('jquery'))
     }// Browser globals.
     else {
@@ -7863,7 +7867,7 @@ if (jQuery) {
 
                     // Confirm focus state, convert into text input to remove UA stylings,
                     // and set as readonly to prevent keyboard popup.
-                    ELEMENT.autofocus = ELEMENT == getActiveElement()
+                    ELEMENT.autofocus = ELEMENT === getActiveElement()
                     ELEMENT.readOnly = !SETTINGS.editable
                     ELEMENT.id = ELEMENT.id || STATE.id
                     if (ELEMENT.type != 'text') {
@@ -8058,13 +8062,13 @@ if (jQuery) {
                                 target = event.target
 
                             // On escape, close the picker and give focus.
-                            if (keycode == 27) {
+                            if (keycode === 27) {
                                 P.close(true)
                             }
 
 
                             // Check if there is a key movement or “enter” keypress on the element.
-                            else if (target == P.$root[0] && ( keycodeToMove || keycode == 13 )) {
+                            else if (target === P.$root[0] && ( keycodeToMove || keycode === 13 )) {
 
                                 // Prevent the default action to stop page movement.
                                 event.preventDefault()
@@ -8087,7 +8091,7 @@ if (jQuery) {
 
                             // If the target is within the root and “enter” is pressed,
                             // prevent the default action and trigger a click on the target instead.
-                            else if ($.contains(P.$root[0], target) && keycode == 13) {
+                            else if ($.contains(P.$root[0], target) && keycode === 13) {
                                 event.preventDefault()
                                 target.click()
                             }
@@ -8190,9 +8194,9 @@ if (jQuery) {
                             }
 
                             // Then, check to update the element value and broadcast a change.
-                            if (thingItem == 'select' || thingItem == 'clear') {
+                            if (thingItem === 'select' || thingItem === 'clear') {
                                 $ELEMENT.val(
-                                    thingItem == 'clear' ? '' : P.get(thingItem, SETTINGS.format))
+                                    thingItem === 'clear' ? '' : P.get(thingItem, SETTINGS.format))
                                     .trigger('change')
                             }
                         }
@@ -8220,7 +8224,7 @@ if (jQuery) {
                     }
 
                     // Return the submission value, if that.
-                    if (thing == 'valueSubmit') {
+                    if (thing === 'valueSubmit') {
                         if (P._hidden) {
                             return P._hidden.value
                         }
@@ -8228,13 +8232,13 @@ if (jQuery) {
                     }
 
                     // Return the value, if that.
-                    if (thing == 'value') {
+                    if (thing === 'value') {
                         return ELEMENT.value
                     }
 
                     // Check if a component item exists, return that.
                     if (thing in P.component.item) {
-                        if (typeof format == 'string') {
+                        if (typeof format === 'string') {
                             var thingValue = P.component.get(thing)
                             return thingValue ? PickerConstructor._.trigger(
                                 P.component.formats.toString,
@@ -8433,7 +8437,7 @@ if (jQuery) {
                                    //   when using things like jQuery mobile or MagnificPopup (ref:
                                    // #249 & #120). Also, for Firefox, don’t prevent action on the
                                    // `option` element.
-                                   if (event.type == 'mousedown' && !$(target)
+                                   if (event.type === 'mousedown' && !$(target)
                                            .is('input, select, textarea, button, option')) {
 
                                        event.preventDefault()
@@ -8510,15 +8514,15 @@ if (jQuery) {
             }
             else {
                 name = [
-                    typeof SETTINGS.hiddenPrefix == 'string' ? SETTINGS.hiddenPrefix : '',
-                    typeof SETTINGS.hiddenSuffix == 'string' ? SETTINGS.hiddenSuffix : '_submit'
+                    typeof SETTINGS.hiddenPrefix === 'string' ? SETTINGS.hiddenPrefix : '',
+                    typeof SETTINGS.hiddenSuffix === 'string' ? SETTINGS.hiddenSuffix : '_submit'
                 ]
                 name = name[0] + ELEMENT.name + name[1]
             }
 
             P._hidden = $(
                 '<input ' +
-                'type=hidden ' +
+                'type="hidden" ' +
 
                 // Create the name using the original input’s with a prefix and suffix.
                 'name="' + name + '"' +
@@ -8554,13 +8558,13 @@ if (jQuery) {
                 isKeycodeDelete = /^(8|46)$/.test(keycode)
 
             // For some reason IE clears the input value on “escape”.
-            if (keycode == 27) {
+            if (keycode === 27) {
                 P.close()
                 return false
             }
 
             // Check if `space` or `delete` was pressed or the picker is closed with a key movement.
-            if (keycode == 32 || isKeycodeDelete || !STATE.open && P.component.key[keycode]) {
+            if (keycode === 32 || isKeycodeDelete || !STATE.open && P.component.key[keycode]) {
 
                 // Prevent it from moving the page and bubbling to doc.
                 event.preventDefault()
@@ -8584,7 +8588,7 @@ if (jQuery) {
             event.stopPropagation()
 
             // If it’s a focus event, add the “focused” class to the root.
-            if (event.type == 'focus') {
+            if (event.type === 'focus') {
                 P.$root.addClass(CLASSES.focused)
             }
 
@@ -8638,7 +8642,7 @@ if (jQuery) {
             theme = getComputedStyle(element)[prop]
         }
 
-        return theme == 'fixed'
+        return theme === 'fixed'
     }
 
     /**
@@ -8756,7 +8760,7 @@ if (jQuery) {
          * Trigger a function otherwise return the value.
          */
         trigger: function (callback, scope, args) {
-            return typeof callback == 'function' ? callback.apply(scope, args || []) : callback
+            return typeof callback === 'function' ? callback.apply(scope, args || []) : callback
         },
 
         /**
@@ -8798,12 +8802,12 @@ if (jQuery) {
             var componentData = this.data(name)
 
             // If the picker is requested, return the data object.
-            if (options == 'picker') {
+            if (options === 'picker') {
                 return componentData
             }
 
             // If the component data exists and `options` is a string, carry out the action.
-            if (componentData && typeof options == 'string') {
+            if (componentData && typeof options === 'string') {
                 return PickerConstructor._.trigger(componentData[options], componentData, [action])
             }
 
@@ -8835,7 +8839,7 @@ if (jQuery) {
 
     function ariaSet(element, attribute, value) {
         element.setAttribute(
-            (attribute == 'role' ? '' : 'aria-') + attribute,
+            (attribute === 'role' ? '' : 'aria-') + attribute,
             value
         )
     }
@@ -8846,9 +8850,9 @@ if (jQuery) {
         }
         data = ''
         for (var key in attribute) {
-            var attr = (key == 'role' ? '' : 'aria-') + key,
+            var attr = (key === 'role' ? '' : 'aria-') + key,
                 attrVal = attribute[key]
-            data += attrVal == null ? '' : attr + '="' + attribute[key] + '"'
+            data += attrVal === null ? '' : attr + '="' + attribute[key] + '"'
         }
         return data
     }
@@ -8874,10 +8878,10 @@ if (jQuery) {
 (function (factory) {
 
     // AMD.
-    if (typeof define == 'function' && define.amd) {
+    if (typeof define === 'function' && define.amd) {
         define(['picker', 'jquery'], factory)
     }// Node.js/browserify.
-    else if (typeof exports == 'object') {
+    else if (typeof exports === 'object') {
         module.exports = factory(require('./picker.js'), require('jquery'))
     }// Browser globals.
     else {
@@ -8907,8 +8911,8 @@ if (jQuery) {
             isRTL = function () {
 
                 return element.currentStyle ? // For IE.
-                       element.currentStyle.direction == 'rtl' : // For normal browsers.
-                       getComputedStyle(picker.$root[0]).direction == 'rtl'
+                       element.currentStyle.direction === 'rtl' : // For normal browsers.
+                       getComputedStyle(picker.$root[0]).direction === 'rtl'
             }
 
         calendar.settings = settings
@@ -9011,7 +9015,7 @@ if (jQuery) {
 
         // If the value is `null` just set it immediately.
         if (value === null) {
-            if (type == 'clear') {
+            if (type === 'clear') {
                 type = 'select'
             }
             calendarItem[type] = value
@@ -9022,17 +9026,17 @@ if (jQuery) {
         // Update this as the time unit, and set the final value as this item.
         // * In the case of `enable`, keep the queue but set `disable` instead.
         //   And in the case of `flip`, keep the queue but set `enable` instead.
-        calendarItem[( type == 'enable' ? 'disable' : type == 'flip' ? 'enable' : type )] =
+        calendarItem[( type === 'enable' ? 'disable' : type === 'flip' ? 'enable' : type )] =
             calendar.queue[type].split(' ').map(function (method) {
                 value = calendar[method](type, value, options)
                 return value
             }).pop()
 
         // Check if we need to cascade through more updates.
-        if (type == 'select') {
+        if (type === 'select') {
             calendar.set('highlight', calendarItem.select, options)
         }
-        else if (type == 'highlight') {
+        else if (type === 'highlight') {
             calendar.set('view', calendarItem.highlight, options)
         }
         else if (type.match(/^(flip|min|max|disable|enable)$/)) {
@@ -9066,7 +9070,7 @@ if (jQuery) {
         value = value === undefined ? type : value
 
         // If it’s infinity, update the value.
-        if (value == -Infinity || value == Infinity) {
+        if (value === -Infinity || value === Infinity) {
             isInfiniteValue = value
         }
 
@@ -9248,11 +9252,11 @@ if (jQuery) {
 
         // If it’s anything false-y, remove the limits.
         if (!value) {
-            value = type == 'min' ? -Infinity : Infinity
+            value = type === 'min' ? -Infinity : Infinity
         }
 
         // If it’s a string, parse it.
-        else if (typeof value == 'string') {
+        else if (typeof value === 'string') {
             value = calendar.parse(type, value)
         }
 
@@ -9441,7 +9445,7 @@ if (jQuery) {
         // If this date matches a disabled date, confirm it’s not inverted.
         isDisabledMatch =
             isDisabledMatch.length && !isDisabledMatch.filter(function (dateToDisable) {
-                return $.isArray(dateToDisable) && dateToDisable[3] == 'inverted' ||
+                return $.isArray(dateToDisable) && dateToDisable[3] === 'inverted' ||
                        $.isPlainObject(dateToDisable) && dateToDisable.inverted
             }).length
 
@@ -9627,7 +9631,7 @@ if (jQuery) {
         // When we’re working with weekdays, do a direct comparison.
         if (
             ( _.isInteger(one) && _.isInteger(two) ) ||
-            ( typeof one == 'boolean' && typeof two == 'boolean' )
+            ( typeof one === 'boolean' && typeof two === 'boolean' )
         ) {
             return one === two
         }
@@ -9679,7 +9683,7 @@ if (jQuery) {
      */
     DatePicker.prototype.flipEnable = function (val) {
         var itemObject = this.item
-        itemObject.enable = val || (itemObject.enable == -1 ? 1 : -1)
+        itemObject.enable = val || (itemObject.enable === -1 ? 1 : -1)
     }
 
     /**
@@ -9691,7 +9695,7 @@ if (jQuery) {
             disabledItems = calendar.item.disable.slice(0)
 
         // If we’re flipping, that’s all we need to do.
-        if (datesToDisable == 'flip') {
+        if (datesToDisable === 'flip') {
             calendar.flipEnable()
         }
 
@@ -9749,7 +9753,7 @@ if (jQuery) {
             disabledItemsCount = disabledItems.length
 
         // If we’re flipping, that’s all we need to do.
-        if (datesToEnable == 'flip') {
+        if (datesToEnable === 'flip') {
             calendar.flipEnable()
         }
 
@@ -9926,12 +9930,12 @@ if (jQuery) {
                     : settings.monthsFull
 
                 // Materialize modified
-                if (override == "short_months") {
+                if (override === "short_months") {
                     monthsCollection = settings.monthsShort;
                 }
 
                 // If there are months to select, add a dropdown menu.
-                if (settings.selectMonths && override == undefined) {
+                if (settings.selectMonths && override === undefined) {
 
                     return _.node('select',
                                   _.group({
@@ -9948,16 +9952,16 @@ if (jQuery) {
 
                                                       // Set the value and selected index.
                                                       'value=' + loopedMonth +
-                                                      ( viewsetObject.month == loopedMonth
+                                                      ( viewsetObject.month === loopedMonth
                                                           ? ' selected' : '' ) +
                                                       (
                                                           (
                                                               ( viewsetObject.year
-                                                                == minLimitObject.year
+                                                                === minLimitObject.year
                                                                 && loopedMonth
                                                                    < minLimitObject.month ) ||
                                                               ( viewsetObject.year
-                                                                == maxLimitObject.year
+                                                                === maxLimitObject.year
                                                                 && loopedMonth
                                                                    > maxLimitObject.month )
                                                           ) ? ' disabled' : ''
@@ -9973,7 +9977,7 @@ if (jQuery) {
                 }
 
                 // Materialize modified
-                if (override == "short_months") {
+                if (override === "short_months") {
                     if (selectedObject != null) {
                         return _.node('div', monthsCollection[selectedObject.month]);
                     } else {
@@ -10023,7 +10027,7 @@ if (jQuery) {
                         highestYear = maxYear
                     }
 
-                    if (settings.selectYears && override == undefined) {
+                    if (settings.selectYears && override === undefined) {
                         return _.node('select',
                                       _.group({
                                                   min: lowestYear,
@@ -10038,7 +10042,7 @@ if (jQuery) {
 
                                                           // Set the value and selected index.
                                                           'value=' + loopedYear + ( focusedYear
-                                                                                    == loopedYear
+                                                                                    === loopedYear
                                                               ? ' selected' : '' )
                                                       ]
                                                   }
@@ -10052,7 +10056,7 @@ if (jQuery) {
                 }
 
                 // Materialize modified
-                if (override == "raw") {
+                if (override === "raw") {
                     return _.node('div', focusedYear)
                 }
 
@@ -10160,10 +10164,10 @@ if (jQuery) {
 
                                                        var isSelected = selectedObject
                                                                         && selectedObject.pick
-                                                                           == targetDate.pick,
+                                                                           === targetDate.pick,
                                                            isHighlighted = highlightedObject
                                                                            && highlightedObject.pick
-                                                                              == targetDate.pick,
+                                                                              === targetDate.pick,
                                                            isDisabled = disabledCollection
                                                                         && calendar.disabled(
                                                                    targetDate) || targetDate.pick
@@ -10184,14 +10188,14 @@ if (jQuery) {
                                                                    // `outfocus` classes based on
                                                                    // month in view.
                                                                    klasses.push(viewsetObject.month
-                                                                                == targetDate.month
+                                                                                === targetDate.month
                                                                                     ? settings.klass.infocus
                                                                                     : settings.klass.outfocus)
 
                                                                    // Add the `today` class if
                                                                    // needed.
                                                                    if (nowObject.pick
-                                                                       == targetDate.pick) {
+                                                                       === targetDate.pick) {
                                                                        klasses.push(
                                                                            settings.klass.now)
                                                                    }
@@ -11041,7 +11045,7 @@ if (jQuery) {
                     if (!isFixed) {
                         var parents = origin.parents();
                         for (var i = 0; i < parents.length; i++) {
-                            isFixed = $(parents[i]).css('position') == 'fixed';
+                            isFixed = $(parents[i]).css('position') === 'fixed';
                             if (isFixed) {
                                 break;
                             }
@@ -11128,12 +11132,12 @@ if (jQuery) {
                                       });
                 }
 
-                if (options == 'open') {
+                if (options === 'open') {
                     calculateTapTarget();
                     openTapTarget();
                 }
 
-                if (options == 'close') {
+                if (options === 'close') {
                     closeTapTarget();
                 }
             });
