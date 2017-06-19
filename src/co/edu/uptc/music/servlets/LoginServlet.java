@@ -41,15 +41,12 @@ public class LoginServlet extends HttpServlet {
                 User user = usersManager.findItem(name);
 
                 if (user != null) {
-
                     MessageDigest digest = MessageDigest.getInstance("MD5");
-
                     digest.update(pass.getBytes());
                     byte[] chainAux = digest.digest();
                     String myHash = DatatypeConverter.printHexBinary(chainAux);
 
                     if (user.validateUser(myHash)) {
-
                         String aux = gson.toJson(user);
                         StringBuilder sb = new StringBuilder();
                         sb.append("{\"code\":2,");
