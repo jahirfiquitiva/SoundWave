@@ -80,16 +80,17 @@ function loadSongs() {
 }
 
 function getShortText(text) {
-    if (text.length <= 15) {
+    if (text.length <= 20) {
         return text;
     }
-    return text.substr(0, 14) + "...";
+    return text.substr(0, 19) + "...";
 }
 
 function addfavorites() {
-    alert("Añadidos favoritos")
+    alert("Añadidos favoritos");
+
 }
 
 function addplayList() {
-    alert("Añadido a playList")
+    alert("Añadido a playList");
 }

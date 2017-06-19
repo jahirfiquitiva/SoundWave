@@ -8,7 +8,6 @@ function login() {
     var pass = document.getElementById("password").value;
     if (name.length > 0 && pass.length > 0) {
         var toSend = "username=" + name + "&password=" + pass + "&login=1";
-        console.log(toSend);
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -19,10 +18,13 @@ function login() {
                     document.getElementById("password").value = "";
                     document.getElementById("user-name").innerHTML = jsonContent.name;
                     document.getElementById("user-type").innerHTML = camelize(jsonContent.type);
+                    document.getElementById("username").focus();
+                    document.getElementById("username").blur();
                     changeVisibility("user-details", true);
                     changeVisibility("login", false);
                     changeVisibility("logout", true);
                     changeVisibility("login-section", false);
+                    removeFocuses();
                 } else {
                     Materialize.toast("Error!<br>" + jsonContent.error, 2000);
                 }
@@ -74,6 +76,7 @@ function createUser() {
                         document.getElementById("new-password").value = "";
                         document.getElementById("new-type").value = "Normal";
                         hideRegister();
+                        removeFocuses();
                     } else if (json.code === 3) {
                         Materialize.toast("Error!<br>" + json.error, 2000);
                     }
@@ -97,6 +100,7 @@ function logout() {
     changeVisibility("login", true);
     changeVisibility("logout", false);
     changeVisibility("login-section", true);
+    removeFocuses();
 }
 
 function showRegister() {
@@ -109,4 +113,18 @@ function hideRegister() {
     changeVisibility("user-details", false);
     changeVisibility("login-section", true);
     changeVisibility("register-section", false);
+}
+
+function removeFocuses() {
+    try {
+        var valids = document.getElementsByClassName("valid");
+        for (var i = 0; i < valids.length; i++) {
+            valids[i].classList.remove("valid");
+        }
+        var actives = document.getElementsByClassName("active");
+        for (var j = 0; j < actives.length; j++) {
+            actives[j].classList.remove("active");
+        }
+    } catch (err) {
+    }
 }
