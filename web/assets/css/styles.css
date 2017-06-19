@@ -10,10 +10,6 @@ body {
     background-color: #fafafa;
 }
 
-header, main, footer {
-    padding-left: 0px; /* 256px */
-}
-
 @media only screen and (max-width: 992px) {
     header, main, footer {
         padding-left: 0;
@@ -64,7 +60,7 @@ main {
 }
 
 nav .brand-logo.left {
-    left: 6%; /* 2 */
+    left: 8%;
 }
 
 @media only screen and (max-width: 992px) {
@@ -221,6 +217,7 @@ nav .brand-logo.left {
 .player .buttons {
     display: inline-block;
     margin-top: 16px;
+    margin-left: -24px;
 }
 
 .player .buttons .mdi {
@@ -250,4 +247,21 @@ nav .brand-logo.left {
     height: 8px;
     margin: 0;
     cursor: pointer;
+}
+
+.player-img {
+    display: block;
+    width: 72px;
+    height: 72px;
+    float: left;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.song-details {
+    display: block;
+    float: left;
+    text-align: left;
+    margin-top: 8px;
+    margin-left: 16px;
 }
