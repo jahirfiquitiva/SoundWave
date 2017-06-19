@@ -31,8 +31,20 @@ public class SongSQL {
 
     public String songsGender() {
 
-        return "    select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs inner join" +
-                " genres on songs.GENRE=genres.GENRE_ID order by GENRE_ID ";
+        return "select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from songs inner join " +
+                "genres on songs.GENRE=genres.GENRE_ID order by GENRE_ID";
+
+
+    }
+
+    public String Playlist() {
+     //despues cuando ya tengamos listas mandamos el nombre de usuario
+        return "select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from users inner join " +
+                "(playlists_users inner join (playlists inner join (songs_playlists inner join " +
+                "songs on songs_playlists.F_SONG_ID=songs.SONG_ID) on playlists" +
+                ".PL_ID=songs_playlists.F_PL_ID) on playlists_users.F_PL_ID=playlists.PL_ID) on " +
+                "users.USER_ID=playlists_users.F_USER_ID;";
+
 
     }
 
