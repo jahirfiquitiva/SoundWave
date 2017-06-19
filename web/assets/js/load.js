@@ -80,8 +80,8 @@ function loadSongs() {
 }
 
 function getShortText(text) {
-    if (text.length <= 12) {
+    if (text.length <= 15) {
         return text;
     }
-    return text.substr(0, 12) + "...";
+    return text.substr(0, 14) + "...";
 }

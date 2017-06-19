@@ -407,7 +407,7 @@
                     <form>
                         <p class="range-field">
                             <input type="range" id="volume-slider" min="0" max="100" value="100"
-                                   onmousedown="updateVolume()"/>
+                                   oninput="updateVolume()" onchange="updateVolume()"/>
                         </p>
                     </form>
                 </div>
