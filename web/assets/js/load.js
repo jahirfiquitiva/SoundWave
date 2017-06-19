@@ -58,7 +58,7 @@ function loadSongs() {
 
                         content.appendChild(title);
                         content.appendChild(subtitle);
-                        content.appendChild(dots);
+                       // content.appendChild(dots);
 
                         if (imgPath !== undefined && imgPath.length > 1) {
                             img.setAttribute("onload", "loadCardColors(event)");
@@ -84,4 +84,12 @@ function getShortText(text) {
         return text;
     }
     return text.substr(0, 14) + "...";
+}
+
+function addfavorites() {
+    alert("Añadidos favoritos")
+}
+
+function addplayList() {
+    alert("Añadido a playList")
 }

@@ -85,12 +85,6 @@
                     Artistas
                 </a>
             </li>
-            <li>
-                <a class="waves-effect" href="#!">
-                    <i class="mdi mdi-album"></i>
-                    Albumes
-                </a>
-            </li>
 
             <li>
                 <a class="waves-effect" href="#!">
@@ -113,7 +107,7 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!">
-                    <i class="mdi mdi-checkbox-multiple-blank"></i>
+                    <i class="material-icons">queue_music</i>
                     Listas de reproduccion
                 </a>
             </li>
@@ -315,6 +309,7 @@
             <div class="divider"></div>
             <!-- Inicio de lista de playlists -->
             <div id="playlists-list" class="section-content">
+                <h3 class="cyan-text section-title">Tus PlayLists</h3>
                 <div class="container">
                     <ul class="collection with-header">
                         <li class="collection-header"><h4>Listas de reproduccion</h4></li>
@@ -344,30 +339,39 @@
                 </div>
             </div>
             <!-- fin de lista de playlists -->
-
-            <!-- Menu canciones -->
-            <ul id='songs-menu' class='dropdown-content'>
-                <li>
-                    <a>
-                        <i class="material-icons">play_circle_filled</i>
-                        Reproducir
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a>
-                        <i class="material-icons">queue</i>
-                        Agregar a PlayList
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="material-icons">heart</i>
-                        Agregar a favoritos
-                    </a>
-                </li>
-            </ul>
-            <!-- Fin menu canciones -->
+            <div class="divider"></div>
+            <!-- Lista de Facoritos -->
+            <div id="list-favorite" class="section-content">
+                <h3 class="cyan-text section-title">Favoritos</h3>
+                <div class="container">
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h4>Mis favoritos</h4></li>
+                        <li class="collection-item">
+                            <div class="playlist-title">
+                                Riot
+                                <a href="#!" class="secondary-content">
+                                    <i class="mdi mdi-play"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <div>Psycho
+                                <a href="#!" class="secondary-content">
+                                    <i class="mdi mdi-play"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <div>Free
+                                <a href="#!" class="secondary-content">
+                                    <i class="mdi mdi-play"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin lista de favoritos -->
         </main>
 
 
@@ -384,8 +388,14 @@
                 <h5 id="song-detail-name" class="primary-text"></h5>
                 <h6 id="song-detail-artist" class="secondary-text"></h6>
             </div>
+
             <div class="buttons">
+                <a class="waves-ripple" onclick="addfavorites()">
+                    <i class="material-icons">grade</i>
+                </a>
+
                 <i class="mdi mdi-skip-previous waves-ripple"></i>
+
                 <a class="waves-ripple" onclick="seek(false)">
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
                 </a>
@@ -400,6 +410,10 @@
                     <i class="mdi mdi-skip-forward waves-ripple"></i>
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple"></i>
+
+                <a class="waves-ripple pulse" onclick="addplayList()">
+                    <i class="material-icons">playlist_add</i>
+                </a>
             </div>
             <div class="whole-volume-container">
                 <i class="mdi mdi-volume-high volume-icon-low"></i>
