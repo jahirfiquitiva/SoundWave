@@ -104,7 +104,7 @@ function process() {
 
     if (name.length > 0 && pass.length > 0) {
 
-        var toSend = "username=" + name + "&password=" + pass + "&login=1";
+        var toSend = "username=" + name + "&password=" + pass + "&login=1" + login;
 
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
