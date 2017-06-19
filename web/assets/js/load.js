@@ -28,6 +28,8 @@ function loadSongs() {
                         var item = document.createElement("div");
                         item.setAttribute("class", "grid-item");
                         item.setAttribute("data-song-id", json.songs[i].id);
+                        item.setAttribute("data-path", json.songs[i].path);
+                        item.setAttribute("ondblclick", "playSong(event)");
 
                         var img = document.createElement("img");
                         img.setAttribute("class", "responsive-img");
