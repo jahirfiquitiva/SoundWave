@@ -74,20 +74,20 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!">
+                <a class="waves-effect" href="#!"  onclick="loadSong()">
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!">
+                <a class="waves-effect" href="#!"   onclick="loadSongArtis()" >
                     <i class="mdi mdi-account-box"></i>
                     Artistas
                 </a>
             </li>
 
             <li>
-                <a class="waves-effect" href="#!">
+                <a class="waves-effect" href="#!" onclick="loadSongGender()">
                     <i class="mdi mdi-tag-multiple"></i>
                     Generos
                 </a>
