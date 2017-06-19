@@ -19,15 +19,15 @@
         <meta name="theme-color" content="#4285F4">
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="assets/favicons/sw-72.png">
-        <link rel="apple-touch-icon" href="assets/favicons/sw-57.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw-72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw-114.png">
-        <link rel="apple-touch-icon-precomposed" href="favicons/sw-32.png">
+        <link rel="shortcut icon" href="assets/favicons/sw72.png">
+        <link rel="apple-touch-icon" href="assets/favicons/sw57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw114.png">
+        <link rel="apple-touch-icon-precomposed" href="favicons/sw32.png">
 
-        <link rel="icon" href="assets/favicons/sw-32.png" sizes="32x32">
+        <link rel="icon" href="assets/favicons/sw32.png" sizes="32x32">
         <meta name="msapplication-TileColor" content="#4285F4">
-        <meta name="msapplication-TileImage" content="assets/favicons/sw-72.png">
+        <meta name="msapplication-TileImage" content="assets/favicons/sw72.png">
     </head>
 
     <body onload="loadSongs()">
