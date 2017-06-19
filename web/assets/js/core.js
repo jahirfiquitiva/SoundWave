@@ -152,12 +152,6 @@ function process() {
     }
 }
 
-function loadMusic() {
-
-    var xhr = new XMLHttpRequest();
-
-}
-
 function changeVisibility(id, show) {
     document.getElementById(id).style.display = show ? 'block' : 'none';
 }

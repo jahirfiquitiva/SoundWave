@@ -57,23 +57,7 @@ public class LoginServlet extends HttpServlet {
                         if (user.getType() == UserType.ADMIN) {
                             String usersList = gson.toJson(usersManager.getList());
                             sb.append(",\"list\": ").append(usersList);
-                        } /*else if (user.getType() == UserType.PREMIUM) {
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-
-                            } else if (user.getType() == UserType.ARTIST) {
-
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-                            } else if (user.getType() == UserType.NORMAL) {
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-
-                            } else if (user.getType() == UserType.GUEST) {
-
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-                            }*/
+                        }
                         sb.append("}");
                         out.println(sb.toString());
                     } else {
