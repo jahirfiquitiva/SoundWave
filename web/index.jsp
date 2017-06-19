@@ -85,12 +85,6 @@
                     Artistas
                 </a>
             </li>
-            <li>
-                <a class="waves-effect" href="#!">
-                    <i class="mdi mdi-album"></i>
-                    Albumes
-                </a>
-            </li>
 
             <li>
                 <a class="waves-effect" href="#!">
@@ -113,7 +107,7 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!">
-                    <i class="mdi mdi-checkbox-multiple-blank"></i>
+                    <i class="material-icons">queue_music</i>
                     Listas de reproduccion
                 </a>
             </li>
@@ -131,7 +125,7 @@
             <!-- Final canciones -->
             <div class="divider"></div>
             <!-- Inicio Login -->
-            <div class="login-container">
+            <div class="login-container" id="login-section">
                 <div class="row">
                     <div class="col s4 m6 l6">
                         <div class="card-panel">
@@ -143,7 +137,8 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="username" type="text" class="validate">
-                                        <label for="username">Nombre de usuario</label>
+                                        <label for="username">Correo electronico o nombre de
+                                                              usuario</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -154,15 +149,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <a id="create-account" class="text-link">Aun no tienes cuenta?
+                                <a id="create-account" class="text-link" onclick="showRegister()">
+                                    Aun no tienes cuenta?
                                 </a>
+                                <br>
                                 <a id="login" class="waves-effect btn cyan"
-                                   onclick="process();">
+                                   onclick="login();">
                                     Iniciar sesion
-                                </a>
-                                <a id="logout" class="waves-effect btn cyan"
-                                   onclick="logOut();">
-                                    Cerrar sesion
                                 </a>
                             </div>
                         </div>
@@ -170,9 +163,29 @@
                 </div>
             </div>
             <!-- Fin login -->
+            <!-- Inicio detalles usuario -->
+            <div class="login-container" id="user-details" style="display: none;">
+                <div class="row">
+                    <div class="col s4 m6 l6">
+                        <div class="card-panel">
+                            <div class="row">
+                                <h4 id="user-name" class="primary-text"></h4>
+                                <h6 id="user-type" class="primary-text"></h6>
+                            </div>
+                            <div class="row">
+                                <a id="logout" class="waves-effect btn cyan"
+                                   onclick="logout();">
+                                    Cerrar sesion
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Final detalles usuario
             <div class="divider"></div>
             <!-- Inicio crear cuenta -->
-            <div class="login-container">
+            <div class="login-container" id="register-section" style="display: none;">
                 <div class="row">
                     <div class="col s4 m6 l6">
                         <div class="card-panel">
@@ -206,8 +219,27 @@
                                         <label for="new-password">Contraseña</label>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="new-type">
+                                            <option value="US04" disabled selected>Normal
+                                            </option>
+                                            <option value="US01">Admin</option>
+                                            <option value="US02">Premium</option>
+                                            <option value="US03">Artista</option>
+                                            <option value="US04">Normal</option>
+                                            <option value="US05">Invitado</option>
+                                        </select>
+                                        <label>Tipo</label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
+                                <a id="cancel" class="waves-effect btn cyan"
+                                   onclick="hideRegister();">
+                                    Cancelar
+                                </a>
+                                <br><br>
                                 <a id="create" class="waves-effect btn cyan"
                                    onclick="createUser();">
                                     Crear cuenta
@@ -315,6 +347,7 @@
             <div class="divider"></div>
             <!-- Inicio de lista de playlists -->
             <div id="playlists-list" class="section-content">
+                <h3 class="cyan-text section-title">Tus PlayLists</h3>
                 <div class="container">
                     <ul class="collection with-header">
                         <li class="collection-header"><h4>Listas de reproduccion</h4></li>
@@ -344,30 +377,39 @@
                 </div>
             </div>
             <!-- fin de lista de playlists -->
-
-            <!-- Menu canciones -->
-            <ul id='songs-menu' class='dropdown-content'>
-                <li>
-                    <a>
-                        <i class="material-icons">play_circle_filled</i>
-                        Reproducir
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a>
-                        <i class="material-icons">queue</i>
-                        Agregar a PlayList
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="material-icons">heart</i>
-                        Agregar a favoritos
-                    </a>
-                </li>
-            </ul>
-            <!-- Fin menu canciones -->
+            <div class="divider"></div>
+            <!-- Lista de Facoritos -->
+            <div id="list-favorite" class="section-content">
+                <h3 class="cyan-text section-title">Favoritos</h3>
+                <div class="container">
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h4>Mis favoritos</h4></li>
+                        <li class="collection-item">
+                            <div class="playlist-title">
+                                Riot
+                                <a href="#!" class="secondary-content">
+                                    <i class="mdi mdi-play"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <div>Psycho
+                                <a href="#!" class="secondary-content">
+                                    <i class="mdi mdi-play"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <div>Free
+                                <a href="#!" class="secondary-content">
+                                    <i class="mdi mdi-play"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin lista de favoritos -->
         </main>
 
 
@@ -384,8 +426,14 @@
                 <h5 id="song-detail-name" class="primary-text"></h5>
                 <h6 id="song-detail-artist" class="secondary-text"></h6>
             </div>
+
             <div class="buttons">
+                <a class="waves-ripple" onclick="addfavorites()">
+                    <i class="material-icons">grade</i>
+                </a>
+
                 <i class="mdi mdi-skip-previous waves-ripple"></i>
+
                 <a class="waves-ripple" onclick="seek(false)">
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
                 </a>
@@ -400,6 +448,10 @@
                     <i class="mdi mdi-skip-forward waves-ripple"></i>
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple"></i>
+
+                <a class="waves-ripple pulse" onclick="addplayList()">
+                    <i class="material-icons">playlist_add</i>
+                </a>
             </div>
             <div class="whole-volume-container">
                 <i class="mdi mdi-volume-high volume-icon-low"></i>
@@ -419,12 +471,15 @@
         </div>
         <!-- fin player -->
 
+
+        <script src="assets/js/load.js"></script>
+        <script src="assets/js/core.js"></script>
+        <script src="assets/js/music.js"></script>
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/vibrant.min.js"></script>
         <script src="assets/js/ui.js"></script>
-        <script src="assets/js/core.js"></script>
-        <script src="assets/js/load.js"></script>
+
         <script type="text/javascript">
             $('.button-collapse').sideNav({
                                               menuWidth: 280, // Default is 300
@@ -437,14 +492,11 @@
                                     indicators: false,
                                     interval: 2500
                                 });
-            $('.menu').dropdown({
-                                    constrainWidth: false, // Does not change width of dropdown to that of the activator
-                                    gutter: 0, // Spacing from edge
-                                    belowOrigin: false, // Displays dropdown below the button
-                                    alignment: 'left', // Displays dropdown with edge aligned to the left of button
-                                    stopPropagation: false // Stops event propagation
-                                }
-            );
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').material_select();
+            });
         </script>
 
         <!--

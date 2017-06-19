@@ -29,11 +29,13 @@ public class LoginServlet extends HttpServlet {
             usersManager.load();
 
             Gson gson = new Gson();
-            try (PrintWriter out = response.getWriter()) {
-
+            try (PrintWriter writer = response.getWriter()) {
                 String name = request.getParameter("username");
+<<<<<<< HEAD
                 String nameUser = request.getParameter("name");
                 String email = request.getParameter("email");
+=======
+>>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
                 String pass = request.getParameter("password");
                 String login = request.getParameter("login");
 
@@ -42,7 +44,6 @@ public class LoginServlet extends HttpServlet {
                     User user = usersManager.findItem(name);
 
                     if (user != null) {
-
                         MessageDigest digest = MessageDigest.getInstance("MD5");
 
                         digest.update(pass.getBytes());
@@ -50,7 +51,10 @@ public class LoginServlet extends HttpServlet {
                         String myHash = DatatypeConverter.printHexBinary(chainAux);
 
                         if (user.validateUser(myHash)) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
                             String aux = gson.toJson(user);
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"code\":2,");
@@ -58,33 +62,19 @@ public class LoginServlet extends HttpServlet {
                             if (user.getType() == UserType.ADMIN) {
                                 String usersList = gson.toJson(usersManager.getList());
                                 sb.append(",\"list\": ").append(usersList);
-                            } /*else if (user.getType() == UserType.PREMIUM) {
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-
-                            } else if (user.getType() == UserType.ARTIST) {
-
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-                            } else if (user.getType() == UserType.NORMAL) {
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-
-                            } else if (user.getType() == UserType.GUEST) {
-
-                                String usersList = gson.toJson(usersManager.getList());
-                                sb.append(",\"list\": ").append(usersList);
-                            }*/
+                            }
                             sb.append("}");
-                            out.println(sb.toString());
+                            writer.print(sb.toString());
                         } else {
-                            out.println("{\"code\":1,\"error\":\"User exists but password is " +
-                                    "incorrect.\"}");
+                            writer.print("{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}");
                         }
                     } else {
-                        out.println("{\"code\":0,\"error\":\"User not found.\"}");
+                        writer.print("{\"code\":0,\"error\":\"El usuario no se encuentra " +
+                                "registrado" +
+                                ".\"}");
                     }
                 } else if (loginValue == 2) {
+<<<<<<< HEAD
                     System.out.print("entrando");
 
                     String type = request.getParameter("type");
@@ -95,12 +85,19 @@ public class LoginServlet extends HttpServlet {
                         System.out.print("entrando");
                         out.println("{\"code\": 4, \"list\": " +
                                 gson.toJson(usersManager.getList()) + "}");
+=======
+                    String fullname = request.getParameter("fullname");
+                    String email = request.getParameter("email");
+                    String type = request.getParameter("type");
+                    if (usersManager.addNewUser(fullname, email, name, pass, type)) {
+                        writer.print("{\"code\": 4}");
+>>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
                     } else {
-                        out.println("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
+                        writer.print("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +
                                 "registrado en la base de datos\"}");
                     }
                 }
-                out.close();
+                writer.close();
             } catch (Exception ignored) {
             }
         } catch (Exception ignored) {
@@ -110,14 +107,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {
-        // super.doGet(req, resp);
         processRequest(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {
-        // super.doPost(req, resp);
         processRequest(req, resp);
     }
 

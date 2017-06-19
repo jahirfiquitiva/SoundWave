@@ -218,6 +218,7 @@ nav .brand-logo.left {
     display: inline-block;
     margin-top: 16px;
     margin-left: -24px;
+    cursor: pointer;
 }
 
 .player .buttons .mdi {
@@ -227,6 +228,7 @@ nav .brand-logo.left {
     font-size: 36px;
     color: rgba(0, 0, 0, 0.54);
     cursor: pointer;
+    z-index: 10;
 }
 
 #pause-button {

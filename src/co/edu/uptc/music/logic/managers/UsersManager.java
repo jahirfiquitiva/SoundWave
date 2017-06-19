@@ -24,11 +24,12 @@ public class UsersManager extends BaseManager<User> {
                 while (rs.next()) {
                     String userId = rs.getString("USER_ID");
                     String typeRef = rs.getString("TYPE");
-                    String username = rs.getString("NAME");
+                    String name = rs.getString("NAME");
                     String email = rs.getString("EMAIL");
+                    String username = rs.getString("USERNAME");
                     String password = rs.getString("PASSWORD");
-                    addItem(new User(userId, UserType.getUserForString(typeRef), username, email,
-                            password));
+                    addItem(new User(userId, UserType.getUserForString(typeRef), name, email,
+                            username, password));
                 }
             } catch (Exception ignored) {
             }
@@ -36,23 +37,30 @@ public class UsersManager extends BaseManager<User> {
     }
 
     @Override
+<<<<<<< HEAD
     public User findItem(String name) {
 
         for (User user : getList()) {
             System.out.print(user.getName());
             if (user.getName().equalsIgnoreCase(name)) return user;
+=======
+    public User findItem(String text) {
+        for (User user : getList()) {
+            if (user.getEmail().equalsIgnoreCase(text) || user.getUsername().equalsIgnoreCase(text))
+                return user;
+>>>>>>> 7b39b65120142f64f82008cfc92187b3a9ee0df8
         }
         return null;
     }
 
-    public boolean addNewUser(String name, String email, String password, String type) {
-        if (findItem(name) != null) return false;
+    public boolean addNewUser(String name, String email, String username, String password,
+                              String type) {
+        if (findItem(username) != null) return false;
         DecimalFormat formatter = new DecimalFormat("0000");
         String num = formatter.format(getListSize() + 1);
         try {
-            dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name, email,
-                    password));
-            return true;
+            return dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name,
+                    email, username, password));
         } catch (Exception ignored) {
         }
         return false;
