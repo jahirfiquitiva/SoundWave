@@ -295,3 +295,7 @@ nav .brand-logo.left {
     margin-top: 24px;
     margin-right: 25%;
 }
+
+.btn {
+    margin: 4px;
+}
