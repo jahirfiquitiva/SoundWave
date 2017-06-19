@@ -105,17 +105,10 @@ function process() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
 
-                document.getElementById("user-title").innerHTML = "User";
-                alert('entrando' + pass);
+                // document.getElementById("user-title").innerHTML = "User";
+                // alert('entrando' + pass);
 
                 var jsonContent = JSON.parse(xhr.responseText);
-
-                if(jsonContent.code==1){
-
-                    alert('no existe usuario');
-
-
-                }
 
                 if (jsonContent.name !== undefined) {
 
