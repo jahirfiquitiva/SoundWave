@@ -31,7 +31,7 @@ function loadSongs() {
                         item.setAttribute("data-path", json.songs[i].path);
                         item.setAttribute("data-name", json.songs[i].name);
                         item.setAttribute("data-artist", json.songs[i].artist);
-                        item.setAttribute("ondblclick", "playSong(event)");
+                        item.setAttribute("onclick", "playSong(event)");
 
                         var img = document.createElement("img");
                         img.setAttribute("class", "responsive-img album");
