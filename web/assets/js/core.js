@@ -55,11 +55,10 @@ function createUser() {
     var email = document.getElementById("new-email").value;
     var name = document.getElementById("new-username").value;
     var pass = document.getElementById("new-password").value;
-    var type = document.getElementById("new-type").value;
     var xhr = new XMLHttpRequest();
     if (name.length > 0 && pass.length > 0) {
         var toSend = "fullname=" + fullname + "&email=" + email + "&username=" + name + "&password="
-                     + pass + "&type=" + type + "&login=2";
+                     + pass + "&login=2";
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -77,7 +76,6 @@ function createUser() {
                         document.getElementById("new-email").value = "";
                         document.getElementById("new-username").value = "";
                         document.getElementById("new-password").value = "";
-                        document.getElementById("new-type").value = "Normal";
                         hideRegister();
                         removeFocuses();
                     } else if (json.code === 3) {

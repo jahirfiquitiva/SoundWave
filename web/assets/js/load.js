@@ -170,16 +170,3 @@ function loadArtists() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
 }
-
-function addfavorites() {
-
-    alert("Añadidos favoritos");
-
-
-
-}
-
-function addplayList() {
-    alert("Añadido a playList");
-
-}

@@ -147,6 +147,8 @@ function playAnother(next, current) {
                     player.src = song.path;
                     document.getElementById("current-album").setAttribute("src", song.img);
                     playPauseSong(true);
+                } else {
+                    playPauseSong(false);
                 }
             }
         }

@@ -257,20 +257,6 @@
                                             <label for="new-password">Contraseña</label>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <select id="new-type">
-                                                <option value="US04" disabled selected>Normal
-                                                </option>
-                                                <option value="US01">Admin</option>
-                                                <option value="US02">Premium</option>
-                                                <option value="US03">Artista</option>
-                                                <option value="US04">Normal</option>
-                                                <option value="US05">Invitado</option>
-                                            </select>
-                                            <label>Tipo</label>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <a id="cancel" class="waves-effect btn cyan"
