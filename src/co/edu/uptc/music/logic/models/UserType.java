@@ -1,7 +1,7 @@
 package co.edu.uptc.music.logic.models;
 
 public enum UserType {
-    ADMIN("US01"), PREMIUM("US02"), ARTIST("US03"), NORMAL("US04"), GUEST("US05");
+    ADMIN("US01"), ARTIST("US02"), NORMAL("US03"), GUEST("US04");
 
     String name;
 
@@ -18,10 +18,8 @@ public enum UserType {
             case "US01":
                 return ADMIN;
             case "US02":
-                return PREMIUM;
-            case "US03":
                 return ARTIST;
-            case "US04":
+            case "US03":
                 return NORMAL;
             default:
                 return GUEST;
