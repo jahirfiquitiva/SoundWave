@@ -61,7 +61,8 @@
                             </form>
                         </li>
                         <li>
-                            <a class="waves-effect waves-light" href="#">
+                            <a class="waves-effect waves-light" href="#!"
+                               onclick="updateComponents('upload-section')">
                                 <i class="mdi mdi-upload material-icons"></i>
                             </a>
                         </li>
@@ -332,6 +333,27 @@
             </div>
             <!-- Fin seccion acerca de -->
 
+            <!-- -- inicio de upload -->
+            <div id="upload-section" style="display: none;">
+                <div class="container">
+                    <form  action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Nueva canción</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+            <!--  fin de upload-->
+
         </main>
 
         <!-- inicio player -->
@@ -399,15 +421,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth:    280, // Default is 300
-                                              edge:         'left', // Choose the horizontal origin
+                                              menuWidth: 280, // Default is 300
+                                              edge: 'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable:    true // Choose whether you can drag to open on touch screens
+                                              draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval:   2500
+                                    interval: 2500
                                 });
         </script>
         <script type="text/javascript">
