@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.edu.uptc.music.logic.managers.PlaylistManager;
+import co.edu.uptc.music.logic.managers.SongsManager;
 import co.edu.uptc.music.logic.managers.UsersManager;
-import co.edu.uptc.music.persistence.SongSQL;
+import co.edu.uptc.music.persistence.SongDAO;
 
-@WebServlet(name = "PlaylistsServlet")
+@WebServlet(name = "PlaylistsServlet", urlPatterns = {"/PlaylistsServlet"})
 public class PlaylistsServlet extends HttpServlet {
 
-    PlaylistManager playlist = new PlaylistManager();
-    SongSQL songSQL = new SongSQL();
+    SongsManager playlist = new SongsManager();
+    SongDAO dao = new SongDAO();
     UsersManager user = new UsersManager();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -27,24 +27,27 @@ public class PlaylistsServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
-        System.out.print("entrando");
+
         int opc = Integer.valueOf(request.getParameter("data"));
 
-
+        //System.out.print("entrando playlists"+opc);
         try (PrintWriter writer = response.getWriter()) {
-
+            String username = request.getParameter("username");
+            String id = user.findItem(username).getId();
             if (opc == 1) {
                 user.load();
                 String songId = request.getParameter("songId");
-                String username = request.getParameter("username");
-                String id = user.findItem(username).getId();
-                songSQL.addListToUser("PL000", id);
-                songSQL.addSongsToPlaylist("PL000", "songId");
+                System.out.println("nameUser" + username);
+                System.out.println("idUser" + id);
+                dao.addListToUser("FAVS", id);
+                dao.addSongsToPlaylist("FAVS", songId);
+                System.out.print("añadido con exito");
                 writer.print("{\"code\": 4}");
+
             } else if (opc == 2) {
-
+                playlist.loadFavorites(id);
                 playlist.getList();
-
+                System.out.print("tamaño lista" + playlist.getList().size());
                 if (playlist.getList().size() > 0) {
                     writer.print("{\"songs\":" + gson.toJson(playlist.getList()) + "}");
                 }

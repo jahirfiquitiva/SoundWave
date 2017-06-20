@@ -331,34 +331,6 @@
 
             <!-- Inicio de lista de playlists -->
             <div id="playlists_list" style="display:none;" class="section-content">
-                <h3 class="cyan-text section-title">Tus PlayLists</h3>
-                <div class="container">
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h4>Listas de reproduccion</h4></li>
-                        <li class="collection-item">
-                            <div class="playlist-title">
-                                Music
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Colegio
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Gym
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <!-- fin de lista de playlists -->
 
@@ -475,7 +447,7 @@
                 <i class="mdi mdi-volume-low volume-icon" onclick="volumeDown()"></i>
             </div>
             <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
-                   crossorigin="">
+                   current-song-id="" crossorigin="">
                 <source src="" type="audio/mpeg"/>
             </audio>
         </div>
