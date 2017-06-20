@@ -94,6 +94,10 @@ nav .brand-logo.left {
     float: right;
 }
 
+.btn:hover{
+    background-color: #4285f4;
+}
+
 .slides .caption {
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -317,3 +321,4 @@ nav .brand-logo.left {
     margin-left: auto;
     margin-right: auto;
 }
+
