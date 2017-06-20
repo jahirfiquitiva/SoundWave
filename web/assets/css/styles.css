@@ -299,3 +299,11 @@ nav .brand-logo.left {
 .btn {
     margin: 4px;
 }
+
+.collection .collection-item.avatar i.circle {
+    font-size: 24px;
+}
+
+.collection .collection-item.avatar {
+    min-height: 64px;
+}

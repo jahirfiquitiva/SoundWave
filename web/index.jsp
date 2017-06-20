@@ -20,18 +20,18 @@
         <meta name="theme-color" content="#4285F4">
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="assets/favicons/sw-72.png">
-        <link rel="apple-touch-icon" href="assets/favicons/sw-57.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw-72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw-114.png">
-        <link rel="apple-touch-icon-precomposed" href="favicons/sw-32.png">
+        <link rel="shortcut icon" href="assets/favicons/sw72.png">
+        <link rel="apple-touch-icon" href="assets/favicons/sw57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw114.png">
+        <link rel="apple-touch-icon-precomposed" href="favicons/sw32.png">
 
-        <link rel="icon" href="assets/favicons/sw-32.png" sizes="32x32">
+        <link rel="icon" href="assets/favicons/sw32.png" sizes="32x32">
         <meta name="msapplication-TileColor" content="#4285F4">
-        <meta name="msapplication-TileImage" content="assets/favicons/sw-72.png">
+        <meta name="msapplication-TileImage" content="assets/favicons/sw72.png">
     </head>
 
-    <body onload="loadSongs()">
+    <body onload="loadSongs();">
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -51,9 +51,7 @@
                                     <input id="search" type="search" required>
 
                                     <label class="label-icon" for="search">
-
                                         <i class="mdi mdi-magnify material-icons"></i>
-
                                     </label>
                                     <i class="mdi mdi-close material-icons"></i>
                                 </div>
@@ -90,7 +88,7 @@
                 <div class="divider"></div>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('songs');loadSongs()">
+                <a class="waves-effect" href="#!" onclick="updateComponents('songs');">
                     <i class="mdi mdi-music-circle"></i>
                     Canciones
                 </a>
@@ -125,12 +123,24 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!" onclick="updateComponents('playlists-list')">
-                    <i class="material-icons">queue_music</i>
+                    <i class="mdi mdi-library-music"></i>
                     Listas de reproduccion
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('account-container')">Cuenta</a>
+                <a class="waves-effect" href="#!" onclick="updateComponents('account-container')">
+                    <i class="mdi mdi-account-circle"></i>
+                    Cuenta
+                </a>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a class="waves-effect" href="#!" onclick="updateComponents('about-section')">
+                    <i class="mdi mdi-information"></i>
+                    Acerca de
+                </a>
             </li>
         </ul>
         <!-- fin MENU INTEMS-->
@@ -432,6 +442,33 @@
                 </div>
             </div>
             <!-- Fin lista de favoritos -->
+
+            <!-- Inicio seccion acerca de -->
+            <div id="about-section" style="display: none;">
+                <div class="container">
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h4>Aplicacion desarrollada por:</h4></li>
+                        <li class="collection-item avatar">
+                            <img src="https://github.com/jahirfiquitiva/Website-Resources/raw/master/myself/me-square-white.png"
+                                 alt="" class="circle">
+                            <span class="title">Jahir Fabian Fiquitiva Ricaurte</span>
+                            <p>201521721</p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="mdi mdi-account circle cyan">insert_chart</i>
+                            <span class="title">Sergio Andres Rojas Leon</span>
+                            <p>201520089</p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="mdi mdi-account circle green">insert_chart</i>
+                            <span class="title">Victor Andres Suarez Cardenas</span>
+                            <p>20152xxxx</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin seccion acerca de -->
+
         </main>
 
         <!-- inicio player -->

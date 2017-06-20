@@ -110,6 +110,7 @@ function updateComponents(idMenu) {
     changeVisibility("genres", idMenu === "genres");
     changeVisibility("list-favorite", idMenu === "list-favorite");
     changeVisibility("playlists-list", idMenu === "playlists-list");
+    changeVisibility("about-section", idMenu === "about-section");
 }
 
 function showRegister() {
