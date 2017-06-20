@@ -68,7 +68,7 @@ CREATE TABLE `PLAYLISTS` (
 
 LOCK TABLES `PLAYLISTS` WRITE;
 /*!40000 ALTER TABLE `PLAYLISTS` DISABLE KEYS */;
-INSERT INTO `PLAYLISTS` VALUES ('PL001','TEST'),('PL002','TEST1'),('PL003','TEST2');
+INSERT INTO `PLAYLISTS` VALUES ('FAVS','Favorites');
 /*!40000 ALTER TABLE `PLAYLISTS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +95,6 @@ CREATE TABLE `PLAYLISTS_USERS` (
 
 LOCK TABLES `PLAYLISTS_USERS` WRITE;
 /*!40000 ALTER TABLE `PLAYLISTS_USERS` DISABLE KEYS */;
-INSERT INTO `PLAYLISTS_USERS` VALUES ('PL001','U0004'),('PL002','U0004'),('PL003','U0004');
 /*!40000 ALTER TABLE `PLAYLISTS_USERS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,17 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2017-06-19 22:22:49
-
- INSERT INTO `PLAYLISTS` VALUES ('PL001','TEST'),('PL002','TEST1'),('PL003','TEST2');
- INSERT INTO `PLAYLISTS_USERS` VALUES ('PL001','U0004'),('PL002','U0004'),('PL003','U0004');
-
-select *from playlists;
-
-select *from playlists;
-
-select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from users inner join (playlists_users inner join (playlists inner join (songs_playlists inner join songs on songs_playlists.F_SONG_ID=songs.SONG_ID) on playlists.PL_ID=songs_playlists.F_PL_ID) on playlists_users.F_PL_ID=playlists.PL_ID) on users.USER_ID=playlists_users.F_USER_ID ;
-=======
--- Dump completed on 2017-06-20 10:51:02
->>>>>>> 3e13854fff1ffd6ed31137ff4bcd78b14f3cd6ca
+-- Dump completed on 2017-06-20 11:29:42
