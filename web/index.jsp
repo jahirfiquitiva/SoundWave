@@ -449,7 +449,7 @@
                     <i class="material-icons">grade</i>
                 </a>
 
-                <i class="mdi mdi-skip-previous waves-ripple"></i>
+                <i class="mdi mdi-skip-previous waves-ripple" onclick="playPrevious()"></i>
 
                 <a class="waves-ripple" onclick="seek(false)">
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
@@ -464,14 +464,14 @@
                 <a class="waves-ripple" onclick="seek(true)">
                     <i class="mdi mdi-skip-forward waves-ripple"></i>
                 </a>
-                <i class="mdi mdi-skip-next waves-ripple"></i>
+                <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
                 <a class="waves-ripple pulse" onclick="addplayList()">
                     <i class="material-icons">playlist_add</i>
                 </a>
             </div>
             <div class="whole-volume-container">
-                <i class="mdi mdi-volume-high volume-icon-low"></i>
+                <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
                 <div class="volume-container">
                     <form>
                         <p class="range-field">
@@ -480,9 +480,10 @@
                         </p>
                     </form>
                 </div>
-                <i class="mdi mdi-volume-low volume-icon"></i>
+                <i class="mdi mdi-volume-low volume-icon" onclick="volumeDown()"></i>
             </div>
-            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()">
+            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
+                   crossorigin="">
                 <source src="" type="audio/mpeg"/>
             </audio>
         </div>

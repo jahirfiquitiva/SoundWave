@@ -138,7 +138,6 @@ function loadArtists() {
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
-                console.log(xhr.responseText);
                 var json = JSON.parse(xhr.responseText);
                 var list = document.getElementById("artists-collection");
                 list.innerHTML = "<li class=\"collection-header\"><h4>Artistas</h4></li>";
@@ -163,20 +162,6 @@ function loadArtists() {
                         li.appendChild(pp);
 
                         list.appendChild(li);
-
-                        /*
-                         <li class="collection-item avatar">
-                         <img src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
-                         alt="" class="circle">
-                         <span class="title">NCS </span>
-                         <p>NCS Release <br>
-                         Genero: Mix ING.Electronica
-                         </p>
-                         <a href="#!" class="secondary-content">
-                         <i class="mdi mdi-library-music"></i>
-                         </a>
-                         </li>
-                         */
                     }
                 }
             }

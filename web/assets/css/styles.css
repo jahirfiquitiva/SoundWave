@@ -286,6 +286,7 @@ nav .brand-logo.left {
     color: rgba(0, 0, 0, 0.38);
     margin-top: -36px;
     margin-right: 95%;
+    cursor: pointer;
 }
 
 .volume-icon-low {
@@ -294,6 +295,7 @@ nav .brand-logo.left {
     color: rgba(0, 0, 0, 0.38);
     margin-top: 24px;
     margin-right: 25%;
+    cursor: pointer;
 }
 
 .btn {
