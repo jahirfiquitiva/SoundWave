@@ -62,7 +62,16 @@ function loadSongsViews(list) {
         "<a class=\"waves-effect btn cyan\" onclick=\"loadSongsByArtist()\">Artista</a>";
     songs.innerHTML +=
         "<a class=\"waves-effect btn cyan\" onclick=\"loadSongs()\">Sin filtros</a></div>";
+    realLoadSongsViews(list, songs);
+}
 
+function loadFavoritesViews(list) {
+    var songs = document.getElementById("favorites-list");
+    songs.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
+    realLoadSongsViews(list, songs);
+}
+
+function realLoadSongsViews(list, songs) {
     var row = document.createElement("div");
     row.setAttribute("class", "row");
     for (var i = 0; i < list.length; i++) {

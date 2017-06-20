@@ -114,7 +114,7 @@ function updateComponents(idMenu) {
     changeVisibility("account-container", idMenu === "account-container");
     changeVisibility("artists-list", idMenu === "artists-list");
     changeVisibility("genres", idMenu === "genres");
-    changeVisibility("list-favorite", idMenu === "list-favorite");
+    changeVisibility("favorites-list", idMenu === "favorites-list");
     changeVisibility("playlists_list", idMenu === "playlists_list");
     changeVisibility("about-section", idMenu === "about-section");
     if (idMenu === "artists-list" && !artistsLoaded) {
@@ -126,7 +126,7 @@ function updateComponents(idMenu) {
     } else if (idMenu === "genres" && !genresLoaded) {
         loadGenres();
         genresLoaded = true;
-    } else if (idMenu === "list" && !favoritesLoaded) {
+    } else if (idMenu === "favorites-list" && !favoritesLoaded) {
         loadFavorites();
         favoritesLoaded = true;
     } else if (idMenu === "playlists_list" && !playlistsLoaded) {

@@ -119,7 +119,7 @@
                 <a class="subheader">Personal</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('list')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('favorites-list')">
                     <i class="mdi mdi-heart"></i>
                     Favoritos
                 </a>
@@ -298,35 +298,7 @@
             <!-- fin de lista de playlists -->
 
             <!-- Lista de Facoritos -->
-            <div id="list-favorite" style="display:none;" class="section-content">
-                <h3 class="cyan-text section-title">Favoritos</h3>
-                <div class="container">
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h4>Mis favoritos</h4></li>
-                        <li class="collection-item">
-                            <div class="playlist-title">
-                                Riot
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Psycho
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Free
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div id="favorites-list" style="display:none;" class="section-content">
             </div>
             <!-- Fin lista de favoritos -->
 
