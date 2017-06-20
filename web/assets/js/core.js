@@ -5,8 +5,6 @@
 var songsLoaded = false;
 var artistsLoaded = false;
 var genresLoaded = false;
-var favoritesLoaded = false;
-var playlistsLoaded = false;
 
 function login() {
     var xhr = new XMLHttpRequest();
@@ -106,6 +104,10 @@ function logout() {
     changeVisibility("login", true);
     changeVisibility("logout", false);
     changeVisibility("login-section", true);
+    var dtls = document.getElementById("user-details");
+    if (dtls !== null) {
+        dtls.setAttribute("data-username", "");
+    }
     removeFocuses();
 }
 
@@ -114,7 +116,7 @@ function updateComponents(idMenu) {
     changeVisibility("account-container", idMenu === "account-container");
     changeVisibility("artists-list", idMenu === "artists-list");
     changeVisibility("genres", idMenu === "genres");
-    changeVisibility("list-favorite", idMenu === "list-favorite");
+    changeVisibility("favorites-list", idMenu === "favorites-list");
     changeVisibility("playlists_list", idMenu === "playlists_list");
     changeVisibility("about-section", idMenu === "about-section");
     if (idMenu === "artists-list" && !artistsLoaded) {
@@ -126,12 +128,10 @@ function updateComponents(idMenu) {
     } else if (idMenu === "genres" && !genresLoaded) {
         loadGenres();
         genresLoaded = true;
-    } else if (idMenu === "list" && !favoritesLoaded) {
+    } else if (idMenu === "favorites-list") {
         loadFavorites();
-        favoritesLoaded = true;
-    } else if (idMenu === "playlists_list" && !playlistsLoaded) {
+    } else if (idMenu === "playlists_list") {
         loadPlayList();
-        playlistsLoaded = true;
     }
 }
 

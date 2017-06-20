@@ -35,20 +35,27 @@ function addToFavorites() {
 function loadFavorites() {
     var xhr = new XMLHttpRequest();
     var username = document.getElementById("user-details").getAttribute("data-username");
-    var toSend = "username=" + username + "&data=2";
-    xhr.open("POST", "PlaylistsServlet", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.status === 200 && xhr.readyState === 4) {
-            if (xhr.responseText.length > 0) {
-                var json = JSON.parse(xhr.responseText);
-                if (json.songs !== undefined) {
-                    loadSongsViews(json.songs);
+    if (username !== null && username !== undefined && username.length > 0) {
+        var toSend = "username=" + username + "&data=2";
+        xhr.open("POST", "PlaylistsServlet", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                if (xhr.responseText.length > 0) {
+                    var json = JSON.parse(xhr.responseText);
+                    if (json.songs !== undefined) {
+                        loadFavoritesViews(json.songs);
+                    }
+                } else {
+                    loadFavoritesViews(null);
                 }
             }
-        }
-    };
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(toSend);
+        };
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(toSend);
+    } else {
+        loadFavoritesViews(null);
+        Materialize.toast("No ha iniciado sesion!", 2000);
+    }
 }
 
 function addToPlaylist() {

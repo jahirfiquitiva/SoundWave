@@ -119,7 +119,7 @@
                 <a class="subheader">Personal</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('list')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('favorites-list')">
                     <i class="mdi mdi-heart"></i>
                     Favoritos
                 </a>
@@ -298,35 +298,7 @@
             <!-- fin de lista de playlists -->
 
             <!-- Lista de Facoritos -->
-            <div id="list-favorite" style="display:none;" class="section-content">
-                <h3 class="cyan-text section-title">Favoritos</h3>
-                <div class="container">
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h4>Mis favoritos</h4></li>
-                        <li class="collection-item">
-                            <div class="playlist-title">
-                                Riot
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Psycho
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="collection-item">
-                            <div>Free
-                                <a href="#!" class="secondary-content">
-                                    <i class="mdi mdi-play"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div id="favorites-list" style="display:none;" class="section-content">
             </div>
             <!-- Fin lista de favoritos -->
 
@@ -395,7 +367,9 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <i class="mdi mdi-playlist-plus waves-ripple" onclick="addToPlaylist()"></i>
+                <a href="#modal1">
+                    <i class="mdi mdi-playlist-plus waves-ripple"></i>
+                </a>
             </div>
             <div class="whole-volume-container">
                 <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
@@ -416,6 +390,23 @@
         </div>
         <!-- fin player -->
 
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Añadir a Lista de Reproducion</h4>
+                <p>
+
+                    Listas de Reproducion <select id="list"></select>
+                    Nueva Lista:<br> <input type="text" id="lis"><br>
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+            <!-- onclick="addToPlaylist()" -->
+        </div>
+
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>
         <script src="assets/js/music.js"></script>
@@ -427,22 +418,32 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth:    280, // Default is 300
-                                              edge:         'left', // Choose the horizontal origin
+                                              menuWidth: 280, // Default is 300
+                                              edge: 'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable:    true // Choose whether you can drag to open on touch screens
+                                              draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval:   2500
+                                    interval: 2500
                                 });
+            $('.modal').modal({
+                                  //metodo
+                                  ready: loadPlayList()
+                              }
+            );
         </script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('select').material_select();
             });
+            $(document).ready(function () {
+                // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+                $('.modal').modal();
+            });
         </script>
+
 
         <!--
          <form method="POST" action="ServUpload" enctype="multipart/form-data">
