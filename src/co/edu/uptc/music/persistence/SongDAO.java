@@ -44,7 +44,7 @@ public class SongDAO {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-               // return statement.executeQuery(songSQL.songsByArtists());
+                // return statement.executeQuery(songSQL.songsByArtists());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -100,7 +100,6 @@ public class SongDAO {
         return false;
     }
 
-
     public ResultSet PlayFavorites(String idUser) {
 
         if (connection.connectToDB()) {
@@ -114,5 +113,28 @@ public class SongDAO {
         return null;
     }
 
+    public void addSongsToPlaylist(String idList, String idSong) {
 
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                statement.executeUpdate(songSQL.addSongsToPlaylist(idList, idSong));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void addListToUser(String idList, String idUser) {
+
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                statement.executeUpdate(songSQL.addSongsToPlaylist(idList, idUser));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

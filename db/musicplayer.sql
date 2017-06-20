@@ -246,3 +246,12 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-06-19 22:22:49
+
+ INSERT INTO `PLAYLISTS` VALUES ('PL001','TEST'),('PL002','TEST1'),('PL003','TEST2');
+ INSERT INTO `PLAYLISTS_USERS` VALUES ('PL001','U0004'),('PL002','U0004'),('PL003','U0004');
+
+select *from playlists;
+
+select *from playlists;
+
+select songs.NAME,songs.GENRE,songs.ARTIST,songs.LENGTH from users inner join (playlists_users inner join (playlists inner join (songs_playlists inner join songs on songs_playlists.F_SONG_ID=songs.SONG_ID) on playlists.PL_ID=songs_playlists.F_PL_ID) on playlists_users.F_PL_ID=playlists.PL_ID) on users.USER_ID=playlists_users.F_USER_ID ;

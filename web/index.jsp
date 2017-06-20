@@ -477,7 +477,7 @@
                 <i class="mdi mdi-volume-low volume-icon" onclick="volumeDown()"></i>
             </div>
             <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
-                   crossorigin="">
+                   current-song-id="" crossorigin="">
                 <source src="" type="audio/mpeg"/>
             </audio>
         </div>
