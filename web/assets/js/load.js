@@ -8,7 +8,6 @@ function loadSongs() {
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
-                console.log(xhr.responseText);
                 var json = JSON.parse(xhr.responseText);
                 if (json.songs !== undefined) {
                     loadSongsViews(json.songs);
@@ -244,7 +243,7 @@ function loadGenres() {
 
 function loadPlayList() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST","PlaylistsServlet",true);
+    xhr.open("POST", "PlaylistsServlet", true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
