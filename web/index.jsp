@@ -395,7 +395,7 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <i class="mdi mdi-playlist-plus waves-ripple" onclick="addToPlaylists()"></i>
+                <i class="mdi mdi-playlist-plus waves-ripple" onclick="addToPlaylist()"></i>
             </div>
             <div class="whole-volume-container">
                 <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
