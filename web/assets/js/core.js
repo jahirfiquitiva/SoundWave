@@ -139,6 +139,7 @@ function updateComponents(idMenu) {
         changeVisibility("favorites-list", idMenu === "favorites-list");
         changeVisibility("playlists_list", idMenu === "playlists_list");
         changeVisibility("about-section", idMenu === "about-section");
+        changeVisibility("upload-section", false);
     }
 }
 
@@ -154,8 +155,8 @@ function validateUser() {
                     var json = JSON.parse(xhr.responseText);
                     if (json.code !== undefined) {
                         if (json.code === 1) {
-                            changeVisibility("upload-section", true);
                             updateComponents("-");
+                            changeVisibility("upload-section", true);
                         }
                     }
                 }
