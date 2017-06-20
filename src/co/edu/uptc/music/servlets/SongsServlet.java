@@ -25,7 +25,10 @@ public class SongsServlet extends HttpServlet {
             throws Exception {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+
+
         Gson gson = new Gson();
+        System.out.print("entrando a song servlet");
         String data = request.getParameter("data");
         int opc = Integer.parseInt(data);
         try (PrintWriter writer = response.getWriter()) {

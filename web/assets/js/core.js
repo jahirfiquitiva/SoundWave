@@ -91,6 +91,8 @@ function createUser() {
     }
 }
 
+
+
 function logout() {
     Materialize.toast("Adios " + document.getElementById("user-name").innerHTML, 2000);
     document.getElementById("username").value = "";

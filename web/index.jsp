@@ -442,7 +442,7 @@
             </div>
 
             <div class="buttons">
-                <a class="waves-ripple" onclick="addfavorites()">
+                <a class="waves-ripple" onclick="addToFavorites()">
                     <i class="material-icons">grade</i>
                 </a>
 
