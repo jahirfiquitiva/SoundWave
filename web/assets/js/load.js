@@ -53,6 +53,28 @@ function loadSongsByGenre() {
     xhr.send("data=3");
 }
 
+function searchSong() {
+    var searchInput = document.getElementById("search").value;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "SongsServlet", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var json = JSON.parse(xhr.responseText);
+                if (json.songs !== undefined) {
+                    loadResultsViews(json.songs);
+                } else {
+                    loadResultsViews(null);
+                }
+            } else {
+                loadResultsViews(null);
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("data=5&search=" + searchInput);
+}
+
 function loadSongsViews(list) {
     var songs = document.getElementById("songs");
     songs.innerHTML = "";
@@ -73,6 +95,19 @@ function loadFavoritesViews(list) {
         favorites.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
         realLoadSongsViews(list, favorites);
     }
+}
+
+function loadResultsViews(list) {
+    var songs = document.getElementById("search-results");
+    songs.innerHTML = "";
+    songs.innerHTML = "<h3 class=\"cyan-text section-title\">Resultados</h3>";
+    if (list !== null && list !== undefined && list.length > 0) {
+        realLoadSongsViews(list, songs);
+    } else {
+        songs.innerHTML +=
+            "<h5 class=\"secondary-text\" style=\"margin-left: 8px; \">No hay resultados para tu busqueda</h5>";
+    }
+    updateComponents("search-results");
 }
 
 function realLoadSongsViews(list, songs) {

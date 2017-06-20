@@ -67,8 +67,8 @@ public class SongDAO {
         if (connection.connectToDB()) {
             Statement statement = connection.getConnection().createStatement();
             statement.executeUpdate(songSQL.insertSong(song.getId(), song.getName(),
-                    String.valueOf(song.getLength()), song.getArtist().getGenre().getName(),
-                    song.getArtist().getUsername(), song.getPath()));
+                    song.getArtist().getGenre().getName(), song.getArtist().getUsername(),
+                    song.getPath()));
         }
     }
 

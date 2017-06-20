@@ -32,14 +32,6 @@ public class Playlist extends BaseManager<Song> {
         removeItem(findItem(name));
     }
 
-    public int getLength() {
-        int length = 0;
-        for (Song s : songs) {
-            length += s.getLength();
-        }
-        return length;
-    }
-
     @Override
     public Song findItem(String s) {
         for (Song song : getList()) {

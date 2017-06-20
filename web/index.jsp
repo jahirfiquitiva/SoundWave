@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="assets/css/materialize.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- 'theme-color' will set background color in Chrome browser on Android 5.0+ -->
         <meta name="theme-color" content="#4285F4">
@@ -51,8 +50,7 @@
                         <li>
                             <form>
                                 <div class="input-field">
-                                    <input id="search" type="search" required>
-
+                                    <input id="search" type="search" required onblur="searchSong()">
                                     <label class="label-icon" for="search">
                                         <i class="mdi mdi-magnify material-icons"></i>
                                     </label>
@@ -155,6 +153,11 @@
             <div id="songs" style="display:none;" class="section-content">
             </div>
             <!-- Final canciones -->
+
+            <!-- Inicio resultados -->
+            <div id="search-results" style="display:none;" class="section-content">
+            </div>
+            <!-- Final resultados -->
 
             <!-- Inicio seccion cuenta -->
             <div id="account-container">
@@ -347,7 +350,6 @@
                             </div>
                         </div>
 
-
                     </form>
                 </div>
             </div>
@@ -421,7 +423,8 @@
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
-                   onclick="addToPlaylist()">Añadir</a>
+                   onclick="addToPlaylist()">Añadir
+                </a>
             </div>
         </div>
 
@@ -436,15 +439,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth: 280, // Default is 300
-                                              edge: 'left', // Choose the horizontal origin
+                                              menuWidth:    280, // Default is 300
+                                              edge:         'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable: true // Choose whether you can drag to open on touch screens
+                                              draggable:    true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval: 2500
+                                    interval:   2500
                                 });
         </script>
         <script type="text/javascript">

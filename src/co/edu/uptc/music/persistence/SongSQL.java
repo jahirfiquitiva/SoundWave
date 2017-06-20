@@ -10,10 +10,9 @@ public class SongSQL {
         return "SELECT * FROM SONGS WHERE SONG_ID=\'" + idSong + "\';";
     }
 
-    public String insertSong(String id, String name, String artist, String genre, String length,
-                             String path) {
+    public String insertSong(String id, String name, String artist, String genre, String path) {
         return "INSERT INTO SONGS VALUES(\'" + id + "\',\'" + name + "\',\'" + artist +
-                "\',\'" + genre + "\'," + length + ",\'" + path + "\')";
+                "\',\'" + genre + ",\'" + path + "\')";
     }
 
     public String deleteSong(String idSong) {
@@ -43,7 +42,6 @@ public class SongSQL {
                 ".F_USER_ID " + "WHERE USERS.USER_ID=\'" + userId + "\' AND PLAYLISTS" +
                 ".PL_ID=\'FAVS\'";
     }
-
 
 
     public String addPlayList(String id, String name) {
