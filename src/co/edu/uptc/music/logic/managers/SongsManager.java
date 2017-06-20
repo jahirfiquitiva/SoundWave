@@ -2,22 +2,34 @@ package co.edu.uptc.music.logic.managers;
 
 import java.sql.ResultSet;
 
+import co.edu.uptc.music.logic.models.Artist;
 import co.edu.uptc.music.logic.models.GenreType;
 import co.edu.uptc.music.logic.models.Song;
+import co.edu.uptc.music.logic.models.User;
+import co.edu.uptc.music.logic.models.UserType;
 import co.edu.uptc.music.persistence.SongDAO;
 
 public class SongsManager extends BaseManager<Song> {
 
+    private UsersManager users;
     private SongDAO songDAO;
 
     public SongsManager() {
-        songDAO = new SongDAO();
+        this.songDAO = new SongDAO();
+        this.users = new UsersManager();
+        users.load();
     }
 
-    public boolean addSong(String id, String name, String artist, String genre, int length,
-                           String path, String img) {
-        return addItem(new Song(id, name, artist, GenreType.getGenreForString(genre), length, path,
-                img));
+    private boolean addSong(String id, String name, String artist, String genre, int length,
+                            String path, String img) {
+        User nArtist = users.findItem(artist);
+        if (nArtist != null && nArtist.getType() == UserType.ARTIST) {
+            Artist art = new Artist(nArtist.getId(), nArtist.getType(),
+                    nArtist.getName(), nArtist.getEmail(), nArtist.getUsername(),
+                    nArtist.getPassword(), GenreType.getGenreForString(genre), img);
+            return addItem(new Song(id, name, art, length, path, img));
+        }
+        return false;
     }
 
     public boolean removeSong(String name) {
@@ -56,8 +68,7 @@ public class SongsManager extends BaseManager<Song> {
                     String length = rs.getString("LENGTH");
                     String path = rs.getString("FILE_PATH");
                     String img = rs.getString("IMG_PATH");
-                    addItem(new Song(id, name, artist, GenreType.getGenreForString(genre),
-                            Integer.parseInt(length), path, img));
+                    addSong(id, name, artist, genre, Integer.parseInt(length), path, img);
                 }
             } catch (Exception ignored) {
             }
