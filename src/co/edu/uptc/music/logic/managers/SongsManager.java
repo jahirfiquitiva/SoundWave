@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 
 import co.edu.uptc.music.logic.models.Artist;
 import co.edu.uptc.music.logic.models.GenreType;
+import co.edu.uptc.music.logic.models.Playlist;
 import co.edu.uptc.music.logic.models.Song;
 import co.edu.uptc.music.logic.models.User;
 import co.edu.uptc.music.logic.models.UserType;
@@ -13,6 +14,7 @@ public class SongsManager extends BaseManager<Song> {
 
     private UsersManager users;
     private SongDAO songDAO;
+    private Playlist list;
 
     public SongsManager() {
         this.songDAO = new SongDAO();
@@ -62,12 +64,11 @@ public class SongsManager extends BaseManager<Song> {
 
     public void loadListUser(String iduUser) {
 
-
-
-
+        internalLoad(songDAO.queryList(iduUser));
     }
 
     private void internalLoad(ResultSet rs) {
+
         if (rs != null) {
             try {
                 clearList();
@@ -86,4 +87,25 @@ public class SongsManager extends BaseManager<Song> {
         }
     }
 
+
+
+
+
+    private void InternalLoadlist(ResultSet rs) {
+        if (rs != null) {
+            try {
+                clearList();
+                while (rs.next()) {
+
+                    String id = rs.getString("PL_ID");
+                    String name = rs.getString("NAME");
+
+                    //addSong(id, name, artist, genre, Integer.parseInt(length), path, img);
+                }
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
 }
+

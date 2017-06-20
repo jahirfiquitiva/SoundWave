@@ -103,7 +103,7 @@ public class SongDAO {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                return statement.executeQuery(songSQL.queryFavorites(idUser));
+                return statement.executeQuery(songSQL.QueryList(idUser));
             } catch (Exception e) {
                 e.printStackTrace();
             }
