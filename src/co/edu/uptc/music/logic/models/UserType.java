@@ -14,7 +14,7 @@ public enum UserType {
     }
 
     public static UserType getUserForString(String type) {
-        switch (type) {
+        switch (type.toUpperCase()) {
             case "US01":
                 return ADMIN;
             case "US02":
