@@ -55,6 +55,7 @@ function loadSongsByGenre() {
 
 function loadSongsViews(list) {
     var songs = document.getElementById("songs");
+    songs.innerHTML = "";
     songs.innerHTML = "<h3 class=\"cyan-text section-title\">Canciones</h3>";
     songs.innerHTML +=
         "<div><a class=\"waves-effect btn cyan\" onclick=\"loadSongsByGenre()\">Genero</a>";
@@ -66,9 +67,12 @@ function loadSongsViews(list) {
 }
 
 function loadFavoritesViews(list) {
-    var songs = document.getElementById("favorites-list");
-    songs.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
-    realLoadSongsViews(list, songs);
+    var favorites = document.getElementById("favorites-list");
+    favorites.innerHTML = "";
+    if (list !== null && list !== undefined && list.length > 0) {
+        favorites.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
+        realLoadSongsViews(list, favorites);
+    }
 }
 
 function realLoadSongsViews(list, songs) {
