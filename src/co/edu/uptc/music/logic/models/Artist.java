@@ -2,10 +2,10 @@ package co.edu.uptc.music.logic.models;
 
 public class Artist {
     private String name;
-    private Genre genre;
+    private GenreType genre;
     private String img;
 
-    public Artist(String name, Genre genre, String img) {
+    public Artist(String name, GenreType genre, String img) {
         this.name = name;
         this.genre = genre;
         this.img = img;
@@ -15,7 +15,7 @@ public class Artist {
         return name;
     }
 
-    public Genre getGenre() {
+    public GenreType getGenre() {
         return genre;
     }
 
