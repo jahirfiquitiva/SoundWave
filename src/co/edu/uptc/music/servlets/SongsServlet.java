@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.edu.uptc.music.logic.managers.SongsManager;
+import co.edu.uptc.music.logic.managers.UsersManager;
 import co.edu.uptc.music.logic.models.Artist;
 import co.edu.uptc.music.logic.models.Song;
+import co.edu.uptc.music.logic.models.User;
+import co.edu.uptc.music.logic.models.UserType;
 
 @WebServlet(name = "SongsServlet", urlPatterns = {"/SongsServlet"})
 public class SongsServlet extends HttpServlet {
@@ -45,12 +48,19 @@ public class SongsServlet extends HttpServlet {
                     break;
             }
             if (opc == 4) {
+                UsersManager usrMan = new UsersManager();
+                usrMan.load();
                 ArrayList<Artist> artists = new ArrayList<>();
                 ArrayList<Song> songs = mngSong.getList();
                 for (Song song : songs) {
-                    Artist art = new Artist(song.getArtist(), song.getGenre(), song.getImg());
-                    if (!(artists.contains(art))) {
-                        artists.add(art);
+                    User artist = usrMan.findItem(song.getArtist());
+                    if (artist != null && artist.getType() == UserType.ARTIST) {
+                        Artist art = new Artist(artist.getId(), artist.getType(),
+                                artist.getName(), artist.getEmail(), artist.getUsername(),
+                                artist.getPassword(), song.getGenre(), song.getImg());
+                        if (!(artists.contains(art))) {
+                            artists.add(art);
+                        }
                     }
                 }
                 if (artists.size() > 0) {
