@@ -1,13 +1,14 @@
 package co.edu.uptc.music.logic.managers;
 
-import java.sql.ResultSet;
-
-import co.edu.uptc.music.logic.models.GenreType;
-import co.edu.uptc.music.logic.models.Playlist;
 import co.edu.uptc.music.logic.models.Song;
-import co.edu.uptc.music.persistence.SongDAO;
 
 public class PlaylistManager extends BaseManager<Song> {
+    @Override
+    public Song findItem(String s) {
+        return null;
+    }
+
+    /*
 
     private SongDAO songDAO;
     private SongsManager song;
@@ -24,9 +25,9 @@ public class PlaylistManager extends BaseManager<Song> {
         return null;
     }
 
-    /*public boolean addPlaylist(String name, String owner) {
+    public boolean addPlaylist(String name, String owner) {
         return addItem(new Playlist(name, owner));
-    }*/
+    }
 
     public boolean removePlaylist(String name) {
         return removeItem(findItem(name));
@@ -47,7 +48,6 @@ public class PlaylistManager extends BaseManager<Song> {
                     String length = rs.getString("LENGTH");
                     String path = rs.getString("FILE_PATH");
                     String img = rs.getString("IMG_PATH");
-
                     addItem(new Song(id, name, artist, GenreType.getGenreForString(genre),
                             Integer.parseInt(length), path, img));
                 }
@@ -57,13 +57,13 @@ public class PlaylistManager extends BaseManager<Song> {
     }
 
 
-   /* @Override
+    @Override
     public Playlist findItem(String s) {
         for (Playlist list : getList()) {
             if (list.getName().equalsIgnoreCase(s)) return list;
         }
         return null;
-    }*/
+    }
 
-
+*/
 }

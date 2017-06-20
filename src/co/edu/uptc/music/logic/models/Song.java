@@ -4,18 +4,15 @@ public class Song {
 
     private String id;
     private String name;
-    private String artist;
-    private GenreType genre;
+    private Artist artist;
     private int length;
     private String path;
     private String img;
 
-    public Song(String id, String name, String artist, GenreType genre, int length, String path,
-                String img) {
+    public Song(String id, String name, Artist artist, int length, String path, String img) {
         this.id = id;
         this.name = name;
         this.artist = artist;
-        this.genre = genre;
         this.length = length;
         this.path = path;
         this.img = img;
@@ -29,12 +26,12 @@ public class Song {
         return name;
     }
 
-    public String getArtist() {
+    public Artist getArtist() {
         return artist;
     }
 
-    public GenreType getGenre() {
-        return genre;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
     public int getLength() {
@@ -59,7 +56,6 @@ public class Song {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", artist='" + artist + '\'' +
-                ", genre='" + genre + '\'' +
                 ", length=" + length +
                 ", path='" + path + '\'' +
                 ", img='" + img + '\'' +

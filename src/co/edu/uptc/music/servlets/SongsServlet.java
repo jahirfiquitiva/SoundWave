@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.edu.uptc.music.logic.managers.SongsManager;
+import co.edu.uptc.music.logic.managers.UsersManager;
 import co.edu.uptc.music.logic.models.Artist;
 import co.edu.uptc.music.logic.models.Song;
 
@@ -25,7 +26,6 @@ public class SongsServlet extends HttpServlet {
             throws Exception {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-
 
         Gson gson = new Gson();
         String data = request.getParameter("data");
@@ -45,10 +45,12 @@ public class SongsServlet extends HttpServlet {
                     break;
             }
             if (opc == 4) {
+                UsersManager usrMan = new UsersManager();
+                usrMan.load();
                 ArrayList<Artist> artists = new ArrayList<>();
                 ArrayList<Song> songs = mngSong.getList();
                 for (Song song : songs) {
-                    Artist art = new Artist(song.getArtist(), song.getGenre(), song.getImg());
+                    Artist art = song.getArtist();
                     if (!(artists.contains(art))) {
                         artists.add(art);
                     }

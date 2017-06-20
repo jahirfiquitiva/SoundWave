@@ -121,7 +121,7 @@
             <li>
                 <a class="waves-effect" href="#!" onclick="updateComponents('list')">
                     <i class="mdi mdi-heart"></i>
-                    Favoritoses
+                    Favoritos
                 </a>
             </li>
             <li>
@@ -282,7 +282,6 @@
                 <div class="container">
                     <!-- Page Content goes here -->
                     <ul class="collection with-header" id="artists-collection">
-
                     </ul>
                 </div>
             </div>
@@ -383,7 +382,6 @@
                             <p>201521721</p>
                         </li>
                         <li class="collection-item avatar">
-
                             <img src="https://avatars1.githubusercontent.com/u/24307023?v=3&u=5b427b2395b788024075cb6a1de6e1b2c5245935&s=400"
                                  alt="" class="circle">
                             <span class="title">Sergio Andrés Rojas León</span>
@@ -434,9 +432,7 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <a class="waves-ripple pulse" onclick="addToPlaylist()">
-                    <i class="material-icons">playlist_add</i>
-                </a>
+                <i class="mdi mdi-playlist-plus waves-ripple" onclick="addToPlaylists()"></i>
             </div>
             <div class="whole-volume-container">
                 <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
@@ -468,15 +464,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth: 280, // Default is 300
-                                              edge: 'left', // Choose the horizontal origin
+                                              menuWidth:    280, // Default is 300
+                                              edge:         'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable: true // Choose whether you can drag to open on touch screens
+                                              draggable:    true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval: 2500
+                                    interval:   2500
                                 });
         </script>
         <script type="text/javascript">

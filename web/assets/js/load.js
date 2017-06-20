@@ -8,6 +8,7 @@ function loadSongs() {
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
+                console.log(xhr.responseText);
                 var json = JSON.parse(xhr.responseText);
                 if (json.songs !== undefined) {
                     loadSongsViews(json.songs);
@@ -81,7 +82,7 @@ function loadSongsViews(list) {
         item.setAttribute("data-song-id", list[i].id);
         item.setAttribute("data-path", list[i].path);
         item.setAttribute("data-name", list[i].name);
-        item.setAttribute("data-artist", list[i].artist);
+        item.setAttribute("data-artist", list[i].artist.name);
         item.setAttribute("onclick", "playSong(event)");
 
         var img = document.createElement("img");
@@ -101,7 +102,7 @@ function loadSongsViews(list) {
 
         var subtitle = document.createElement("h6");
         subtitle.setAttribute("class", "secondary-text");
-        subtitle.innerHTML = getShortText(list[i].artist);
+        subtitle.innerHTML = getShortText(list[i].artist.name);
 
         var dots = document.createElement("i");
         dots.setAttribute("class", "mdi mdi-dots-vertical menu");
