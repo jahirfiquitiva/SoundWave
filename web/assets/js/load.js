@@ -261,10 +261,7 @@ function loadPlayList() {
 
 function loadPlayListViews(list) {
     /**
-     *  <h3 class="cyan-text section-title">Tus PlayLists</h3>
-     <div class="container">
-     <ul class="collection with-header">
-     <li class="collection-header"><h4>Listas de reproduccion</h4></li>
+
      <li class="collection-item">
      <div class="playlist-title">
      Music
@@ -283,11 +280,21 @@ function loadPlayListViews(list) {
     var conta = document.createElement("div");
     conta.setAttribute("class", "container");
 
-    var ul= document.createElement("ui");
+    var ul= document.createElement("ul");
     ul.setAttribute("class","collection with-header");
 
-    var li= document.createElement("il");
+    var li= document.createElement("li");
     li.setAttribute("class","collection-header");
+
+     var ht= document.createElement("h4");
+     ht.innerHTML="Listas de reproduccion";
+
+     li.appendChild(ht);
+     ul.appendChild(li);
+
+
+     conta.appendChild(ul);
+
 
 
 
