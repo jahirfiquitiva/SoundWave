@@ -25,15 +25,9 @@ public class GenresServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         Gson gson = new Gson();
         String data = request.getParameter("data");
-        int opt = Integer.parseInt(data);
         try (PrintWriter writer = response.getWriter()) {
-            switch (opt) {
-                default:
-                case 1:
-                    genresManager.loadGenres();
-                    break;
+            genresManager.loadGenres();
 
-            }
             if (genresManager.getList().size() > 0) {
                 writer.print("{\"genres\":" + gson.toJson(genresManager.getList()) + "}");
             }

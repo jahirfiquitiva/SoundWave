@@ -170,3 +170,25 @@ function loadArtists() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
 }
+
+function loadGenre() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "GenresServlet", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                alert(a);
+                var json = JSON.parse(xhr.responseText);
+                var idGe = document.createElement("idge");
+                var descG = document.createElement("desge");
+                var pathIm = document.createElement("imGE");
+
+            }
+        } else {
+            alert("Oh oh ..")
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(null);
+}

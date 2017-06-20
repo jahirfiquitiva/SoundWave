@@ -442,7 +442,7 @@
             </div>
 
             <div class="buttons">
-                <a class="waves-ripple" onclick="addfavorites()">
+                <a class="waves-ripple" onclick="addToFavorites()">
                     <i class="material-icons">grade</i>
                 </a>
 
@@ -463,7 +463,7 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <a class="waves-ripple pulse" onclick="addplayList()">
+                <a class="waves-ripple pulse" onclick="addToPlaylist()">
                     <i class="material-icons">playlist_add</i>
                 </a>
             </div>
@@ -489,6 +489,7 @@
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>
         <script src="assets/js/music.js"></script>
+        <script src="assets/js/playlists.js"></script>
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/vibrant.min.js"></script>
