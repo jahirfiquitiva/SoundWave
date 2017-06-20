@@ -240,3 +240,56 @@ function loadGenres() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("");
 }
+
+function loadPlayList() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                var json = JSON.parse(a);
+                if (json.playlists_list !== undefined) {
+                    loadPlayListViews(json.playlists_list);
+                }
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("");
+}
+
+function loadPlayListViews(list) {
+    /**
+     *  <h3 class="cyan-text section-title">Tus PlayLists</h3>
+     <div class="container">
+     <ul class="collection with-header">
+     <li class="collection-header"><h4>Listas de reproduccion</h4></li>
+     <li class="collection-item">
+     <div class="playlist-title">
+     Music
+     <a href="#!" class="secondary-content">
+     <i class="mdi mdi-play"></i>
+     </a>
+     */
+    var playList = document.getElementById("playlists_list");
+    playList.innerHTML = "";
+
+    var h = document.createElement("h3");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Tus PlayList";
+    playList.appendChild(h);
+
+    var conta = document.createElement("div");
+    conta.setAttribute("class", "container");
+
+    var ul= document.createElement("ui");
+    ul.setAttribute("class","collection with-header");
+
+    var li= document.createElement("il");
+    li.setAttribute("class","collection-header");
+
+
+
+
+}

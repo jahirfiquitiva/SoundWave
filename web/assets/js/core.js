@@ -113,7 +113,7 @@ function updateComponents(idMenu) {
     changeVisibility("artists-list", idMenu === "artists-list");
     changeVisibility("genres", idMenu === "genres");
     changeVisibility("list-favorite", idMenu === "list-favorite");
-    changeVisibility("playlists-list", idMenu === "playlists-list");
+    changeVisibility("playlists_list", idMenu === "playlists_list");
     changeVisibility("about-section", idMenu === "about-section");
     if (idMenu === "artists-list" && !artistsLoaded) {
         loadArtists();

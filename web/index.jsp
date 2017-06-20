@@ -125,7 +125,7 @@
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('playlists-list')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('playlists_list')">
                     <i class="mdi mdi-library-music"></i>
                     Listas de reproduccion
                 </a>
@@ -331,7 +331,7 @@
             <!-- fin de lista de generos -->
 
             <!-- Inicio de lista de playlists -->
-            <div id="playlists-list" style="display:none;" class="section-content">
+            <div id="playlists_list" style="display:none;" class="section-content">
                 <h3 class="cyan-text section-title">Tus PlayLists</h3>
                 <div class="container">
                     <ul class="collection with-header">
@@ -411,8 +411,10 @@
                             <p>201521721</p>
                         </li>
                         <li class="collection-item avatar">
-                            <i class="mdi mdi-account circle cyan">insert_chart</i>
-                            <span class="title">Sergio Andres Rojas Leon</span>
+
+                            <img src="https://avatars1.githubusercontent.com/u/24307023?v=3&u=5b427b2395b788024075cb6a1de6e1b2c5245935&s=400"
+                                 alt="" class="circle">
+                            <span class="title">Sergio Andrés Rojas León</span>
                             <p>201520089</p>
                         </li>
                         <li class="collection-item avatar">
