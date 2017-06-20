@@ -40,7 +40,9 @@ function updateSongProgress() {
         document.getElementById("current-album").setAttribute("src", "");
         document.getElementById("song-detail-name").innerHTML = "";
         document.getElementById("song-detail-artist").innerHTML = "";
-        playAnother(true, player.getAttribute("current-song-id"));
+        if (player.getAttribute("from-search") === "false") {
+            playAnother(true, player.getAttribute("current-song-id"));
+        }
         return;
     }
     var played = (100 * player.currentTime) / player.duration;
@@ -61,7 +63,6 @@ function seek(forward) {
 }
 
 function moveSong(e) {
-
     var player = document.getElementById("song-player");
     var id = player.getAttribute("current-song-id");
     if (id === null || id === undefined || id.length <= 0) {
@@ -81,7 +82,7 @@ function moveSong(e) {
     updateSongProgress();
 }
 
-function playSong(e) {
+function playSong(e, fromSearch) {
     try {
         var panel = e.target.parentElement;
         if (panel !== null && panel !== undefined) {
@@ -98,6 +99,7 @@ function playSong(e) {
             if (path !== null && path !== undefined) {
                 var player = document.getElementById("song-player");
                 player.setAttribute("current-song-id", panel.getAttribute("data-song-id"));
+                player.setAttribute("from-search", fromSearch);
                 player.src = path;
                 for (var i = 0; i < panel.childNodes.length; i++) {
                     var child = panel.childNodes[i];
@@ -168,6 +170,7 @@ function playPrevious() {
     var player = document.getElementById("song-player");
     playAnother(false, player.getAttribute("current-song-id"));
 }
+
 function playNext() {
     var player = document.getElementById("song-player");
     playAnother(true, player.getAttribute("current-song-id"));

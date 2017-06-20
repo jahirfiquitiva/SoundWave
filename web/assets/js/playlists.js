@@ -14,7 +14,6 @@ function addToFavorites() {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     if (xhr.responseText.length > 0) {
-                        console.log(xhr.responseText);
                         var json = JSON.parse(xhr.responseText);
                         if (json.code === 1) {
                             Materialize.toast("Añadido a favoritos!", 2000);
@@ -41,6 +40,7 @@ function loadFavorites() {
         xhr.onreadystatechange = function () {
             if (xhr.status === 200 && xhr.readyState === 4) {
                 if (xhr.responseText.length > 0) {
+                    console.log(xhr.responseText);
                     var json = JSON.parse(xhr.responseText);
                     if (json.songs !== undefined) {
                         loadFavoritesViews(json.songs);
@@ -61,7 +61,7 @@ function loadFavorites() {
 function validateLogin() {
     var username = document.getElementById("user-details").getAttribute("data-username");
     if (username !== null && username !== undefined && username.length > 0) {
-        $('#modal1').modal('open');
+        $("#modal1").modal("open");
     } else {
         Materialize.toast("No ha iniciado sesion!", 2000);
     }
@@ -81,38 +81,30 @@ function addToPlaylist() {
     } else {
         Materialize.toast("No ha iniciado sesion!", 2000);
     }
+}
 
-    function loadPlayList() {
-
-        var xhr = new XMLHttpRequest();
-        var username = document.getElementById("user-details").getAttribute("data-username");
-        var mySelect = document.getElementById("lists");
-
+function loadPlaylistsToOptions() {
+    var username = document.getElementById("user-details").getAttribute("data-username");
+    if (username !== null && username !== undefined && username.length > 0) {
+        var mySelect = document.getElementById("list");
         var toSend = "username=" + username + "&data=3";
-
+        var xhr = new XMLHttpRequest();
         xhr.open("POST", "PlaylistsServlet", true);
-
         xhr.onreadystatechange = function () {
-
-            if (xhr.readyState == 4 && xhr.status == 200) {
-
-                var tm = JSON.parse(xhr.responseText);
-
-                for (var i = 0; i < tm.length; i++) {
-
-                    var opt = document.createElement("option");
-
-                     opt.value = tm[i].id;
-                     opt.text = tm[i].ownerName;
-                     mySelect.add(opt);
-
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.responseText.length > 0) {
+                    var tm = JSON.parse(xhr.responseText);
+                    for (var i = 0; i < tm.length; i++) {
+                        alert("Entrando");
+                        var opt = document.createElement("option");
+                        opt.value = tm[i].id;
+                        opt.text = tm[i].ownerName;
+                        mySelect.add(opt);
+                    }
                 }
-
             }
-
-        }
+        };
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(toSend);
-
     }
 }

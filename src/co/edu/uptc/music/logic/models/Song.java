@@ -5,15 +5,13 @@ public class Song {
     private String id;
     private String name;
     private Artist artist;
-    private int length;
     private String path;
     private String img;
 
-    public Song(String id, String name, Artist artist, int length, String path, String img) {
+    public Song(String id, String name, Artist artist, String path, String img) {
         this.id = id;
         this.name = name;
         this.artist = artist;
-        this.length = length;
         this.path = path;
         this.img = img;
     }
@@ -34,14 +32,6 @@ public class Song {
         this.artist = artist;
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    public String getReadableLength() {
-        return String.format("%02d:%02d", getLength() / 60, getLength() % 60);
-    }
-
     public String getPath() {
         return path;
     }
@@ -56,7 +46,6 @@ public class Song {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", artist='" + artist + '\'' +
-                ", length=" + length +
                 ", path='" + path + '\'' +
                 ", img='" + img + '\'' +
                 '}';
