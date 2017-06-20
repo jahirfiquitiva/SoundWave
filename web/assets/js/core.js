@@ -5,7 +5,8 @@
 var songsLoaded = false;
 var artistsLoaded = false;
 var genresLoaded = false;
-var playListLoaded = false;
+var favoritesLoaded = false;
+var playlistsLoaded = false;
 
 function login() {
     var xhr = new XMLHttpRequest();
@@ -125,12 +126,12 @@ function updateComponents(idMenu) {
     } else if (idMenu === "genres" && !genresLoaded) {
         loadGenres();
         genresLoaded = true;
-    } else if (idMenu === "list" && !songsLoaded) {
+    } else if (idMenu === "list" && !favoritesLoaded) {
         loadFavorites();
-        songsLoaded = true;
-    } else if (idMenu === "playlists_list" && !playListLoaded) {
+        favoritesLoaded = true;
+    } else if (idMenu === "playlists_list" && !playlistsLoaded) {
         loadPlayList();
-        playListLoaded = true;
+        playlistsLoaded = true;
     }
 }
 
