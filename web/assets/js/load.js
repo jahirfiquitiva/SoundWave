@@ -270,23 +270,25 @@ function loadPlayListViews(list) {
      <a href="#!" class="secondary-content">
      <i class="mdi mdi-play"></i>
      </a>
-     </div>
-     </li>
-     <li class="collection-item">
-     <div>Colegio
-     <a href="#!" class="secondary-content">
-     <i class="mdi mdi-play"></i>
-     </a>
-     </div>
-     </li>
-     <li class="collection-item">
-     <div>Gym
-     <a href="#!" class="secondary-content">
-     <i class="mdi mdi-play"></i>
-     </a>
-     </div>
-     </li>
-     </ul>
-     </div>
      */
+    var playList = document.getElementById("playlists_list");
+    playList.innerHTML = "";
+
+    var h = document.createElement("h3");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Tus PlayList";
+    playList.appendChild(h);
+
+    var conta = document.createElement("div");
+    conta.setAttribute("class", "container");
+
+    var ul= document.createElement("ui");
+    ul.setAttribute("class","collection with-header");
+
+    var li= document.createElement("il");
+    li.setAttribute("class","collection-header");
+
+
+
+
 }
