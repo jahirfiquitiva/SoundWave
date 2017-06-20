@@ -1,5 +1,6 @@
 package co.edu.uptc.music.logic.models;
 
+<<<<<<< HEAD
 public class Genre {
     private String genreId;
     private String description;
@@ -44,3 +45,31 @@ public class Genre {
                 '}';
     }
 }
+=======
+public enum Genre {
+    UNKNOWN("G000"), ELECTROHOUSE("G001"), DUBSTEP("G002"), ELECTRODANCE("G003");
+
+    String name;
+
+    Genre(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public static Genre getGenreForString(String type) {
+        switch (type) {
+            case "G001":
+                return ELECTROHOUSE;
+            case "G002":
+                return DUBSTEP;
+            case "G003":
+                return ELECTRODANCE;
+            default:
+                return UNKNOWN;
+        }
+    }
+}
+>>>>>>> a7b31bc9981a7721da69c894d8e0c5689351d9cf

@@ -2,6 +2,9 @@
  * Created by jahir on 6/9/17.
  */
 
+var songsLoaded = false;
+var artistsLoaded = false;
+
 function login() {
     var xhr = new XMLHttpRequest();
     var name = document.getElementById("username").value;
@@ -111,6 +114,16 @@ function updateComponents(idMenu) {
     changeVisibility("list-favorite", idMenu === "list-favorite");
     changeVisibility("playlists-list", idMenu === "playlists-list");
     changeVisibility("about-section", idMenu === "about-section");
+<<<<<<< HEAD
+=======
+    if (idMenu === "artists-list" && !artistsLoaded) {
+        loadArtists();
+        artistsLoaded = true;
+    } else if (idMenu === "songs" && !songsLoaded) {
+        loadSongs();
+        songsLoaded = true;
+    }
+>>>>>>> a7b31bc9981a7721da69c894d8e0c5689351d9cf
 }
 
 function showRegister() {
