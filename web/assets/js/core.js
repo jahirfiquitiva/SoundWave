@@ -106,8 +106,6 @@ function logout() {
     removeFocuses();
 }
 
-
-
 function updateComponents(idMenu) {
     changeVisibility("songs", idMenu === "songs");
     changeVisibility("account-container", idMenu === "account-container");
@@ -125,16 +123,13 @@ function updateComponents(idMenu) {
     } else if (idMenu === "genres" && !genresLoaded) {
         loadGenres();
         genresLoaded = true;
-    }
-    else if (idMenu === "list" && !songsLoaded) {
+    } else if (idMenu === "list" && !songsLoaded) {
         loadFavorites();
         songsLoaded = true;
-    }else if(idMenu==="playlists_list" && !playListLoaded){
+    } else if (idMenu === "playlists_list" && !playListLoaded) {
         loadPlayList();
-       playListLoaded=true;
+        playListLoaded = true;
     }
-
-
 }
 
 function showRegister() {

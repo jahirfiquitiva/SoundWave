@@ -15,7 +15,7 @@ import co.edu.uptc.music.logic.managers.PlaylistManager;
 import co.edu.uptc.music.logic.managers.UsersManager;
 import co.edu.uptc.music.persistence.SongSQL;
 
-@WebServlet(name = "PlaylistsServlet")
+@WebServlet(name = "PlaylistsServlet", urlPatterns = {"/PlaylistsServlet"})
 public class PlaylistsServlet extends HttpServlet {
 
     PlaylistManager playlist = new PlaylistManager();
