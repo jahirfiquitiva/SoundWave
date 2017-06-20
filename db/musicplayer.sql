@@ -182,7 +182,7 @@ CREATE TABLE `USERS` (
 
 LOCK TABLES `USERS` WRITE;
 /*!40000 ALTER TABLE `USERS` DISABLE KEYS */;
-INSERT INTO `USERS` VALUES ('US01','U0001','Jairo Riaño','jairo.riano@uptc.edu.co','jairo.riano','47a5e55ae4d8eab18c9cc56bfd2f8ab2'),('US01','U0002','Jahir Fiquitiva','jahir.fiquitiva@gmail.com','jahir.fiquitiva','b9fcb8d76554635ab9216864772f10f7'),('US01','U0003','Sergio Rojas','sergio.rojas04@uptc.edu.co','sergio.rojas','0b8a01a8fb9013f6e7a0e90f1a8099c1'),('US01','U0004','Victor Suarez','victor.suarez01@uptc.edu.co','victor.suarez','4a5f80fa373ee5cfcbf7604aa66b3152');
+INSERT INTO `USERS` VALUES ('US01','U0001','Jairo Riaño','jairo.riano@uptc.edu.co','jairo.riano','47a5e55ae4d8eab18c9cc56bfd2f8ab2'),('US01','U0002','Jahir Fiquitiva','jahir.fiquitiva@gmail.com','jahir.fiquitiva','b9fcb8d76554635ab9216864772f10f7'),('US01','U0003','Sergio Rojas','sergio.rojas04@uptc.edu.co','sergio.rojas','0b8a01a8fb9013f6e7a0e90f1a8099c1'),('US01','U0004','Victor Suarez','victor.suarez01@uptc.edu.co','victor.suarez','4a5f80fa373ee5cfcbf7604aa66b3152'),('US02','U0005','Alien','alien@artists.co','alien','273910799eacaacec06aba83c9d54906'),('US02','U0006','Anikdote & Culture Code','anikdote@artists.co','anikdote','86f846e13f93d27147a075f7a49da0b6'),('US02','U0007','Brandon Jonak & Pep.B','brandon@artists.co','brandon','fc275ac3498d6ab0f0b4389f8e94422c'),('US02','U0008','Chime & Adam Tell','chime@artists.co','chime','0478721a7cf7b2b81641cbf75a43a3cb'),('US02','U0009','Elektronomia & JJD','elektronomia@artists.co','elektronomia','6a2a63ad0b6d096b1cb9d692c2f0d4cb'),('US02','U0010','Floatinurboat NCS','floatinurboat@artists.co','floatinurboat','677f53abc26be3d9be0bfd4676d7e4ab'),('US02','U0011','Four Eyes - NCS','foureyes@artists.co','foureyes','4e30936bcc50e5dab6e1fca028e63085'),('US02','U0012','Karra & NCS Release','karra@artists.co','karra','f165da20d8e4f33fcb7c90970c121b0d'),('US02','U0013','Kovan & Electro Light','kovan@artists.co','kovan','f8221e2deff55c2a14a55a3a3af41a6b'),('US02','U0014','Marvin Divine & NCS Release','marvin.divine@artists.co','marvin.divine','02cbb74d68d15bb703cb16999e295670'),('US02','U0015','Michael White - NCS','michael.white@artists.co','michael.white','e903dbd71aa5a9227400d59fc889b76c'),('US02','U0016','Monstercat','monstercat@artists.co','monstercat','b9a8869d9fa892ca21d9e7c4cc3ba9a7'),('US02','U0017','NCS Release','ncs.release@artists.co','ncs.release','47aca31ea6b07eb5cca5a1e2ed98e2d6'),('US02','U0018','Retrovision & Domastic','retrovision@artists.co','retrovision','d87528910381b1a177500804d90d99bd'),('US02','U0019','Unlike Pluto','unlike.pluto@artists.co','unlike.pluto','f63f26bce953ee55274e477c7a273279');
 /*!40000 ALTER TABLE `USERS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,4 +245,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-20  8:51:33
+-- Dump completed on 2017-06-20  9:20:55

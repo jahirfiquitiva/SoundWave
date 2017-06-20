@@ -282,7 +282,6 @@
                 <div class="container">
                     <!-- Page Content goes here -->
                     <ul class="collection with-header" id="artists-collection">
-
                     </ul>
                 </div>
             </div>
@@ -411,7 +410,6 @@
                             <p>201521721</p>
                         </li>
                         <li class="collection-item avatar">
-
                             <img src="https://avatars1.githubusercontent.com/u/24307023?v=3&u=5b427b2395b788024075cb6a1de6e1b2c5245935&s=400"
                                  alt="" class="circle">
                             <span class="title">Sergio Andrés Rojas León</span>
