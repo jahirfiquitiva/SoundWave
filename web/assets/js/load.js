@@ -60,7 +60,7 @@ function searchSong() {
     removeFocuses();
     if (searchInput.length > 0) {
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "SongsServlet?data=5&search=" + searchInput, true);
+        xhr.open("POST", "SongsServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.status === 200 && xhr.readyState === 4) {
                 if (xhr.responseText.length > 0) {
@@ -76,7 +76,7 @@ function searchSong() {
             }
         };
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(null);
+        xhr.send("data=5&search=" + searchInput);
     }
 }
 
@@ -104,7 +104,6 @@ function loadFavoritesViews(list) {
 
 function loadResultsViews(list) {
     var songs = document.getElementById("search-results");
-    songs.innerHTML = "";
     songs.innerHTML = "<h3 class=\"cyan-text section-title\">Resultados</h3>";
     if (list !== null && list !== undefined && list.length > 0) {
         realLoadSongsViews(list, songs, true);

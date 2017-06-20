@@ -139,6 +139,7 @@ function updateComponents(idMenu) {
         changeVisibility("favorites-list", idMenu === "favorites-list");
         changeVisibility("playlists_list", idMenu === "playlists_list");
         changeVisibility("about-section", idMenu === "about-section");
+        changeVisibility("search-results", idMenu === "search-results");
         changeVisibility("upload-section", false);
     }
 }
