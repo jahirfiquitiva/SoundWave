@@ -81,4 +81,40 @@ function addToPlaylist() {
     } else {
         Materialize.toast("No ha iniciado sesion!", 2000);
     }
+
+    function loadPlayList() {
+
+        var xhr = new XMLHttpRequest();
+
+        var username = document.getElementById("user-details").getAttribute("data-username");
+        var mySelect = document.getElementById("list");
+
+        var toSend = "username=" + username + "&data=3";
+
+        xhr.open("POST", "PlaylistsServlet", true);
+
+        xhr.onreadystatechange = function () {
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
+
+                var tm = JSON.parse(xhr.responseText);
+
+                for (var i = 0; i < tm.length; i++) {
+                    alert('Entrando');
+
+                    var opt = document.createElement("option");
+
+                    /*opt.setvalue = tm[i].idTeam;
+                     opt.setText = tm[i].nameTeam;
+                     mySelect.add(opt);
+                     */
+                }
+
+            }
+
+        }
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(toSend);
+
+    }
 }

@@ -46,6 +46,11 @@ public class PlaylistsServlet extends HttpServlet {
                     if (playlist.getList().size() > 0) {
                         writer.print("{\"songs\":" + gson.toJson(playlist.getList()) + "}");
                     }
+                } else if (opc == 3) {
+
+
+
+
                 }
             }
             writer.close();
