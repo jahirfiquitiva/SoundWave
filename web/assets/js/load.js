@@ -102,7 +102,7 @@ function loadSongsViews(list) {
 
         var subtitle = document.createElement("h6");
         subtitle.setAttribute("class", "secondary-text");
-        subtitle.innerHTML = getShortText(list[i].artist);
+        subtitle.innerHTML = getShortText(list[i].artist.name);
 
         var dots = document.createElement("i");
         dots.setAttribute("class", "mdi mdi-dots-vertical menu");
