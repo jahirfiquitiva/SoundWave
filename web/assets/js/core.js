@@ -155,8 +155,8 @@ function validateUser() {
                     var json = JSON.parse(xhr.responseText);
                     if (json.code !== undefined) {
                         if (json.code === 1) {
-                            changeVisibility("upload-section", true);
                             updateComponents("-");
+                            changeVisibility("upload-section", true);
                         }
                     }
                 }
