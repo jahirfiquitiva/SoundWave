@@ -61,7 +61,7 @@ function loadFavorites() {
 function validateLogin() {
     var username = document.getElementById("user-details").getAttribute("data-username");
     if (username !== null && username !== undefined && username.length > 0) {
-        $('#modal1').modal('open');
+        $("#modal1").modal("open");
     } else {
         Materialize.toast("No ha iniciado sesion!", 2000);
     }
@@ -81,40 +81,39 @@ function addToPlaylist() {
     } else {
         Materialize.toast("No ha iniciado sesion!", 2000);
     }
+}
 
-    function loadPlayList() {
+function loadPlayList() {
 
-        var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
 
-        var username = document.getElementById("user-details").getAttribute("data-username");
-        var mySelect = document.getElementById("list");
+    var username = document.getElementById("user-details").getAttribute("data-username");
+    var mySelect = document.getElementById("list");
 
-        var toSend = "username=" + username + "&data=3";
+    var toSend = "username=" + username + "&data=3";
 
-        xhr.open("POST", "PlaylistsServlet", true);
+    xhr.open("POST", "PlaylistsServlet", true);
 
-        xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function () {
 
-            if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
 
-                var tm = JSON.parse(xhr.responseText);
+            var tm = JSON.parse(xhr.responseText);
 
-                for (var i = 0; i < tm.length; i++) {
-                    alert('Entrando');
+            for (var i = 0; i < tm.length; i++) {
+                alert("Entrando");
 
-                    var opt = document.createElement("option");
+                var opt = document.createElement("option");
 
-                    /*opt.setvalue = tm[i].idTeam;
-                     opt.setText = tm[i].nameTeam;
-                     mySelect.add(opt);
-                     */
-                }
-
+                /*opt.setvalue = tm[i].idTeam;
+                 opt.setText = tm[i].nameTeam;
+                 mySelect.add(opt);
+                 */
             }
 
         }
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(toSend);
 
-    }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(toSend);
 }

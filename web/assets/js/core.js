@@ -162,3 +162,10 @@ function removeFocuses() {
     } catch (err) {
     }
 }
+
+function validateSearch(e) {
+    var code = window.Event ? e.which : e.keyCode;
+    if (code === 13) {
+        searchSong();
+    }
+}

@@ -55,24 +55,29 @@ function loadSongsByGenre() {
 
 function searchSong() {
     var searchInput = document.getElementById("search").value;
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "SongsServlet", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.status === 200 && xhr.readyState === 4) {
-            if (xhr.responseText.length > 0) {
-                var json = JSON.parse(xhr.responseText);
-                if (json.songs !== undefined) {
-                    loadResultsViews(json.songs);
+    $("#search-modal").modal("close");
+    document.getElementById("search").value = "";
+    removeFocuses();
+    if (searchInput.length > 0) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "SongsServlet?data=5&search=" + searchInput, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                if (xhr.responseText.length > 0) {
+                    var json = JSON.parse(xhr.responseText);
+                    if (json.songs !== undefined) {
+                        loadResultsViews(json.songs);
+                    } else {
+                        loadResultsViews(null);
+                    }
                 } else {
                     loadResultsViews(null);
                 }
-            } else {
-                loadResultsViews(null);
             }
-        }
-    };
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("data=5&search=" + searchInput);
+        };
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(null);
+    }
 }
 
 function loadSongsViews(list) {
@@ -85,7 +90,7 @@ function loadSongsViews(list) {
         "<a class=\"waves-effect btn cyan\" onclick=\"loadSongsByArtist()\">Artista</a>";
     songs.innerHTML +=
         "<a class=\"waves-effect btn cyan\" onclick=\"loadSongs()\">Sin filtros</a></div>";
-    realLoadSongsViews(list, songs);
+    realLoadSongsViews(list, songs, false);
 }
 
 function loadFavoritesViews(list) {
@@ -93,7 +98,7 @@ function loadFavoritesViews(list) {
     favorites.innerHTML = "";
     if (list !== null && list !== undefined && list.length > 0) {
         favorites.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
-        realLoadSongsViews(list, favorites);
+        realLoadSongsViews(list, favorites, false);
     }
 }
 
@@ -102,7 +107,7 @@ function loadResultsViews(list) {
     songs.innerHTML = "";
     songs.innerHTML = "<h3 class=\"cyan-text section-title\">Resultados</h3>";
     if (list !== null && list !== undefined && list.length > 0) {
-        realLoadSongsViews(list, songs);
+        realLoadSongsViews(list, songs, true);
     } else {
         songs.innerHTML +=
             "<h5 class=\"secondary-text\" style=\"margin-left: 8px; \">No hay resultados para tu busqueda</h5>";
@@ -110,7 +115,7 @@ function loadResultsViews(list) {
     updateComponents("search-results");
 }
 
-function realLoadSongsViews(list, songs) {
+function realLoadSongsViews(list, songs, fromSearch) {
     var row = document.createElement("div");
     row.setAttribute("class", "row");
     for (var i = 0; i < list.length; i++) {
@@ -130,7 +135,7 @@ function realLoadSongsViews(list, songs) {
         item.setAttribute("data-path", list[i].path);
         item.setAttribute("data-name", list[i].name);
         item.setAttribute("data-artist", list[i].artist.name);
-        item.setAttribute("onclick", "playSong(event)");
+        item.setAttribute("onclick", "playSong(event," + fromSearch + ")");
 
         var img = document.createElement("img");
         img.setAttribute("class", "responsive-img album");
@@ -151,13 +156,8 @@ function realLoadSongsViews(list, songs) {
         subtitle.setAttribute("class", "secondary-text");
         subtitle.innerHTML = getShortText(list[i].artist.name);
 
-        var dots = document.createElement("i");
-        dots.setAttribute("class", "mdi mdi-dots-vertical menu");
-        dots.setAttribute("data-activates", "songs-menu");
-
         content.appendChild(title);
         content.appendChild(subtitle);
-        // content.appendChild(dots);
 
         if (imgPath !== undefined && imgPath.length > 1) {
             img.setAttribute("onload", "loadCardColors(event)");
@@ -181,7 +181,6 @@ function getShortText(text) {
 }
 
 function loadArtists() {
-
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "SongsServlet", true);
     xhr.onreadystatechange = function () {

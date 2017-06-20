@@ -61,10 +61,12 @@ public class SongsServlet extends HttpServlet {
             } else if (opc == 5) {
                 ArrayList<Song> results = new ArrayList<>();
                 for (Song song : mngSong.getList()) {
-                    if (song.getName().toLowerCase()
-                            .contains(request.getParameter("search")
-                                    .toLowerCase())) {
-                        results.add(song);
+                    String searching = request.getParameter("search");
+                    if (searching != null && searching.length() > 0) {
+                        if (song.getName().toLowerCase()
+                                .contains(searching.toLowerCase())) {
+                            results.add(song);
+                        }
                     }
                 }
                 if (results.size() > 0) {
