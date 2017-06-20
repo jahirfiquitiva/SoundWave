@@ -44,6 +44,14 @@ public class SongSQL {
                 ".PL_ID=\'FAVS\'";
     }
 
+    public String QueryList(String idUser) {
+
+        return "select playlists.NAME from users inner join(playlists_users  inner join  " +
+                "playlists on playlists_users.F_PL_ID=playlists.PL_ID)" +
+                "on users.USER_ID=playlists_users.F_USER_ID where users.USER_ID='U0004';";
+
+        
+    }
 
 
     public String addPlayList(String id, String name) {

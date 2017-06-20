@@ -60,6 +60,13 @@ public class SongsManager extends BaseManager<Song> {
         internalLoad(songDAO.queryFavorites(userId));
     }
 
+    public void loadListUser(String iduUser) {
+
+
+
+
+    }
+
     private void internalLoad(ResultSet rs) {
         if (rs != null) {
             try {
