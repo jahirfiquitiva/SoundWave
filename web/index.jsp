@@ -333,16 +333,29 @@
             <!-- -- inicio de upload -->
             <div id="upload-section" style="display: none;">
                 <div class="container">
+                    <h4 class="primary-text">Añade tus canciones</h4>
                     <form action="#">
+                        <div class="input-field col s6">
+                            <input id="nameSong" type="text"
+                                   class="validate">
+                            <label for="nameSong">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="imgSong" type="text"
+                                   class="validate">
+                            <label for="nameSong">Imagen de Albúm</label>
+                        </div>
+
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>Nueva canción</span>
                                 <input type="file" accept="audio/*">
+                                <span>Nueva canción</span>
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
+                        <a class="waves-effect waves-light btn">Añadir</a>
                     </form>
                 </div>
             </div>
@@ -405,7 +418,7 @@
         </div>
         <!-- fin player -->
 
-        <!-- Modal Structure -->
+        <!-- Inicio modal playlists -->
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Añadir a Lista de Reproducción</h4>
@@ -420,12 +433,15 @@
                 </a>
             </div>
         </div>
+        <!-- Fin modal playlists -->
 
+        <!-- Inicio modal busqueda -->
         <div id="search-modal" class="modal">
             <div class="modal-content">
                 <h4>Buscar cancion</h4>
                 <p>
-                    Nombre:<br> <input type="text" id="search" onkeypress="validateSearch(event)"><br>
+                    Nombre:<br> <input type="text" id="search"
+                                       onkeypress="validateSearch(event)"><br>
                 </p>
             </div>
             <div class="modal-footer">
@@ -434,6 +450,7 @@
                 </a>
             </div>
         </div>
+        <!-- Fin modal busqueda -->
 
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>

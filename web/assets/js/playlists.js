@@ -83,10 +83,7 @@ function addToPlaylist() {
     }
 }
 
-function loadPlayList() {
-
-    var xhr = new XMLHttpRequest();
-
+function loadPlaylistsToOptions() {
     var username = document.getElementById("user-details").getAttribute("data-username");
     var mySelect = document.getElementById("list");
 
@@ -95,24 +92,18 @@ function loadPlayList() {
     xhr.open("POST", "PlaylistsServlet", true);
 
     xhr.onreadystatechange = function () {
-
-        if (xhr.readyState == 4 && xhr.status == 200) {
-
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var tm = JSON.parse(xhr.responseText);
-
             for (var i = 0; i < tm.length; i++) {
                 alert("Entrando");
 
                 var opt = document.createElement("option");
+                opt.value = tm[i].id;
+                opt.text = tm[i].ownerName;
+                mySelect.add(opt);
 
-                /*opt.setvalue = tm[i].idTeam;
-                 opt.setText = tm[i].nameTeam;
-                 mySelect.add(opt);
-                 */
             }
-
         }
-
     };
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(toSend);
