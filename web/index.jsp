@@ -413,6 +413,8 @@
             <!-- Inicio seccion acerca de -->
             <div id="about-section" style="display: none;">
                 <div class="container">
+                    <h3 class="center">SoundWave</h3>
+                    <img src="assets/favicons/sw-product-icon.png" class="center"/>
                     <ul class="collection with-header">
                         <li class="collection-header"><h4>Aplicacion desarrollada por:</h4></li>
                         <li class="collection-item avatar">
