@@ -114,6 +114,8 @@ function updateComponents(idMenu) {
     changeVisibility("list-favorite", idMenu === "list-favorite");
     changeVisibility("playlists-list", idMenu === "playlists-list");
     changeVisibility("about-section", idMenu === "about-section");
+<<<<<<< HEAD
+=======
     if (idMenu === "artists-list" && !artistsLoaded) {
         loadArtists();
         artistsLoaded = true;
@@ -121,6 +123,7 @@ function updateComponents(idMenu) {
         loadSongs();
         songsLoaded = true;
     }
+>>>>>>> a7b31bc9981a7721da69c894d8e0c5689351d9cf
 }
 
 function showRegister() {

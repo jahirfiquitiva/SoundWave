@@ -31,7 +31,8 @@
         <meta name="msapplication-TileImage" content="assets/favicons/sw72.png">
     </head>
 
-    <body>
+    <body onload="loadSongs();">
+
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -42,7 +43,9 @@
                                 <i class="mdi mdi-menu material-icons"></i>
                             </a>
                         </li>
-                        <a href="#" class="brand-logo left waves-effect waves-light">SoundWave</a>
+                        <a href="#"
+                           class="brand-logo left waves-effect waves-light">SoundWave
+                        </a>
                     </ul>
                     <ul class="right">
                         <li>
@@ -128,7 +131,8 @@
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('account-container')">
+                <a class="waves-effect" href="#!"
+                   onclick="updateComponents('account-container')">
                     <i class="mdi mdi-account-circle"></i>
                     Cuenta
                 </a>
@@ -172,7 +176,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
+                                            <input id="password" type="password"
+                                                   class="validate">
                                             <label for="password">Contraseña</label>
                                         </div>
                                     </div>
@@ -221,12 +226,14 @@
                             <div class="card-panel">
                                 <div class="row">
                                     <h4 class="primary-text">Registrate</h4>
-                                    <h6 class="primary-text">para tener tu cuenta de SoundWave</h6>
+                                    <h6 class="primary-text">para tener tu cuenta de
+                                                             SoundWave</h6>
                                 </div>
                                 <div id="create-account-fields">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-fullname" type="text" class="validate">
+                                            <input id="new-fullname" type="text"
+                                                   class="validate">
                                             <label for="new-fullname">Nombre completo</label>
                                         </div>
                                     </div>
@@ -238,7 +245,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-username" type="text" class="validate">
+                                            <input id="new-username" type="text"
+                                                   class="validate">
                                             <label for="new-username">Nombre de usuario</label>
                                         </div>
                                     </div>
