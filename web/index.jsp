@@ -336,16 +336,30 @@
             <!-- -- inicio de upload -->
             <div id="upload-section" style="display: none;">
                 <div class="container">
+                    <h4 class="primary-text">Añade tus canciones</h4>
                     <form action="#">
+                        <div class="input-field col s6">
+                            <input id="nameSong" type="text"
+                                   class="validate">
+                            <label for="nameSong">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="imgSong" type="text"
+                                   class="validate">
+                            <label for="nameSong">Imagen de Albúm</label>
+                        </div>
+
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>Nueva canción</span>
                                 <input type="file" accept="audio/*">
+                                <span>Nueva canción</span>
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
+
+                        <a class="waves-effect waves-light btn">Añadir</a>
                     </form>
                 </div>
             </div>
