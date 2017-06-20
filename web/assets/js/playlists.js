@@ -58,6 +58,15 @@ function loadFavorites() {
     }
 }
 
+function validateLogin() {
+    var username = document.getElementById("user-details").getAttribute("data-username");
+    if (username !== null && username !== undefined && username.length > 0) {
+        $('#modal1').modal('open');
+    } else {
+        Materialize.toast("No ha iniciado sesion!", 2000);
+    }
+}
+
 function addToPlaylist() {
     var player = document.getElementById("song-player");
     var songId = player.getAttribute("current-song-id");
@@ -65,10 +74,7 @@ function addToPlaylist() {
 
     if (username !== null && username !== undefined && username.length > 0) {
         if (songId !== null && songId !== undefined && songId.length > 0) {
-            // TODO: Mostrar dialogo para escoger playlist o crear una nueva (Leer modals
-            // http://materializecss.com/modals.html ) TODO: Hacer algo con el id de la cancion:
-            // songId
-
+            // TODO: Añadir cancion a playlist usando songId y obteniendo el nombre de la playlists
         } else {
             Materialize.toast("No ha seleccionado cancion", 2000);
         }

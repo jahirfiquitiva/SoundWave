@@ -346,8 +346,6 @@
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
-
-
                     </form>
                 </div>
             </div>
@@ -377,8 +375,7 @@
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
                 </a>
                 <a class="waves-ripple pulse" onclick="playPauseSong(true)">
-                    <i id="play-button" class="mdi mdi-play-circle">
-                    </i>
+                    <i id="play-button" class="mdi mdi-play-circle"></i>
                 </a>
                 <a class="waves-ripple pulse" onclick="playPauseSong(false)">
                     <i id="pause-button" class="mdi mdi-pause-circle"></i>
@@ -388,7 +385,9 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <i class="mdi mdi-playlist-plus waves-ripple" onclick="addToPlaylist()"></i>
+                <a onclick="validateLogin()">
+                    <i class="mdi mdi-playlist-plus waves-ripple"></i>
+                </a>
             </div>
             <div class="whole-volume-container">
                 <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
@@ -404,10 +403,25 @@
             </div>
             <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
                    current-song-id="" crossorigin="">
-                <source src="" type="audio/mpeg"/>
+                <source src="" type="audio/*"/>
             </audio>
         </div>
         <!-- fin player -->
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Añadir a Lista de Reproducción</h4>
+                <p>
+                    Listas de Reproducción:<select id="lists"></select>
+                    Nueva Lista:<br> <input type="text" id="new-list-name"><br>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
+                   onclick="addToPlaylist()">Añadir</a>
+            </div>
+        </div>
 
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>
@@ -435,17 +449,10 @@
             $(document).ready(function () {
                 $('select').material_select();
             });
+            $(document).ready(function () {
+                // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+                $('.modal').modal();
+            });
         </script>
-
-        <!--
-         <form method="POST" action="ServUpload" enctype="multipart/form-data">
-
-            File: <input type="file" name="file" id="file"/> <br/>
-            Destination:<input type="text" value="/tmp" name="destination"/> </br>
-
-            <input type="submit" value="Upload" name="upload" id="upload"/>
-
-        </form>
-        -->
     </body>
 </html>

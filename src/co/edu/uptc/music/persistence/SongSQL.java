@@ -44,6 +44,8 @@ public class SongSQL {
                 ".PL_ID=\'FAVS\'";
     }
 
+
+
     public String addPlayList(String id, String name) {
         return "INSERT INTO PLAYLISTS VALUES (\'" + id + "\',\'" + name + "\')";
     }
