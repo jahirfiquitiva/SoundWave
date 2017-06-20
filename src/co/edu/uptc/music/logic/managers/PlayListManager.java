@@ -10,13 +10,11 @@ public class PlayListManager extends BaseManager<Playlist> {
     private SongDAO dao;
 
     public PlayListManager() {
-
         dao = new SongDAO();
     }
 
-
-    public void load(String iduser) {
-        ResultSet rs = dao.queryList(iduser);
+    public void load(String user) {
+        ResultSet rs = dao.queryPlaylists(user);
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -32,6 +30,9 @@ public class PlayListManager extends BaseManager<Playlist> {
 
     @Override
     public Playlist findItem(String s) {
+        for (Playlist p : getList()) {
+            if (p.getId().equalsIgnoreCase(s)) return p;
+        }
         return null;
     }
 

@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="assets/css/materialize.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- 'theme-color' will set background color in Chrome browser on Android 5.0+ -->
         <meta name="theme-color" content="#4285F4">
@@ -31,8 +30,7 @@
         <meta name="msapplication-TileImage" content="assets/favicons/sw72.png">
     </head>
 
-    <body onload="loadSongs();">
-
+    <body>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -49,16 +47,9 @@
                     </ul>
                     <ul class="right">
                         <li>
-                            <form>
-                                <div class="input-field">
-                                    <input id="search" type="search" required>
-
-                                    <label class="label-icon" for="search">
-                                        <i class="mdi mdi-magnify material-icons"></i>
-                                    </label>
-                                    <i class="mdi mdi-close material-icons"></i>
-                                </div>
-                            </form>
+                            <a class="waves-effect waves-light" href="#search-modal">
+                                <i class="mdi mdi-magnify material-icons"></i>
+                            </a>
                         </li>
                         <li>
                             <a class="waves-effect waves-light" href="#!"
@@ -155,6 +146,11 @@
             <div id="songs" style="display:none;" class="section-content">
             </div>
             <!-- Final canciones -->
+
+            <!-- Inicio resultados -->
+            <div id="search-results" style="display:none;" class="section-content">
+            </div>
+            <!-- Final resultados -->
 
             <!-- Inicio seccion cuenta -->
             <div id="account-container">
@@ -358,7 +354,6 @@
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
-
                         <a class="waves-effect waves-light btn">Añadir</a>
                     </form>
                 </div>
@@ -379,6 +374,7 @@
             <div class="song-details">
                 <h5 id="song-detail-name" class="primary-text"></h5>
                 <h6 id="song-detail-artist" class="secondary-text"></h6>
+                <h6 id="song-detail-duration" class="secondary-text"></h6>
             </div>
 
             <div class="buttons">
@@ -422,8 +418,7 @@
         </div>
         <!-- fin player -->
 
-        <!-- Modal Structure -->
-
+        <!-- Inicio modal playlists -->
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Añadir a Lista de Reproducción</h4>
@@ -434,9 +429,28 @@
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
-                   onclick="addToPlaylist()">Añadir</a>
+                   onclick="addToPlaylist()">Añadir
+                </a>
             </div>
         </div>
+        <!-- Fin modal playlists -->
+
+        <!-- Inicio modal busqueda -->
+        <div id="search-modal" class="modal">
+            <div class="modal-content">
+                <h4>Buscar cancion</h4>
+                <p>
+                    Nombre:<br> <input type="text" id="search"
+                                       onkeypress="validateSearch(event)"><br>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn"
+                   onclick="searchSong()">Buscar
+                </a>
+            </div>
+        </div>
+        <!-- Fin modal busqueda -->
 
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>
@@ -449,15 +463,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth: 280, // Default is 300
-                                              edge: 'left', // Choose the horizontal origin
+                                              menuWidth:    280, // Default is 300
+                                              edge:         'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable: true // Choose whether you can drag to open on touch screens
+                                              draggable:    true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval: 2500
+                                    interval:   2500
                                 });
         </script>
         <script type="text/javascript">

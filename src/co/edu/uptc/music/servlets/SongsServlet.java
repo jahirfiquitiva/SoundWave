@@ -58,6 +58,20 @@ public class SongsServlet extends HttpServlet {
                 if (artists.size() > 0) {
                     writer.print("{\"artists\":" + gson.toJson(artists) + "}");
                 }
+            } else if (opc == 5) {
+                ArrayList<Song> results = new ArrayList<>();
+                for (Song song : mngSong.getList()) {
+                    String searching = request.getParameter("search");
+                    if (searching != null && searching.length() > 0) {
+                        if (song.getName().toLowerCase()
+                                .contains(searching.toLowerCase())) {
+                            results.add(song);
+                        }
+                    }
+                }
+                if (results.size() > 0) {
+                    writer.print("{\"songs\":" + gson.toJson(results) + "}");
+                }
             } else {
                 if (mngSong.getList().size() > 0) {
                     writer.print("{\"songs\":" + gson.toJson(mngSong.getList()) + "}");

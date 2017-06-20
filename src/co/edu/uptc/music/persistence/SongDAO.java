@@ -67,8 +67,8 @@ public class SongDAO {
         if (connection.connectToDB()) {
             Statement statement = connection.getConnection().createStatement();
             statement.executeUpdate(songSQL.insertSong(song.getId(), song.getName(),
-                    String.valueOf(song.getLength()), song.getArtist().getGenre().getName(),
-                    song.getArtist().getUsername(), song.getPath()));
+                    song.getArtist().getGenre().getName(), song.getArtist().getUsername(),
+                    song.getPath()));
         }
     }
 
@@ -98,12 +98,11 @@ public class SongDAO {
         return null;
     }
 
-    public ResultSet queryList(String idUser) {
-
+    public ResultSet queryPlaylists(String idUser) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                return statement.executeQuery(songSQL.QueryList(idUser));
+                return statement.executeQuery(songSQL.queryPlaylists(idUser));
             } catch (Exception e) {
                 e.printStackTrace();
             }

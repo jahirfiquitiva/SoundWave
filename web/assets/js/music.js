@@ -40,11 +40,17 @@ function updateSongProgress() {
         document.getElementById("current-album").setAttribute("src", "");
         document.getElementById("song-detail-name").innerHTML = "";
         document.getElementById("song-detail-artist").innerHTML = "";
-        playAnother(true, player.getAttribute("current-song-id"));
+        document.getElementById("song-detail-duration").innerHTML = "";
+        if (player.getAttribute("from-search") === "false") {
+            playAnother(true, player.getAttribute("current-song-id"));
+        }
         return;
     }
     var played = (100 * player.currentTime) / player.duration;
     document.getElementById("song-progress").style.width = played + "%";
+    var cTimeText = readableDuration(player.currentTime);
+    var dTimeText = readableDuration(player.duration);
+    document.getElementById("song-detail-duration").innerHTML = cTimeText + " - " + dTimeText;
 }
 
 function seek(forward) {
@@ -61,7 +67,6 @@ function seek(forward) {
 }
 
 function moveSong(e) {
-
     var player = document.getElementById("song-player");
     var id = player.getAttribute("current-song-id");
     if (id === null || id === undefined || id.length <= 0) {
@@ -81,7 +86,7 @@ function moveSong(e) {
     updateSongProgress();
 }
 
-function playSong(e) {
+function playSong(e, fromSearch) {
     try {
         var panel = e.target.parentElement;
         if (panel !== null && panel !== undefined) {
@@ -98,6 +103,7 @@ function playSong(e) {
             if (path !== null && path !== undefined) {
                 var player = document.getElementById("song-player");
                 player.setAttribute("current-song-id", panel.getAttribute("data-song-id"));
+                player.setAttribute("from-search", fromSearch);
                 player.src = path;
                 for (var i = 0; i < panel.childNodes.length; i++) {
                     var child = panel.childNodes[i];
@@ -168,7 +174,17 @@ function playPrevious() {
     var player = document.getElementById("song-player");
     playAnother(false, player.getAttribute("current-song-id"));
 }
+
 function playNext() {
     var player = document.getElementById("song-player");
     playAnother(true, player.getAttribute("current-song-id"));
+}
+
+function readableDuration(seconds) {
+    var sec = Math.floor(seconds);
+    var min = Math.floor(sec / 60);
+    min = min >= 10 ? min : "0" + min;
+    sec = Math.floor(sec % 60);
+    sec = sec >= 10 ? sec : "0" + sec;
+    return min + ":" + sec;
 }

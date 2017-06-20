@@ -22,14 +22,14 @@ public class SongsManager extends BaseManager<Song> {
         users.load();
     }
 
-    private boolean addSong(String id, String name, String artist, String genre, int length,
-                            String path, String img) {
+    private boolean addSong(String id, String name, String artist, String genre, String path,
+                            String img) {
         User nArtist = users.findItem(artist);
         if (nArtist != null && nArtist.getType() == UserType.ARTIST) {
             Artist art = new Artist(nArtist.getId(), nArtist.getType(),
                     nArtist.getName(), nArtist.getEmail(), nArtist.getUsername(),
                     nArtist.getPassword(), GenreType.getGenreForString(genre), img);
-            return addItem(new Song(id, name, art, length, path, img));
+            return addItem(new Song(id, name, art, path, img));
         }
         return false;
     }
@@ -62,13 +62,11 @@ public class SongsManager extends BaseManager<Song> {
         internalLoad(songDAO.queryFavorites(userId));
     }
 
-    public void loadListUser(String iduUser) {
-
-        internalLoad(songDAO.queryList(iduUser));
+    public void loadPlaylists(String userId) {
+        internalLoad(songDAO.queryPlaylists(userId));
     }
 
     private void internalLoad(ResultSet rs) {
-
         if (rs != null) {
             try {
                 clearList();
@@ -77,30 +75,9 @@ public class SongsManager extends BaseManager<Song> {
                     String name = rs.getString("NAME");
                     String artist = rs.getString("ARTIST");
                     String genre = rs.getString("GENRE");
-                    String length = rs.getString("LENGTH");
                     String path = rs.getString("FILE_PATH");
                     String img = rs.getString("IMG_PATH");
-                    addSong(id, name, artist, genre, Integer.parseInt(length), path, img);
-                }
-            } catch (Exception ignored) {
-            }
-        }
-    }
-
-
-
-
-
-    private void InternalLoadlist(ResultSet rs) {
-        if (rs != null) {
-            try {
-                clearList();
-                while (rs.next()) {
-
-                    String id = rs.getString("PL_ID");
-                    String name = rs.getString("NAME");
-
-                    //addSong(id, name, artist, genre, Integer.parseInt(length), path, img);
+                    addSong(id, name, artist, genre, path, img);
                 }
             } catch (Exception ignored) {
             }
