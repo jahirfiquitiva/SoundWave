@@ -30,8 +30,7 @@
         <meta name="msapplication-TileImage" content="assets/favicons/sw72.png">
     </head>
 
-    <body onload="loadSongs();">
-
+    <body>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">

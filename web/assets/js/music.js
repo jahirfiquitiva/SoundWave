@@ -170,6 +170,7 @@ function playPrevious() {
     var player = document.getElementById("song-player");
     playAnother(false, player.getAttribute("current-song-id"));
 }
+
 function playNext() {
     var player = document.getElementById("song-player");
     playAnother(true, player.getAttribute("current-song-id"));

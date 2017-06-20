@@ -118,13 +118,6 @@ function updateComponents(idMenu) {
     if (idMenu === "upload-section") {
         validateUser();
     } else {
-        changeVisibility("songs", idMenu === "songs");
-        changeVisibility("account-container", idMenu === "account-container");
-        changeVisibility("artists-list", idMenu === "artists-list");
-        changeVisibility("genres", idMenu === "genres");
-        changeVisibility("favorites-list", idMenu === "favorites-list");
-        changeVisibility("playlists_list", idMenu === "playlists_list");
-        changeVisibility("about-section", idMenu === "about-section");
         if (idMenu === "artists-list" && !artistsLoaded) {
             loadArtists();
             artistsLoaded = true;
@@ -139,6 +132,13 @@ function updateComponents(idMenu) {
         } else if (idMenu === "playlists_list") {
             // TODO: Load playlists;
         }
+        changeVisibility("songs", idMenu === "songs");
+        changeVisibility("account-container", idMenu === "account-container");
+        changeVisibility("artists-list", idMenu === "artists-list");
+        changeVisibility("genres", idMenu === "genres");
+        changeVisibility("favorites-list", idMenu === "favorites-list");
+        changeVisibility("playlists_list", idMenu === "playlists_list");
+        changeVisibility("about-section", idMenu === "about-section");
     }
 }
 
