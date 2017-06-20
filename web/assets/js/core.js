@@ -58,7 +58,7 @@ function createUser() {
     var xhr = new XMLHttpRequest();
     if (name.length > 0 && pass.length > 0) {
         var toSend = "fullname=" + fullname + "&email=" + email + "&username=" + name + "&password="
-                     + pass + "&type=US04" +  + "&login=2";
+                     + pass + "&login=2";
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {

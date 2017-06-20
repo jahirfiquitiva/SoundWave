@@ -66,10 +66,9 @@ public class LoginServlet extends HttpServlet {
                                 ".\"}");
                     }
                 } else if (loginValue == 2) {
-                    String type = request.getParameter("type");
                     String fullname = request.getParameter("fullname");
                     String email = request.getParameter("email");
-                    if (usersManager.addNewUser(fullname, email, name, pass, type)) {
+                    if (usersManager.addNewUser(fullname, email, name, pass)) {
                         writer.print("{\"code\": 4}");
                     } else {
                         writer.print("{\"code\": 3, \"error\": \"El usuario ya se encuentra " +

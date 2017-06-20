@@ -46,14 +46,13 @@ public class UsersManager extends BaseManager<User> {
     }
 
 
-    public boolean addNewUser(String name, String email, String username, String password,
-                              String type) {
+    public boolean addNewUser(String name, String email, String username, String password) {
         if (findItem(username) != null) return false;
-        if(findItem(email) != null) return false;
+        if (findItem(email) != null) return false;
         DecimalFormat formatter = new DecimalFormat("0000");
         String num = formatter.format(getListSize() + 1);
         try {
-            return dao.insertUser(new User(("U" + num), UserType.getUserForString(type), name,
+            return dao.insertUser(new User(("U" + num), UserType.NORMAL, name,
                     email, username, password));
         } catch (Exception ignored) {
         }
