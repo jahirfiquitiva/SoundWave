@@ -43,7 +43,6 @@ public class PlaylistsServlet extends HttpServlet {
                 } else if (opc == 2) {
                     playlist.loadFavorites(id);
                     playlist.getList();
-                    System.out.print("tamaño lista" + playlist.getList().size());
                     if (playlist.getList().size() > 0) {
                         writer.print("{\"songs\":" + gson.toJson(playlist.getList()) + "}");
                     }

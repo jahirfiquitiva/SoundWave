@@ -61,7 +61,8 @@
                             </form>
                         </li>
                         <li>
-                            <a class="waves-effect waves-light" href="#">
+                            <a class="waves-effect waves-light" href="#!"
+                               onclick="updateComponents('upload-section')">
                                 <i class="mdi mdi-upload material-icons"></i>
                             </a>
                         </li>
@@ -332,6 +333,26 @@
             </div>
             <!-- Fin seccion acerca de -->
 
+            <!-- -- inicio de upload -->
+            <div id="upload-section" style="display: none;">
+                <div class="container">
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Nueva canción</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <!--  fin de upload-->
+
         </main>
 
         <!-- inicio player -->
@@ -356,8 +377,7 @@
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
                 </a>
                 <a class="waves-ripple pulse" onclick="playPauseSong(true)">
-                    <i id="play-button" class="mdi mdi-play-circle">
-                    </i>
+                    <i id="play-button" class="mdi mdi-play-circle"></i>
                 </a>
                 <a class="waves-ripple pulse" onclick="playPauseSong(false)">
                     <i id="pause-button" class="mdi mdi-pause-circle"></i>
@@ -367,7 +387,7 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <a href="#modal1">
+                <a onclick="validateLogin()">
                     <i class="mdi mdi-playlist-plus waves-ripple"></i>
                 </a>
             </div>
@@ -385,7 +405,7 @@
             </div>
             <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
                    current-song-id="" crossorigin="">
-                <source src="" type="audio/mpeg"/>
+                <source src="" type="audio/*"/>
             </audio>
         </div>
         <!-- fin player -->
@@ -393,18 +413,16 @@
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4>Añadir a Lista de Reproducion</h4>
+                <h4>Añadir a Lista de Reproducción</h4>
                 <p>
-
-                    Listas de Reproducion <select id="list"></select>
-                    Nueva Lista:<br> <input type="text" id="lis"><br>
-
+                    Listas de Reproducción:<select id="lists"></select>
+                    Nueva Lista:<br> <input type="text" id="new-list-name"><br>
                 </p>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
+                   onclick="addToPlaylist()">Añadir</a>
             </div>
-            <!-- onclick="addToPlaylist()" -->
         </div>
 
         <script src="assets/js/load.js"></script>
@@ -428,11 +446,6 @@
                                     indicators: false,
                                     interval: 2500
                                 });
-            $('.modal').modal({
-                                  //metodo
-                                  ready: loadPlayList()
-                              }
-            );
         </script>
         <script type="text/javascript">
             $(document).ready(function () {
@@ -443,17 +456,5 @@
                 $('.modal').modal();
             });
         </script>
-
-
-        <!--
-         <form method="POST" action="ServUpload" enctype="multipart/form-data">
-
-            File: <input type="file" name="file" id="file"/> <br/>
-            Destination:<input type="text" value="/tmp" name="destination"/> </br>
-
-            <input type="submit" value="Upload" name="upload" id="upload"/>
-
-        </form>
-        -->
     </body>
 </html>
