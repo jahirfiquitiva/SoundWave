@@ -56,7 +56,7 @@ public class SongsManager extends BaseManager<Song> {
         internalLoad(songDAO.querySongsByGenre());
     }
 
-    public void loadFavorites(String userId){
+    public void loadFavorites(String userId) {
         internalLoad(songDAO.queryFavorites(userId));
     }
 
