@@ -22,7 +22,7 @@ public class PlaylistsServlet extends HttpServlet {
 
     private UsersManager users = new UsersManager();
     private SongsManager playlist = new SongsManager();
-    private PlayListManager list=new PlayListManager();
+    private PlayListManager list = new PlayListManager();
     private SongDAO dao = new SongDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -48,21 +48,30 @@ public class PlaylistsServlet extends HttpServlet {
                     if (playlist.getList().size() > 0) {
                         writer.print("{\"songs\":" + gson.toJson(playlist.getList()) + "}");
                     }
-                }
-                else if (opc == 3) {
 
+                } else if (opc == 3) {
                     list.load(u.getId());
                     list.getList();
                     if (list.getList().size() > 0) {
-                        writer.print( gson.toJson(list.getList()));
+                        writer.print(gson.toJson(list.getList()));
+                    }
+
+                } else if (opc == 4) {
+                    if (u.getType().equals("ARTIS") || u.getType().equals("ADMIN")) {
+
+                        writer.print("{\"code\": 1}");
                     }
 
                 }
 
             }
             writer.close();
-        } catch (Exception ignored) {
+        } catch (
+                Exception ignored)
+
+        {
         }
+
     }
 
 

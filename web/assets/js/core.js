@@ -16,6 +16,7 @@ function login() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 console.log(xhr.responseText);
+                var jsonContent=JSON.parse(xhr.responseText);
                 if (jsonContent.name !== undefined) {
                     Materialize.toast("Bienvenido " + jsonContent.name, 2000);
                     document.getElementById("username").value = "";
@@ -142,6 +143,7 @@ function updateComponents(idMenu) {
 function validateUser() {
     var xhr = new XMLHttpRequest();
     var username = document.getElementById("user-details").getAttribute("data-username");
+    var send="username="+username+"&data=4";
     if (username !== null && username !== undefined && username.length > 0) {
 
         changeVisibility("upload-section", true);
