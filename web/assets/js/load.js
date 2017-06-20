@@ -8,6 +8,7 @@ function loadSongs() {
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
+                console.log(xhr.responseText);
                 var json = JSON.parse(xhr.responseText);
                 if (json.songs !== undefined) {
                     loadSongsViews(json.songs);
@@ -81,7 +82,7 @@ function loadSongsViews(list) {
         item.setAttribute("data-song-id", list[i].id);
         item.setAttribute("data-path", list[i].path);
         item.setAttribute("data-name", list[i].name);
-        item.setAttribute("data-artist", list[i].artist);
+        item.setAttribute("data-artist", list[i].artist.name);
         item.setAttribute("onclick", "playSong(event)");
 
         var img = document.createElement("img");
@@ -101,7 +102,7 @@ function loadSongsViews(list) {
 
         var subtitle = document.createElement("h6");
         subtitle.setAttribute("class", "secondary-text");
-        subtitle.innerHTML = getShortText(list[i].artist);
+        subtitle.innerHTML = getShortText(list[i].artist.name);
 
         var dots = document.createElement("i");
         dots.setAttribute("class", "mdi mdi-dots-vertical menu");
@@ -239,4 +240,73 @@ function loadGenres() {
     };
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("");
+}
+
+function loadPlayList() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","PlaylistsServlet",true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                var json = JSON.parse(a);
+                if (json.playlists_list !== undefined) {
+                    loadPlayListViews(json.playlists_list);
+                }
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("");
+}
+
+function loadPlayListViews(list) {
+
+    var playList = document.getElementById("playlists_list");
+    playList.innerHTML = "";
+
+    var h = document.createElement("h3");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Tus Listas de Reproduccion";
+    playList.appendChild(h);
+
+    var conta = document.createElement("div");
+    conta.setAttribute("class", "container");
+
+    var ul = document.createElement("ul");
+    ul.setAttribute("class", "collection with-header");
+
+    var li = document.createElement("li");
+    li.setAttribute("class", "collection-header");
+
+    var ht = document.createElement("h4");
+    ht.innerHTML = "Listas de reproduccion";
+
+    li.appendChild(ht);
+    ul.appendChild(li);
+
+    for (var i = 0; i < list.length; i++) {
+
+        var li1 = document.createElement("li");
+        li1.setAttribute("class", "collection-item");
+
+        var ply = document.createElement("div");
+        ply.setAttribute("class", "playlist-title");
+        ply.innerHTML = list[i].name;
+
+        var a = document.createElement("a");
+        a.setAttribute("class", "secondary-content");
+
+        var ii = document.createElement("i");
+        ii.setAttribute("class", "mdi mdi-play");
+        ii.setAttribute("onclick", "playPlaylist(" + list[i].id + ");");
+        a.appendChild(ii);
+
+        ply.appendChild(a);
+
+        li1.appendChild(ply);
+        ul.appendChild(li1);
+    }
+
+    conta.appendChild(ul);
 }

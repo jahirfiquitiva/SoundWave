@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.edu.uptc.music.logic.managers.PlaylistManager;
+import co.edu.uptc.music.logic.managers.SongsManager;
 import co.edu.uptc.music.logic.managers.UsersManager;
 import co.edu.uptc.music.persistence.SongDAO;
 
 @WebServlet(name = "PlaylistsServlet", urlPatterns = {"/PlaylistsServlet"})
 public class PlaylistsServlet extends HttpServlet {
 
-    PlaylistManager playlist = new PlaylistManager();
+    SongsManager playlist = new SongsManager();
     SongDAO dao = new SongDAO();
     UsersManager user = new UsersManager();
 
@@ -45,11 +45,9 @@ public class PlaylistsServlet extends HttpServlet {
                 writer.print("{\"code\": 4}");
 
             } else if (opc == 2) {
-
-
-                playlist.loadPlayListFav(id);
+                playlist.loadFavorites(id);
                 playlist.getList();
-                System.out.print("tamaño lista"+playlist.getList().size());
+                System.out.print("tamaño lista" + playlist.getList().size());
                 if (playlist.getList().size() > 0) {
                     writer.print("{\"songs\":" + gson.toJson(playlist.getList()) + "}");
                 }

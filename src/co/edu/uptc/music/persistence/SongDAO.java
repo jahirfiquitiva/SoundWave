@@ -39,20 +39,6 @@ public class SongDAO {
         return null;
     }
 
-    public void connectedDB() {
-
-        if (connection.connectToDB()) {
-            try {
-                Statement statement = connection.getConnection().createStatement();
-                // return statement.executeQuery(songSQL.songsByArtists());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-
     public ResultSet querySongsByGenre() {
         if (connection.connectToDB()) {
             try {
@@ -81,8 +67,8 @@ public class SongDAO {
         if (connection.connectToDB()) {
             Statement statement = connection.getConnection().createStatement();
             statement.executeUpdate(songSQL.insertSong(song.getId(), song.getName(),
-                    String.valueOf(song.getLength()), song.getGenre().getName(), song.getArtist()
-                    , song.getPath()));
+                    String.valueOf(song.getLength()), song.getArtist().getGenre().getName(),
+                    song.getArtist().getUsername(), song.getPath()));
         }
     }
 
@@ -100,8 +86,7 @@ public class SongDAO {
         return false;
     }
 
-    public ResultSet PlayFavorites(String idUser) {
-
+    public ResultSet queryFavorites(String idUser) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
@@ -114,7 +99,6 @@ public class SongDAO {
     }
 
     public void addSongsToPlaylist(String idList, String idSong) {
-
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
@@ -123,15 +107,13 @@ public class SongDAO {
                 e.printStackTrace();
             }
         }
-
     }
 
     public void addListToUser(String idList, String idUser) {
-
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                statement.executeUpdate(songSQL.addSongsToPlaylist(idList, idUser));
+                statement.executeUpdate(songSQL.addListToUser(idList, idUser));
             } catch (Exception e) {
                 e.printStackTrace();
             }

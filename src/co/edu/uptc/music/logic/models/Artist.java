@@ -1,18 +1,15 @@
 package co.edu.uptc.music.logic.models;
 
-public class Artist {
-    private String name;
+public class Artist extends User {
+
     private GenreType genre;
     private String img;
 
-    public Artist(String name, GenreType genre, String img) {
-        this.name = name;
+    public Artist(String id, UserType type, String name, String email, String username, String
+            password, GenreType genre, String img) {
+        super(id, type, name, email, username, password);
         this.genre = genre;
         this.img = img;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public GenreType getGenre() {
@@ -21,15 +18,6 @@ public class Artist {
 
     public String getImg() {
         return img;
-    }
-
-    @Override
-    public String toString() {
-        return "Artist{" +
-                "name='" + name + '\'' +
-                ", genre='" + genre + '\'' +
-                ", img='" + img + '\'' +
-                '}';
     }
 
     @Override
