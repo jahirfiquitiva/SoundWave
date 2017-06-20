@@ -243,7 +243,7 @@ function loadGenres() {
 
 function loadPlayList() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "", true);
+    xhr.open("POST","PlaylistsServlet",true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
@@ -260,43 +260,52 @@ function loadPlayList() {
 }
 
 function loadPlayListViews(list) {
-    /**
 
-     <li class="collection-item">
-     <div class="playlist-title">
-     Music
-     <a href="#!" class="secondary-content">
-     <i class="mdi mdi-play"></i>
-     </a>
-     */
     var playList = document.getElementById("playlists_list");
     playList.innerHTML = "";
 
     var h = document.createElement("h3");
     h.setAttribute("class", "cyan-text section-title");
-    h.innerHTML = "Tus PlayList";
+    h.innerHTML = "Tus Listas de Reproduccion";
     playList.appendChild(h);
 
     var conta = document.createElement("div");
     conta.setAttribute("class", "container");
 
-    var ul= document.createElement("ul");
-    ul.setAttribute("class","collection with-header");
+    var ul = document.createElement("ul");
+    ul.setAttribute("class", "collection with-header");
 
-    var li= document.createElement("li");
-    li.setAttribute("class","collection-header");
+    var li = document.createElement("li");
+    li.setAttribute("class", "collection-header");
 
-     var ht= document.createElement("h4");
-     ht.innerHTML="Listas de reproduccion";
+    var ht = document.createElement("h4");
+    ht.innerHTML = "Listas de reproduccion";
 
-     li.appendChild(ht);
-     ul.appendChild(li);
+    li.appendChild(ht);
+    ul.appendChild(li);
 
+    for (var i = 0; i < list.length; i++) {
 
-     conta.appendChild(ul);
+        var li1 = document.createElement("li");
+        li1.setAttribute("class", "collection-item");
 
+        var ply = document.createElement("div");
+        ply.setAttribute("class", "playlist-title");
+        ply.innerHTML = list[i].name;
 
+        var a = document.createElement("a");
+        a.setAttribute("class", "secondary-content");
 
+        var ii = document.createElement("i");
+        ii.setAttribute("class", "mdi mdi-play");
+        ii.setAttribute("onclick", "playPlaylist(" + list[i].id + ");");
+        a.appendChild(ii);
 
+        ply.appendChild(a);
 
+        li1.appendChild(ply);
+        ul.appendChild(li1);
+    }
+
+    conta.appendChild(ul);
 }

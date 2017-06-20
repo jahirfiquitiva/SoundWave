@@ -5,6 +5,7 @@
 var songsLoaded = false;
 var artistsLoaded = false;
 var genresLoaded = false;
+var playListLoaded = false;
 
 function login() {
     var xhr = new XMLHttpRequest();
@@ -128,6 +129,9 @@ function updateComponents(idMenu) {
     else if (idMenu === "list" && !songsLoaded) {
         loadFavorites();
         songsLoaded = true;
+    }else if(idMenu==="playlists_list" && !playListLoaded){
+        loadPlayList();
+       playListLoaded=true;
     }
 
 
