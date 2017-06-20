@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.edu.uptc.music.logic.managers.PlayListManager;
 import co.edu.uptc.music.logic.managers.SongsManager;
 import co.edu.uptc.music.logic.managers.UsersManager;
 import co.edu.uptc.music.logic.models.User;
@@ -21,6 +22,7 @@ public class PlaylistsServlet extends HttpServlet {
 
     private UsersManager users = new UsersManager();
     private SongsManager playlist = new SongsManager();
+    private PlayListManager list=new PlayListManager();
     private SongDAO dao = new SongDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -49,8 +51,11 @@ public class PlaylistsServlet extends HttpServlet {
                 }
                 else if (opc == 3) {
 
-
-
+                    list.load(u.getId());
+                    list.getList();
+                    if (list.getList().size() > 0) {
+                        writer.print( gson.toJson(list.getList()));
+                    }
 
                 }
 

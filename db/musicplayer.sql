@@ -245,3 +245,16 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-06-20 11:29:42
+
+select *from users;
+
+select *from playlists_users;
+select *from songs_playlists;
+
+select *from users;
+select songs.NAME,songs.SONG_ID,songs.GENRE,songs.ARTIST,songs.LENGTH from users inner join (playlists_users inner join (playlists inner join (songs_playlists inner join songs on songs_playlists.F_SONG_ID=songs.SONG_ID) on playlists.PL_ID=songs_playlists.F_PL_ID) on playlists_users.F_PL_ID=playlists.PL_ID) on users.USER_ID=playlists_users.F_USER_ID ;
+
+select *from playlists;
+
+select playlists.PL_ID,playlists.NAME from 	users inner join(playlists_users  inner join  playlists on playlists_users.F_PL_ID=playlists.PL_ID)
+on users.USER_ID=playlists_users.F_USER_ID where users.USER_ID='U0004';

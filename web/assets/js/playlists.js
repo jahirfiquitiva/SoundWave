@@ -85,9 +85,8 @@ function addToPlaylist() {
     function loadPlayList() {
 
         var xhr = new XMLHttpRequest();
-
         var username = document.getElementById("user-details").getAttribute("data-username");
-        var mySelect = document.getElementById("list");
+        var mySelect = document.getElementById("lists");
 
         var toSend = "username=" + username + "&data=3";
 
@@ -100,14 +99,13 @@ function addToPlaylist() {
                 var tm = JSON.parse(xhr.responseText);
 
                 for (var i = 0; i < tm.length; i++) {
-                    alert('Entrando');
 
                     var opt = document.createElement("option");
 
-                    /*opt.setvalue = tm[i].idTeam;
-                     opt.setText = tm[i].nameTeam;
+                     opt.value = tm[i].id;
+                     opt.text = tm[i].ownerName;
                      mySelect.add(opt);
-                     */
+
                 }
 
             }
