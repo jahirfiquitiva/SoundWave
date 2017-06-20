@@ -52,13 +52,20 @@ function loadFavorites() {
 }
 
 function addToPlaylist() {
-    alert("sdfsdfsdf");
-
     var player = document.getElementById("song-player");
     var songId = player.getAttribute("current-song-id");
-    if (songId !== null && songId !== undefined && songId.length > 0) {
-        // TODO: Mostrar dialogo para escoger playlist o crear una nueva (Leer modals
-        // http://materializecss.com/modals.html ) TODO: Hacer algo con el id de la cancion:
-        // songId
+    var username = document.getElementById("user-details").getAttribute("data-username");
+
+    if (username !== null && username !== undefined && username.length > 0) {
+        if (songId !== null && songId !== undefined && songId.length > 0) {
+            // TODO: Mostrar dialogo para escoger playlist o crear una nueva (Leer modals
+            // http://materializecss.com/modals.html ) TODO: Hacer algo con el id de la cancion:
+            // songId
+
+        } else {
+            Materialize.toast("No ha seleccionado cancion", 2000);
+        }
+    } else {
+        Materialize.toast("No ha iniciado sesion!", 2000);
     }
 }
