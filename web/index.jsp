@@ -374,6 +374,7 @@
             <div class="song-details">
                 <h5 id="song-detail-name" class="primary-text"></h5>
                 <h6 id="song-detail-artist" class="secondary-text"></h6>
+                <h6 id="song-detail-duration" class="secondary-text"></h6>
             </div>
 
             <div class="buttons">

@@ -94,7 +94,7 @@ nav .brand-logo.left {
     float: right;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #4285f4;
 }
 
@@ -268,7 +268,7 @@ nav .brand-logo.left {
     display: block;
     float: left;
     text-align: left;
-    margin-top: 4px;
+    margin-top: -8px;
     margin-left: 16px;
 }
 
