@@ -418,7 +418,7 @@
                         <li class="collection-item avatar">
                             <i class="mdi mdi-account circle green">insert_chart</i>
                             <span class="title">Victor Andres Suarez Cardenas</span>
-                            <p>20152xxxx</p>
+                            <p>201520838</p>
                         </li>
                     </ul>
                 </div>
