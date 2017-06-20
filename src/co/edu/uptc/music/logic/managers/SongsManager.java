@@ -2,6 +2,7 @@ package co.edu.uptc.music.logic.managers;
 
 import java.sql.ResultSet;
 
+import co.edu.uptc.music.logic.models.GenreType;
 import co.edu.uptc.music.logic.models.Song;
 import co.edu.uptc.music.persistence.SongDAO;
 
@@ -15,7 +16,8 @@ public class SongsManager extends BaseManager<Song> {
 
     public boolean addSong(String id, String name, String artist, String genre, int length,
                            String path, String img) {
-        return addItem(new Song(id, name, artist, genre, length, path, img));
+        return addItem(new Song(id, name, artist, GenreType.getGenreForString(genre), length, path,
+                img));
     }
 
     public boolean removeSong(String name) {
@@ -54,7 +56,8 @@ public class SongsManager extends BaseManager<Song> {
                     String length = rs.getString("LENGTH");
                     String path = rs.getString("FILE_PATH");
                     String img = rs.getString("IMG_PATH");
-                    addItem(new Song(id, name, artist, genre, Integer.parseInt(length), path, img));
+                    addItem(new Song(id, name, artist, GenreType.getGenreForString(genre),
+                            Integer.parseInt(length), path, img));
                 }
             } catch (Exception ignored) {
             }

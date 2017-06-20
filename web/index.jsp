@@ -32,6 +32,7 @@
     </head>
 
     <body onload="loadSongs();">
+
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -42,7 +43,9 @@
                                 <i class="mdi mdi-menu material-icons"></i>
                             </a>
                         </li>
-                        <a href="#" class="brand-logo left waves-effect waves-light">SoundWave</a>
+                        <a href="#"
+                           class="brand-logo left waves-effect waves-light">SoundWave
+                        </a>
                     </ul>
                     <ul class="right">
                         <li>
@@ -128,7 +131,8 @@
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('account-container')">
+                <a class="waves-effect" href="#!"
+                   onclick="updateComponents('account-container')">
                     <i class="mdi mdi-account-circle"></i>
                     Cuenta
                 </a>
@@ -172,7 +176,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
+                                            <input id="password" type="password"
+                                                   class="validate">
                                             <label for="password">Contraseña</label>
                                         </div>
                                     </div>
@@ -221,12 +226,14 @@
                             <div class="card-panel">
                                 <div class="row">
                                     <h4 class="primary-text">Registrate</h4>
-                                    <h6 class="primary-text">para tener tu cuenta de SoundWave</h6>
+                                    <h6 class="primary-text">para tener tu cuenta de
+                                                             SoundWave</h6>
                                 </div>
                                 <div id="create-account-fields">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-fullname" type="text" class="validate">
+                                            <input id="new-fullname" type="text"
+                                                   class="validate">
                                             <label for="new-fullname">Nombre completo</label>
                                         </div>
                                     </div>
@@ -238,7 +245,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-username" type="text" class="validate">
+                                            <input id="new-username" type="text"
+                                                   class="validate">
                                             <label for="new-username">Nombre de usuario</label>
                                         </div>
                                     </div>
@@ -287,49 +295,8 @@
             <div id="artists-list" style="display:none;" class="section-content">
                 <div class="container">
                     <!-- Page Content goes here -->
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h4>Artistas</h4></li>
-                        <li class="collection-item avatar">
-                            <img src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
-                                 alt="" class="circle">
-                            <span class="title">NCS </span>
-                            <p>NCS Release <br>
-                               Genero: Mix ING.Electronica
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle">img art</i>
-                            <span class="title">SARL</span>
-                            <p>First Line <br>
-                               Second Line
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle green">img art</i>
-                            <span class="title">Title</span>
-                            <p>First Line <br>
-                               Second Line
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle red">play_arrow</i>
-                            <span class="title">Title</span>
-                            <p>First Line <br>
-                               Second Line
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
+                    <ul class="collection with-header" id="artists-collection">
+
                     </ul>
                 </div>
             </div>
@@ -446,6 +413,9 @@
             <!-- Inicio seccion acerca de -->
             <div id="about-section" style="display: none;">
                 <div class="container">
+                    <h3 class="center">SoundWave</h3>
+                    <img src="assets/favicons/sw-product-icon-192.png" class="product-icon"/>
+                    <br>
                     <ul class="collection with-header">
                         <li class="collection-header"><h4>Aplicacion desarrollada por:</h4></li>
                         <li class="collection-item avatar">
@@ -490,7 +460,7 @@
                     <i class="material-icons">grade</i>
                 </a>
 
-                <i class="mdi mdi-skip-previous waves-ripple"></i>
+                <i class="mdi mdi-skip-previous waves-ripple" onclick="playPrevious()"></i>
 
                 <a class="waves-ripple" onclick="seek(false)">
                     <i class="mdi mdi-skip-backward waves-ripple"></i>
@@ -505,14 +475,14 @@
                 <a class="waves-ripple" onclick="seek(true)">
                     <i class="mdi mdi-skip-forward waves-ripple"></i>
                 </a>
-                <i class="mdi mdi-skip-next waves-ripple"></i>
+                <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
                 <a class="waves-ripple pulse" onclick="addplayList()">
                     <i class="material-icons">playlist_add</i>
                 </a>
             </div>
             <div class="whole-volume-container">
-                <i class="mdi mdi-volume-high volume-icon-low"></i>
+                <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
                 <div class="volume-container">
                     <form>
                         <p class="range-field">
@@ -521,9 +491,10 @@
                         </p>
                     </form>
                 </div>
-                <i class="mdi mdi-volume-low volume-icon"></i>
+                <i class="mdi mdi-volume-low volume-icon" onclick="volumeDown()"></i>
             </div>
-            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()">
+            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
+                   crossorigin="">
                 <source src="" type="audio/mpeg"/>
             </audio>
         </div>
