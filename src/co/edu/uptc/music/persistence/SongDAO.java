@@ -98,6 +98,19 @@ public class SongDAO {
         return null;
     }
 
+    public ResultSet queryList(String idUser) {
+
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                return statement.executeQuery(songSQL.queryFavorites(idUser));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public void addSongsToPlaylist(String idList, String idSong) {
         if (connection.connectToDB()) {
             try {
