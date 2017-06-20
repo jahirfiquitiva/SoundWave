@@ -16,6 +16,6 @@ public class GenreSQL {
     }
 
     public String deleteGenre(String idGen) {
-        return "DROP GENRES WHERE SONG_ID='" + idGen + "';";
+        return "DROP GENRES WHERE GENRE_ID='" + idGen + "';";
     }
 }

@@ -11,8 +11,8 @@ public class GenreDAO {
     private GenreSQL genreSQL;
 
     public GenreDAO() {
-        connection = new DatabaseConnection();
-        genreSQL = new GenreSQL();
+        this.connection = new DatabaseConnection();
+        this.genreSQL = new GenreSQL();
     }
 
 

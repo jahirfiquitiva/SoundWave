@@ -27,15 +27,12 @@ public class GenresServlet extends HttpServlet {
         String data = request.getParameter("data");
         try (PrintWriter writer = response.getWriter()) {
             genresManager.loadGenres();
-
             if (genresManager.getList().size() > 0) {
                 writer.print("{\"genres\":" + gson.toJson(genresManager.getList()) + "}");
             }
             writer.close();
         }
-
     }
-
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {

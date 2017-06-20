@@ -4,6 +4,7 @@
 
 var songsLoaded = false;
 var artistsLoaded = false;
+var genresLoaded = false;
 
 function login() {
     var xhr = new XMLHttpRequest();
@@ -118,6 +119,9 @@ function updateComponents(idMenu) {
     } else if (idMenu === "songs" && !songsLoaded) {
         loadSongs();
         songsLoaded = true;
+    } else if (idMenu === "genres" && !genresLoaded) {
+        loadGenres();
+        genresLoaded = true;
     }
 }
 

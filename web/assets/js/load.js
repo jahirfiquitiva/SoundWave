@@ -170,25 +170,72 @@ function loadArtists() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
 }
+function loadGenreViews(list) {
+    var genres = document.getElementById("genres");
+    genres.innerHTML = "";
 
-function loadGenre() {
+    var h = document.createElement("h3");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Generos";
+
+    genres.appendChild(h);
+
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    for (var i = 0; i < list.length; i++) {
+        var Pathimg = list[i].imgPath;
+        if (i % 6 === 0) {
+            genres.appendChild(row);
+            row = document.createElement("div");
+            row.setAttribute("class", "row");
+        }
+
+        var col = document.createElement("div");
+        col.setAttribute("class", "col s4 m3 l2");
+
+        var griditem = document.createElement("div");
+        griditem.setAttribute("class", "grid-item");
+
+        var imgAl = document.createElement("img");
+        imgAl.setAttribute("class", "responsive-img");
+        imgAl.setAttribute("crossorigin", "anonymous");
+        imgAl.setAttribute("src", Pathimg);
+        imgAl.setAttribute("onload", "loadCardColors(event)");
+
+        var divider = document.createElement("div");
+        divider.setAttribute("class", "divider");
+
+        var content = document.createElement("div");
+        content.setAttribute("class", "grid-item-content");
+
+        var p = document.createElement("p");
+        p.setAttribute("class", "primary-text");
+        p.innerHTML = list[i].description;
+
+        content.appendChild(p);
+        griditem.appendChild(imgAl);
+        griditem.appendChild(divider);
+        griditem.appendChild(content);
+        col.appendChild(griditem);
+        row.appendChild(col);
+    }
+    genres.appendChild(row);
+}
+
+function loadGenres() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "GenresServlet", true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
                 var a = xhr.responseText;
-                alert(a);
-                var json = JSON.parse(xhr.responseText);
-                var idGe = document.createElement("idge");
-                var descG = document.createElement("desge");
-                var pathIm = document.createElement("imGE");
-
+                var json = JSON.parse(a);
+                if (json.genres !== undefined) {
+                    loadGenreViews(json.genres);
+                }
             }
-        } else {
-            alert("Oh oh ..")
         }
     };
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(null);
+    xhr.send("");
 }

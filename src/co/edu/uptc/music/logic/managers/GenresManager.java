@@ -40,5 +40,4 @@ public class GenresManager extends BaseManager<Genre> {
         internalLoad(genreDAO.queryGenres());
     }
 
-
 }
