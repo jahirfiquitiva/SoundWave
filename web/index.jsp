@@ -340,7 +340,7 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>Nueva canción</span>
-                                <input type="file" accept="audio/mpeg">
+                                <input type="file" accept="audio/*">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
