@@ -16,6 +16,7 @@ function login() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 console.log(xhr.responseText);
+                var jsonContent=JSON.parse(xhr.responseText)
                 if (jsonContent.name !== undefined) {
                     Materialize.toast("Bienvenido " + jsonContent.name, 2000);
                     document.getElementById("username").value = "";
