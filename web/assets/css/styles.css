@@ -309,3 +309,11 @@ nav .brand-logo.left {
 .collection .collection-item.avatar {
     min-height: 64px;
 }
+
+.product-icon {
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
