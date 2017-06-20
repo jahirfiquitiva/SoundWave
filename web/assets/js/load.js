@@ -133,6 +133,7 @@ function getShortText(text) {
 }
 
 function loadArtists() {
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "SongsServlet", true);
     xhr.onreadystatechange = function () {

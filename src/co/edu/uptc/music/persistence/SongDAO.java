@@ -39,6 +39,20 @@ public class SongDAO {
         return null;
     }
 
+    public void connectedDB() {
+
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+               // return statement.executeQuery(songSQL.songsByArtists());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
     public ResultSet querySongsByGenre() {
         if (connection.connectToDB()) {
             try {
@@ -85,5 +99,20 @@ public class SongDAO {
         }
         return false;
     }
+
+
+    public ResultSet PlayFavorites(String idUser) {
+
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                return statement.executeQuery(songSQL.userPlaylist(idUser));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
 
 }

@@ -119,9 +119,9 @@
                 <a class="subheader">Personal</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('list-favorite')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('list')">
                     <i class="mdi mdi-heart"></i>
-                    Favoritos
+                    Favoritoses
                 </a>
             </li>
             <li>
@@ -442,10 +442,7 @@
             </div>
 
             <div class="buttons">
-                <a class="waves-ripple" onclick="addToFavorites()">
-                    <i class="material-icons">grade</i>
-                </a>
-
+                <i class="mdi mdi-star waves-ripple" onclick="addToFavorites()"></i>
                 <i class="mdi mdi-skip-previous waves-ripple" onclick="playPrevious()"></i>
 
                 <a class="waves-ripple" onclick="seek(false)">
@@ -463,7 +460,7 @@
                 </a>
                 <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
 
-                <a class="waves-ripple pulse" onclick="addplayList()">
+                <a class="waves-ripple pulse" onclick="addToPlaylist()">
                     <i class="material-icons">playlist_add</i>
                 </a>
             </div>
@@ -489,6 +486,7 @@
         <script src="assets/js/load.js"></script>
         <script src="assets/js/core.js"></script>
         <script src="assets/js/music.js"></script>
+        <script src="assets/js/playlists.js"></script>
         <script src="assets/js/jquery-2.1.4.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script src="assets/js/vibrant.min.js"></script>
@@ -496,15 +494,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth:    280, // Default is 300
-                                              edge:         'left', // Choose the horizontal origin
+                                              menuWidth: 280, // Default is 300
+                                              edge: 'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable:    true // Choose whether you can drag to open on touch screens
+                                              draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval:   2500
+                                    interval: 2500
                                 });
         </script>
         <script type="text/javascript">

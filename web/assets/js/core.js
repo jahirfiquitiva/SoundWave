@@ -91,8 +91,6 @@ function createUser() {
     }
 }
 
-
-
 function logout() {
     Materialize.toast("Adios " + document.getElementById("user-name").innerHTML, 2000);
     document.getElementById("username").value = "";
@@ -105,6 +103,8 @@ function logout() {
     changeVisibility("login-section", true);
     removeFocuses();
 }
+
+
 
 function updateComponents(idMenu) {
     changeVisibility("songs", idMenu === "songs");
@@ -121,6 +121,12 @@ function updateComponents(idMenu) {
         loadSongs();
         songsLoaded = true;
     }
+    else if (idMenu === "list" && !songsLoaded) {
+        loadFavorites();
+        songsLoaded = true;
+    }
+
+
 }
 
 function showRegister() {

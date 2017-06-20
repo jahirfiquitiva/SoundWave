@@ -28,7 +28,6 @@ public class SongsServlet extends HttpServlet {
 
 
         Gson gson = new Gson();
-        System.out.print("entrando a song servlet");
         String data = request.getParameter("data");
         int opc = Integer.parseInt(data);
         try (PrintWriter writer = response.getWriter()) {
