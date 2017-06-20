@@ -8,6 +8,8 @@ function playPauseSong(play) {
     var player = document.getElementById("song-player");
     var id = player.getAttribute("current-song-id");
     if (id === null || id === undefined || id.length <= 0) {
+        playIcon.style.display = "inline-block";
+        pauseIcon.style.display = "none";
         return;
     }
     if (player.getAttribute("src").length > 0) {
@@ -23,11 +25,17 @@ function playPauseSong(play) {
 function updateSongProgress() {
     var player = document.getElementById("song-player");
     var id = player.getAttribute("current-song-id");
+    var playIcon = document.getElementById("play-button");
+    var pauseIcon = document.getElementById("pause-button");
     if (id === null || id === undefined || id.length <= 0) {
+        playIcon.style.display = "inline-block";
+        pauseIcon.style.display = "none";
         return;
     }
     if (player.currentTime >= player.duration) {
         player.setAttribute("src", "");
+        playIcon.style.display = "inline-block";
+        pauseIcon.style.display = "none";
         document.getElementById("song-progress").style.width = "0%";
         document.getElementById("current-album").setAttribute("src", "");
         document.getElementById("song-detail-name").innerHTML = "";
@@ -147,8 +155,6 @@ function playAnother(next, current) {
                     player.src = song.path;
                     document.getElementById("current-album").setAttribute("src", song.img);
                     playPauseSong(true);
-                } else {
-                    playPauseSong(false);
                 }
             }
         }
