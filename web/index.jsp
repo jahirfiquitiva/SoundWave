@@ -290,6 +290,43 @@
 
             <!-- Inicio lista de generos -->
             <div id="genres" style="display:none;" class="section-content">
+                <h3 class="cyan-text section-title">Generos</h3>
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin="anonymous"
+                                 src="https://i1.sndcdn.com/artworks-000227378436-y07in3-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Electro House</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Dubstep</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000228571109-9v1ty0-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Electro Dance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- fin de lista de generos -->
 
@@ -405,14 +442,7 @@
             </div>
 
             <div class="buttons">
-<<<<<<< HEAD
                 <i class="mdi mdi-star waves-ripple" onclick="addToFavorites()"></i>
-=======
-                <a class="waves-ripple" onclick="addToFavorites()">
-                    <i class="material-icons">grade</i>
-                </a>
-
->>>>>>> 9199c2adfa3639e6e6b5bc5891f87936fae06479
                 <i class="mdi mdi-skip-previous waves-ripple" onclick="playPrevious()"></i>
 
                 <a class="waves-ripple" onclick="seek(false)">
