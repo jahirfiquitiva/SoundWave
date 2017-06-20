@@ -111,6 +111,9 @@ function updateComponents(idMenu) {
     changeVisibility("list-favorite", idMenu === "list-favorite");
     changeVisibility("playlists-list", idMenu === "playlists-list");
     changeVisibility("about-section", idMenu === "about-section");
+    if (idMenu === "artists-list") {
+        loadArtists();
+    }
 }
 
 function showRegister() {

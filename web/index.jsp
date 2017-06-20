@@ -31,7 +31,7 @@
         <meta name="msapplication-TileImage" content="assets/favicons/sw72.png">
     </head>
 
-    <body onload="loadSongs();">
+    <body>
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper cyan">
@@ -287,49 +287,8 @@
             <div id="artists-list" style="display:none;" class="section-content">
                 <div class="container">
                     <!-- Page Content goes here -->
-                    <ul class="collection with-header">
-                        <li class="collection-header"><h4>Artistas</h4></li>
-                        <li class="collection-item avatar">
-                            <img src="https://i1.sndcdn.com/artworks-000227625218-5u67k2-t500x500.jpg"
-                                 alt="" class="circle">
-                            <span class="title">NCS </span>
-                            <p>NCS Release <br>
-                               Genero: Mix ING.Electronica
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle">img art</i>
-                            <span class="title">SARL</span>
-                            <p>First Line <br>
-                               Second Line
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle green">img art</i>
-                            <span class="title">Title</span>
-                            <p>First Line <br>
-                               Second Line
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle red">play_arrow</i>
-                            <span class="title">Title</span>
-                            <p>First Line <br>
-                               Second Line
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="mdi mdi-library-music"></i>
-                            </a>
-                        </li>
+                    <ul class="collection with-header" id="artists-collection">
+
                     </ul>
                 </div>
             </div>
