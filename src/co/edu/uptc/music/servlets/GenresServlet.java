@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.edu.uptc.music.logic.managers.GenreManager;
+import co.edu.uptc.music.logic.managers.GenresManager;
 
-@WebServlet(name = "GenreServlet", urlPatterns = {"/GenreServlet"})
-public class GenreServlet extends HttpServlet {
+@WebServlet(name = "GenresServlet", urlPatterns = {"/GenresServlet"})
+public class GenresServlet extends HttpServlet {
 
-    GenreManager genreManager = new GenreManager();
+    GenresManager genresManager = new GenresManager();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
@@ -30,12 +30,12 @@ public class GenreServlet extends HttpServlet {
             switch (opt) {
                 default:
                 case 1:
-                    genreManager.loadGenres();
+                    genresManager.loadGenres();
                     break;
 
             }
-            if (genreManager.getList().size() > 0) {
-                writer.print("{\"genres\":" + gson.toJson(genreManager.getList()) + "}");
+            if (genresManager.getList().size() > 0) {
+                writer.print("{\"genres\":" + gson.toJson(genresManager.getList()) + "}");
             }
             writer.close();
         }

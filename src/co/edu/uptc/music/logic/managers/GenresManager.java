@@ -5,19 +5,18 @@ import java.sql.ResultSet;
 import co.edu.uptc.music.logic.models.Genre;
 import co.edu.uptc.music.persistence.GenreDAO;
 
-public class GenreManager extends BaseManager<Genre> {
+public class GenresManager extends BaseManager<Genre> {
 
     private GenreDAO genreDAO;
 
-    public GenreManager() {
+    public GenresManager() {
         genreDAO = new GenreDAO();
     }
 
     @Override
     public Genre findItem(String s) {
-
-        for (Genre gener : getList()) {
-            if (gener.getGenreId().equalsIgnoreCase(s)) return gener;
+        for (Genre genre : getList()) {
+            if (genre.getGenreId().equalsIgnoreCase(s)) return genre;
         }
         return null;
     }
@@ -28,9 +27,9 @@ public class GenreManager extends BaseManager<Genre> {
                 clearList();
                 while (res.next()) {
                     String genId = res.getString("GENRE_ID");
-                    String descri = res.getString("DESCRIPTION");
-                    String imgPat = res.getString("IMG_PATH");
-                    addItem(new Genre(genId, descri, imgPat));
+                    String desc = res.getString("DESCRIPTION");
+                    String imgPath = res.getString("IMG_PATH");
+                    addItem(new Genre(genId, desc, imgPath));
                 }
             } catch (Exception ignored) {
             }
