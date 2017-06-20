@@ -25,6 +25,8 @@ public class SongsServlet extends HttpServlet {
             throws Exception {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+
+
         Gson gson = new Gson();
         String data = request.getParameter("data");
         int opc = Integer.parseInt(data);

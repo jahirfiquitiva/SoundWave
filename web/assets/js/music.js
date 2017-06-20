@@ -61,6 +61,7 @@ function seek(forward) {
 }
 
 function moveSong(e) {
+
     var player = document.getElementById("song-player");
     var id = player.getAttribute("current-song-id");
     if (id === null || id === undefined || id.length <= 0) {

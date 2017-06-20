@@ -105,6 +105,8 @@ function logout() {
     removeFocuses();
 }
 
+
+
 function updateComponents(idMenu) {
     changeVisibility("songs", idMenu === "songs");
     changeVisibility("account-container", idMenu === "account-container");
@@ -123,6 +125,12 @@ function updateComponents(idMenu) {
         loadGenres();
         genresLoaded = true;
     }
+    else if (idMenu === "list" && !songsLoaded) {
+        loadFavorites();
+        songsLoaded = true;
+    }
+
+
 }
 
 function showRegister() {

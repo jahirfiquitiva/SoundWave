@@ -119,9 +119,9 @@
                 <a class="subheader">Personal</a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('list-favorite')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('list')">
                     <i class="mdi mdi-heart"></i>
-                    Favoritos
+                    Favoritoses
                 </a>
             </li>
             <li>
@@ -290,6 +290,43 @@
 
             <!-- Inicio lista de generos -->
             <div id="genres" style="display:none;" class="section-content">
+                <h3 class="cyan-text section-title">Generos</h3>
+                <div class="row">
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin="anonymous"
+                                 src="https://i1.sndcdn.com/artworks-000227378436-y07in3-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Electro House</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="http://3.bp.blogspot.com/--pem6TeduTg/TiXe97AyVlI/AAAAAAAAACU/ou6R6fM-j58/s1600/pop.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Dubstep</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 m3 l2">
+                        <div class="grid-item">
+                            <img class="responsive-img" crossorigin=""
+                                 src="https://i1.sndcdn.com/artworks-000228571109-9v1ty0-t500x500.jpg"
+                                 onload="loadCardColors(event)"/>
+                            <div class="divider"></div>
+                            <div class="grid-item-content">
+                                <p class="primary-text">Electro Dance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- fin de lista de generos -->
 
@@ -407,10 +444,7 @@
             </div>
 
             <div class="buttons">
-                <a class="waves-ripple" onclick="addToFavorites()">
-                    <i class="material-icons">grade</i>
-                </a>
-
+                <i class="mdi mdi-star waves-ripple" onclick="addToFavorites()"></i>
                 <i class="mdi mdi-skip-previous waves-ripple" onclick="playPrevious()"></i>
 
                 <a class="waves-ripple" onclick="seek(false)">
@@ -462,15 +496,15 @@
 
         <script type="text/javascript">
             $('.button-collapse').sideNav({
-                                              menuWidth:    280, // Default is 300
-                                              edge:         'left', // Choose the horizontal origin
+                                              menuWidth: 280, // Default is 300
+                                              edge: 'left', // Choose the horizontal origin
                                               closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                              draggable:    true // Choose whether you can drag to open on touch screens
+                                              draggable: true // Choose whether you can drag to open on touch screens
                                           }
             );
             $('.slider').slider({
                                     indicators: false,
-                                    interval:   2500
+                                    interval: 2500
                                 });
         </script>
         <script type="text/javascript">
