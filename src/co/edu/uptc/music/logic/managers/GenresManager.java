@@ -16,7 +16,7 @@ public class GenresManager extends BaseManager<Genre> {
     @Override
     public Genre findItem(String s) {
         for (Genre genre : getList()) {
-            if (genre.getGenreId().equalsIgnoreCase(s)) return genre;
+            if (genre.getDescription().equalsIgnoreCase(s)) return genre;
         }
         return null;
     }
