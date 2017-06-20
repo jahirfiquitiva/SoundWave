@@ -239,3 +239,54 @@ function loadGenres() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("");
 }
+
+function loadPlayList() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                var json = JSON.parse(a);
+                if (json.playlists_list !== undefined) {
+                    loadPlayListViews(json.playlists_list);
+                }
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("");
+}
+
+function loadPlayListViews(list) {
+    /**
+     *  <h3 class="cyan-text section-title">Tus PlayLists</h3>
+     <div class="container">
+     <ul class="collection with-header">
+     <li class="collection-header"><h4>Listas de reproduccion</h4></li>
+     <li class="collection-item">
+     <div class="playlist-title">
+     Music
+     <a href="#!" class="secondary-content">
+     <i class="mdi mdi-play"></i>
+     </a>
+     </div>
+     </li>
+     <li class="collection-item">
+     <div>Colegio
+     <a href="#!" class="secondary-content">
+     <i class="mdi mdi-play"></i>
+     </a>
+     </div>
+     </li>
+     <li class="collection-item">
+     <div>Gym
+     <a href="#!" class="secondary-content">
+     <i class="mdi mdi-play"></i>
+     </a>
+     </div>
+     </li>
+     </ul>
+     </div>
+     */
+}
