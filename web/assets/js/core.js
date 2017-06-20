@@ -15,24 +15,27 @@ function login() {
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                if (jsonContent.name !== undefined) {
-                    Materialize.toast("Bienvenido " + jsonContent.name, 2000);
-                    document.getElementById("username").value = "";
-                    document.getElementById("password").value = "";
-                    document.getElementById("user-name").innerHTML = jsonContent.name;
-                    document.getElementById("user-type").innerHTML = camelize(jsonContent.type);
-                    changeVisibility("user-details", true);
-                    var dtls = document.getElementById("user-details");
-                    if (dtls !== null) {
-                        dtls.setAttribute("data-username", jsonContent.username);
+                if (xhr.responseText.length > 0) {
+                    var jsonContent = JSON.parse(xhr.responseText);
+                    if (jsonContent.name !== undefined) {
+                        Materialize.toast("Bienvenido " + jsonContent.name, 2000);
+                        document.getElementById("username").value = "";
+                        document.getElementById("password").value = "";
+                        document.getElementById("user-name").innerHTML = jsonContent.name;
+                        document.getElementById("user-type").innerHTML = camelize(jsonContent.type);
+                        changeVisibility("user-details", true);
+                        var dtls = document.getElementById("user-details");
+                        if (dtls !== null) {
+                            dtls.setAttribute("data-username", jsonContent.username);
+                        }
+                        loadPlaylistsToOptions();
+                        changeVisibility("login", false);
+                        changeVisibility("logout", true);
+                        changeVisibility("login-section", false);
+                        removeFocuses();
+                    } else {
+                        Materialize.toast("Error!<br>" + jsonContent.error, 2000);
                     }
-                    loadPlaylistsToOptions();
-                    changeVisibility("login", false);
-                    changeVisibility("logout", true);
-                    changeVisibility("login-section", false);
-                    removeFocuses();
-                } else {
-                    Materialize.toast("Error!<br>" + jsonContent.error, 2000);
                 }
             }
         };

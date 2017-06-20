@@ -62,13 +62,11 @@ public class SongsManager extends BaseManager<Song> {
         internalLoad(songDAO.queryFavorites(userId));
     }
 
-    public void loadListUser(String iduUser) {
-
-        internalLoad(songDAO.queryList(iduUser));
+    public void loadPlaylists(String userId) {
+        internalLoad(songDAO.queryPlaylists(userId));
     }
 
     private void internalLoad(ResultSet rs) {
-
         if (rs != null) {
             try {
                 clearList();
@@ -80,26 +78,6 @@ public class SongsManager extends BaseManager<Song> {
                     String path = rs.getString("FILE_PATH");
                     String img = rs.getString("IMG_PATH");
                     addSong(id, name, artist, genre, path, img);
-                }
-            } catch (Exception ignored) {
-            }
-        }
-    }
-
-
-
-
-
-    private void InternalLoadlist(ResultSet rs) {
-        if (rs != null) {
-            try {
-                clearList();
-                while (rs.next()) {
-
-                    String id = rs.getString("PL_ID");
-                    String name = rs.getString("NAME");
-
-                    //addSong(id, name, artist, genre, Integer.parseInt(length), path, img);
                 }
             } catch (Exception ignored) {
             }

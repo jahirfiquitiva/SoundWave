@@ -98,12 +98,11 @@ public class SongDAO {
         return null;
     }
 
-    public ResultSet queryList(String idUser) {
-
+    public ResultSet queryPlaylists(String idUser) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
-                return statement.executeQuery(songSQL.QueryList(idUser));
+                return statement.executeQuery(songSQL.queryPlaylists(idUser));
             } catch (Exception e) {
                 e.printStackTrace();
             }

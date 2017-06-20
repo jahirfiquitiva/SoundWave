@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.edu.uptc.music.logic.managers.PlayListManager;
 import co.edu.uptc.music.logic.managers.SongsManager;
 import co.edu.uptc.music.logic.managers.UsersManager;
+import co.edu.uptc.music.logic.models.Song;
 import co.edu.uptc.music.logic.models.User;
 import co.edu.uptc.music.persistence.SongDAO;
 
@@ -22,7 +24,7 @@ public class PlaylistsServlet extends HttpServlet {
 
     private UsersManager users = new UsersManager();
     private SongsManager playlist = new SongsManager();
-    private PlayListManager list=new PlayListManager();
+    private PlayListManager list = new PlayListManager();
     private SongDAO dao = new SongDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,18 +46,16 @@ public class PlaylistsServlet extends HttpServlet {
                     writer.print("{\"code\": 1}");
                 } else if (opc == 2) {
                     playlist.loadFavorites(id);
-                    playlist.getList();
-                    if (playlist.getList().size() > 0) {
-                        writer.print("{\"songs\":" + gson.toJson(playlist.getList()) + "}");
+                    ArrayList<Song> favorites = playlist.getList();
+                    if (favorites.size() > 0) {
+                        writer.print("{\"songs\":" + gson.toJson(favorites) + "}");
                     }
                 } else if (opc == 3) {
-
                     list.load(u.getId());
                     list.getList();
                     if (list.getList().size() > 0) {
-                        writer.print( gson.toJson(list.getList()));
+                        writer.print(gson.toJson(list.getList()));
                     }
-
                 }
             }
             writer.close();
