@@ -44,8 +44,7 @@ public class SongSQL {
                 "(PLAYLISTS_USERS INNER JOIN (PLAYLISTS INNER JOIN (SONGS_PLAYLISTS INNER JOIN " +
                 "SONGS ON SONGS_PLAYLISTS.F_SONG_ID=SONGS.SONG_ID) ON PLAYLISTS" +
                 ".PL_ID=SONGS_PLAYLISTS.F_PL_ID) ON PLAYLISTS_USERS.F_PL_ID=PLAYLISTS.PL_ID) ON " +
-                "USERS.USER_ID=PLAYLISTS_USERS.F_USER_ID WHERE USERS.USER_ID=\'" + userId + "\'";
-        */
+                "USERS.USER_ID=PLAYLISTS_USERS.F_USER_ID WHERE USERS.USER_ID=\'" + userId + "\'";        */
 
             return "select songs.SONG_ID,songs.NAME,songs.ARTIST,songs.GENRE,songs.LENGTH,songs" +
                     ".FILE_PATH,songs.IMG_PATH FROM users inner join (playlists_users inner join " +
@@ -55,6 +54,8 @@ public class SongSQL {
                     ".F_USER_ID " +"where users.USER_ID="+userId+"and playlists.PL_ID=\"PL000\"";
 
     }
+
+
 
     public String addPlayList(String id, String name) {
         return "INSERT INTO PLAYLISTS VALUES (\'" + id + "\',\'" + name + "\')";
