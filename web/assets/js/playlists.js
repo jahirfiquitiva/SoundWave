@@ -193,8 +193,8 @@ function createPlaylist(listId, username, songId) {
                         if (json.code !== undefined) {
                             if (json.code === 1) {
                                 Materialize.toast("Lista creada con exito", 2000);
-                                loadPlaylistsToOptions();
                                 addSongToPlaylist(listId, username, songId);
+                                loadPlaylistsToOptions();
                             } else {
                                 Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
                             }
@@ -208,6 +208,36 @@ function createPlaylist(listId, username, songId) {
             };
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send("data=5&listid=" + listId + "&username=" + username);
+        }
+    }
+}
+
+function playPlaylist(listId) {
+    var username = document.getElementById("user-details").getAttribute("data-username");
+    if (username !== null && username !== undefined && username.length > 0) {
+        if (listId !== null && listId !== undefined && listId.length > 0) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "PlaylistsServlet", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    if (xhr.responseText.length > 0) {
+                        var json = JSON.parse(xhr.responseText);
+                        if (json.songs !== undefined) {
+                            if (json.songs.length > 0) {
+                                // Reproducir canciones
+                            } else {
+                                Materialize.toast("Error!<br>La lista no tiene canciones", 2000);
+                            }
+                        } else {
+                            Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
+                        }
+                    } else {
+                        Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
+                    }
+                }
+            };
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("data=7&listid=" + listId + "&username=" + username);
         }
     }
 }

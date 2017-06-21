@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 
 import co.edu.uptc.music.logic.models.Artist;
 import co.edu.uptc.music.logic.models.GenreType;
-import co.edu.uptc.music.logic.models.Playlist;
 import co.edu.uptc.music.logic.models.Song;
 import co.edu.uptc.music.logic.models.User;
 import co.edu.uptc.music.logic.models.UserType;
@@ -61,8 +60,8 @@ public class SongsManager extends BaseManager<Song> {
         internalLoad(songDAO.queryFavorites(userId));
     }
 
-    public void loadPlaylists(String userId) {
-        internalLoad(songDAO.queryPlaylists(userId));
+    public void loadSongsFromPlaylists(String userId, String listId) {
+        internalLoad(songDAO.querySongsFromPlaylist(userId, listId));
     }
 
     private void internalLoad(ResultSet rs) {

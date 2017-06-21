@@ -289,7 +289,7 @@ function loadGenres() {
 }
 
 function loadPlaylistsViews(list) {
-    var playList = document.getElementById("playlists_list");
+    var playList = document.getElementById("playlists-list");
     playList.innerHTML = "";
 
     var h = document.createElement("h3");
@@ -314,6 +314,7 @@ function loadPlaylistsViews(list) {
         ul.appendChild(li);
 
         for (var i = 0; i < list.length; i++) {
+            console.log(list[i]);
 
             var li1 = document.createElement("li");
             li1.setAttribute("class", "collection-item");
@@ -328,14 +329,14 @@ function loadPlaylistsViews(list) {
             var ii = document.createElement("i");
             ii.setAttribute("class", "mdi mdi-play");
             ii.setAttribute("onclick", "playPlaylist(" + list[i].id + ");");
-            a.appendChild(ii);
 
+            a.appendChild(ii);
             ply.appendChild(a);
 
             li1.appendChild(ply);
             ul.appendChild(li1);
         }
-
         conta.appendChild(ul);
     }
+    playList.appendChild(conta);
 }

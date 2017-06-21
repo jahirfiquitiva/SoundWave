@@ -23,20 +23,10 @@ public class PlaylistsManager extends BaseManager<Playlist> {
                 while (rs.next()) {
                     String listId = rs.getString("PL_ID");
                     String name = rs.getString("NAME");
-                    if (!(listId.equalsIgnoreCase("favs"))) addList(listId, name);
+                    if (!(listId.equalsIgnoreCase("favs"))) addItem(new Playlist(listId, name));
                 }
-                System.out.println("Añadidas " + getList().size() + " listas de reproduccion");
             } catch (Exception ignored) {
             }
-        }
-    }
-
-    private void addList(String nId, String nName) {
-        if (findItem(nId) == null) {
-            Playlist list = new Playlist(nId, nName);
-            // TODO: Hacer funcionar -- Sin cargar canciones, funciona bien;
-            list.loadSongs();
-            addItem(list);
         }
     }
 

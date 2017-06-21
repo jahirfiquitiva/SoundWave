@@ -50,13 +50,9 @@ public class PlaylistsServlet extends HttpServlet {
                         writer.print("{\"songs\":" + gson.toJson(favorites) + "}");
                     }
                 } else if (opc == 3) {
-                    System.out.println("Loading lists for user: " + u.getName());
-                    // TODO: Hacer funcionar ...
                     playlists.load(u.getId());
                     if (playlists.getList().size() > 0) {
-                        String json = "{\"lists\":" + gson.toJson(playlists.getList()) + "}";
-                        System.out.println(json);
-                        writer.print(json);
+                        writer.print("{\"lists\":" + gson.toJson(playlists.getList()) + "}");
                     }
                 } else if (opc == 4) {
                     if (u.getType() == UserType.ADMIN || u.getType() == UserType.ARTIST) {
@@ -76,6 +72,13 @@ public class PlaylistsServlet extends HttpServlet {
                         playlists.addSongsToPlaylist(target.getId(),
                                 request.getParameter("songid"));
                         writer.print("{\"code\": 1}");
+                    }
+                } else if (opc == 7) {
+                    String listname = request.getParameter("listid");
+                    songsManager.loadSongsFromPlaylists(u.getId(), listname);
+                    ArrayList<Song> songsFromPlaylist = songsManager.getList();
+                    if (songsFromPlaylist.size() > 0) {
+                        writer.print("{\"songs\":" + gson.toJson(songsFromPlaylist) + "}");
                     }
                 }
             }
