@@ -12,21 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.edu.uptc.music.logic.managers.PlayListManager;
+import co.edu.uptc.music.logic.managers.PlaylistsManager;
 import co.edu.uptc.music.logic.managers.SongsManager;
 import co.edu.uptc.music.logic.managers.UsersManager;
+import co.edu.uptc.music.logic.models.Playlist;
 import co.edu.uptc.music.logic.models.Song;
 import co.edu.uptc.music.logic.models.User;
 import co.edu.uptc.music.logic.models.UserType;
-import co.edu.uptc.music.persistence.SongDAO;
 
 @WebServlet(name = "PlaylistsServlet", urlPatterns = {"/PlaylistsServlet"})
 public class PlaylistsServlet extends HttpServlet {
 
     private UsersManager users = new UsersManager();
-    private SongsManager playlist = new SongsManager();
-    private PlayListManager list = new PlayListManager();
-    private SongDAO dao = new SongDAO();
+    private SongsManager songsManager = new SongsManager();
+    private PlaylistsManager playlists = new PlaylistsManager();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
@@ -42,24 +41,43 @@ public class PlaylistsServlet extends HttpServlet {
                 String id = u.getId();
                 if (opc == 1) {
                     String songId = request.getParameter("songId");
-                    dao.addListToUser("FAVS", id);
-                    dao.addSongsToPlaylist("FAVS", songId);
+                    playlists.addListToUser("FAVS", id);
+                    playlists.addSongsToPlaylist("FAVS", songId);
                     writer.print("{\"code\": 1}");
                 } else if (opc == 2) {
-                    playlist.loadFavorites(id);
-                    ArrayList<Song> favorites = playlist.getList();
+                    songsManager.loadFavorites(id);
+                    ArrayList<Song> favorites = songsManager.getList();
                     if (favorites.size() > 0) {
                         writer.print("{\"songs\":" + gson.toJson(favorites) + "}");
                     }
                 } else if (opc == 3) {
-                    list.load(u.getId());
-                    list.getList();
-                    if (list.getList().size() > 0) {
-                        writer.print(gson.toJson(list.getList()));
+                    playlists.load(u.getId());
+                    playlists.getList();
+                    if (playlists.getList().size() > 0) {
+                        writer.print("{\"lists\":" + gson.toJson(playlists.getList()) + "}");
                     }
                 } else if (opc == 4) {
                     if (u.getType() == UserType.ADMIN || u.getType() == UserType.ARTIST) {
                         writer.print("{\"code\": 1}");
+                    }
+                } else if (opc == 5) {
+                    System.out.println("Creando playlist: " + request.getParameter("listid"));
+                    playlists.createNewPlaylist(request.getParameter("listid"), u.getId());
+                    writer.print("{\"code\": 2}");
+                } else if (opc == 6) {
+                    System.out.println("Añadiendo a playlist: " + request.getParameter("listid"));
+                    System.out.println("Añadiendo a playlist song: " + request.getParameter
+                            ("songid"));
+                    playlists.load(u.getId());
+                    String listname = request.getParameter("listid");
+                    Playlist target = null;
+                    for (Playlist p : playlists.getList()) {
+                        if (p.getName().equalsIgnoreCase(listname)) target = p;
+                    }
+                    if (target != null) {
+                        playlists.addSongsToPlaylist(target.getId(),
+                                request.getParameter("songid"));
+                        writer.print("{\"code\": 3}");
                     }
                 }
             }

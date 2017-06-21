@@ -25,13 +25,11 @@ public class SongSQL {
                 ".FILE_PATH,SONGS.IMG_PATH FROM SONGS ORDER BY SONGS.ARTIST";
     }
 
-
     public String songsByGenre() {
         return "SELECT SONGS.SONG_ID,SONGS.NAME,SONGS.ARTIST,SONGS.GENRE,SONGS" +
                 ".FILE_PATH,SONGS.IMG_PATH FROM SONGS INNER JOIN GENRES ON SONGS.GENRE=GENRES" +
                 ".GENRE_ID ORDER BY GENRE_ID";
     }
-
 
     public String queryFavorites(String userId) {
         return "SELECT SONGS.SONG_ID,SONGS.NAME,SONGS.ARTIST,SONGS.GENRE,SONGS" +
@@ -46,10 +44,10 @@ public class SongSQL {
     public String queryPlaylists(String userId) {
         return "SELECT PLAYLISTS.PL_ID, PLAYLISTS.NAME FROM USERS INNER JOIN(PLAYLISTS_USERS  " +
                 "INNER JOIN PLAYLISTS ON PLAYLISTS_USERS.F_PL_ID=PLAYLISTS.PL_ID)" +
-                "ON USERS.USER_ID=PLAYLISTS_USERS.F_USER_ID WHERE USERS.USER_ID=" + userId;
+                "ON USERS.USER_ID=PLAYLISTS_USERS.F_USER_ID WHERE USERS.USER_ID=\'" + userId + "\'";
     }
 
-    public String addPlayList(String id, String name) {
+    public String addNewPlaylist(String id, String name) {
         return "INSERT INTO PLAYLISTS VALUES (\'" + id + "\',\'" + name + "\')";
     }
 

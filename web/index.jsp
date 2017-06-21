@@ -422,14 +422,15 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Añadir a Lista de Reproducción</h4>
+                <p>Listas de Reproducción:</p>
+                <select id="lists" class="browser-default"></select>
                 <p>
-                    Listas de Reproducción:<select id="lists"></select>
                     Nueva Lista:<br> <input type="text" id="new-list-name"><br>
                 </p>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
-                   onclick="addToPlaylist()">Añadir
+                   onclick="songsToPlaylistProcess()">Añadir
                 </a>
             </div>
         </div>

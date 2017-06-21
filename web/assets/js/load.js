@@ -217,6 +217,7 @@ function loadArtists() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
 }
+
 function loadGenreViews(list) {
     var genres = document.getElementById("genres");
     genres.innerHTML = "";

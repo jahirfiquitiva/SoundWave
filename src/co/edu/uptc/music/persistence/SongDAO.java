@@ -121,6 +121,17 @@ public class SongDAO {
         }
     }
 
+    public void createNewPlaylist(String idList, String name) {
+        if (connection.connectToDB()) {
+            try {
+                Statement statement = connection.getConnection().createStatement();
+                statement.executeUpdate(songSQL.addNewPlaylist(idList, name));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void addListToUser(String idList, String idUser) {
         if (connection.connectToDB()) {
             try {
