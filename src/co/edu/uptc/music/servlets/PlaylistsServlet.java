@@ -40,9 +40,10 @@ public class PlaylistsServlet extends HttpServlet {
             if (u != null) {
                 if (opc == 1) {
                     String songId = request.getParameter("songId");
-                    playlists.addListToUser("FAVS", u.getId());
-                    playlists.addSongsToPlaylist("FAVS", songId);
-                    writer.print("{\"code\": 1}");
+                    playlists.createFavsPlaylist(u.getId());
+                    if (playlists.addSongsToPlaylist("F" + u.getId().substring(1), songId)) {
+                        writer.print("{\"code\": 1}");
+                    }
                 } else if (opc == 2) {
                     songsManager.loadFavorites(u.getId());
                     ArrayList<Song> favorites = songsManager.getList();
@@ -59,8 +60,9 @@ public class PlaylistsServlet extends HttpServlet {
                         writer.print("{\"code\": 1}");
                     }
                 } else if (opc == 5) {
-                    playlists.createNewPlaylist(request.getParameter("listid"), u.getId());
-                    writer.print("{\"code\": 1}");
+                    if (playlists.createNewPlaylist(request.getParameter("listid"), u.getId())) {
+                        writer.print("{\"code\": 1}");
+                    }
                 } else if (opc == 6) {
                     playlists.load(u.getId());
                     String listname = request.getParameter("listid");

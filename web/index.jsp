@@ -112,7 +112,7 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!" onclick="updateComponents('favorites-list')">
-                    <i class="mdi mdi-heart"></i>
+                    <i class="mdi mdi-star"></i>
                     Favoritos
                 </a>
             </li>

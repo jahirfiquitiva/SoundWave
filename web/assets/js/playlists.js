@@ -17,7 +17,11 @@ function addToFavorites() {
                         var json = JSON.parse(xhr.responseText);
                         if (json.code === 1) {
                             Materialize.toast("Añadido a favoritos!", 2000);
+                        } else {
+                            Materialize.toast("Error<br>Por favor, intente de nuevo.", 2000);
                         }
+                    } else {
+                        Materialize.toast("Error<br>Por favor, intente de nuevo.", 2000);
                     }
                 }
             };
@@ -43,6 +47,8 @@ function loadFavorites() {
                     var json = JSON.parse(xhr.responseText);
                     if (json.songs !== undefined) {
                         loadFavoritesViews(json.songs);
+                    } else {
+                        loadFavoritesViews(null);
                     }
                 } else {
                     loadFavoritesViews(null);
@@ -78,7 +84,11 @@ function loadPlaylists() {
                     var json = JSON.parse(a);
                     if (json.lists !== undefined) {
                         loadPlaylistsViews(json.lists);
+                    } else {
+                        loadPlaylistsViews(null);
                     }
+                } else {
+                    loadPlaylistsViews(null);
                 }
             }
         };

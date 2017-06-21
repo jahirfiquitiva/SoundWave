@@ -122,36 +122,42 @@ public class SongDAO {
         return null;
     }
 
-    public void addSongsToPlaylist(String idList, String idSong) {
+    public boolean addSongsToPlaylist(String idList, String idSong) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
                 statement.executeUpdate(songSQL.addSongsToPlaylist(idList, idSong));
+                return true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void createNewPlaylist(String idList, String name) {
+    public boolean createNewPlaylist(String idList, String name) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
                 statement.executeUpdate(songSQL.addNewPlaylist(idList, name));
+                return true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 
-    public void addListToUser(String idList, String idUser) {
+    public boolean addListToUser(String idList, String idUser) {
         if (connection.connectToDB()) {
             try {
                 Statement statement = connection.getConnection().createStatement();
                 statement.executeUpdate(songSQL.addListToUser(idList, idUser));
+                return true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        return false;
     }
 }

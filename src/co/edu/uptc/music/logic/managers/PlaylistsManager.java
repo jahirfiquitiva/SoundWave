@@ -38,20 +38,28 @@ public class PlaylistsManager extends BaseManager<Playlist> {
         return null;
     }
 
-    public void addListToUser(String id, String name) {
-        dao.addListToUser(id, name);
+    public boolean addListToUser(String id, String name) {
+        return dao.addListToUser(id, name);
     }
 
-    public void addSongsToPlaylist(String id, String songId) {
-        dao.addSongsToPlaylist(id, songId);
+    public boolean addSongsToPlaylist(String id, String songId) {
+        return dao.addSongsToPlaylist(id, songId);
     }
 
-    public void createNewPlaylist(String name, String user) {
+    public boolean createNewPlaylist(String name, String user) {
         DecimalFormat formatter = new DecimalFormat("000");
         String num = formatter.format(getListSize() + 1);
         String plId = "PL" + String.valueOf(num);
-        dao.createNewPlaylist(plId, name);
-        dao.addListToUser(plId, user);
+        boolean success = dao.createNewPlaylist(plId, name);
+        if (success) dao.addListToUser(plId, user);
+        return success;
+    }
+
+    public boolean createFavsPlaylist(String user) {
+        String favsId = "F" + user.substring(1);
+        boolean success = dao.createNewPlaylist(favsId, "Favorites");
+        if (success) dao.addListToUser(favsId, user);
+        return success;
     }
 
 }

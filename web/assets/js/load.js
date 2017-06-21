@@ -96,8 +96,8 @@ function loadSongsViews(list) {
 function loadFavoritesViews(list) {
     var favorites = document.getElementById("favorites-list");
     favorites.innerHTML = "";
+    favorites.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
     if (list !== null && list !== undefined && list.length > 0) {
-        favorites.innerHTML = "<h3 class=\"cyan-text section-title\">Favoritos</h3>";
         realLoadSongsViews(list, favorites, false);
     }
 }
