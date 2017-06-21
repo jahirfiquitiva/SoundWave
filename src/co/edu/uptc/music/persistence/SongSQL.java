@@ -60,6 +60,11 @@ public class SongSQL {
     }
 
     public String querySongsFromPlaylist(String id) {
-        return "";
+        return "SELECT SONGS.SONG_ID,SONGS.NAME,SONGS.ARTIST,SONGS.GENRE,SONGS.LENGTH,SONGS" +
+                ".FILE_PATH,SONGS.IMG_PATH FROM USERS INNER JOIN (PLAYLISTS_USERS INNER JOIN " +
+                "(PLAYLISTS INNER JOIN (SONGS_PLAYLISTS INNER JOIN SONGS ON SONGS_PLAYLISTS" +
+                ".F_SONG_ID=SONGS.SONG_ID) ON PLAYLISTS.PL_ID=SONGS_PLAYLISTS.F_PL_ID) ON " +
+                "PLAYLISTS_USERS.F_PL_ID=PLAYLISTS.PL_ID) ON USERS.USER_ID=PLAYLISTS_USERS" +
+                ".F_USER_ID " + "WHERE  PLAYLISTS.PL_ID=\"id\";";
     }
 }
