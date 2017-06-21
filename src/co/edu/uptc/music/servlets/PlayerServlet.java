@@ -14,12 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.edu.uptc.music.logic.managers.SongsManager;
+import co.edu.uptc.music.logic.managers.UsersManager;
 import co.edu.uptc.music.logic.models.Song;
+import co.edu.uptc.music.logic.models.User;
 
 @WebServlet(name = "PlayerServlet", urlPatterns = {"/PlayerServlet"})
 public class PlayerServlet extends HttpServlet {
 
     private SongsManager mng = new SongsManager();
+    private UsersManager users = new UsersManager();
 
     public void processRequest(HttpServletRequest req, HttpServletResponse resp) {
         resp.setContentType("application/json");
@@ -27,17 +30,23 @@ public class PlayerServlet extends HttpServlet {
         Gson gson = new Gson();
         String data = req.getParameter("data");
         String currentSongId = req.getParameter("current");
+
+        String username = req.getParameter("username");
+        String playListId = req.getParameter("listId");
         int opc = Integer.parseInt(data);
         try (PrintWriter writer = resp.getWriter()) {
-            switch (opc) {
-                default:
-                    mng.loadSongs();
-                    break;
+            if (playListId.length() > 0) {
+                users.load();
+                User u = users.findItem(username);
+                if (u != null) {
+                    mng.loadSongsFromPlaylists(u.getId(), playListId);
+                }
+            } else {
+                mng.loadSongs();
             }
             Song nSong = null;
             ArrayList<Song> songs = mng.getList();
             for (int i = 0; i < songs.size(); i++) {
-                String nId = songs.get(i).getId();
                 if (songs.get(i).getId().equalsIgnoreCase(currentSongId)) {
                     try {
                         if (opc == 0) {

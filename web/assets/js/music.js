@@ -33,9 +33,11 @@ function updateSongProgress() {
         pauseIcon.style.display = "none";
     } else {
         if (player.currentTime >= player.duration) {
-            clearPlayer();
             if (player.getAttribute("from-search") === "false") {
-                playAnother(true, player.getAttribute("current-song-id"));
+                playAnother(true, player.getAttribute("current-song-id"),
+                            player.getAttribute("data-playlist-id"));
+            } else {
+                clearPlayer();
             }
             return;
         }
@@ -99,6 +101,7 @@ function playSong(e, fromSearch) {
                 player.setAttribute("current-song-id", panel.getAttribute("data-song-id"));
                 player.setAttribute("from-search", fromSearch);
                 player.setAttribute("from-playlist", false);
+                player.setAttribute("data-playlist-id", "");
                 player.src = path;
                 for (var i = 0; i < panel.childNodes.length; i++) {
                     var child = panel.childNodes[i];
@@ -142,7 +145,8 @@ function volumeUp() {
     updateVolume();
 }
 
-function playAnother(next, current) {
+function playAnother(next, current, listId) {
+    var username = document.getElementById("user-details").getAttribute("data-username");
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "PlayerServlet", true);
     xhr.onreadystatechange = function () {
@@ -157,22 +161,30 @@ function playAnother(next, current) {
                     player.src = song.path;
                     document.getElementById("current-album").setAttribute("src", song.img);
                     playPauseSong(true);
+                } else {
+                    clearPlayer();
                 }
+            } else {
+                clearPlayer();
             }
         }
     };
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("data=" + (next ? "1" : "0") + "&current=" + current);
+    xhr.send(
+        "data=" + (next ? "1" : "0") + "&current=" + current + "&listId=" + listId + "&username="
+        + username);
 }
 
 function playPrevious() {
     var player = document.getElementById("song-player");
-    playAnother(false, player.getAttribute("current-song-id"));
+    playAnother(false, player.getAttribute("current-song-id"),
+                player.getAttribute("data-playlist-id"));
 }
 
 function playNext() {
     var player = document.getElementById("song-player");
-    playAnother(true, player.getAttribute("current-song-id"));
+    playAnother(true, player.getAttribute("current-song-id"),
+                player.getAttribute("data-playlist-id"));
 }
 
 function readableDuration(seconds) {
@@ -199,19 +211,22 @@ function playFromPlaylist(listId, songId, songName, songArtist, songSrc, songAlb
 
 function clearPlayer() {
     var player = document.getElementById("song-player");
-    var playIcon = document.getElementById("play-button");
-    var pauseIcon = document.getElementById("pause-button");
-    player["pause"]();
-    playIcon.style.display = "inline-block";
-    pauseIcon.style.display = "none";
-    player.setAttribute("current-song-id", "");
-    player.setAttribute("from-search", "");
-    player.setAttribute("from-playlist", "");
-    player.setAttribute("data-playlist-id", "");
-    player.setAttribute("src", "");
-    document.getElementById("song-progress").style.width = "0%";
-    document.getElementById("current-album").setAttribute("src", "");
-    document.getElementById("song-detail-name").innerHTML = "";
-    document.getElementById("song-detail-artist").innerHTML = "";
-    document.getElementById("song-detail-duration").innerHTML = "";
+    if (player.getAttribute("from-playlist") === "true" ||
+        player.getAttribute("from-search") === "true") {
+        var playIcon = document.getElementById("play-button");
+        var pauseIcon = document.getElementById("pause-button");
+        player["pause"]();
+        playIcon.style.display = "inline-block";
+        pauseIcon.style.display = "none";
+        player.setAttribute("current-song-id", "");
+        player.setAttribute("from-search", "");
+        player.setAttribute("from-playlist", "");
+        player.setAttribute("data-playlist-id", "");
+        player.setAttribute("src", "");
+        document.getElementById("song-progress").style.width = "0%";
+        document.getElementById("current-album").setAttribute("src", "");
+        document.getElementById("song-detail-name").innerHTML = "";
+        document.getElementById("song-detail-artist").innerHTML = "";
+        document.getElementById("song-detail-duration").innerHTML = "";
+    }
 }
