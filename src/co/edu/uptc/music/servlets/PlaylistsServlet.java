@@ -50,10 +50,13 @@ public class PlaylistsServlet extends HttpServlet {
                         writer.print("{\"songs\":" + gson.toJson(favorites) + "}");
                     }
                 } else if (opc == 3) {
+                    System.out.println("Loading lists for user: " + u.getName());
+                    // TODO: Hacer funcionar ...
                     playlists.load(u.getId());
-                    playlists.getList();
                     if (playlists.getList().size() > 0) {
-                        writer.print("{\"lists\":" + gson.toJson(playlists.getList()) + "}");
+                        String json = "{\"lists\":" + gson.toJson(playlists.getList()) + "}";
+                        System.out.println(json);
+                        writer.print(json);
                     }
                 } else if (opc == 4) {
                     if (u.getType() == UserType.ADMIN || u.getType() == UserType.ARTIST) {

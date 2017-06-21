@@ -28,11 +28,7 @@ public abstract class BaseManager<T> {
     }
 
     public boolean removeItem(int index) {
-        if (index >= 0 && index < list.size()) {
-            list.remove(index);
-            return true;
-        }
-        return false;
+        return removeItem(list.get(index));
     }
 
     @SuppressWarnings("unchecked")

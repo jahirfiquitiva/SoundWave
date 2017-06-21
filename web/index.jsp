@@ -117,7 +117,7 @@
                 </a>
             </li>
             <li>
-                <a class="waves-effect" href="#!" onclick="updateComponents('playlists_list')">
+                <a class="waves-effect" href="#!" onclick="updateComponents('playlists-list')">
                     <i class="mdi mdi-library-music"></i>
                     Listas de reproduccion
                 </a>
@@ -290,7 +290,7 @@
             <!-- fin de lista de generos -->
 
             <!-- Inicio de lista de playlists -->
-            <div id="playlists_list" style="display:none;" class="section-content">
+            <div id="playlists-list" style="display:none;" class="section-content">
             </div>
             <!-- fin de lista de playlists -->
 

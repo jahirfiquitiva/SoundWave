@@ -66,6 +66,31 @@ function validateLogin() {
     }
 }
 
+function loadPlaylists() {
+    var username = document.getElementById("user-details").getAttribute("data-username");
+    if (username !== null && username !== undefined && username.length > 0) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "PlaylistsServlet", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                if (xhr.responseText.length > 0) {
+                    var a = xhr.responseText;
+                    console.log(a);
+                    var json = JSON.parse(a);
+                    if (json.lists !== undefined) {
+                        loadPlaylistsViews(json.lists);
+                    }
+                }
+            }
+        };
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("data=3&username=" + username);
+    } else {
+        loadPlaylistsViews(null);
+        Materialize.toast("No ha iniciado sesion!", 2000);
+    }
+}
+
 function loadPlaylistsToOptions() {
     var username = document.getElementById("user-details").getAttribute("data-username");
     if (username !== null && username !== undefined && username.length > 0) {
@@ -76,6 +101,7 @@ function loadPlaylistsToOptions() {
                 var mySelect = document.getElementById("lists");
                 mySelect.length = 0;
                 if (xhr.responseText.length > 0) {
+                    console.log(xhr.responseText);
                     var tm = JSON.parse(xhr.responseText);
                     if (tm.lists !== undefined) {
                         for (var i = 0; i < tm.lists.length; i++) {
@@ -134,7 +160,6 @@ function addSongToPlaylist(listId, username, songId) {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     if (xhr.responseText.length > 0) {
-                        loadPlaylistsToOptions();
                         var json = JSON.parse(xhr.responseText);
                         if (json.code !== undefined) {
                             if (json.code === 1) {
@@ -168,6 +193,7 @@ function createPlaylist(listId, username, songId) {
                         if (json.code !== undefined) {
                             if (json.code === 1) {
                                 Materialize.toast("Lista creada con exito", 2000);
+                                loadPlaylistsToOptions();
                                 addSongToPlaylist(listId, username, songId);
                             } else {
                                 Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);

@@ -129,15 +129,15 @@ function updateComponents(idMenu) {
             genresLoaded = true;
         } else if (idMenu === "favorites-list") {
             loadFavorites();
-        } else if (idMenu === "playlists_list") {
-            // TODO: Load playlists;
+        } else if (idMenu === "playlists-list") {
+            loadPlaylists();
         }
         changeVisibility("songs", idMenu === "songs");
         changeVisibility("account-container", idMenu === "account-container");
         changeVisibility("artists-list", idMenu === "artists-list");
         changeVisibility("genres", idMenu === "genres");
         changeVisibility("favorites-list", idMenu === "favorites-list");
-        changeVisibility("playlists_list", idMenu === "playlists_list");
+        changeVisibility("playlists-list", idMenu === "playlists-list");
         changeVisibility("about-section", idMenu === "about-section");
         changeVisibility("search-results", idMenu === "search-results");
         changeVisibility("upload-section", false);

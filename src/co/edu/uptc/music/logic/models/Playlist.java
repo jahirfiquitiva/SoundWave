@@ -62,13 +62,13 @@ public class Playlist extends BaseManager<Song> {
             try {
                 clearList();
                 while (rs.next()) {
-                    String id = rs.getString("SONG_ID");
-                    String name = rs.getString("NAME");
+                    String songId = rs.getString("SONG_ID");
+                    String songName = rs.getString("NAME");
                     String artist = rs.getString("ARTIST");
                     String genre = rs.getString("GENRE");
                     String path = rs.getString("FILE_PATH");
                     String img = rs.getString("IMG_PATH");
-                    addSong(id, name, artist, genre, path, img);
+                    addSong(songId, songName, artist, genre, path, img);
                 }
             } catch (Exception ignored) {
             }
