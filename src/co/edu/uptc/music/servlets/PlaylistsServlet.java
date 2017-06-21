@@ -38,14 +38,13 @@ public class PlaylistsServlet extends HttpServlet {
             String username = request.getParameter("username");
             User u = users.findItem(username);
             if (u != null) {
-                String id = u.getId();
                 if (opc == 1) {
                     String songId = request.getParameter("songId");
-                    playlists.addListToUser("FAVS", id);
+                    playlists.addListToUser("FAVS", u.getId());
                     playlists.addSongsToPlaylist("FAVS", songId);
                     writer.print("{\"code\": 1}");
                 } else if (opc == 2) {
-                    songsManager.loadFavorites(id);
+                    songsManager.loadFavorites(u.getId());
                     ArrayList<Song> favorites = songsManager.getList();
                     if (favorites.size() > 0) {
                         writer.print("{\"songs\":" + gson.toJson(favorites) + "}");
@@ -61,23 +60,19 @@ public class PlaylistsServlet extends HttpServlet {
                         writer.print("{\"code\": 1}");
                     }
                 } else if (opc == 5) {
-                    System.out.println("Creando playlist: " + request.getParameter("listid"));
                     playlists.createNewPlaylist(request.getParameter("listid"), u.getId());
-                    writer.print("{\"code\": 2}");
+                    writer.print("{\"code\": 1}");
                 } else if (opc == 6) {
-                    System.out.println("Añadiendo a playlist: " + request.getParameter("listid"));
-                    System.out.println("Añadiendo a playlist song: " + request.getParameter
-                            ("songid"));
                     playlists.load(u.getId());
                     String listname = request.getParameter("listid");
                     Playlist target = null;
                     for (Playlist p : playlists.getList()) {
-                        if (p.getName().equalsIgnoreCase(listname)) target = p;
+                        if (p.getId().equalsIgnoreCase(listname)) target = p;
                     }
                     if (target != null) {
                         playlists.addSongsToPlaylist(target.getId(),
                                 request.getParameter("songid"));
-                        writer.print("{\"code\": 3}");
+                        writer.print("{\"code\": 1}");
                     }
                 }
             }

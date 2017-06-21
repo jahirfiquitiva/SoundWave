@@ -110,7 +110,7 @@ function songsToPlaylistProcess() {
                 if (selectedIndex !== null && selectedIndex !== undefined) {
                     var selectedPl = selectedIndex.value;
                     if (selectedPl !== null && selectedPl !== undefined && selectedPl.length > 0) {
-                        addSongToPlaylist(selectedPl, songId);
+                        addSongToPlaylist(selectedPl, username, songId);
                     } else {
                         Materialize.toast("No se selecciono ninguna lista de reproduccion", 2000);
                     }
@@ -126,22 +126,32 @@ function songsToPlaylistProcess() {
     }
 }
 
-function addSongToPlaylist(listId, songId) {
+function addSongToPlaylist(listId, username, songId) {
     if (listId !== null && listId !== undefined && listId.length > 0) {
         if (songId !== null && songId !== undefined && songId.length > 0) {
-            console.log("Creating playlist: " + listId + " with id " + songId);
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "PlaylistsServlet", true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     if (xhr.responseText.length > 0) {
-                        console.log(xhr.responseText);
                         loadPlaylistsToOptions();
+                        var json = JSON.parse(xhr.responseText);
+                        if (json.code !== undefined) {
+                            if (json.code === 1) {
+                                Materialize.toast("Cancion añadida con exito", 2000);
+                            } else {
+                                Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
+                            }
+                        } else {
+                            Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
+                        }
+                    } else {
+                        Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
                     }
                 }
             };
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send("data=6&listid=" + listId + "&songid=" + songId);
+            xhr.send("data=6&listid=" + listId + "&username=" + username + "&songid=" + songId);
         }
     }
 }
@@ -156,11 +166,17 @@ function createPlaylist(listId, username, songId) {
                     if (xhr.responseText.length > 0) {
                         var json = JSON.parse(xhr.responseText);
                         if (json.code !== undefined) {
-                            if (json.code === 2) {
+                            if (json.code === 1) {
                                 Materialize.toast("Lista creada con exito", 2000);
-                                addSongToPlaylist(listId, songId);
+                                addSongToPlaylist(listId, username, songId);
+                            } else {
+                                Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
                             }
+                        } else {
+                            Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
                         }
+                    } else {
+                        Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
                     }
                 }
             };
