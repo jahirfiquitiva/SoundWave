@@ -75,7 +75,6 @@ function loadPlaylists() {
             if (xhr.status === 200 && xhr.readyState === 4) {
                 if (xhr.responseText.length > 0) {
                     var a = xhr.responseText;
-                    console.log(a);
                     var json = JSON.parse(a);
                     if (json.lists !== undefined) {
                         loadPlaylistsViews(json.lists);
@@ -101,7 +100,6 @@ function loadPlaylistsToOptions() {
                 var mySelect = document.getElementById("lists");
                 mySelect.length = 0;
                 if (xhr.responseText.length > 0) {
-                    console.log(xhr.responseText);
                     var tm = JSON.parse(xhr.responseText);
                     if (tm.lists !== undefined) {
                         for (var i = 0; i < tm.lists.length; i++) {
@@ -224,20 +222,29 @@ function playPlaylist(listId) {
                         var json = JSON.parse(xhr.responseText);
                         if (json.songs !== undefined) {
                             if (json.songs.length > 0) {
-                                // Reproducir canciones
+                                var id = json.songs[0].id;
+                                var name = json.songs[0].name;
+                                var artist = json.songs[0].artist.name;
+                                var src = json.songs[0].path;
+                                var img = json.songs[0].img;
+                                playFromPlaylist(listId, id, name, artist, src, img);
                             } else {
                                 Materialize.toast("Error!<br>La lista no tiene canciones", 2000);
                             }
                         } else {
-                            Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
+                            Materialize.toast("Error!<br>La lista no tiene canciones", 2000);
                         }
                     } else {
-                        Materialize.toast("Error!<br>Por favor, intente de nuevo", 2000);
+                        Materialize.toast("Error!<br>La lista no tiene canciones", 2000);
                     }
                 }
             };
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send("data=7&listid=" + listId + "&username=" + username);
+        } else {
+            Materialize.toast("Error!<br>En la lista " + listId, 2000);
         }
+    } else {
+        Materialize.toast("Error!<br>Por favor, inicie sesion", 2000);
     }
 }

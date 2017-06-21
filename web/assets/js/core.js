@@ -112,6 +112,7 @@ function logout() {
         dtls.setAttribute("data-username", "");
     }
     removeFocuses();
+    clearPlayer();
 }
 
 function updateComponents(idMenu) {

@@ -27,30 +27,24 @@ function updateSongProgress() {
     var id = player.getAttribute("current-song-id");
     var playIcon = document.getElementById("play-button");
     var pauseIcon = document.getElementById("pause-button");
+    document.getElementById("song-detail-duration").innerHTML = "";
     if (id === null || id === undefined || id.length <= 0) {
         playIcon.style.display = "inline-block";
         pauseIcon.style.display = "none";
-        return;
-    }
-    if (player.currentTime >= player.duration) {
-        player.setAttribute("src", "");
-        playIcon.style.display = "inline-block";
-        pauseIcon.style.display = "none";
-        document.getElementById("song-progress").style.width = "0%";
-        document.getElementById("current-album").setAttribute("src", "");
-        document.getElementById("song-detail-name").innerHTML = "";
-        document.getElementById("song-detail-artist").innerHTML = "";
-        document.getElementById("song-detail-duration").innerHTML = "";
-        if (player.getAttribute("from-search") === "false") {
-            playAnother(true, player.getAttribute("current-song-id"));
+    } else {
+        if (player.currentTime >= player.duration) {
+            clearPlayer();
+            if (player.getAttribute("from-search") === "false") {
+                playAnother(true, player.getAttribute("current-song-id"));
+            }
+            return;
         }
-        return;
+        var played = (100 * player.currentTime) / player.duration;
+        document.getElementById("song-progress").style.width = played + "%";
+        var cTimeText = readableDuration(player.currentTime);
+        var dTimeText = readableDuration(player.duration);
+        document.getElementById("song-detail-duration").innerHTML = cTimeText + " - " + dTimeText;
     }
-    var played = (100 * player.currentTime) / player.duration;
-    document.getElementById("song-progress").style.width = played + "%";
-    var cTimeText = readableDuration(player.currentTime);
-    var dTimeText = readableDuration(player.duration);
-    document.getElementById("song-detail-duration").innerHTML = cTimeText + " - " + dTimeText;
 }
 
 function seek(forward) {
@@ -104,6 +98,7 @@ function playSong(e, fromSearch) {
                 var player = document.getElementById("song-player");
                 player.setAttribute("current-song-id", panel.getAttribute("data-song-id"));
                 player.setAttribute("from-search", fromSearch);
+                player.setAttribute("from-playlist", false);
                 player.src = path;
                 for (var i = 0; i < panel.childNodes.length; i++) {
                     var child = panel.childNodes[i];
@@ -156,7 +151,7 @@ function playAnother(next, current) {
                 var song = JSON.parse(xhr.responseText);
                 if (song !== null && song !== undefined) {
                     document.getElementById("song-detail-name").innerHTML = song.name;
-                    document.getElementById("song-detail-artist").innerHTML = song.artist;
+                    document.getElementById("song-detail-artist").innerHTML = song.artist.name;
                     var player = document.getElementById("song-player");
                     player.setAttribute("current-song-id", song.id);
                     player.src = song.path;
@@ -187,4 +182,36 @@ function readableDuration(seconds) {
     sec = Math.floor(sec % 60);
     sec = sec >= 10 ? sec : "0" + sec;
     return min + ":" + sec;
+}
+
+function playFromPlaylist(listId, songId, songName, songArtist, songSrc, songAlbum) {
+    var player = document.getElementById("song-player");
+    player.setAttribute("current-song-id", songId);
+    player.setAttribute("src", songSrc);
+    document.getElementById("current-album").setAttribute("src", songAlbum);
+    document.getElementById("song-detail-name").innerHTML = songName;
+    document.getElementById("song-detail-artist").innerHTML = songArtist;
+    player.setAttribute("from-search", false);
+    player.setAttribute("from-playlist", true);
+    player.setAttribute("data-playlist-id", listId);
+    playPauseSong(true);
+}
+
+function clearPlayer() {
+    var player = document.getElementById("song-player");
+    var playIcon = document.getElementById("play-button");
+    var pauseIcon = document.getElementById("pause-button");
+    player["pause"]();
+    playIcon.style.display = "inline-block";
+    pauseIcon.style.display = "none";
+    player.setAttribute("current-song-id", "");
+    player.setAttribute("from-search", "");
+    player.setAttribute("from-playlist", "");
+    player.setAttribute("data-playlist-id", "");
+    player.setAttribute("src", "");
+    document.getElementById("song-progress").style.width = "0%";
+    document.getElementById("current-album").setAttribute("src", "");
+    document.getElementById("song-detail-name").innerHTML = "";
+    document.getElementById("song-detail-artist").innerHTML = "";
+    document.getElementById("song-detail-duration").innerHTML = "";
 }

@@ -314,8 +314,6 @@ function loadPlaylistsViews(list) {
         ul.appendChild(li);
 
         for (var i = 0; i < list.length; i++) {
-            console.log(list[i]);
-
             var li1 = document.createElement("li");
             li1.setAttribute("class", "collection-item");
 
@@ -328,7 +326,10 @@ function loadPlaylistsViews(list) {
 
             var ii = document.createElement("i");
             ii.setAttribute("class", "mdi mdi-play");
-            ii.setAttribute("onclick", "playPlaylist(" + list[i].id + ");");
+            ii.style.cursor = "pointer";
+            var listId = String(list[i].id);
+            var doOnClick = "playPlaylist(\"" + listId + "\");";
+            ii.setAttribute("onclick", doOnClick);
 
             a.appendChild(ii);
             ply.appendChild(a);
@@ -337,6 +338,6 @@ function loadPlaylistsViews(list) {
             ul.appendChild(li1);
         }
         conta.appendChild(ul);
+        playList.appendChild(conta);
     }
-    playList.appendChild(conta);
 }
