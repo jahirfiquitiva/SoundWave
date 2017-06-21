@@ -59,8 +59,4 @@ public class SongSQL {
         return "INSERT INTO PLAYLISTS_USERS VALUES(\'" + listId + "\',\'" + userId + "\');";
     }
 
-    public String addSongsToUser(String songId, String userId) {
-        return "INSERT INTO USERS_SONGS VALUES(\'" + userId + "\',\'" + songId + "\');";
-    }
-
 }

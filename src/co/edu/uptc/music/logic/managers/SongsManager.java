@@ -14,7 +14,6 @@ public class SongsManager extends BaseManager<Song> {
 
     private UsersManager users;
     private SongDAO songDAO;
-    private Playlist list;
 
     public SongsManager() {
         this.songDAO = new SongDAO();
