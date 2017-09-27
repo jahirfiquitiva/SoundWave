@@ -1,19 +1,19 @@
 # MusicPlayer
-Reproductor de música que implementa JSP, Servlets y Bases de Datos
+Web music player that implements JSP, Servlets and databases
 
-# Música
+# Music
 
-La música incluida en el proyecto es propiedad de [NoCopyrightSounds](https://www.youtube.com/user/NoCopyrightSounds) y [Monstercat](https://soundcloud.com/mostercat).
-Se comparte con fines educativos y sin intención de infringir en Copyright.
+Music included in this project property belong to [NoCopyrightSounds](https://www.youtube.com/user/NoCopyrightSounds) and [Monstercat](https://soundcloud.com/mostercat).
+It's been shared with educational purposes and no copyright infringement intended,
 
-# Plug-ins utilizados
+# Implemented Plug-ins
 - [MaterializeCSS](http://materializecss.com/)
 - [VibrantJS](https://jariz.github.io/vibrant.js/)
 - [MaterialDesignIcons](https://materialdesignicons.com/)
 
-# Licencia
+# License
 
-Este proyecto se comparte bajo la licencia [CreativeCommons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0)
+This project is shared under [CreativeCommons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0)
 
 
 	Copyright 2017 Jahir Fiquitiva - Sergio Rojas - Victor Suarez
