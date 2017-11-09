@@ -1,4 +1,4 @@
-# MusicPlayer
+# SoundWave
 Web music player that implements JSP, Servlets and databases
 
 # Music
