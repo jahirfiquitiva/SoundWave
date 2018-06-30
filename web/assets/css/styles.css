@@ -284,8 +284,8 @@ nav .brand-logo.left {
 }
 
 .volume-container {
-    margin-top: 40px;
-    margin-right: 8px;
+    margin-top: 24px;
+    margin-right: 16px;
     width: 50%;
     float: right;
 }
@@ -294,7 +294,7 @@ nav .brand-logo.left {
     font-size: 24px;
     float: right;
     color: rgba(0, 0, 0, 0.38);
-    margin-top: -36px;
+    margin-top: -50px;
     margin-right: 95%;
     cursor: pointer;
 }
@@ -304,7 +304,7 @@ nav .brand-logo.left {
     float: right;
     color: rgba(0, 0, 0, 0.38);
     margin-top: 24px;
-    margin-right: 25%;
+    margin-right: 20%;
     cursor: pointer;
 }
 

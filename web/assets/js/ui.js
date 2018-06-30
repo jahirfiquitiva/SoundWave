@@ -2,7 +2,7 @@
  * Created by jahir on 6/17/17.
  */
 function closeDrawer() {
-    $('.button-collapse').sidenav('close');
+    // $('.button-collapse').sidenav('close');
     $('.sidenav').sidenav('close');
     $('#sidenav-overlay').trigger('click');
 }
