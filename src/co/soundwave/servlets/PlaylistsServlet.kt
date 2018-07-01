@@ -49,7 +49,7 @@ class PlaylistsServlet : BaseServlet() {
                     */
                     } else if (opc == 3) {
                         playlists.load(u.id)
-                        if (playlists.getList().size > 0) {
+                        if (playlists.getList().isNotEmpty()) {
                             writer.print("{\"lists\":" + gson.toJson(playlists.getList()) + "}")
                         }
                     } else if (opc == 4) {

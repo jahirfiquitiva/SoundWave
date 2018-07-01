@@ -13,7 +13,8 @@ class PlaylistsManager : BaseManager<PlaylistDAO, Playlist>() {
     override fun load() = load(-1)
     
     fun load(userId: Int) {
-        dao.queryByUserId(getUserId(userId))?.let {
+        val realId = getUserId(userId)
+        dao.queryByUserId(realId)?.let {
             clearList()
             while (it.next()) {
                 addItem(

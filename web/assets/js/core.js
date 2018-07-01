@@ -25,13 +25,13 @@ function login() {
                         document.getElementById("username").value = "";
                         document.getElementById("password").value = "";
                         document.getElementById("user-name").innerHTML = jsonContent.name;
-                        console.log("Received code: " + jsonContent.code);
                         document.getElementById("user-type").innerHTML =
-                            jsonContent.code === 4 ? "Artista" : "Usuario";
+                            jsonContent.code === 4 ? "Artista" :
+                            jsonContent.code === 2 ? "Usuario" : "";
                         changeVisibility("user-details", true);
                         var dtls = document.getElementById("user-details");
                         if (dtls !== null) {
-                            dtls.setAttribute("data-username", jsonContent.username);
+                            dtls.setAttribute("data-username", jsonContent.nick);
                         }
                         loadPlaylistsToOptions();
                         changeVisibility("login", false);

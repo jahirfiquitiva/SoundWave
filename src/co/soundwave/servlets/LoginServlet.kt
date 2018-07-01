@@ -66,7 +66,7 @@ class LoginServlet : BaseServlet() {
                         
                         if (artist != null) {
                             if (artist.validate(inputPassword)) {
-                                val aux = gson.toJson(user)
+                                val aux = gson.toJson(artist)
                                 val sb = StringBuilder()
                                 sb.append("{\"code\":4,")
                                 sb.append(aux, 1, aux.length - 1)
@@ -82,7 +82,6 @@ class LoginServlet : BaseServlet() {
                             writer.print(
                                 "{\"code\":0,\"error\":\"El usuario no se encuentra " + "registrado.\"}")
                         }
-                        
                     }
                 } else if (loginValue == 2) {
                     val doc = Integer.parseInt(request.getParameter("doc"))

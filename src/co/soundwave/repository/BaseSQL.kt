@@ -1,6 +1,6 @@
 package co.soundwave.repository
 
-abstract class BaseSQL() {
+abstract class BaseSQL {
     abstract fun tableName(): String
     
     fun query(): String = "select * from ${tableName()};"

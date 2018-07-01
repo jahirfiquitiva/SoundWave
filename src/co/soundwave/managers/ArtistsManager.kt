@@ -10,7 +10,7 @@ class ArtistsManager : BaseManager<ArtistDAO, Artist>() {
     
     override fun findItem(id: Int): Artist? = getList().firstOrNull { it.id == id }
     
-    override fun findItem(s: String): Artist? = getList().firstOrNull { it.name.equals(s, true) }
+    override fun findItem(s: String): Artist? = getList().firstOrNull { it.nick.equals(s, true) }
     
     override fun load() {
         dao.query()?.let {

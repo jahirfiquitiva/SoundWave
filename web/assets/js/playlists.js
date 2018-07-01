@@ -256,11 +256,11 @@ function playPlaylist(listId) {
                         var json = JSON.parse(xhr.responseText);
                         if (json.songs !== undefined) {
                             if (json.songs.length > 0) {
-                                var id = json.songs[0].id;
-                                var name = json.songs[0].name;
-                                var artist = json.songs[0].artist.name;
-                                var src = json.songs[0].path;
-                                var img = json.songs[0].img;
+                                var id = json.songs[0].first.id;
+                                var name = json.songs[0].first.name;
+                                var artist = json.songs[0].second.second.name;
+                                var src = json.songs[0].first.path;
+                                var img = json.songs[0].second.first.imgPath;
                                 playFromPlaylist(listId, id, name, artist, src, img);
                             } else {
                                 M.toast({
