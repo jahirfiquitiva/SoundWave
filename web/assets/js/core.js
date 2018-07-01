@@ -25,7 +25,9 @@ function login() {
                         document.getElementById("username").value = "";
                         document.getElementById("password").value = "";
                         document.getElementById("user-name").innerHTML = jsonContent.name;
-                        document.getElementById("user-type").innerHTML = camelize(jsonContent.type);
+                        console.log("Received code: " + jsonContent.code);
+                        document.getElementById("user-type").innerHTML =
+                            jsonContent.code === 4 ? "Artista" : "Usuario";
                         changeVisibility("user-details", true);
                         var dtls = document.getElementById("user-details");
                         if (dtls !== null) {

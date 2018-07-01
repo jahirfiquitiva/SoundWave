@@ -1,6 +1,7 @@
 package co.soundwave.servlets
 
 import co.soundwave.extensions.ignore
+import co.soundwave.managers.ArtistsManager
 import co.soundwave.managers.UsersManager
 import com.google.gson.Gson
 import java.security.MessageDigest
@@ -13,6 +14,7 @@ import javax.xml.bind.DatatypeConverter
 class LoginServlet : BaseServlet() {
     
     private val usersManager = UsersManager()
+    private val artistsManager = ArtistsManager()
     
     override fun processRequest(
         request: HttpServletRequest,
@@ -23,6 +25,7 @@ class LoginServlet : BaseServlet() {
         response.characterEncoding = "UTF-8"
         ignore {
             usersManager.load()
+            artistsManager.load()
             
             val gson = Gson()
             response.writer.use { writer ->
@@ -35,14 +38,18 @@ class LoginServlet : BaseServlet() {
                 if (loginValue == 1) {
                     val user = usersManager.findItem(nick)
                     
+                    val digest = MessageDigest.getInstance("MD5")
+                    digest.update(pass.toByteArray())
+                    val chainAux = digest.digest()
+                    val myHash = DatatypeConverter.printHexBinary(chainAux)
+                    val inputPassword = try {
+                        myHash.substring(0, 24)
+                    } catch (e: Exception) {
+                        myHash
+                    }
+                    
                     if (user != null) {
-                        val digest = MessageDigest.getInstance("MD5")
-                        
-                        digest.update(pass.toByteArray())
-                        val chainAux = digest.digest()
-                        val myHash = DatatypeConverter.printHexBinary(chainAux)
-                        
-                        if (user.validate(myHash)) {
+                        if (user.validate(inputPassword)) {
                             val aux = gson.toJson(user)
                             val sb = StringBuilder()
                             sb.append("{\"code\":2,")
@@ -55,8 +62,27 @@ class LoginServlet : BaseServlet() {
                             writer.print("{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}")
                         }
                     } else {
-                        writer.print(
-                            "{\"code\":0,\"error\":\"El usuario no se encuentra " + "registrado.\"}")
+                        val artist = artistsManager.findItem(nick)
+                        
+                        if (artist != null) {
+                            if (artist.validate(inputPassword)) {
+                                val aux = gson.toJson(user)
+                                val sb = StringBuilder()
+                                sb.append("{\"code\":4,")
+                                sb.append(aux, 1, aux.length - 1)
+                                val usersList = gson.toJson(usersManager.getList())
+                                sb.append(",\"list\": ").append(usersList)
+                                sb.append("}")
+                                writer.print(sb.toString())
+                            } else {
+                                writer.print(
+                                    "{\"code\":1,\"error\":\"La contraseña es incorrecta.\"}")
+                            }
+                        } else {
+                            writer.print(
+                                "{\"code\":0,\"error\":\"El usuario no se encuentra " + "registrado.\"}")
+                        }
+                        
                     }
                 } else if (loginValue == 2) {
                     val doc = Integer.parseInt(request.getParameter("doc"))

@@ -6,4 +6,8 @@ data class Artist(
     val nick: String,
     val email: String,
     val password: String
-                 )
+                 ) {
+    
+    fun validate(otherPassword: String): Boolean =
+        password.equals(otherPassword, true)
+}
