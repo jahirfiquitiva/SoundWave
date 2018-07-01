@@ -98,6 +98,14 @@
                 </a>
 
             </li>
+
+            <li>
+                <a class="waves-effect" href="#!" onclick="updateComponents('albums');">
+                    <i class="mdi mdi-folder-star"></i>
+                    Álbumes
+                </a>
+            </li>
+
             <li>
                 <a class="waves-effect" href="#!"
                    onclick="updateComponents('artists-list');">
@@ -293,6 +301,11 @@
             </div>
             <!-- Fin de lista de artistas -->
 
+            <!-- Inicio de lista de albumes -->
+            <div id="albums" style="..." class="section-content">
+            </div>
+            <!-- Fin de lista de albumes -->
+
             <!-- Inicio lista de generos -->
             <div id="genres" style="display:none;" class="section-content">
             </div>
@@ -328,13 +341,6 @@
                             <span class="title">Sergio Andrés Rojas León</span>
                             <p>201520089</p>
                         </li>
-                        <!--
-                        <li class="collection-item avatar">
-                            <i class="mdi mdi-account circle green">insert_chart</i>
-                            <span class="title">Victor Andres Suarez Cardenas</span>
-                            <p>201520838</p>
-                        </li>
-                        -->
                     </ul>
                 </div>
             </div>
