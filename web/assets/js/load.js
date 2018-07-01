@@ -119,7 +119,7 @@ function realLoadSongsViews(list, songs, fromSearch) {
     row.setAttribute("class", "row");
     for (var i = 0; i < list.length; i++) {
         // TODO: Get correct path
-        var imgPath = list[i].img;
+        var imgPath = list[i].imgPath;
         if (i % 6 === 0) {
             songs.appendChild(row);
             row = document.createElement("div");
@@ -185,7 +185,7 @@ function getShortText(text) {
 
 function loadArtists() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "SongsServlet", true);
+    xhr.open("POST", "ArtistsServlet", true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
@@ -222,6 +222,80 @@ function loadArtists() {
     xhr.send("data=4");
 }
 
+function loadAlbumsViews(list) {
+    var albums = document.getElementById("albums")
+    albums.innerHTML="";
+
+    var h = document.createElement("h4");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Albumes";
+
+    albums.appendChild(h);
+
+    console.log(list);
+
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    for (var i = 0; i < list.length; i++) {
+        var imgPath = list[i].imgPath;
+        if (i % 6 === 0) {
+            albums.appendChild(row);
+            row = document.createElement("div");
+            row.setAttribute("class", "row");
+        }
+
+        var col = document.createElement("div");
+        col.setAttribute("class", "col s4 m3 l2");
+
+        var gridItem = document.createElement("div");
+        gridItem.setAttribute("class", "grid-item");
+
+        var imgAl = document.createElement("img");
+        imgAl.setAttribute("class", "responsive-img");
+        imgAl.setAttribute("crossorigin", "anonymous");
+        imgAl.setAttribute("src", imgPath);
+        imgAl.setAttribute("onload", "loadCardColors(event)");
+
+        var divider = document.createElement("div");
+        divider.setAttribute("class", "divider");
+
+        var content = document.createElement("div");
+        content.setAttribute("class", "grid-item-content");
+
+        var p = document.createElement("p");
+        p.setAttribute("class", "primary-text");
+        p.innerHTML = list[i].name;
+
+        content.appendChild(p);
+        gridItem.appendChild(imgAl);
+        gridItem.appendChild(divider);
+        gridItem.appendChild(content);
+        col.appendChild(gridItem);
+        row.appendChild(col);
+    }
+    albums.appendChild(row);
+
+
+}
+
+function loadAlbums() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "AlbumsServlet", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                var json = JSON.parse(a);
+                if (json.albums !== undefined) {
+                    loadAlbumsViews(json.albums);
+                }
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("");
+}
+//-----------------------------------------
 function loadGenreViews(list) {
     var genres = document.getElementById("genres");
     genres.innerHTML = "";
