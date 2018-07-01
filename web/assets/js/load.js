@@ -301,7 +301,7 @@ function loadAlbumsViews(list) {
     var row = document.createElement("div");
     row.setAttribute("class", "row");
     for (var i = 0; i < list.length; i++) {
-        var imgPath = list[i].imgPath;
+        var imgPath = list[i].first.imgPath;
         if (i % 6 === 0) {
             albums.appendChild(row);
             row = document.createElement("div");
@@ -328,7 +328,7 @@ function loadAlbumsViews(list) {
 
         var p = document.createElement("p");
         p.setAttribute("class", "primary-text");
-        p.innerHTML = list[i].name;
+        p.innerHTML = list[i].first.name;
 
         content.appendChild(p);
         gridItem.appendChild(imgAl);
