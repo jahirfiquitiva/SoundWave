@@ -61,11 +61,10 @@ class PlaylistsManager : BaseManager<PlaylistDAO, Playlist>() {
         } ?: -1
     }
     
-    /*
-    fun addListToUser(id: String, name: String): Boolean {
-        return dao.addListToUser(id, name)
+    fun delete(id: Int): Boolean {
+        dao.updateExecutor("delete from playlist_has_song where playlist_id_playlist = '$id';")
+        return dao.delete(id)
     }
-    */
     
     private fun getUserId(id: Int): Int {
         val userRs = userDao.query(id = id)

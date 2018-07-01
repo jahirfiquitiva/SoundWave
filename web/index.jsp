@@ -246,15 +246,30 @@
                                 <div id="create-account-fields">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-fullname" type="text"
+                                            <input id="new-name" type="text"
                                                    class="validate">
-                                            <label for="new-fullname">Nombre completo</label>
+                                            <label for="new-name">Nombre</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-email" type="email" class="validate">
-                                            <label for="new-email">Correo electronico</label>
+                                            <input id="new-last-name" type="text"
+                                                   class="validate">
+                                            <label for="new-last-name">Apellido</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-doc" type="number"
+                                                   class="validate">
+                                            <label for="new-doc">Documento</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-age" type="number"
+                                                   class="validate">
+                                            <label for="new-age">Edad</label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -262,6 +277,12 @@
                                             <input id="new-username" type="text"
                                                    class="validate">
                                             <label for="new-username">Nombre de usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-email" type="email" class="validate">
+                                            <label for="new-email">Correo electronico</label>
                                         </div>
                                     </div>
                                     <div class="row">

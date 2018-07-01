@@ -63,14 +63,17 @@ function camelize(str) {
 }
 
 function createUser() {
-    var fullname = document.getElementById("new-fullname").value;
+    var doc = document.getElementById("new-doc").value;
+    var age = document.getElementById("new-age").value;
+    var name = document.getElementById("new-name").value;
+    var lastName = document.getElementById("new-last-name").value;
     var email = document.getElementById("new-email").value;
-    var name = document.getElementById("new-username").value;
+    var username = document.getElementById("new-username").value;
     var pass = document.getElementById("new-password").value;
     var xhr = new XMLHttpRequest();
     if (name.length > 0 && pass.length > 0) {
-        var toSend = "fullname=" + fullname + "&email=" + email + "&username=" + name + "&password="
-                     + pass + "&login=2";
+        var toSend = "doc=" + doc + "&name=" + name + "&lastName=" + lastName + "&email=" + email
+                     + "&age=" + age + "&username=" + username + "&password=" + pass + "&login=2";
         xhr.open("POST", "LoginServlet", true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -84,7 +87,10 @@ function createUser() {
                         document.getElementById("password").value =
                             document.getElementById("new-password").value;
                         login();
-                        document.getElementById("new-fullname").value = "";
+                        document.getElementById("new-doc").value = "";
+                        document.getElementById("new-age").value = "";
+                        document.getElementById("new-name").value = "";
+                        document.getElementById("new-last-name").value = "";
                         document.getElementById("new-email").value = "";
                         document.getElementById("new-username").value = "";
                         document.getElementById("new-password").value = "";

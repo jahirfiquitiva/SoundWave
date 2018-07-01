@@ -12,5 +12,4 @@ data class User(
                ) {
     
     fun validate(otherPassword: String): Boolean = password.equals(otherPassword, true)
-    
 }

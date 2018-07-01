@@ -1,8 +1,11 @@
 package co.soundwave.servlets
 
+import co.soundwave.extensions.hasContent
 import co.soundwave.extensions.ignore
 import co.soundwave.managers.SongsManager
 import co.soundwave.managers.UsersManager
+import co.soundwave.models.Album
+import co.soundwave.models.Artist
 import co.soundwave.models.Song
 import com.google.gson.Gson
 import javax.servlet.annotation.WebServlet
@@ -27,19 +30,24 @@ class PlayerServlet : BaseServlet() {
         val currentSongId = Integer.parseInt(request.getParameter("current"))
         
         val username = request.getParameter("username")
-        val playlistId = Integer.parseInt(request.getParameter("listId"))
+        val stringPlaylistId = request.getParameter("listId")
+        val playlistId =
+            if (stringPlaylistId.hasContent()) Integer.parseInt(stringPlaylistId) else -1
         val opc = Integer.parseInt(data)
         ignore {
             response.writer.use { writer ->
-                var nSong: Song? = null
-                val songs = mng.getSongsInPlaylist(playlistId)
+                var nSong: Pair<Song, Pair<Album, Artist>>? = null
+                mng.load()
+                val songs = if (playlistId != -1) {
+                    mng.getSongsInPlaylist(playlistId)
+                } else mng.getList()
                 for (i in songs.indices) {
                     if (songs[i].first.id == currentSongId) {
                         ignore {
                             if (opc == 0) {
-                                nSong = songs[i - 1].first
+                                nSong = songs[i - 1]
                             } else if (opc == 1) {
-                                nSong = songs[i + 1].first
+                                nSong = songs[i + 1]
                             }
                         }
                         if (nSong != null) break

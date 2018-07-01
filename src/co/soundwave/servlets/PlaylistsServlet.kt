@@ -4,7 +4,6 @@ import co.soundwave.extensions.ignore
 import co.soundwave.managers.PlaylistsManager
 import co.soundwave.managers.SongsManager
 import co.soundwave.managers.UsersManager
-import co.soundwave.models.Playlist
 import com.google.gson.Gson
 import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServletRequest
@@ -32,6 +31,7 @@ class PlaylistsServlet : BaseServlet() {
                 val username = request.getParameter("username")
                 val u = users.findItem(username)
                 if (u != null) {
+                    playlists.load(u.id)
                     if (opc == 1) {
                         val songId = Integer.parseInt(request.getParameter("songId"))
                         playlists.createFavsPlaylist(u.id)
@@ -39,7 +39,6 @@ class PlaylistsServlet : BaseServlet() {
                             writer.print("{\"code\": 1}")
                         }
                     } else if (opc == 2) {
-                        playlists.load(u.id)
                         val favs = playlists.getList().firstOrNull { it.name == "Favorites" }
                         favs?.let {
                             writer.print(
@@ -50,7 +49,6 @@ class PlaylistsServlet : BaseServlet() {
                                 "{\"songs\": []}")
                         }()
                     } else if (opc == 3) {
-                        playlists.load(u.id)
                         if (playlists.getList().isNotEmpty()) {
                             writer.print("{\"lists\":" + gson.toJson(playlists.getList()) + "}")
                         }
@@ -66,25 +64,26 @@ class PlaylistsServlet : BaseServlet() {
                             writer.print("{\"code\": 1}")
                         }
                     } else if (opc == 6) {
-                        playlists.load(u.id)
-                        val listId = Integer.parseInt(request.getParameter("listid"))
-                        var target: Playlist? = null
-                        for (p in playlists.getList()) {
-                            if (p.id == listId) target = p
-                        }
-                        if (target != null) {
-                            playlists.addSongToPlaylist(
-                                target.id,
-                                Integer
-                                    .parseInt(request.getParameter("songid")))
+                        val songId = Integer.parseInt(request.getParameter("songid"))
+                        val list = playlists.findItem(request.getParameter("listid"))
+                        if (list != null) {
+                            playlists.addSongToPlaylist(list.id, songId)
                             writer.print("{\"code\": 1}")
                         }
                     } else if (opc == 7) {
-                        val listId = Integer.parseInt(request.getParameter("listid"))
-                        songsManager.getSongsInPlaylist(listId)
-                        val songsFromPlaylist = songsManager.getList()
-                        if (songsFromPlaylist.size > 0) {
-                            writer.print("{\"songs\":" + gson.toJson(songsFromPlaylist) + "}")
+                        val list =
+                            playlists.findItem(Integer.parseInt(request.getParameter("listid")))
+                        if (list != null) {
+                            val songsFromPlaylist = songsManager.getSongsInPlaylist(list.id)
+                            if (songsFromPlaylist.size > 0) {
+                                writer.print("{\"songs\":" + gson.toJson(songsFromPlaylist) + "}")
+                            }
+                        }
+                    } else if (opc == 8) {
+                        val list =
+                            playlists.findItem(Integer.parseInt(request.getParameter("listid")))
+                        if (list != null && playlists.delete(list.id)) {
+                            writer.print("{\"code\": 1}")
                         }
                     }
                 }

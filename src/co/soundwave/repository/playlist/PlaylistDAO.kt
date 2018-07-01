@@ -14,5 +14,5 @@ class PlaylistDAO : BaseDAO<PlaylistSQL, Playlist>() {
         queryExecutor(sql.queryByUserId(userId))
     
     fun addSongToPlaylist(playlistId: Int, songId: Int): Boolean =
-        queryBooleanExecutor("insert into playlist_has_song values ('$playlistId', '$songId')")
+        insert("insert into playlist_has_song values ('$playlistId', '$songId')")
 }
