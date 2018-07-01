@@ -1,6 +1,9 @@
 package co.soundwave.servlets
 
+import co.soundwave.extensions.hasContent
 import co.soundwave.managers.SongsManager
+import co.soundwave.models.Album
+import co.soundwave.models.Artist
 import co.soundwave.models.Song
 import com.google.gson.Gson
 import java.util.ArrayList
@@ -58,13 +61,13 @@ class SongsServlet : BaseServlet() {
                 }
                 */
             } else if (opc == 5) {
-                val results = ArrayList<Song>()
+                val results = ArrayList<Pair<Song, Pair<Album, Artist>>>()
                 for (pair in mngSong.getList()) {
                     val searching = request.getParameter("search")
-                    if (searching != null && searching.isNotEmpty()) {
+                    if (searching != null && searching.hasContent()) {
                         if (pair.first.name.toLowerCase()
                                 .contains(searching.toLowerCase())) {
-                            results.add(pair.first)
+                            results.add(pair)
                         }
                     }
                 }
