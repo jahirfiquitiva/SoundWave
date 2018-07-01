@@ -359,7 +359,7 @@
                         <div class="input-field col s6">
                             <input id="imgSong" type="text"
                                    class="validate">
-                            <label for="nameSong">Imagen de Álbum</label>
+                            <label for="nameSong">Imagen de Álbùm</label>
                         </div>
 
                         <div class="file-field input-field">

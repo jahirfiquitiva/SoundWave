@@ -177,42 +177,37 @@ function getShortText(text) {
     return text.substr(0, 19) + "...";
 }
 
-function loadArtist() {
+
+function loadArtists() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "ArtistsServlet", true);
+    xhr.open("POST", "ArtistsServlet", true)
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
-                var json = JSON.parse(xhr.responseText);
+                var art = xhr.responseText
+                var json = JSON.parse(art);
                 var list = document.getElementById("artists-collection");
 
-
-            }
-
-
-
-
-function loadArtistsViews() {
-
-                list.innerHTML = "<li class=\"collection-header\"><h4>Mis Artistas</h4></li>";
+                list.innerHTML = "<li class=\"collection-header\"><h4>Artistas</h4></li>";
 
                 if (json.artists !== undefined) {
                     for (var i = 0; i < json.artists.length; i++) {
+
                         var li = document.createElement("li");
                         li.setAttribute("class", "collection-item avatar");
 
-                        var img = document.createElement("img");
-                        img.setAttribute("src", json.artists[i].img);
-                        img.setAttribute("class", "circle");
+                       // var img = "mdi mdi-account-circle";
+                        //img.setAttribute("src",img);
+                        //img.setAttribute("class", "circle");
 
                         var sp = document.createElement("span");
                         sp.setAttribute("class", "title");
-                        sp.innerHTML = json.artists[i].first().name;
+                        sp.innerHTML = json.artists[i].name;
 
                         var pp = document.createElement("p");
-                        pp.innerHTML = camelize(json.artists[i].album);
+                        pp.innerHTML = camelize(json.artists[i].email);
 
-                        li.appendChild(img);
+                        //li.appendChild(img);
                         li.appendChild(sp);
                         li.appendChild(pp);
 
@@ -224,6 +219,37 @@ function loadArtistsViews() {
     };
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
+}
+
+
+function searchArtist() {
+
+    var searchArt = document.getElementById("searchArtits").value;
+    $("#search-modal").modal("close");
+    document.getElementById("searchArtist").value = "";
+    removeFocuses();
+    if (searchArt.length > 0) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "ArtistsServlet", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                if (xhr.responseText.length > 0) {
+                    var json = JSON.parse(xhr.responseText);
+                    if (json.artists !== undefined) {
+                        loadResultsViews(json.artists);
+                    } else {
+                        loadResultsViews(null);
+                    }
+                } else {
+                    loadResultsViews(null);
+                }
+            }
+        };
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("data=5&search=" + searchInput);
+    }
+
+
 }
 
 function loadGenreViews(list) {
@@ -298,7 +324,7 @@ function loadGenres() {
 
 function loadAlbumsViews(list) {
     var albums = document.getElementById("albums")
-    albums.innerHTML="";
+    albums.innerHTML = "";
 
     var h = document.createElement("h4");
     h.setAttribute("class", "cyan-text section-title");
