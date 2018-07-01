@@ -177,7 +177,7 @@ function getShortText(text) {
     return text.substr(0, 19) + "...";
 }
 
-function loadArtists() {
+function loadArtist() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "ArtistsServlet", true);
     xhr.onreadystatechange = function () {
@@ -185,7 +185,17 @@ function loadArtists() {
             if (xhr.responseText.length > 0) {
                 var json = JSON.parse(xhr.responseText);
                 var list = document.getElementById("artists-collection");
-                list.innerHTML = "<li class=\"collection-header\"><h4>Artistas</h4></li>";
+
+
+            }
+
+
+
+
+function loadArtistsViews() {
+
+                list.innerHTML = "<li class=\"collection-header\"><h4>Mis Artistas</h4></li>";
+
                 if (json.artists !== undefined) {
                     for (var i = 0; i < json.artists.length; i++) {
                         var li = document.createElement("li");
@@ -197,10 +207,10 @@ function loadArtists() {
 
                         var sp = document.createElement("span");
                         sp.setAttribute("class", "title");
-                        sp.innerHTML = json.artists[i].name;
+                        sp.innerHTML = json.artists[i].first().name;
 
                         var pp = document.createElement("p");
-                        pp.innerHTML = camelize(json.artists[i].genre);
+                        pp.innerHTML = camelize(json.artists[i].album);
 
                         li.appendChild(img);
                         li.appendChild(sp);
