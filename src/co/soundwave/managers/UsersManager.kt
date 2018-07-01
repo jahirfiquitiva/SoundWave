@@ -40,7 +40,7 @@ class UsersManager : BaseManager<UserDAO, User>() {
         email: String,
         password: String
                   ): Boolean {
-        return dao.queryBooleanExecutor(
+        return dao.insert(
             dao.getInsertQuery(User(0, doc, name, lastName, age, nick, email, password)))
     }
 }

@@ -34,7 +34,17 @@ abstract class BaseDAO<T : BaseSQL, O> {
     
     fun delete(name: String): Boolean = deleteWithName(name)
     
-    fun insert(query: String): Boolean = queryBooleanExecutor(query)
+    fun insert(query: String): Boolean {
+        return if (connection.connectToDB()) {
+            return try {
+                val statement = connection.connection?.createStatement()
+                return (statement?.executeUpdate(query) ?: 0) > 0
+            } catch (e: Exception) {
+                e.printStackTrace()
+                false
+            }
+        } else false
+    }
     
     private fun deleteWithId(id: Int): Boolean = queryBooleanExecutor(sql.deleteWithId(id))
     

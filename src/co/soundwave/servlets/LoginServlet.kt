@@ -43,7 +43,7 @@ class LoginServlet : BaseServlet() {
                     val chainAux = digest.digest()
                     val myHash = DatatypeConverter.printHexBinary(chainAux)
                     val inputPassword = try {
-                        myHash.substring(0, 24)
+                        myHash.substring(0, 40)
                     } catch (e: Exception) {
                         myHash
                     }
