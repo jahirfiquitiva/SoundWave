@@ -150,11 +150,11 @@ function realLoadSongsViews(list, songs, fromSearch) {
         var content = document.createElement("div");
         content.setAttribute("class", "grid-item-content");
 
-        var title = document.createElement("p");
+        var title = document.createElement("h6");
         title.setAttribute("class", "primary-text");
         title.innerHTML = getShortText(list[i].first.name);
 
-        var subtitle = document.createElement("h6");
+        var subtitle = document.createElement("p");
         subtitle.setAttribute("class", "secondary-text");
         subtitle.innerHTML = getShortText(list[i].second.second.name);
 
@@ -258,7 +258,7 @@ function loadGenreViews(list) {
         var content = document.createElement("div");
         content.setAttribute("class", "grid-item-content");
 
-        var p = document.createElement("p");
+        var p = document.createElement("h6");
         p.setAttribute("class", "primary-text");
         p.innerHTML = list[i].name;
 
