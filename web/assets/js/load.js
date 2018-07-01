@@ -177,7 +177,6 @@ function getShortText(text) {
     return text.substr(0, 19) + "...";
 }
 
-
 function loadArtists() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "ArtistsServlet", true)
@@ -194,9 +193,16 @@ function loadArtists() {
                         var li = document.createElement("li");
                         li.setAttribute("class", "collection-item avatar");
 
-                       // var img = "mdi mdi-account-circle";
-                        //img.setAttribute("src",img);
-                        //img.setAttribute("class", "circle");
+                        var a = document.createElement("a");
+                        a.setAttribute("class", "secondary-content");
+
+                        var ii = document.createElement("i");
+                        ii.setAttribute("class", "mdi mdi-account-circle");
+                        a.appendChild(ii);
+                        a.setAttribute("style",
+                                       "top: 20px !important; "
+                                       + "left: 24px !important; "
+                                       + "right: 0 !important;");
 
                         var sp = document.createElement("span");
                         sp.setAttribute("class", "title");
@@ -205,7 +211,7 @@ function loadArtists() {
                         var pp = document.createElement("p");
                         pp.innerHTML = camelize(json.artists[i].email);
 
-                        //li.appendChild(img);
+                        li.appendChild(a);
                         li.appendChild(sp);
                         li.appendChild(pp);
 
@@ -218,7 +224,6 @@ function loadArtists() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
 }
-
 
 function searchArtist() {
 
@@ -246,7 +251,6 @@ function searchArtist() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send("data=5&search=" + searchInput);
     }
-
 
 }
 
