@@ -39,14 +39,16 @@ class PlaylistsServlet : BaseServlet() {
                             writer.print("{\"code\": 1}")
                         }
                     } else if (opc == 2) {
-                        // Load favorites
-                        /*
-                    songsManager.loadFavorites(u.getId());
-                    ArrayList<Song> favorites = songsManager.getList();
-                    if (favorites.size() > 0) {
-                        writer.print("{\"songs\":" + gson.toJson(favorites) + "}");
-                    }
-                    */
+                        playlists.load(u.id)
+                        val favs = playlists.getList().firstOrNull { it.name == "Favorites" }
+                        favs?.let {
+                            writer.print(
+                                "{\"songs\":" + gson.toJson(
+                                    songsManager.getSongsInPlaylist(it.id)) + "}")
+                        } ?: {
+                            writer.print(
+                                "{\"songs\": []}")
+                        }()
                     } else if (opc == 3) {
                         playlists.load(u.id)
                         if (playlists.getList().isNotEmpty()) {
