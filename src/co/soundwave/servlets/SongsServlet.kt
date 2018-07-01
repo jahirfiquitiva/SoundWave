@@ -59,12 +59,12 @@ class SongsServlet : BaseServlet() {
                 */
             } else if (opc == 5) {
                 val results = ArrayList<Song>()
-                for (song in mngSong.getList()) {
+                for (pair in mngSong.getList()) {
                     val searching = request.getParameter("search")
-                    if (searching != null && searching.length > 0) {
-                        if (song.name.toLowerCase()
+                    if (searching != null && searching.isNotEmpty()) {
+                        if (pair.first.name.toLowerCase()
                                 .contains(searching.toLowerCase())) {
-                            results.add(song)
+                            results.add(pair.first)
                         }
                     }
                 }

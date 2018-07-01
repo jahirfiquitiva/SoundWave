@@ -119,7 +119,7 @@ function realLoadSongsViews(list, songs, fromSearch) {
     row.setAttribute("class", "row");
     for (var i = 0; i < list.length; i++) {
         // TODO: Get correct path
-        var imgPath = list[i].img;
+        var imgPath = list[i].second.first.imgPath;
         if (i % 6 === 0) {
             songs.appendChild(row);
             row = document.createElement("div");
@@ -131,9 +131,9 @@ function realLoadSongsViews(list, songs, fromSearch) {
 
         var item = document.createElement("div");
         item.setAttribute("class", "grid-item");
-        item.setAttribute("data-song-id", list[i].id);
-        item.setAttribute("data-path", list[i].path);
-        item.setAttribute("data-name", list[i].name);
+        item.setAttribute("data-song-id", list[i].first.id);
+        item.setAttribute("data-path", list[i].first.path);
+        item.setAttribute("data-name", list[i].first.name);
         // TODO: Get artist name
         // item.setAttribute("data-artist", list[i].artist.name);
         item.setAttribute("onclick", "playSong(event," + fromSearch + ")");
@@ -152,12 +152,11 @@ function realLoadSongsViews(list, songs, fromSearch) {
 
         var title = document.createElement("p");
         title.setAttribute("class", "primary-text");
-        title.innerHTML = getShortText(list[i].name);
+        title.innerHTML = getShortText(list[i].first.name);
 
         var subtitle = document.createElement("h6");
         subtitle.setAttribute("class", "secondary-text");
-        subtitle.innerHTML = "Unknown";
-        // subtitle.innerHTML = getShortText(list[i].artist.name);
+        subtitle.innerHTML = getShortText(list[i].second.second.name);
 
         content.appendChild(title);
         content.appendChild(subtitle);
@@ -170,7 +169,6 @@ function realLoadSongsViews(list, songs, fromSearch) {
         item.appendChild(content);
 
         col.appendChild(item);
-
         row.appendChild(col);
     }
     songs.appendChild(row);

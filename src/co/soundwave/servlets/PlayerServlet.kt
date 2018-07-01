@@ -34,12 +34,12 @@ class PlayerServlet : BaseServlet() {
                 var nSong: Song? = null
                 val songs = mng.getSongsInPlaylist(playlistId)
                 for (i in songs.indices) {
-                    if (songs[i].id == currentSongId) {
+                    if (songs[i].first.id == currentSongId) {
                         ignore {
                             if (opc == 0) {
-                                nSong = songs[i - 1]
+                                nSong = songs[i - 1].first
                             } else if (opc == 1) {
-                                nSong = songs[i + 1]
+                                nSong = songs[i + 1].first
                             }
                         }
                         if (nSong != null) break
