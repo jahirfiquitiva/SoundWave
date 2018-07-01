@@ -254,6 +254,7 @@ function playPlaylist(listId) {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     if (xhr.responseText.length > 0) {
                         var json = JSON.parse(xhr.responseText);
+                        console.log(json);
                         if (json.songs !== undefined) {
                             if (json.songs.length > 0) {
                                 var id = json.songs[0].first.id;

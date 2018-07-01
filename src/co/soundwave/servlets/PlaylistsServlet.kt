@@ -4,7 +4,6 @@ import co.soundwave.extensions.ignore
 import co.soundwave.managers.PlaylistsManager
 import co.soundwave.managers.SongsManager
 import co.soundwave.managers.UsersManager
-import co.soundwave.models.Playlist
 import com.google.gson.Gson
 import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServletRequest
@@ -68,21 +67,15 @@ class PlaylistsServlet : BaseServlet() {
                     } else if (opc == 6) {
                         playlists.load(u.id)
                         val listId = Integer.parseInt(request.getParameter("listid"))
-                        var target: Playlist? = null
-                        for (p in playlists.getList()) {
-                            if (p.id == listId) target = p
-                        }
-                        if (target != null) {
-                            playlists.addSongToPlaylist(
-                                target.id,
-                                Integer
-                                    .parseInt(request.getParameter("songid")))
+                        val songId = Integer.parseInt(request.getParameter("songid"))
+                        val list = playlists.findItem(listId)
+                        if (list != null) {
+                            playlists.addSongToPlaylist(list.id, songId)
                             writer.print("{\"code\": 1}")
                         }
                     } else if (opc == 7) {
                         val listId = Integer.parseInt(request.getParameter("listid"))
-                        songsManager.getSongsInPlaylist(listId)
-                        val songsFromPlaylist = songsManager.getList()
+                        val songsFromPlaylist = songsManager.getSongsInPlaylist(listId)
                         if (songsFromPlaylist.size > 0) {
                             writer.print("{\"songs\":" + gson.toJson(songsFromPlaylist) + "}")
                         }
