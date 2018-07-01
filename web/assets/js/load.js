@@ -1,7 +1,3 @@
-/**
- * Created by jahir on 6/18/17.
- */
-
 function loadSongs() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "SongsServlet", true);
@@ -181,15 +177,25 @@ function getShortText(text) {
     return text.substr(0, 19) + "...";
 }
 
-function loadArtists() {
+function loadArtist() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "SongsServlet", true);
+    xhr.open("POST", "ArtistsServlet", true);
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
                 var json = JSON.parse(xhr.responseText);
                 var list = document.getElementById("artists-collection");
-                list.innerHTML = "<li class=\"collection-header\"><h4>Artistas</h4></li>";
+
+
+            }
+
+
+
+
+function loadArtistsViews() {
+
+                list.innerHTML = "<li class=\"collection-header\"><h4>Mis Artistas</h4></li>";
+
                 if (json.artists !== undefined) {
                     for (var i = 0; i < json.artists.length; i++) {
                         var li = document.createElement("li");
@@ -201,10 +207,10 @@ function loadArtists() {
 
                         var sp = document.createElement("span");
                         sp.setAttribute("class", "title");
-                        sp.innerHTML = json.artists[i].name;
+                        sp.innerHTML = json.artists[i].first().name;
 
                         var pp = document.createElement("p");
-                        pp.innerHTML = camelize(json.artists[i].genre);
+                        pp.innerHTML = camelize(json.artists[i].album);
 
                         li.appendChild(img);
                         li.appendChild(sp);
@@ -282,6 +288,80 @@ function loadGenres() {
                 var json = JSON.parse(a);
                 if (json.genres !== undefined) {
                     loadGenreViews(json.genres);
+                }
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("");
+}
+
+function loadAlbumsViews(list) {
+    var albums = document.getElementById("albums")
+    albums.innerHTML="";
+
+    var h = document.createElement("h4");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Albumes";
+
+    albums.appendChild(h);
+
+    console.log(list);
+
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    for (var i = 0; i < list.length; i++) {
+        var imgPath = list[i].first.imgPath;
+        if (i % 6 === 0) {
+            albums.appendChild(row);
+            row = document.createElement("div");
+            row.setAttribute("class", "row");
+        }
+
+        var col = document.createElement("div");
+        col.setAttribute("class", "col s4 m3 l2");
+
+        var gridItem = document.createElement("div");
+        gridItem.setAttribute("class", "grid-item");
+
+        var imgAl = document.createElement("img");
+        imgAl.setAttribute("class", "responsive-img");
+        imgAl.setAttribute("crossorigin", "anonymous");
+        imgAl.setAttribute("src", imgPath);
+        imgAl.setAttribute("onload", "loadCardColors(event)");
+
+        var divider = document.createElement("div");
+        divider.setAttribute("class", "divider");
+
+        var content = document.createElement("div");
+        content.setAttribute("class", "grid-item-content");
+
+        var p = document.createElement("p");
+        p.setAttribute("class", "primary-text");
+        p.innerHTML = list[i].first.name;
+
+        content.appendChild(p);
+        gridItem.appendChild(imgAl);
+        gridItem.appendChild(divider);
+        gridItem.appendChild(content);
+        col.appendChild(gridItem);
+        row.appendChild(col);
+    }
+    albums.appendChild(row);
+
+
+}
+
+function loadAlbums() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "AlbumsServlet", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                var json = JSON.parse(a);
+                if (json.albums !== undefined) {
+                    loadAlbumsViews(json.albums);
                 }
             }
         }

@@ -25,7 +25,7 @@ class DatabaseConnection {
     
     companion object {
         private const val DRIVER = "com.mysql.cj.jdbc.Driver"
-        private const val URL = "jdbc:mysql://localhost:3306/soundwave"
+        private const val URL = "jdbc:mysql://localhost:3306/soundwave?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
         private const val USER = "rick"
         private const val PASSWORD = "rick"
     }
