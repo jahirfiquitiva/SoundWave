@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.33-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.16  Distrib 10.2.12-MariaDB, for osx10.13 (x86_64)
 --
 -- Host: localhost    Database: soundwave
 -- ------------------------------------------------------
--- Server version	10.1.33-MariaDB
+-- Server version	10.2.12-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -57,7 +57,7 @@ CREATE TABLE `artist` (
   `name_artist` varchar(24) NOT NULL,
   `nick_artist` varchar(16) NOT NULL,
   `email_artist` varchar(45) NOT NULL,
-  `password_artist` varchar(24) NOT NULL,
+  `password_artist` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_artist`),
   UNIQUE KEY `id_singer_UNIQUE` (`id_artist`),
   UNIQUE KEY `email_user_UNIQUE` (`email_artist`)
@@ -70,7 +70,7 @@ CREATE TABLE `artist` (
 
 LOCK TABLES `artist` WRITE;
 /*!40000 ALTER TABLE `artist` DISABLE KEYS */;
-INSERT INTO `artist` VALUES (1,'Floatinurboat NCS','NCS','floatinurboatncs@hooli.com','020a8cfa922969a0b9035333'),(2,'NCS Release','Release','ncsrelease@hooli.com','123fead50246387983ee3405'),(3,'Brandon Jonak & Pep.B','Jonak','brandonjonak@hooli.com','17d1307050a408e18fdd3ad3'),(4,'Alien','Alien','alien@hooli.com','273910799eacaacec06aba83'),(5,'Monsterscat','Monsterscat','monsterscat@hooli.com','30b46165f377a98e02585b26'),(6,'Kovan & Electro Light','Kovan','kovanelectro@hooli.com','f8221e2deff55c2a14a55a3a'),(7,'Marvin Divine & NCS Rele','Divine','marvindivine@hooli.com','67d46ec7d84ba284982e6349'),(8,'RetroVision & Domastic','Vision','retrovision@hooli.com','f42087059b37ae7f4d9f0d3a'),(9,'Anikdote & Culture Code','Code','anikdote@hooli.com','c13367945d5d4c91047b3b50'),(10,'Karra & NCS Release','karra','karra@hooli.com','f165da20d8e4f33fcb7c9097'),(11,'Michael White-NCS','White','michaelwhite@hooli.com','d508fe45cecaf653904a0e77'),(12,'Chime & Adam Tell','Chime','chimeadamtell@hooli.com','0478721a7cf7b2b81641cbf7'),(13,'Elektronomia & JJD','Electronic','elektronomia@hooli.com','16518154fcc12cb9c7154784'),(14,'Four eyes-NCS','NCSC','foureyes@hooli.com','fdb86d84b49eb032b07a21d5'),(15,'Unlike Pluto','Pluto','unlikepluto@hooli.com','c6009f08fc5fc6385f1ea1f5');
+INSERT INTO `artist` VALUES (1,'Floatinurboat NCS','floatinurboat','floatinurboatncs@hooli.com','677f53abc26be3d9be0bfd4676d7e4ab'),(2,'NCS Release','Release','ncsrelease@hooli.com','123fead50246387983ee340507115ef4'),(3,'Brandon Jonak & Pep.B','Jonak','brandonjonak@hooli.com','7771cbf7a10f027967edfd6eb718a55d'),(4,'Alien','Alien','alien@hooli.com','273910799eacaacec06aba83c9d54906'),(5,'Monstercat','monstercat','monstercat@hooli.com','b9a8869d9fa892ca21d9e7c4cc3ba9a7'),(6,'Kovan & Electro Light','Kovan','kovanelectro@hooli.com','f8221e2deff55c2a14a55a3a3af41a6b'),(7,'Marvin Divine & NCS Rele','Divine','marvindivine@hooli.com','67d46ec7d84ba284982e634970c5b7df'),(8,'RetroVision & Domastic','Vision','retrovision@hooli.com','f42087059b37ae7f4d9f0d3a475801a8'),(9,'Anikdote & Culture Code','Code','anikdote@hooli.com','c13367945d5d4c91047b3b50234aa7ab'),(10,'Karra & NCS Release','karra','karra@hooli.com','f165da20d8e4f33fcb7c90970c121b0d'),(11,'Michael White-NCS','White','michaelwhite@hooli.com','d508fe45cecaf653904a0e774084bb5c'),(12,'Chime & Adam Tell','Chime','chimeadamtell@hooli.com','0478721a7cf7b2b81641cbf75a43a3cb'),(13,'Elektronomia & JJD','Electronic','elektronomia@hooli.com','16518154fcc12cb9c715478443414867'),(14,'Four eyes-NCS','foureyes','foureyes@hooli.com','4e30936bcc50e5dab6e1fca028e63085'),(15,'Unlike Pluto','Pluto','unlikepluto@hooli.com','c6009f08fc5fc6385f1ea1f5840e179f');
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +88,7 @@ CREATE TABLE `genre` (
   PRIMARY KEY (`id_genre`),
   UNIQUE KEY `img_path_genre_UNIQUE` (`img_path_genre`),
   UNIQUE KEY `name_genre_UNIQUE` (`name_genre`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `genre` (
 
 LOCK TABLES `genre` WRITE;
 /*!40000 ALTER TABLE `genre` DISABLE KEYS */;
-INSERT INTO `genre` VALUES (1,'EletroHouse','https://i1.sndcdn.com/artworks-000227378436-y07in3-t500x500.jpg'),(2,'Dubstep','https://primeloops.com/media/catalog/product/image/hybrid-dubstep-serum-presets-PRIME%20LOOPS-hybriddubstepfin.jpg'),(3,'EletroDance','https://i1.sndcdn.com/artworks-000228571109-9v1ty0-t500x500.jpg');
+INSERT INTO `genre` VALUES (1,'EletroHouse','https://i1.sndcdn.com/artworks-000362051544-ob89uk-t500x500.jpg'),(2,'Dubstep','https://i1.sndcdn.com/artworks-000032712130-mr3nkn-t500x500.jpg'),(3,'EletroDance','https://i1.sndcdn.com/artworks-000364916883-7iusr3-t500x500.jpg');
 /*!40000 ALTER TABLE `genre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +115,7 @@ CREATE TABLE `playlist` (
   PRIMARY KEY (`id_playlist`,`USER_id_user`),
   KEY `fk_PLAYLIST_USER_idx` (`USER_id_user`),
   CONSTRAINT `fk_PLAYLIST_USER` FOREIGN KEY (`USER_id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `playlist` (
 
 LOCK TABLES `playlist` WRITE;
 /*!40000 ALTER TABLE `playlist` DISABLE KEYS */;
-INSERT INTO `playlist` VALUES (1,'GIM',2),(2,'STUDY',1);
+INSERT INTO `playlist` VALUES (1,'GYM',2),(2,'STUDY',1);
 /*!40000 ALTER TABLE `playlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `song` (
   KEY `fk_SONG_ALBUM1_idx` (`ALBUM_id_album`),
   CONSTRAINT `fk_SONG_ALBUM1` FOREIGN KEY (`ALBUM_id_album`) REFERENCES `album` (`id_album`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_SONG_GENRE1` FOREIGN KEY (`GENRE_id_genre`) REFERENCES `genre` (`id_genre`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `song` (
 
 LOCK TABLES `song` WRITE;
 /*!40000 ALTER TABLE `song` DISABLE KEYS */;
-INSERT INTO `song` VALUES (1,'Spirit of Things',1,192,'assets/music/spirit_of_things_ncs.mp3',1,1),(2,'Sleepless',1,270,'assets/music/sleepless_ncs.mp3',1,3),(3,'Lightning',2,213,'assets/music/lightning_ncs.mp3',1,3),(4,'Gave to me',3,212,'assets/music/gave_to_me_ncs.mp3',2,3),(5,'Where do I go',1,222,'assets/music/where_do_i_go.mp3',3,2),(6,'Imposible',1,201,'assets/music/imposible.mp3',3,4),(7,'Droeloe',1,211,'assets/music/droeloe.mp3',1,8),(8,'Slushii',2,146,'assets/music/slushii.mp3',1,8),(9,'Riot',3,189,'assets/music/riot.mp3',2,8),(10,'Dirty audio',4,170,'assets/music/dirty_audio.mp3',2,8),(11,'Kontinuum',4,182,'assets/music/kontinuum.mp3',1,3),(12,'Skyline',1,230,'assets/music/skiline.mp3',3,6),(13,'Unknown Brain',1,197,'assets/music/unknow_brain.mp3',3,7),(14,'Sicc',1,165,'assets/music/sicc.mp3',3,5),(15,'Dont left it go',1,185,'assets/music/dont_left_it_go.mp3',1,9),(16,'We do',5,112,'assets/music/we_do.mp3',2,8),(17,'Discovery',6,184,'assets/music/dicovery.mp3',2,8),(18,'Bass Drop',7,186,'assets/music/bass_drop.mp3',2,8),(19,'Make me move',1,181,'assets/music/make_me_move.mp3',1,10),(20,'Whole',0,187,'assets/music/whole.mp3',1,15),(21,'All eyes on me',1,204,'assets/music/all_eyes_on_me.mp3',1,15),(22,'Free',1,200,'assets/music/free.mp3',3,14),(23,'Psycho',1,208,'assets/music/psycho.mp3',3,13),(24,'Sweet',1,190,'assets/music/sweet.mp3',3,11);
+INSERT INTO `song` VALUES (1,'Spirit of Things',1,192,'assets/music/spirit_of_things_ncs.mp3',1,1),(2,'Sleepless',1,270,'assets/music/sleepless_ncs.mp3',1,3),(3,'Lightning',2,213,'assets/music/lightning_ncs.mp3',1,3),(4,'Gave to me',3,212,'assets/music/gave_to_me_ncs.mp3',2,3),(5,'Where do I go',1,222,'assets/music/where_do_i_go.mp3',3,2),(6,'Imposible',1,201,'assets/music/imposible.mp3',3,4),(7,'Droeloe',1,211,'assets/music/droeloe.mp3',1,8),(8,'Slushii',2,146,'assets/music/slushii.mp3',1,8),(9,'Riot',3,189,'assets/music/riot.mp3',2,8),(10,'Dirty audio',4,170,'assets/music/dirty_audio.mp3',2,8),(11,'Kontinuum',4,182,'assets/music/kontinuum.mp3',1,3),(12,'Skyline',1,230,'assets/music/skiline.mp3',3,6),(13,'Unknown Brain',1,197,'assets/music/unknow_brain.mp3',3,7),(14,'Sicc',1,165,'assets/music/sicc.mp3',3,5),(15,'Dont left it go',1,185,'assets/music/dont_left_it_go.mp3',1,9),(16,'We do',5,112,'assets/music/we_do.mp3',2,8),(17,'Discovery',6,184,'assets/music/discovery.mp3',2,8),(18,'Bass Drop',7,186,'assets/music/bass_drop.mp3',2,8),(19,'Make me move',1,181,'assets/music/make_me_move.mp3',1,10),(20,'Whole',0,187,'assets/music/whole.mp3',1,15),(21,'All eyes on me',1,204,'assets/music/all_eyes_on_me.mp3',1,15),(22,'Free',1,200,'assets/music/free.mp3',3,14),(23,'Psycho',1,208,'assets/music/psycho.mp3',3,13),(24,'Sweet',1,190,'assets/music/sweet.mp3',3,11);
 /*!40000 ALTER TABLE `song` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,13 +205,13 @@ CREATE TABLE `user` (
   `age_user` int(11) NOT NULL,
   `nick_user` varchar(16) NOT NULL,
   `email_user` varchar(45) NOT NULL,
-  `password_user` varchar(24) NOT NULL,
+  `password_user` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user_UNIQUE` (`id_user`),
   UNIQUE KEY `doc_user_UNIQUE` (`doc_user`),
   UNIQUE KEY `nick_user_UNIQUE` (`nick_user`),
   UNIQUE KEY `email_user_UNIQUE` (`email_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,7 +220,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,1055274577,'Sergio','Rojas',20,'sarl','sergioandresrojasleon@gmail.com','3237f19d94b7798c28f26865'),(2,1057275856,'Jahir','Fiquitiva',22,'jffr','Jahir.fiquitiva@gmail.com','23af2638899dca1c911fa86e');
+INSERT INTO `user` VALUES (1,1055274577,'Sergio','Rojas',20,'sarl','sergioandresrojasleon@gmail.com','3237f19d94b7798c28f268653e7656c3'),(2,1057275856,'Jahir','Fiquitiva',22,'jffr','Jahir.fiquitiva@gmail.com','23af2638899dca1c911fa86ee0b501e2'),(4,123456,'Pepe','Perez',18,'pepepe','pepe@gmail.com','ccc13534d127ed9357824da53023c5f9');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -233,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-26 16:56:43
+-- Dump completed on 2018-07-01 16:11:13
