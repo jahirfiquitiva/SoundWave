@@ -1,6 +1,4 @@
-/**
- * Created by jahir on 6/18/17.
- */
+
 
 function loadSongs() {
     var xhr = new XMLHttpRequest();
@@ -295,7 +293,6 @@ function loadAlbums() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("");
 }
-//-----------------------------------------
 function loadGenreViews(list) {
     var genres = document.getElementById("genres");
     genres.innerHTML = "";

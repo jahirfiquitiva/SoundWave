@@ -29,7 +29,7 @@ class ArtistsServlet : BaseServlet(){
         }
     }
 
-    override fun getServletInfo(): String = "Artist servlet"
+    override fun getServletInfo(): String = "Artists servlet"
 
         }
 
