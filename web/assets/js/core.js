@@ -132,7 +132,7 @@ function updateComponents(idMenu) {
         validateUser();
     } else {
         if (idMenu === "artists-list" && !artistsLoaded) {
-            loadArtists();
+           loadArtists();
             artistsLoaded = true;
         } else if (idMenu === "songs" && !songsLoaded) {
             loadSongs();

@@ -20,7 +20,7 @@ class ArtistsServlet : BaseServlet(){
             val data = request.getParameter("data")
             response.writer.use { writer -> artistsManager.load()
                 if (artistsManager.getList().size > 0) {
-                    writer.print("{\"artist\":" + gson.toJson(artistsManager.getList()) + "}")
+                    writer.print("{\"artists\":" + gson.toJson(artistsManager.getList()) + "}")
                 }
                 writer.close()
             }
