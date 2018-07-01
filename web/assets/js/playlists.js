@@ -182,6 +182,7 @@ function addSongToPlaylist(listId, username, songId) {
                         if (json.code !== undefined) {
                             if (json.code === 1) {
                                 M.toast({html: "Cancion añadida con exito", displayLength: 2000});
+                                loadPlaylists();
                             } else {
                                 M.toast({
                                             html: "Error!<br>Por favor, intente de nuevo",
@@ -285,6 +286,68 @@ function playPlaylist(listId) {
             xhr.send("data=7&listid=" + listId + "&username=" + username);
         } else {
             M.toast({html: "Error!<br>En la lista " + listId, displayLength: 2000});
+        }
+    } else {
+        M.toast({html: "Error!<br>Por favor, inicie sesion", displayLength: 2000});
+    }
+}
+
+function showDeletePlaylistToast(listId, listName) {
+    var toastHTML = '<span>Seguro de eliminar \"' + listName
+                    + '\"?</span><button class="btn-flat toast-action" '
+                    + 'onclick="deletePlaylist(\'' + listId + '\');">Si</button>'
+                    + '<button class="btn-flat toast-action" onclick="dismissToast();">No</button>';
+    M.toast({html: toastHTML, displayLength: 2000});
+}
+
+function dismissToast() {
+    var toastElement = document.querySelector('.toast');
+    var toastInstance = M.Toast.getInstance(toastElement);
+    toastInstance.dismiss();
+}
+
+function deletePlaylist(listId) {
+    var username = document.getElementById("user-details").getAttribute("data-username");
+    if (username !== null && username !== undefined && username.length > 0) {
+        if (listId !== null && listId !== undefined && listId.length > 0) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "PlaylistsServlet", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    if (xhr.responseText.length > 0) {
+                        var json = JSON.parse(xhr.responseText);
+                        console.log(json);
+                        if (json.code !== undefined) {
+                            if (json.code === 1) {
+                                M.toast({
+                                            html: "Lista eliminada correctamente",
+                                            displayLength: 2000
+                                        });
+                                dismissToast();
+                                loadPlaylists();
+                                clearPlayer();
+                            } else {
+                                M.toast({
+                                            html: "Error!<br>La lista no se pudo eliminar",
+                                            displayLength: 2000
+                                        });
+                            }
+                        } else {
+                            M.toast({
+                                        html: "Error!<br>La lista no se pudo eliminar",
+                                        displayLength: 2000
+                                    });
+                        }
+                    } else {
+                        M.toast(
+                            {html: "Error!<br>La lista no se pudo eliminar", displayLength: 2000});
+                    }
+                }
+            };
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("data=8&listid=" + listId.trim() + "&username=" + username);
+        } else {
+            M.toast({html: "Error en la lista #" + listId, displayLength: 2000});
         }
     } else {
         M.toast({html: "Error!<br>Por favor, inicie sesion", displayLength: 2000});

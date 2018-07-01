@@ -186,13 +186,9 @@ function loadArtist() {
                 var json = JSON.parse(xhr.responseText);
                 var list = document.getElementById("artists-collection");
 
-
             }
 
-
-
-
-function loadArtistsViews() {
+            function loadArtistsViews() {
 
                 list.innerHTML = "<li class=\"collection-header\"><h4>Mis Artistas</h4></li>";
 
@@ -297,16 +293,14 @@ function loadGenres() {
 }
 
 function loadAlbumsViews(list) {
-    var albums = document.getElementById("albums")
-    albums.innerHTML="";
+    var albums = document.getElementById("albums");
+    albums.innerHTML = "";
 
     var h = document.createElement("h4");
     h.setAttribute("class", "cyan-text section-title");
     h.innerHTML = "Albumes";
 
     albums.appendChild(h);
-
-    console.log(list);
 
     var row = document.createElement("div");
     row.setAttribute("class", "row");
@@ -348,7 +342,6 @@ function loadAlbumsViews(list) {
         row.appendChild(col);
     }
     albums.appendChild(row);
-
 
 }
 
@@ -406,15 +399,27 @@ function loadPlaylistsViews(list) {
             var a = document.createElement("a");
             a.setAttribute("class", "secondary-content");
 
-            var ii = document.createElement("i");
-            ii.setAttribute("class", "mdi mdi-play");
-            ii.style.cursor = "pointer";
             var listId = String(list[i].id);
-            var doOnClick = "playPlaylist(\"" + listId + "\");";
-            ii.setAttribute("onclick", doOnClick);
+
+            var ii = document.createElement("i");
+            ii.setAttribute("class", "mdi mdi-delete");
+            ii.style.cursor = "pointer";
+            ii.setAttribute("onclick", "showDeletePlaylistToast(\"" + listId + "\" ,\""
+                                       + list[i].name + "\");");
 
             a.appendChild(ii);
             ply.appendChild(a);
+
+            var a2 = document.createElement("a");
+            a2.setAttribute("class", "secondary-content");
+
+            var iip = document.createElement("i");
+            iip.setAttribute("class", "mdi mdi-play");
+            iip.style.cursor = "pointer";
+            iip.setAttribute("onclick", "playPlaylist(\"" + listId + "\");");
+
+            a2.appendChild(iip);
+            ply.appendChild(a2);
 
             li1.appendChild(ply);
             ul.appendChild(li1);
