@@ -1,7 +1,3 @@
-/**
- * Created by jahir on 6/18/17.
- */
-
 function loadSongs() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "SongsServlet", true);
@@ -118,7 +114,8 @@ function realLoadSongsViews(list, songs, fromSearch) {
     var row = document.createElement("div");
     row.setAttribute("class", "row");
     for (var i = 0; i < list.length; i++) {
-        var imgPath = list[i].img;
+        // TODO: Get correct path
+        var imgPath = list[i].second.first.imgPath;
         if (i % 6 === 0) {
             songs.appendChild(row);
             row = document.createElement("div");
@@ -130,15 +127,17 @@ function realLoadSongsViews(list, songs, fromSearch) {
 
         var item = document.createElement("div");
         item.setAttribute("class", "grid-item");
-        item.setAttribute("data-song-id", list[i].id);
-        item.setAttribute("data-path", list[i].path);
-        item.setAttribute("data-name", list[i].name);
-        item.setAttribute("data-artist", list[i].artist.name);
+        item.setAttribute("data-song-id", list[i].first.id);
+        item.setAttribute("data-path", list[i].first.path);
+        item.setAttribute("data-name", list[i].first.name);
+        // TODO: Get artist name
+        // item.setAttribute("data-artist", list[i].artist.name);
         item.setAttribute("onclick", "playSong(event," + fromSearch + ")");
 
         var img = document.createElement("img");
         img.setAttribute("class", "responsive-img album");
         img.setAttribute("crossorigin", "");
+        // TODO: Get correct path
         img.setAttribute("src", imgPath);
 
         var divider = document.createElement("div");
@@ -147,13 +146,13 @@ function realLoadSongsViews(list, songs, fromSearch) {
         var content = document.createElement("div");
         content.setAttribute("class", "grid-item-content");
 
-        var title = document.createElement("p");
+        var title = document.createElement("h6");
         title.setAttribute("class", "primary-text");
-        title.innerHTML = getShortText(list[i].name);
+        title.innerHTML = getShortText(list[i].first.name);
 
-        var subtitle = document.createElement("h6");
+        var subtitle = document.createElement("p");
         subtitle.setAttribute("class", "secondary-text");
-        subtitle.innerHTML = getShortText(list[i].artist.name);
+        subtitle.innerHTML = getShortText(list[i].second.second.name);
 
         content.appendChild(title);
         content.appendChild(subtitle);
@@ -166,7 +165,6 @@ function realLoadSongsViews(list, songs, fromSearch) {
         item.appendChild(content);
 
         col.appendChild(item);
-
         row.appendChild(col);
     }
     songs.appendChild(row);
@@ -181,30 +179,39 @@ function getShortText(text) {
 
 function loadArtists() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "SongsServlet", true);
+    xhr.open("POST", "ArtistsServlet", true)
     xhr.onreadystatechange = function () {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
-                var json = JSON.parse(xhr.responseText);
+                var art = xhr.responseText
+                var json = JSON.parse(art);
                 var list = document.getElementById("artists-collection");
                 list.innerHTML = "<li class=\"collection-header\"><h4>Artistas</h4></li>";
                 if (json.artists !== undefined) {
                     for (var i = 0; i < json.artists.length; i++) {
+
                         var li = document.createElement("li");
                         li.setAttribute("class", "collection-item avatar");
 
-                        var img = document.createElement("img");
-                        img.setAttribute("src", json.artists[i].img);
-                        img.setAttribute("class", "circle");
+                        var a = document.createElement("a");
+                        a.setAttribute("class", "secondary-content");
+
+                        var ii = document.createElement("i");
+                        ii.setAttribute("class", "mdi mdi-account-circle");
+                        a.appendChild(ii);
+                        a.setAttribute("style",
+                                       "top: 20px !important; "
+                                       + "left: 24px !important; "
+                                       + "right: 0 !important;");
 
                         var sp = document.createElement("span");
                         sp.setAttribute("class", "title");
                         sp.innerHTML = json.artists[i].name;
 
                         var pp = document.createElement("p");
-                        pp.innerHTML = camelize(json.artists[i].genre);
+                        pp.innerHTML = camelize(json.artists[i].email);
 
-                        li.appendChild(img);
+                        li.appendChild(a);
                         li.appendChild(sp);
                         li.appendChild(pp);
 
@@ -216,6 +223,35 @@ function loadArtists() {
     };
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("data=4");
+}
+
+function searchArtist() {
+
+    var searchArt = document.getElementById("searchArtits").value;
+    $("#search-modal").modal("close");
+    document.getElementById("searchArtist").value = "";
+    removeFocuses();
+    if (searchArt.length > 0) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "ArtistsServlet", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                if (xhr.responseText.length > 0) {
+                    var json = JSON.parse(xhr.responseText);
+                    if (json.artists !== undefined) {
+                        loadResultsViews(json.artists);
+                    } else {
+                        loadResultsViews(null);
+                    }
+                } else {
+                    loadResultsViews(null);
+                }
+            }
+        };
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("data=5&search=" + searchInput);
+    }
+
 }
 
 function loadGenreViews(list) {
@@ -256,9 +292,9 @@ function loadGenreViews(list) {
         var content = document.createElement("div");
         content.setAttribute("class", "grid-item-content");
 
-        var p = document.createElement("p");
+        var p = document.createElement("h6");
         p.setAttribute("class", "primary-text");
-        p.innerHTML = list[i].description;
+        p.innerHTML = list[i].name;
 
         content.appendChild(p);
         griditem.appendChild(imgAl);
@@ -280,6 +316,77 @@ function loadGenres() {
                 var json = JSON.parse(a);
                 if (json.genres !== undefined) {
                     loadGenreViews(json.genres);
+                }
+            }
+        }
+    };
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("");
+}
+
+function loadAlbumsViews(list) {
+    var albums = document.getElementById("albums");
+    albums.innerHTML = "";
+
+    var h = document.createElement("h4");
+    h.setAttribute("class", "cyan-text section-title");
+    h.innerHTML = "Albumes";
+
+    albums.appendChild(h);
+
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    for (var i = 0; i < list.length; i++) {
+        var imgPath = list[i].first.imgPath;
+        if (i % 6 === 0) {
+            albums.appendChild(row);
+            row = document.createElement("div");
+            row.setAttribute("class", "row");
+        }
+
+        var col = document.createElement("div");
+        col.setAttribute("class", "col s4 m3 l2");
+
+        var gridItem = document.createElement("div");
+        gridItem.setAttribute("class", "grid-item");
+
+        var imgAl = document.createElement("img");
+        imgAl.setAttribute("class", "responsive-img");
+        imgAl.setAttribute("crossorigin", "anonymous");
+        imgAl.setAttribute("src", imgPath);
+        imgAl.setAttribute("onload", "loadCardColors(event)");
+
+        var divider = document.createElement("div");
+        divider.setAttribute("class", "divider");
+
+        var content = document.createElement("div");
+        content.setAttribute("class", "grid-item-content");
+
+        var p = document.createElement("p");
+        p.setAttribute("class", "primary-text");
+        p.innerHTML = list[i].first.name;
+
+        content.appendChild(p);
+        gridItem.appendChild(imgAl);
+        gridItem.appendChild(divider);
+        gridItem.appendChild(content);
+        col.appendChild(gridItem);
+        row.appendChild(col);
+    }
+    albums.appendChild(row);
+
+}
+
+function loadAlbums() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "AlbumsServlet", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            if (xhr.responseText.length > 0) {
+                var a = xhr.responseText;
+                var json = JSON.parse(a);
+                if (json.albums !== undefined) {
+                    loadAlbumsViews(json.albums);
                 }
             }
         }
@@ -324,15 +431,27 @@ function loadPlaylistsViews(list) {
             var a = document.createElement("a");
             a.setAttribute("class", "secondary-content");
 
-            var ii = document.createElement("i");
-            ii.setAttribute("class", "mdi mdi-play");
-            ii.style.cursor = "pointer";
             var listId = String(list[i].id);
-            var doOnClick = "playPlaylist(\"" + listId + "\");";
-            ii.setAttribute("onclick", doOnClick);
+
+            var ii = document.createElement("i");
+            ii.setAttribute("class", "mdi mdi-delete");
+            ii.style.cursor = "pointer";
+            ii.setAttribute("onclick", "showDeletePlaylistToast(\"" + listId + "\" ,\""
+                                       + list[i].name + "\");");
 
             a.appendChild(ii);
             ply.appendChild(a);
+
+            var a2 = document.createElement("a");
+            a2.setAttribute("class", "secondary-content");
+
+            var iip = document.createElement("i");
+            iip.setAttribute("class", "mdi mdi-play");
+            iip.style.cursor = "pointer";
+            iip.setAttribute("onclick", "playPlaylist(\"" + listId + "\");");
+
+            a2.appendChild(iip);
+            ply.appendChild(a2);
 
             li1.appendChild(ply);
             ul.appendChild(li1);

@@ -153,13 +153,15 @@ function playAnother(next, current, listId) {
         if (xhr.status === 200 && xhr.readyState === 4) {
             if (xhr.responseText.length > 0) {
                 var song = JSON.parse(xhr.responseText);
+                console.log("Received --> ");
+                console.log(song);
                 if (song !== null && song !== undefined) {
-                    document.getElementById("song-detail-name").innerHTML = song.name;
-                    document.getElementById("song-detail-artist").innerHTML = song.artist.name;
+                    document.getElementById("song-detail-name").innerHTML = song.first.name;
+                    document.getElementById("song-detail-artist").innerHTML = song.second.second.name;
                     var player = document.getElementById("song-player");
-                    player.setAttribute("current-song-id", song.id);
-                    player.src = song.path;
-                    document.getElementById("current-album").setAttribute("src", song.img);
+                    player.setAttribute("current-song-id", song.first.id);
+                    player.src = song.first.path;
+                    document.getElementById("current-album").setAttribute("src", song.second.first.imgPath);
                     playPauseSong(true);
                 } else {
                     clearPlayer();

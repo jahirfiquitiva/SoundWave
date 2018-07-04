@@ -98,6 +98,14 @@
                 </a>
 
             </li>
+
+            <li>
+                <a class="waves-effect" href="#!" onclick="updateComponents('albums');">
+                    <i class="mdi mdi-folder-star"></i>
+                    Álbumes
+                </a>
+            </li>
+
             <li>
                 <a class="waves-effect" href="#!"
                    onclick="updateComponents('artists-list');">
@@ -238,15 +246,30 @@
                                 <div id="create-account-fields">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-fullname" type="text"
+                                            <input id="new-name" type="text"
                                                    class="validate">
-                                            <label for="new-fullname">Nombre completo</label>
+                                            <label for="new-name">Nombre</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="new-email" type="email" class="validate">
-                                            <label for="new-email">Correo electronico</label>
+                                            <input id="new-last-name" type="text"
+                                                   class="validate">
+                                            <label for="new-last-name">Apellido</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-doc" type="number"
+                                                   class="validate">
+                                            <label for="new-doc">Documento</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-age" type="number"
+                                                   class="validate">
+                                            <label for="new-age">Edad</label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -254,6 +277,12 @@
                                             <input id="new-username" type="text"
                                                    class="validate">
                                             <label for="new-username">Nombre de usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="new-email" type="email" class="validate">
+                                            <label for="new-email">Correo electronico</label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -293,6 +322,11 @@
             </div>
             <!-- Fin de lista de artistas -->
 
+            <!-- Inicio de lista de albumes -->
+            <div id="albums" style="..." class="section-content">
+            </div>
+            <!-- Fin de lista de albumes -->
+
             <!-- Inicio lista de generos -->
             <div id="genres" style="display:none;" class="section-content">
             </div>
@@ -328,13 +362,6 @@
                             <span class="title">Sergio Andrés Rojas León</span>
                             <p>201520089</p>
                         </li>
-                        <!--
-                        <li class="collection-item avatar">
-                            <i class="mdi mdi-account circle green">insert_chart</i>
-                            <span class="title">Victor Andres Suarez Cardenas</span>
-                            <p>201520838</p>
-                        </li>
-                        -->
                     </ul>
                 </div>
             </div>
@@ -353,7 +380,7 @@
                         <div class="input-field col s6">
                             <input id="imgSong" type="text"
                                    class="validate">
-                            <label for="nameSong">Imagen de Albúm</label>
+                            <label for="nameSong">Imagen de Álbùm</label>
                         </div>
 
                         <div class="file-field input-field">
@@ -493,12 +520,13 @@
                                           closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                                           draggable: true // Choose whether you can drag to open on touch screens
                                       });
+                /*
                 $('.button-collapse').sidenav({
                                                   menuWidth: 280, // Default is 300
                                                   edge: 'left', // Choose the horizontal origin
                                                   closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                                                   draggable: true // Choose whether you can drag to open on touch screens
-                                              });
+                                              }); */
             });
         </script>
     </body>
