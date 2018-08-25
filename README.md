@@ -1,5 +1,8 @@
 # SoundWave
-Web music player that implements JSP, Servlets and databases
+
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/jahirfiquitiva/SoundWave.svg?columns=all&style=flat-square)](https://waffle.io/jahirfiquitiva/SoundWave)
+
+Web music player that implements servlets and databases
 
 # Music
 
@@ -16,7 +19,7 @@ It's been shared with educational purposes and no copyright infringement intende
 This project is shared under [CreativeCommons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0)
 
 
-	Copyright 2017 Jahir Fiquitiva - Sergio Rojas - Victor Suarez
+	Copyright 2018 Jahir Fiquitiva - Sergio Rojas - Victor Suarez
 
 	Licensed under the CreativeCommons Attribution-NonCommercial-ShareAlike 
 	4.0 International License. You may not use this file except in compliance 
