@@ -195,7 +195,7 @@ h6, p {
 }
 
 #avatar-sergio {
-    background-image: url("https://avatars1.githubusercontent.com/u/24307023?v=3&u=5b427b2395b788024075cb6a1de6e1b2c5245935&s=400") !important;
+    background-image: url("../static/img/sergio.jpeg") !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
