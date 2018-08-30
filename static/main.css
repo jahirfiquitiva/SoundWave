@@ -1,7 +1,15 @@
 html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Manrope', sans-serif;
     margin: 0;
     background: #FAFAFA;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #4285f4 !important;
+}
+
+h6, p {
+    color: rgba(0, 0, 0, 0.87) !important;
 }
 
 h1 {
@@ -28,6 +36,14 @@ h6, p {
     font-size: 1rem !important;
 }
 
+.is-fullheight {
+    min-height: calc(100vh - 3.4rem) !important;
+}
+
+.hero .navbar {
+    background-color: #4285F4 !important;
+}
+
 .navbar.has-shadow {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .24);
     -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .24);
@@ -38,7 +54,12 @@ h6, p {
 .navbar,
 .navbar-brand, .navbar-tabs {
     min-height: 3.4rem !important;
-    background-color: #4285F4;
+    background-color: #4285F4 !important;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 .navbar * {
@@ -173,6 +194,19 @@ h6, p {
     background-repeat: no-repeat;
 }
 
+#avatar-sergio {
+    background-image: url("https://avatars1.githubusercontent.com/u/24307023?v=3&u=5b427b2395b788024075cb6a1de6e1b2c5245935&s=400") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .circular {
     border-radius: 50%;
+}
+
+.preview {
+    -webkit-box-shadow: 0px 8px 48px 4px rgba(66, 133, 244, 0.5);
+    -moz-box-shadow: 0px 8px 48px 4px rgba(66, 133, 244, 0.5);
+    box-shadow: 0px 8px 48px 4px rgba(66, 133, 244, 0.5);
+    border-radius: 8px;
 }

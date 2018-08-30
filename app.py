@@ -11,6 +11,6 @@ def main():
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    hoster = socket.gethostbyname(socket.gethostname())
-    app.run(host=hoster)
-    # app.run()
+    # hoster = socket.gethostbyname(socket.gethostname())
+    # app.run(host=hoster)
+    app.run()
