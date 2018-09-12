@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, jsonify
-import socket
+from flask import Flask, render_template
 
 app = Flask("SoundWave")
 
