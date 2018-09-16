@@ -26,16 +26,3 @@ class DatabaseConnection:
 
     def close(self):
         self._connection.close()
-
-
-"""
-test connection BD
- cusor = connection.cursor()
- cusor.execute('select * from  user')
- all = cusor.fetchall()
- for i in all:
-     print(str(i))
-
- cusor.close()
- connection.close()
-"""

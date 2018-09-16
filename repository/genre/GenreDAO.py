@@ -8,5 +8,5 @@ class GenreDAO(bdao.BaseDAO):
         super().__init__()
         self._sql = gesql.GenreSQL()
 
-    def get_insert_query(self, gen: ge.Genre):
-        return gesql.GenreSQL.insert_genre(gen._id, gen._name, gen._img_path_genre)
+    def get_insert_query(self, gen: ge.Genre) -> str:
+        return gesql.GenreSQL.insert_genre(gen.name, gen.img_path)

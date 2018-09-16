@@ -3,11 +3,12 @@ from repository import BaseSQL as bq
 
 class GenreSQL(bq.BaseSQL):
 
-    def insert_genre(self,_id,_name,_img_path_genre):
-        return "insert into %s values (%s,%s,%s);" % (self.table_name(), _id, _name, _name)
-
-    def table_name(self):
+    def table_name(self) -> str:
         return "genre"
+
+    def insert_genre(self, name: str, img_path_genre: str) -> str:
+        return "insert into %s (name_%s,img_path_genre_%s)" \
+               "values (%s,%s);" % (self.table_name, self.table_name, self.table_name, name, img_path_genre)
 
     def abc(self):
         pass

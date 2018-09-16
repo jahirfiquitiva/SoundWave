@@ -9,4 +9,4 @@ class UserDAO(bdao.BaseDAO):
         self._sql = soql.SongSQL()
 
     def get_insert_query(self, song: sog.Song):
-        return soql.SongSQL.insert_song(song._id, song._name, song._track, song._length, song._path)
+        return soql.SongSQL.insert_song(song.name, song.track, song.length, song.path)

@@ -1,30 +1,22 @@
 class Album(object):
     def __init__(self, id, name, img_path, release_year):
-        self._id = id
-        self._name = name
-        self._img_path = img_path
-        self._release_year = release_year
+        self._id: int = id
+        self._name: str = name
+        self._img_path: str = img_path
+        self._release_year: int = release_year
 
-    def get_id(self):
+    @property
+    def id(self) -> int:
         return self._id
 
-    def set_id(self, id):
-        self._id = id
-
-    def get_name(self):
+    @property
+    def name(self) -> str:
         return self._name
 
-    def set_name(self, name):
-        self._name = name
-
-    def get_img_path(self):
+    @property
+    def img_path(self) -> str:
         return self._img_path
 
-    def set_img_path(self, img_path):
-        self._img_path = img_path
-
-    def get_release_year(self):
+    @property
+    def release_year(self) -> int:
         return self._release_year
-
-    def set_release_year(self, release_year):
-        self._release_year = release_year

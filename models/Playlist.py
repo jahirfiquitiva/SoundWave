@@ -1,16 +1,12 @@
 class Playlist(object):
     def __init__(self, id, name):
-        self._id = id
-        self._name = name
+        self._id: int = id
+        self._name: str = name
 
-    def get_id(self):
+    @property
+    def id(self) -> int:
         return self._id
 
-    def set_id(self, id):
-        self._id = id
-
-    def get_name(self):
+    @property
+    def name(self) -> str:
         return self._name
-
-    def set_name(self, name):
-        self._name = name

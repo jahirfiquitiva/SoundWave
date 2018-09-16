@@ -9,5 +9,5 @@ class AlbumDAO(bdao.BaseDAO):
         self._sql = alsql.AlbumSQL()
 
     def get_insert_query(self, album: alb.Album):
-        return alsql.AlbumSQL.insert_album(self, album._id, album._name, album._img_path_album,
-                                           album._release_year_album, album._artist_id_artist)
+        return alsql.AlbumSQL.insert_album(album.name, album.img_path,
+                                           album.release_year, album.artist_id)

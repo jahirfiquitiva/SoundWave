@@ -1,37 +1,30 @@
 class Artist(object):
     def __init__(self, id, name, nick, password, email):
-        self._id = id
-        self._name = name
-        self._nick = nick
-        self._password = password
-        self._email = email
+        self._id: int = id
+        self._name: str = name
+        self._nick: str = nick
+        self._password: str = password
+        self._email: str = email
 
-    def get_id(self):
+    @property
+    def id(self) -> int:
         return self._id
 
-    def set_id(self, id):
-        self._id = id
-
-    def get_name(self):
+    @property
+    def name(self) -> str:
         return self._name
 
-    def set_name(self, name):
-        self._name = name
-
-    def get_nick(self):
+    @property
+    def nick(self) -> str:
         return self._nick
 
-    def set_nick(self, nick):
-        self._nick = nick
-
-    def get_password(self):
+    @property
+    def password(self) -> str:
         return self._password
 
-    def set_password(self, password):
-        self._password = password
-
-    def get_email(self):
+    @property
+    def email(self) -> str:
         return self._email
 
-    def set_email(self, email):
-        self._email = email
+    def validate(self, other_password: str) -> bool:
+        return self._password.lower() == other_password.lower()
