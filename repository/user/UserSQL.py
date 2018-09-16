@@ -1,17 +1,14 @@
 from repository import BaseSQL as bq
 
 
-# from Crypto.Hash import MD5 ---> fro passwoord
-
 class UserSQL(bq.BaseSQL):
-
-    def insert_user(self, _id, _name, _last_name, _age, _nick, _password, _email):
-
-        return "insert into %s values( %s,%s,%s,%s,%s,%s,%s);" % (
-            self.table_name(), _id, _name, _last_name, _age, _nick, _password, _email)
-
-    def table_name(self):
+    @property
+    def table_name(self) -> str:
         return "user"
 
-    def abc(self):
-        pass
+    def insert_user(self, name, last_name, age, nick, email, password):
+        return "insert into %s (name_%s, last_name_%s, age_%s, nick_%s, email_%s, password_%s) " \
+               "values(%s, %s, %s, %s, %s, md5('%s'));" % (
+                   self.table_name, self.table_name, self.table_name, self.table_name,
+                   self.table_name, self.table_name, self.table_name,
+                   name, last_name, age, nick, email, password)

@@ -6,8 +6,8 @@ from repository.user import UserSQL as usql
 class UserDAO(bdao.BaseDAO):
     def __init__(self):
         super().__init__()
-        self._sql = usql.UserSQL()
+        self.sql = usql.UserSQL()
 
-    def get_insert_query(self, use: us.User):
-        return usql.UserSQL.insert_user(use._id, use._name, use._last_name, use._age, use._nick, use._password,
-                                        use._email)
+    def get_insert_query(self, user: us.User):
+        return self.sql.insert_user(user.name, user.last_name, user.age, user.nick, user.email,
+                                    user.password)
