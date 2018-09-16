@@ -1,2 +1,6 @@
 Flask
 gunicorn
+MySQLdb
+mysqlclient
+mysql-connector
+sshtunnel
