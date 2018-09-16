@@ -10,5 +10,4 @@ class ArtistDAO(bdao.BaseDAO):
         self.sql = artsql.ArtistSQL()
 
     def get_insert_query(self, artist: art.Artist) -> str:
-        return self.sql.insert_artist(artist.name, artist.nick, artist.password,
-                                      artist.email)
+        return self.sql.insert_artist(artist.name, artist.nick, artist.email, artist.password)

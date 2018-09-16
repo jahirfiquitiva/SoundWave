@@ -1,4 +1,5 @@
 from typing import Optional
+
 import mysql.connector as sqlcon
 import mysql.connector.cursor as sqlcursor
 
