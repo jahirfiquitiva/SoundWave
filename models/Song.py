@@ -26,5 +26,5 @@ class Song(object):
         return self._length
 
     @property
-    def path(self) -> strs:
+    def path(self) -> str:
         return self._path
