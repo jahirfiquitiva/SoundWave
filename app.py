@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 
+from repository.DatabaseConnection import DatabaseConnection as dabacon
+
 app = Flask("SoundWave")
 
 
@@ -9,7 +11,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
-    # hoster = socket.gethostbyname(socket.gethostname())
-    # app.run(host=hoster)
-    app.run()
+    dabacon.connect_to_db
