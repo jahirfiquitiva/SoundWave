@@ -1,5 +1,5 @@
 class Album(object):
-    def __init__(self, id, name, img_path, release_year):
+    def __init__(self, id: int, name: str, img_path: str, release_year: int):
         self._id: int = id
         self._name: str = name
         self._img_path: str = img_path

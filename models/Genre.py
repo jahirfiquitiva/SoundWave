@@ -1,5 +1,5 @@
 class Genre(object):
-    def __init__(self, id, name, img_path):
+    def __init__(self, id: int, name: str, img_path: str):
         self._id: int = id
         self._name: str = name
         self._img_path: str = img_path

@@ -1,5 +1,5 @@
 class Playlist(object):
-    def __init__(self, id, name):
+    def __init__(self, id: int, name: str):
         self._id: int = id
         self._name: str = name
 
