@@ -26,10 +26,19 @@ class UsersManager(bm.BaseManager):
                 return item
         return None
 
+    def get_users(self) -> []:
+        return self.items
+
     def load(self):
         self.clear_list()
         for item in self.dao.query():
             self.add_item(item)
+
+    def delete_user(self, id: int) -> bool:
+        user = self.find_item(id)
+        if user is None:
+            return False
+        return self.remove_item(user)
 
     @property
     def dao(self) -> DAO:
