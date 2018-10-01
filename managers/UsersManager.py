@@ -14,9 +14,9 @@ class UsersManager(bm.BaseManager):
         return self.dao.insert(
             self.dao.get_insert_query(u.User(0, name, last_name, age, nick, email, password)))
 
-    def find_item(self, id: int) -> Optional[T]:
+    def find_item(self, user_id: int) -> Optional[T]:
         for item in self.items:
-            if item.id == id:
+            if item.id == user_id:
                 return item
         return None
 
@@ -34,8 +34,15 @@ class UsersManager(bm.BaseManager):
         for item in self.dao.query():
             self.add_item(item)
 
-    def delete_user(self, id: int) -> bool:
-        user = self.find_item(id)
+    def modify_user(self, user_id: int, name: str, last_name: str, age: int,
+                    nick: str, email: str, password: str):
+        self.dao.update_executor("update user set(name_user='%s', last_name='%s',"
+                                 " age_user='%d', nick_user='%s', email_user='%s',"
+                                 " password_user='%s' ) where id_playlist = '%d';" %
+                                 (name, last_name, age, nick, email, password, user_id))
+
+    def delete_user(self, user_id: int) -> bool:
+        user = self.find_item(user_id)
         if user is None:
             return False
         return self.remove_item(user)
