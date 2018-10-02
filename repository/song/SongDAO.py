@@ -8,5 +8,6 @@ class SongDAO(bdao.BaseDAO):
         super().__init__()
         self.sql = sosql.SongSQL()
 
-    def get_insert_query(self, song: so.Song):
-        return self.sql.insert_song(song.name, song.track, song.length, song.path)
+    def get_insert_query(self, song: so.Song, genre_id: int, album_id: int):
+        return self.sql.insert_song(
+            song.name, song.track, song.length, song.path, genre_id, album_id)
