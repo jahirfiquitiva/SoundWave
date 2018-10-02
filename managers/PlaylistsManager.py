@@ -1,19 +1,24 @@
+from abc import ABC
+
 from models import Playlist as playlist
-from models import User
 from repository.playlist import PlaylistDAO as playlistDao
 from repository.user import UserDAO as uDao
 from managers import BaseManager as bm
-from managers.BaseManager import DAO, T
+from managers.BaseManager import DAO
 
 
 # noinspection PyBroadException
-class PlaylistsManager(bm.BaseManager):
+class PlaylistsManager(bm.BaseManager, ABC):
+
     def __init__(self):
         super().__init__()
         self.user_dao = uDao.UserDAO()
 
     def load(self):
         self.internal_load(-1)
+
+    def get_playlists(self) -> []:
+        return self.items
 
     def internal_load(self, user_id: int):
         real_id = self.get_user_id(user_id)
