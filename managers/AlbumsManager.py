@@ -28,7 +28,7 @@ class AlbumsManager(bm.BaseManager, ABC):
     def modify_album(self, album_id: int, name: str, img_path: str, release_year: int,
                      artist_id: int):
         self.dao().update_executor(
-            "update song set("
+            "update album set("
             "name_album='%s',"
             "img_path_album='%s',"
             "release_year_album='%d',"

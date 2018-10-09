@@ -25,7 +25,7 @@ class ArtistsManager(bm.BaseManager, ABC):
 
     def modify_artist(self, artist_id: int, name: str, nick: str, email: str, password: str):
         self.dao().update_executor(
-            "update song set("
+            "update artist set("
             "name_artist='%s',"
             "nick_artist='%s',"
             "email_artist='%s',"
