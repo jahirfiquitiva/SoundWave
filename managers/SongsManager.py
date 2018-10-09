@@ -15,7 +15,7 @@ class SongsManager(bm.BaseManager, ABC):
         return self.items
 
     def add_song(self, name: str, track: int, length: int, path: str, gener_id: int, albun_id: int):
-        return self.dao.get_insert_query(song.Song(
+        return self.dao().get_insert_query(song.Song(
             0, name, track, length, path), gener_id, albun_id)
 
     def find_item(self, song_id: int) -> Optional[T]:
@@ -32,7 +32,7 @@ class SongsManager(bm.BaseManager, ABC):
 
     def modify_song(self, song_id: int, name: str, track: int, length: int, path: str,
                     album_id: int):
-        return self.dao.update_executor(
+        return self.dao().update_executor(
             "update song set("
             "name_song='%s'"
             ", track_song='%d'"

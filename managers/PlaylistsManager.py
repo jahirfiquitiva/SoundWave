@@ -29,17 +29,17 @@ class PlaylistsManager(bm.BaseManager, ABC):
                 self.add_item(item)
 
     def add_playlist(self, name: str, user_id: int):
-        return self.dao.insert(
-            self.dao.get_insert_query(playlist.Playlist(0, name), user_id))
+        return self.dao().insert(
+            self.dao().get_insert_query(playlist.Playlist(0, name), user_id))
 
     def add_favorite_playlist(self, user_id: int):
-        result = self.dao.insert(
-            self.dao.get_insert_query(playlist.Playlist(0, "Favorites"), user_id))
+        result = self.dao().insert(
+            self.dao().get_insert_query(playlist.Playlist(0, "Favorites"), user_id))
         self.load()
         return result
 
     def add_song_to_playlist(self, playlist: int, song_id: int) -> bool:
-        result = self.dao.add_song_to_playlist(playlist, song_id)
+        result = self.dao().add_song_to_playlist(playlist, song_id)
         self.load()
         return result
 
@@ -47,17 +47,17 @@ class PlaylistsManager(bm.BaseManager, ABC):
         self.add_song_to_playlist(self.get_favorites_playlist_id(), song_id)
 
     def get_favorites_playlist_id(self) -> int:
-        result = self.dao.query(name="Favorites")
+        result = self.dao().query(name="Favorites")
         if result is not None and len(result) > 0:
             return result[0].id
         return -1
 
     def modify_playlist(self, playlist_id: int, name: str):
-        self.dao.update_executor("update playlist set(name='%s') where id_playlist = '%d';" % (name,
+        self.dao().update_executor("update playlist set(name='%s') where id_playlist = '%d';" % (name,
                                  playlist_id))
 
     def delete_playlist(self, playlist_id: int):
-        self.dao.update_executor("delete from playlist_has_song where playlist_id_playlist = '%d';",
+        self.dao().update_executor("delete from playlist_has_song where playlist_id_playlist = '%d';",
                                  playlist_id)
 
     def get_user_id(self, idx: int) -> int:
