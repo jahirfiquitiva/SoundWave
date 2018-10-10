@@ -1,14 +1,20 @@
-from abc import ABC
+from typing import Optional
 
 from models import Playlist as playlist
 from repository.playlist import PlaylistDAO as playlistDao
 from repository.user import UserDAO as uDao
 from managers import BaseManager as bm
-from managers.BaseManager import DAO
+from managers.BaseManager import DAO,T
 
 
 # noinspection PyBroadException
-class PlaylistsManager(bm.BaseManager, ABC):
+class PlaylistsManager(bm.BaseManager):
+
+    def find_item(self, user_id: int) -> Optional[T]:
+        for item in self.items:
+            if item.id == user_id:
+                return item
+        return None
 
     def __init__(self):
         super().__init__()
@@ -29,17 +35,17 @@ class PlaylistsManager(bm.BaseManager, ABC):
                 self.add_item(item)
 
     def add_playlist(self, name: str, user_id: int):
-        return self.dao().insert(
-            self.dao().get_insert_query(playlist.Playlist(0, name), user_id))
+        return self.dao.insert(
+            self.dao.get_insert_query(playlist.Playlist(0, name), user_id))
 
     def add_favorite_playlist(self, user_id: int):
-        result = self.dao().insert(
-            self.dao().get_insert_query(playlist.Playlist(0, "Favorites"), user_id))
+        result = self.dao.insert(
+            self.dao.get_insert_query(playlist.Playlist(0, "Favorites"), user_id))
         self.load()
         return result
 
     def add_song_to_playlist(self, playlist: int, song_id: int) -> bool:
-        result = self.dao().add_song_to_playlist(playlist, song_id)
+        result = self.dao.add_song_to_playlist(playlist, song_id)
         self.load()
         return result
 
@@ -47,18 +53,19 @@ class PlaylistsManager(bm.BaseManager, ABC):
         self.add_song_to_playlist(self.get_favorites_playlist_id(), song_id)
 
     def get_favorites_playlist_id(self) -> int:
-        result = self.dao().query(name="Favorites")
+        result = self.dao.query(name="Favorites")
         if result is not None and len(result) > 0:
             return result[0].id
         return -1
 
     def modify_playlist(self, playlist_id: int, name: str):
-        self.dao().update_executor("update playlist set(name='%s') where id_playlist = '%d';" % (name,
-                                 playlist_id))
+        self.dao.update_executor("update %s set(name='%s') where id_playlist = '%d';" %
+                                   (self.dao.sql.table_name, name, playlist_id))
 
     def delete_playlist(self, playlist_id: int):
-        self.dao().update_executor("delete from playlist_has_song where playlist_id_playlist = '%d';",
-                                 playlist_id)
+        self.dao.update_executor("delete from %s "
+                                 "where playlist_id_playlist = '%d';" %
+                                 (self.dao.sql.table_name, playlist_id))
 
     def get_user_id(self, idx: int) -> int:
         user_rs = self.user_dao.query(idx)

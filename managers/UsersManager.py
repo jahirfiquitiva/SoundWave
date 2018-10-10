@@ -11,8 +11,8 @@ class UsersManager(bm.BaseManager):
 
     def add_new_user(self, name: str, last_name: str, age: int, nick: str, email: str,
                      password: str) -> bool:
-        return self.dao().insert(
-            self.dao().get_insert_query(u.User(0, name, last_name, age, nick, email, password)))
+        return self.dao.insert(
+            self.dao.get_insert_query(u.User(0, name, last_name, age, nick, email, password)))
 
     def find_item(self, user_id: int) -> Optional[T]:
         for item in self.items:
@@ -31,15 +31,16 @@ class UsersManager(bm.BaseManager):
 
     def load(self):
         self.clear_list()
-        for item in self.dao().query():
+        for item in self.dao.query():
             self.add_item(item)
 
     def modify_user(self, user_id: int, name: str, last_name: str, age: int,
                     nick: str, email: str, password: str):
-        self.dao().update_executor("update user set(name_user='%s', last_name='%s',"
-                                 " age_user='%d', nick_user='%s', email_user='%s',"
-                                 " password_user='%s' ) where id_playlist = '%d';" %
-                                 (name, last_name, age, nick, email, password, user_id))
+        self.dao.update_executor("update %s set(name_user='%s', last_name='%s',"
+                                 "age_user='%d', nick_user='%s', email_user='%s',"
+                                 "password_user='%s' ) where id_playlist = '%d';" %
+                                 (self.dao.sql.table_name, name, last_name, age, nick, email,
+                                  password, user_id))
 
     def delete_user(self, user_id: int) -> bool:
         user = self.find_item(user_id)
