@@ -37,9 +37,10 @@ class GenresManager(bm.BaseManager):
     def modify_genre(self, genre_id: int, name: str, img_path):
         self.dao.update_executor(
             "update %s set("
-            "name_genre='%s',"
-            "img_path_genre='%s',) where id_genre='%d'" %
-            (self.dao.sql.table_name, name, img_path, genre_id))
+            "name_genre_%s='%s',"
+            "img_path_genre_%s='%s',) where id_genre_%s='%d'" %
+            (self.dao.sql.table_name, self.dao.sql.table_name, name, self.dao.sql.table_name, img_path,
+             self.dao.sql.table_name, genre_id))
 
     def dao(self) -> DAO:
         return genreDao.GenreDAO()

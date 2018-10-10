@@ -40,11 +40,12 @@ class AlbumsManager(bm.BaseManager):
                      artist_id: int):
         self.dao.update_executor(
             "update %s set("
-            "name_album='%s',"
-            "img_path_album='%s',"
-            "release_year_album='%d',"
-            "artist_id_artist='%d') where id_album='%d'" %
-            (self.dao.sql.table_name, name, img_path, release_year, album_id, artist_id))
+            "name_album_%s='%s',"
+            "img_path_album_%s='%s',"
+            "release_year_album_%s='%d',"
+            "artist_id_artist_%s='%d') where id_album_%s='%d'" %
+            (self.dao.sql.table_name, self.dao.sql.table_name, name, self.dao.sql.table_name, img_path, self.dao.sql.table_name,
+             release_year, self.dao.sql.table_name, album_id, self.dao.sql.table_name, artist_id))
 
     def dao(self) -> DAO:
         return albumDao.AlbumDAO()

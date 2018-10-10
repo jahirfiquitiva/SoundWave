@@ -37,11 +37,12 @@ class ArtistsManager(bm.BaseManager):
     def modify_artist(self, artist_id: int, name: str, nick: str, email: str, password: str):
         self.dao.update_executor(
             "update %s set("
-            "name_artist='%s',"
-            "nick_artist='%s',"
-            "email_artist='%s',"
-            "password_artist='%s') where id_artist='%d'" %
-            (self.dao.sql.table_name, name, nick, email, password, artist_id))
+            "name_artist_%s='%s',"
+            "nick_artist_%s='%s',"
+            "email_artist_%s='%s',"
+            "password_artist_%s='%s') where id_artist_%s='%d'" %
+            (self.dao.sql.table_name, self.dao.sql.table_name, name, self.dao.sql.table_name, nick,
+             self.dao.sql.table_name, email, self.dao.sql.table_name, password, self.dao.sql.table_name, artist_id))
 
     def dao(self) -> DAO:
         return artistDao.ArtistDAO()

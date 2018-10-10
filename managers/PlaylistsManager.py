@@ -59,8 +59,8 @@ class PlaylistsManager(bm.BaseManager):
         return -1
 
     def modify_playlist(self, playlist_id: int, name: str):
-        self.dao.update_executor("update %s set(name='%s') where id_playlist = '%d';" %
-                                 (self.dao.sql.table_name, name, playlist_id))
+        self.dao.update_executor("update %s set(name_%s='%s') where id_playlist_%s = '%d';" %
+                                 (self.dao.sql.table_name, self.dao.sql.table_name, name, self.dao.sql.table_name, playlist_id))
 
     def delete_playlist(self, playlist_id: int):
         self.dao.update_executor("delete from playlist_has_song "

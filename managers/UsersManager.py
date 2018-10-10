@@ -36,11 +36,17 @@ class UsersManager(bm.BaseManager):
 
     def modify_user(self, user_id: int, name: str, last_name: str, age: int,
                     nick: str, email: str, password: str):
-        self.dao.update_executor("update %s set(name_user='%s', last_name='%s',"
-                                 "age_user='%d', nick_user='%s', email_user='%s',"
-                                 "password_user='%s' ) where id_playlist = '%d';" %
-                                 (self.dao.sql.table_name, name, last_name, age, nick, email,
-                                  password, user_id))
+        self.dao.update_executor("update %s set(name_user_%s='%s', last_name_%s='%s',"
+                                 "age_user_%s='%d', nick_user_%s='%s', email_user_%s='%s',"
+                                 "password_user_%s='%s' ) where id_playlist_%s= '%d';" %
+                                 (self.dao.sql.table_name,
+                                  self.dao.sql.table_name, name,
+                                  self.dao.sql.table_name, last_name,
+                                  self.dao.sql.table_name, age,
+                                  self.dao.sql.table_name, nick,
+                                  self.dao.sql.table_name, email,
+                                  self.dao.sql.table_name, password,
+                                  self.dao.sql.table_name, user_id))
 
     def delete_user(self, user_id: int) -> bool:
         user = self.find_item(user_id)

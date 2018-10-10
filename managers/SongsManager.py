@@ -39,18 +39,18 @@ class SongsManager(bm.BaseManager):
                     album_id: int):
         return self.dao.update_executor(
             "update %s set("
-            "name_song='%s'"
-            ", track_song='%d'"
-            ", length_song='%d'"
-            ", path_song='%s',"
-            " album_id_album='%d') where id_song='%d'" % (
+            "name_song_%s='%s'"
+            ", track_song_%s='%d'"
+            ", length_song_%s='%d'"
+            ", path_song_%s='%s',"
+            " album_id_album_%s='%d') where id_song_%s='%d'" % (
                 self.dao.sql.table_name,
-                name,
-                track,
-                length,
-                path,
-                album_id,
-                song_id
+                self.dao.sql.table_name, name,
+                self.dao.sql.table_name, track,
+                self.dao.sql.table_name, length,
+                self.dao.sql.table_name, path,
+                self.dao.sql.table_name, album_id,
+                self.dao.sql.table_name, song_id
             ))
 
     @property
