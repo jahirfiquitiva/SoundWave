@@ -4,7 +4,7 @@ from models import Playlist as playlist
 from repository.playlist import PlaylistDAO as playlistDao
 from repository.user import UserDAO as uDao
 from managers import BaseManager as bm
-from managers.BaseManager import DAO,T
+from managers.BaseManager import DAO, T
 
 
 # noinspection PyBroadException
@@ -44,8 +44,8 @@ class PlaylistsManager(bm.BaseManager):
         self.load()
         return result
 
-    def add_song_to_playlist(self, playlist: int, song_id: int) -> bool:
-        result = self.dao.add_song_to_playlist(playlist, song_id)
+    def add_song_to_playlist(self, playlist_id: int, song_id: int) -> bool:
+        result = self.dao.add_song_to_playlist(playlist_id, song_id)
         self.load()
         return result
 
@@ -60,12 +60,11 @@ class PlaylistsManager(bm.BaseManager):
 
     def modify_playlist(self, playlist_id: int, name: str):
         self.dao.update_executor("update %s set(name='%s') where id_playlist = '%d';" %
-                                   (self.dao.sql.table_name, name, playlist_id))
+                                 (self.dao.sql.table_name, name, playlist_id))
 
     def delete_playlist(self, playlist_id: int):
-        self.dao.update_executor("delete from %s "
-                                 "where playlist_id_playlist = '%d';" %
-                                 (self.dao.sql.table_name, playlist_id))
+        self.dao.update_executor("delete from playlist_has_song "
+                                 "where playlist_id_playlist = '%d';", playlist_id)
 
     def get_user_id(self, idx: int) -> int:
         user_rs = self.user_dao.query(idx)
