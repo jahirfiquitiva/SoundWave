@@ -1,5 +1,5 @@
 Flask
 gunicorn
 mysqlclient
-mysql-connector
+mysql-connector-python
 sshtunnel
