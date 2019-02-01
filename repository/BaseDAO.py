@@ -29,12 +29,33 @@ class BaseDAO(ABC, Generic[T]):
                     return cursor.fetchall()
                 else:
                     return None
-            except Exception:
+            except Exception as e:
+                self.connection.rollback()
+                print("Error: " + str(e))
                 return None
+            finally:
+                self.connection.cursor.close()
+                self.connection.close()
         return None
 
     def update_executor(self, query: str) -> bool:
-        return self.query_executor(query) is not None
+        if self.connection.connect_to_db():
+            try:
+                cursor = self.connection.cursor
+                if cursor is not None:
+                    cursor.execute(query)
+                    self.connection.commit()
+                    return cursor.rowcount > 0
+                else:
+                    return False
+            except Exception as e:
+                self.connection.rollback()
+                print("Error: " + str(e))
+                return False
+            finally:
+                self.connection.cursor.close()
+                self.connection.close()
+        return False
 
     def query_boolean_executor(self, query: str) -> bool:
         return self.query_executor(query) is not None
@@ -53,3 +74,6 @@ class BaseDAO(ABC, Generic[T]):
 
     def _delete_with_name(self, name: str) -> bool:
         return self.update_executor(self.sql.delete_with_name(name))
+
+    def _is_select(self, query: str):
+        return query.lower().startswith('select')
