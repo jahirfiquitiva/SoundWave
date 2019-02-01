@@ -33,8 +33,10 @@ class BaseManager(ABC, Generic[DAO, T]):
 
     def load(self):
         self.clear_list()
-        for item in self.dao.query():
-            self.add_item(item)
+        query = self.dao.query()
+        if query is not None and len(query) > 0:
+            for item in query:
+                self.add_item(item)
 
     @abstractmethod
     def find_item(self, id: int) -> Optional[T]:
