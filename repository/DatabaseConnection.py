@@ -16,14 +16,22 @@ class DatabaseConnection:
         try:
             if self._connection is None or not self._connection.is_connected():
                 self._connection = sqlcon.connect(
-                    user='root',
-                    password='',
-                    host='127.0.0.1', port='3306',
-                    database='soundwaveco')
+                    user='rick',
+                    password='rick',
+                    host='127.0.0.1',
+                    port='3306',
+                    database='soundwaveco',
+                    auth_plugin='mysql_native_password')
             return self._connection is not None
         except Exception as ex:
             print(ex)
             return False
+
+    def rollback(self):
+        self._connection.rollback()
+
+    def commit(self):
+        self._connection.commit()
 
     def close(self):
         self._connection.close()
