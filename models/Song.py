@@ -1,6 +1,6 @@
 class Song(object):
-    def __init__(self, id: int, name: str, track: int, length: int, path: str):
-        self._id: int = id
+    def __init__(self, item_id: int, name: str, track: int, length: int, path: str):
+        self._id: int = item_id
         self._name: str = name
         self._track: int = track
         self._length: int = length

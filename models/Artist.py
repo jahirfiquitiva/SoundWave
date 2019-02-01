@@ -1,6 +1,6 @@
 class Artist(object):
-    def __init__(self, id: int, name: str, nick: str, email: str, password: str):
-        self._id: int = id
+    def __init__(self, item_id: int, name: str, nick: str, email: str, password: str):
+        self._id: int = item_id
         self._name: str = name
         self._nick: str = nick
         self._email: str = email

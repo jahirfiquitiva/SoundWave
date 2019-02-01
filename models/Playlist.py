@@ -1,6 +1,6 @@
 class Playlist(object):
-    def __init__(self, id: int, name: str):
-        self._id: int = id
+    def __init__(self, item_id: int, name: str):
+        self._id: int = item_id
         self._name: str = name
 
     @property

@@ -12,10 +12,10 @@ class BaseDAO(ABC, Generic[T]):
         self.sql: T = None
         self.connection: dao.DatabaseConnection = dao.DatabaseConnection()
 
-    def query(self, id: int = -1, name: str = "") -> []:
+    def query(self, item_id: int = -1, name: str = "") -> []:
         query = self.sql.query()
-        if id >= 0:
-            query = self.sql.query_by_id(id)
+        if item_id >= 0:
+            query = self.sql.query_by_id(item_id)
         elif len(name) > 0:
             query = self.sql.query_by_name(name)
         return self.query_executor(query)
@@ -39,8 +39,8 @@ class BaseDAO(ABC, Generic[T]):
     def query_boolean_executor(self, query: str) -> bool:
         return self.query_executor(query) is not None
 
-    def delete(self, id: int) -> bool:
-        return self._delete_with_id(id)
+    def delete(self, item_id: int) -> bool:
+        return self._delete_with_id(item_id)
 
     def delete(self, name: str) -> bool:
         return self._delete_with_name(name)
@@ -48,8 +48,8 @@ class BaseDAO(ABC, Generic[T]):
     def insert(self, query: str) -> bool:
         return self.update_executor(query)
 
-    def _delete_with_id(self, id: int) -> bool:
-        return self.update_executor(self.sql.delete_with_id(id))
+    def _delete_with_id(self, item_id: int) -> bool:
+        return self.update_executor(self.sql.delete_with_id(item_id))
 
     def _delete_with_name(self, name: str) -> bool:
         return self.update_executor(self.sql.delete_with_name(name))

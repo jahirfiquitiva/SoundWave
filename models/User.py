@@ -1,7 +1,7 @@
 class User(object):
-    def __init__(self, id: int, name: str, last_name: str, age: int, nick: str, email: str,
+    def __init__(self, item_id: int, name: str, last_name: str, age: int, nick: str, email: str,
                  password: str):
-        self._id: int = id
+        self._id: int = item_id
         self._name: str = name
         self._last_name: str = last_name
         self._age: int = age
