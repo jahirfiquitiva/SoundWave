@@ -39,3 +39,7 @@ class User(object):
 
     def validate(self, other_password: str) -> bool:
         return self._password.lower() == other_password.lower()
+
+    def __str__(self):
+        return "Id: %d - Nombre: %s - Apellido: %s - Edad: %d - Nick: %s - Email: %s - Pass: %s" % (
+            self.id, self.name, self.last_name, self.age, self.nick, self.email, self.password)
