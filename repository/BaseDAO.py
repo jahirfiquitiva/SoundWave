@@ -39,10 +39,10 @@ class BaseDAO(ABC, Generic[T]):
     def query_boolean_executor(self, query: str) -> bool:
         return self.query_executor(query) is not None
 
-    def delete(self, id: int) -> int:
+    def delete(self, id: int) -> bool:
         return self._delete_with_id(id)
 
-    def delete(self, name: str) -> int:
+    def delete(self, name: str) -> bool:
         return self._delete_with_name(name)
 
     def insert(self, query: str) -> bool:
