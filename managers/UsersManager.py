@@ -9,10 +9,11 @@ class UsersManager(bm.BaseManager):
     def __init__(self):
         super().__init__()
 
-    def add_new_user(self, name: str, last_name: str, age: int, nick: str, email: str,
-                     password: str) -> bool:
+    def add_new_user(self, name: str, last_name: str, age: int, nick: str,
+                     email: str, password: str) -> bool:
         return self.dao.insert(
-            self.dao.get_insert_query(u.User(0, name, last_name, age, nick, email, password)))
+            self.dao.get_insert_query(
+                u.User(0, name, last_name, age, nick, email, password)))
 
     def find_item(self, user_id: int) -> Optional[T]:
         for item in self.items:
@@ -36,17 +37,18 @@ class UsersManager(bm.BaseManager):
 
     def modify_user(self, user_id: int, name: str, last_name: str, age: int,
                     nick: str, email: str, password: str):
-        self.dao.update_executor("update %s set(name_user_%s='%s', last_name_%s='%s',"
-                                 "age_user_%s='%d', nick_user_%s='%s', email_user_%s='%s',"
-                                 "password_user_%s='%s' ) where id_playlist_%s= '%d';" %
-                                 (self.dao.sql.table_name,
-                                  self.dao.sql.table_name, name,
-                                  self.dao.sql.table_name, last_name,
-                                  self.dao.sql.table_name, age,
-                                  self.dao.sql.table_name, nick,
-                                  self.dao.sql.table_name, email,
-                                  self.dao.sql.table_name, password,
-                                  self.dao.sql.table_name, user_id))
+        self.dao.update_executor(
+            "update %s set(name_%s='%s', last_%s='%s', "
+            "age_%s='%d', nick_%s='%s', email_%s='%s', "
+            "password_%s='%s' ) where id_%s= '%d';" %
+            (self.dao.sql.table_name,
+             self.dao.sql.table_name, name,
+             self.dao.sql.table_name, last_name,
+             self.dao.sql.table_name, age,
+             self.dao.sql.table_name, nick,
+             self.dao.sql.table_name, email,
+             self.dao.sql.table_name, password,
+             self.dao.sql.table_name, user_id))
 
     def delete_user(self, user_id: int) -> bool:
         user = self.find_item(user_id)
