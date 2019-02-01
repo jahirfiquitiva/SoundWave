@@ -8,28 +8,28 @@ DAO = TypeVar('DAO', bound=bdao.BaseDAO)
 
 class BaseManager(ABC, Generic[DAO, T]):
     def __init__(self):
-        self.items: [T] = []
+        self._items: [T] = []
 
     def get_items(self) -> [T]:
-        return self.items
+        return self._items.copy()
 
     def add_item(self, item: T) -> bool:
-        if item in self.items:
+        if item in self._items:
             return False
-        self.items.append(item)
+        self._items.append(item)
         return True
 
     def remove_item(self, item: T) -> bool:
-        if item not in self.items:
+        if item not in self._items:
             return False
-        self.items.remove(item)
+        self._items.remove(item)
         return True
 
     def remove_item(self, index: int) -> bool:
-        return self.remove_item(self.items[index])
+        return self.remove_item(self._items[index])
 
     def clear_list(self):
-        self.items.clear()
+        self._items.clear()
 
     def load(self):
         self.clear_list()
