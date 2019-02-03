@@ -1,6 +1,6 @@
 class Artist(object):
-    def __init__(self, id: int, name: str, nick: str, email: str, password: str):
-        self._id: int = id
+    def __init__(self, item_id: int, name: str, nick: str, email: str, password: str):
+        self._id: int = item_id
         self._name: str = name
         self._nick: str = nick
         self._email: str = email
@@ -28,3 +28,6 @@ class Artist(object):
 
     def validate(self, other_password: str) -> bool:
         return self._password.lower() == other_password.lower()
+
+    def __str__(self):
+        return "Id: %d - Nombre: %s - Nick: %s" % (self.id, self.name, self.nick)

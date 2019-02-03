@@ -1,7 +1,7 @@
 class User(object):
-    def __init__(self, id: int, name: str, last_name: str, age: int, nick: str, email: str,
+    def __init__(self, item_id: int, name: str, last_name: str, age: int, nick: str, email: str,
                  password: str):
-        self._id: int = id
+        self._id: int = item_id
         self._name: str = name
         self._last_name: str = last_name
         self._age: int = age
@@ -39,3 +39,7 @@ class User(object):
 
     def validate(self, other_password: str) -> bool:
         return self._password.lower() == other_password.lower()
+
+    def __str__(self):
+        return "Id: %d - Nombre: %s - Apellido: %s - Edad: %d - Nick: %s - Email: %s - Pass: %s" % (
+            self.id, self.name, self.last_name, self.age, self.nick, self.email, self.password)

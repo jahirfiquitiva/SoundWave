@@ -15,4 +15,5 @@ class PlaylistDAO(bdao.BaseDAO):
         return self.query_executor(self.sql.query_by_user_id(user_id))
 
     def add_song_to_playlist(self, playlist_id: int, song_id: int) -> bool:
-        return self.insert("insert into playlist_has_song values(%s, %s);" % (playlist_id, song_id))
+        return self.insert(
+            "insert into playlist_has_song values('%s', '%s');" % (playlist_id, song_id))

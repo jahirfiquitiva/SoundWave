@@ -1,6 +1,6 @@
 class Genre(object):
-    def __init__(self, id: int, name: str, img_path: str):
-        self._id: int = id
+    def __init__(self, item_id: int, name: str, img_path: str):
+        self._id: int = item_id
         self._name: str = name
         self._img_path: str = img_path
 
@@ -15,3 +15,6 @@ class Genre(object):
     @property
     def img_path(self) -> str:
         return self._img_path
+
+    def __str__(self):
+        return "Id: %d - Nombre: %s - Path: %s" % (self.id, self.name, self.img_path)
