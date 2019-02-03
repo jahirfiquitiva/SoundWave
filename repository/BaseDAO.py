@@ -12,7 +12,7 @@ class BaseDAO(ABC, Generic[T]):
         self.sql: T = None
         self.connection: dao.DatabaseConnection = dao.DatabaseConnection()
 
-    def query(self, item_id: int = -1, name: str = "") -> []:
+    def query(self, item_id: int = -1, name: str = "") -> [T]:
         query = self.sql.query()
         if item_id >= 0:
             query = self.sql.query_by_id(item_id)
@@ -20,7 +20,7 @@ class BaseDAO(ABC, Generic[T]):
             query = self.sql.query_by_name(name)
         return self.query_executor(query)
 
-    def query_executor(self, query: str) -> []:
+    def query_executor(self, query: str) -> [T]:
         if self.connection.connect_to_db():
             try:
                 cursor = self.connection.cursor
