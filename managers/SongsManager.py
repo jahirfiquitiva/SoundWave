@@ -11,21 +11,24 @@ class SongsManager(bm.BaseManager):
     def create(self, name: str, track: int, length: int, path: str, genre_id: int,
                album_id: int) -> bool:
         created = self.dao.insert(
-            self.dao.get_insert_query(so.Song(0, name, track, length, path), genre_id, album_id))
+            self.dao.get_insert_query(so.Song(0, name, track, length, path, genre_id, album_id),
+                                      genre_id, album_id))
         if created:
             self.load()
             return True
         return False
 
-    def update(self, song_id: int, name: str, track: int, length: int, path: str) -> bool:
+    def update(self, song_id: int, name: str, track: int, length: int, path: str, genre_id: int,
+               album_id: int) -> bool:
         updated = self.dao.update_executor(
-            "update %s set(name_%s='%s', track_%s='%d', length_%s='%d', "
-            "path_%s='%s') where id_%s='%d'" % (
+            "update %s set name_%s='%s', track_%s='%d', length_%s='%d', path_%s='%s', "
+            "genre_id_genre='%d', album_id_album='%d' where id_%s='%d'" % (
                 self.dao.sql.table_name,
                 self.dao.sql.table_name, name,
                 self.dao.sql.table_name, track,
                 self.dao.sql.table_name, length,
                 self.dao.sql.table_name, path,
+                genre_id, album_id,
                 self.dao.sql.table_name, song_id
             ))
         if updated:
@@ -42,8 +45,8 @@ class SongsManager(bm.BaseManager):
     # noinspection PyBroadException
     def tuple_to_item(self, tuple_ref: tuple) -> Optional[so.Song]:
         try:
-            print(str(tuple_ref))
-            # return so.Song()
+            return so.Song(tuple_ref[0], tuple_ref[1], tuple_ref[2], tuple_ref[3], tuple_ref[4],
+                           tuple_ref[5], tuple_ref[6])
         except Exception:
             pass
         return None
