@@ -2,6 +2,7 @@ from abc import ABC
 from typing import Generic, TypeVar
 
 from repository import BaseSQL as bq, DatabaseConnection as dao
+import log_utils as log
 
 T = TypeVar('T', bound=bq.BaseSQL)
 
@@ -31,7 +32,7 @@ class BaseDAO(ABC, Generic[T]):
                     return None
             except Exception as e:
                 self.connection.rollback()
-                print("Error: " + str(e))
+                log.print_error(str(e))
                 return None
             finally:
                 self.connection.cursor.close()
@@ -50,7 +51,7 @@ class BaseDAO(ABC, Generic[T]):
                     return False
             except Exception as e:
                 self.connection.rollback()
-                print("Error: " + str(e))
+                log.print_error(str(e))
                 return False
             finally:
                 self.connection.cursor.close()

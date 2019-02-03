@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import socket
-from managers import SongsManager as sm
+from managers import PlaylistsManager as man
+from managers import SongsManager as soman
 
 app = Flask("SoundWave")
 
@@ -11,17 +12,29 @@ def main():
 
 
 if __name__ == '__main__':
-    manager = sm.SongsManager()
-    manager.create("Nombre", 9, 123, "la/ruta", 0, 1)
-    manager.create("Otro nombre", 2, 454, "otra/ruta/si", 0, 1)
-    # manager.update(6, 'actualizado', 'otra_cosa', 34, 'lizado', 'freger@gmail.co', '4321')
-    # manager.delete(6)
+    manager = man.PlaylistsManager()
+    songman = soman.SongsManager()
+    # songman.create("h65hhrhrt", 6, 765, "cwecwec", 2, 3)
+    # manager.add_song_to_playlist(3, 6)
+    # manager.create("when the party''s over", 4, 234, "song/path/yes", 2, 3)
+    # manager.update(4, 'favorites', 11)
+    # manager.delete(3)
+    # manager.add_song_to_new_playlist("mucik", 1, 5)
+    items = manager.get_playlist_songs(5)
+    if items is not None and len(items) > 0:
+        for i in items:
+            print(str(i))
+    else:
+        print("No items found")
+
+    """
     items = manager.get_items()
     if items is not None and len(items) > 0:
         for i in items:
             print(str(i))
     else:
         print("No items found")
+    """
     # app.config['TEMPLATES_AUTO_RELOAD'] = True
     # hoster = socket.gethostbyname(socket.gethostname())
     # app.run(host=hoster)
