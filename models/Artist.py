@@ -28,3 +28,6 @@ class Artist(object):
 
     def validate(self, other_password: str) -> bool:
         return self._password.lower() == other_password.lower()
+
+    def __str__(self):
+        return "Id: %d - Nombre: %s - Nick: %s" % (self.id, self.name, self.nick)

@@ -1,48 +1,60 @@
 from typing import Optional
-from models import Artist as artist
-from repository.artist import ArtistDAO as artistDao
+from models import Artist as ar
+from repository.artist import ArtistDAO as ardao
 from managers import BaseManager as bm
-from managers.BaseManager import DAO, T
 
 
 class ArtistsManager(bm.BaseManager):
-
-    def find_item(self, user_id: int) -> Optional[T]:
-        for item in self.items:
-            if item.id == user_id:
-                return item
-        return None
-
-    def load(self):
-        self.clear_list()
-        for item in self.dao.query():
-            self.add_item(item)
-
     def __init__(self):
         super().__init__()
 
-    def get_artists(self) -> Optional[T]:
-        return self.items
+    def create(self, name: str, nick: str, email: str, password: str) -> bool:
+        created = self.dao.insert(
+            self.dao.get_insert_query(ar.Artist(0, name, nick, email, password)))
+        if created:
+            self.load()
+            return True
+        return False
 
-    def add_artist(self, name: str, nick: str, email: str, password: str):
-        self.dao.insert(artist.Artist(0, name, nick, email, password))
+    def update(self, artist_id: int, name: str, nick: str, email: str, password: str) -> bool:
+        updated = self.dao.update_executor(
+            "update %s set name_%s='%s', nick_%s='%s', email_%s='%s', password_%s=md5('%s') where "
+            "id_%s='%d'" % (
+                self.dao.sql.table_name,
+                self.dao.sql.table_name, name, self.dao.sql.table_name, nick,
+                self.dao.sql.table_name, email, self.dao.sql.table_name, password,
+                self.dao.sql.table_name, artist_id))
+        if updated:
+            self.load()
+            return True
+        return False
 
-    def delete_artist(self, artist_id: int):
-        self.load()
-        ar = self.find_item(artist_id)
-        if ar is None:
-            return False
-        return self.remove_item(ar)
+    def delete(self, artist_id: int) -> bool:
+        if self.dao.delete(artist_id):
+            self.load()
+            return True
+        return False
 
-    def modify_artist(self, artist_id: int, name: str, nick: str, email: str, password: str):
-        self.dao.update_executor(
-            "update %s set("
-            "name_artist_%s='%s',"
-            "nick_artist_%s='%s',"
-            "email_artist_%s='%s',"
-            "password_artist_%s='%s') where id_artist_%s='%d'" %
-            (self.dao.sql.table_name, self.dao.sql.table_name, name, self.dao.sql.table_name, nick,
-             self.dao.sql.table_name, email, self.dao.sql.table_name, password, self.dao.sql.table_name, artist_id))
+    # noinspection PyBroadException
+    def tuple_to_item(self, tuple_ref: tuple) -> Optional[ar.Artist]:
+        try:
+            return ar.Artist(tuple_ref[0], tuple_ref[1], tuple_ref[2], tuple_ref[4], tuple_ref[3])
+        except Exception:
+            pass
+        return None
 
-    def dao(self) -> DAO:
-        return artistDao.ArtistDAO()
+    def find_item_by_id(self, artist_id: int) -> Optional[ar.Artist]:
+        for item in self.get_items():
+            if item.id == artist_id:
+                return item
+        return None
+
+    def find_item(self, s: str) -> Optional[ar.Artist]:
+        for item in self.get_items():
+            if item.name.lower() == s.lower():
+                return item
+        return None
+
+    @property
+    def dao(self) -> ardao.ArtistDAO:
+        return ardao.ArtistDAO()
