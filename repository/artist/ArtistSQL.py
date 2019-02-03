@@ -2,6 +2,7 @@ from repository import BaseSQL as bq
 
 
 class ArtistSQL(bq.BaseSQL):
+    @property
     def table_name(self):
         return "artist"
 

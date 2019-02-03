@@ -2,6 +2,7 @@ from repository import BaseSQL as bq
 
 
 class SongSQL(bq.BaseSQL):
+    @property
     def table_name(self) -> str:
         return "song"
 
