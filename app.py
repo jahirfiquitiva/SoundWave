@@ -14,6 +14,7 @@ if __name__ == '__main__':
     userManager = um.UsersManager()
     # userManager.create("TestName", "TestSurname", 1, "tester", "tester@soundwave.co", "1234")
     # userManager.update(6, 'actualizado', 'otra_cosa', 34, 'lizado', 'freger@gmail.co', '4321')
+    # userManager.delete(6)
     items = userManager.get_items()
     if items is not None and len(items) > 0:
         for i in items:

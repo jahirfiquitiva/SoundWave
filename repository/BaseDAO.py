@@ -63,7 +63,7 @@ class BaseDAO(ABC, Generic[T]):
     def delete(self, item_id: int) -> bool:
         return self._delete_with_id(item_id)
 
-    def delete(self, name: str) -> bool:
+    def delete_by_name(self, name: str) -> bool:
         return self._delete_with_name(name)
 
     def insert(self, query: str) -> bool:
