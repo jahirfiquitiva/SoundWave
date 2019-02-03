@@ -74,6 +74,3 @@ class BaseDAO(ABC, Generic[T]):
 
     def _delete_with_name(self, name: str) -> bool:
         return self.update_executor(self.sql.delete_with_name(name))
-
-    def _is_select(self, query: str):
-        return query.lower().startswith('select')
