@@ -60,7 +60,7 @@ class UsersManager(bm.BaseManager):
 
     def find_item(self, s: str) -> Optional[us.User]:
         for item in self.get_items():
-            if item.nick.lower() == s.lower():
+            if s.strip().lower() in item.nick.strip().lower():
                 return item
         return None
 

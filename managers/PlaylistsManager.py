@@ -104,8 +104,7 @@ class PlaylistsManager(bm.BaseManager):
     def remove_song_from_playlist(self, playlist_id: int, song_id: int) -> bool:
         return self.dao.update_executor(
             "delete from %s_has_song where %s_id_%s=%d and song_id_song=%d" %
-            (self.dao.sql.table_name,
-             self.dao.sql.table_name, self.dao.sql.table_name,
+            (self.dao.sql.table_name, self.dao.sql.table_name, self.dao.sql.table_name,
              playlist_id, song_id))
 
     def tuple_to_item(self, tuple_ref: tuple) -> Optional[pl.Playlist]:

@@ -50,7 +50,7 @@ class GenresManager(bm.BaseManager):
 
     def find_item(self, s: str) -> Optional[ge.Genre]:
         for item in self.get_items():
-            if item.name.lower() == s.lower():
+            if s.strip().lower() in item.name.strip().lower():
                 return item
         return None
 

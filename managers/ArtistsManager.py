@@ -51,7 +51,7 @@ class ArtistsManager(bm.BaseManager):
 
     def find_item(self, s: str) -> Optional[ar.Artist]:
         for item in self.get_items():
-            if item.name.lower() == s.lower():
+            if s.strip().lower() in item.nick.strip().lower():
                 return item
         return None
 
