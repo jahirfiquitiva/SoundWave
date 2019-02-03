@@ -8,7 +8,8 @@ class SongsManager(bm.BaseManager):
     def __init__(self):
         super().__init__()
 
-    def create(self, name: str, track: int, length: int, path: str, genre_id, album_id) -> bool:
+    def create(self, name: str, track: int, length: int, path: str, genre_id: int,
+               album_id: int) -> bool:
         created = self.dao.insert(
             self.dao.get_insert_query(so.Song(0, name, track, length, path), genre_id, album_id))
         if created:
