@@ -28,8 +28,8 @@ class GenresManager(bm.BaseManager):
             return True
         return False
 
-    def delete(self, song_id: int) -> bool:
-        if self.dao.delete(song_id):
+    def delete(self, genre_id: int) -> bool:
+        if self.dao.delete(genre_id):
             self.load()
             return True
         return False
@@ -42,9 +42,9 @@ class GenresManager(bm.BaseManager):
             pass
         return None
 
-    def find_item_by_id(self, song_id: int) -> Optional[ge.Genre]:
+    def find_item_by_id(self, genre_id: int) -> Optional[ge.Genre]:
         for item in self.get_items():
-            if item.id == song_id:
+            if item.id == genre_id:
                 return item
         return None
 
