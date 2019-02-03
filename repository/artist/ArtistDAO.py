@@ -4,7 +4,6 @@ from repository.artist import ArtistSQL as artsql
 
 
 class ArtistDAO(bdao.BaseDAO):
-
     def __init__(self):
         super().__init__()
         self.sql = artsql.ArtistSQL()

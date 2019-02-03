@@ -2,7 +2,6 @@ from repository import BaseSQL as bq
 
 
 class UserSQL(bq.BaseSQL):
-    @property
     def table_name(self) -> str:
         return "user"
 

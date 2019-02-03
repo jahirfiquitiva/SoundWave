@@ -2,7 +2,6 @@ from repository import BaseSQL as bq
 
 
 class GenreSQL(bq.BaseSQL):
-
     def table_name(self) -> str:
         return "genre"
 
