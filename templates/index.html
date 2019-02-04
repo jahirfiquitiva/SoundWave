@@ -19,49 +19,59 @@
         <meta name="msapplication-TileColor" content="#4285F4">
         <meta name="msapplication-TileImage" content="../static/favicons/sw72.png">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="//cdn.materialdesignicons.com/2.6.95/css/materialdesignicons.min.css"
+        <link href="//cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css"
               rel="stylesheet">
-        <link href="../static/bulma.min.css" rel="stylesheet"/>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
         <link href="../static/fonts/font.css" rel="stylesheet"/>
         <link href="../static/main.css" rel="stylesheet"/>
     </head>
     <body>
-        <section class="hero">
+        <section class="hero is-fullheight-with-navbar section-w-drawer">
             <!-- Hero head: will stick at the top -->
             <div class="hero-head">
                 <nav class="navbar is-fixed-top has-shadow" role="navigation"
                      aria-label="main navigation">
                     <div class="navbar-brand">
                         <a class="navbar-item" onclick="toggleDrawer();">
-                            <i class="mdi mdi-menu"></i> SoundWave
+                            <i class="mdi mdi-menu mdi-24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SoundWave
                         </a>
+                    </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-centered" onclick="toggleDrawer();">
+                            <i class="mdi mdi-account-circle mdi-24px"></i></a>
                     </div>
                 </nav>
                 <input type="checkbox" id="drawer-check"/>
-                <div class="drawer">
-                    <nav>
-                        <ul>
-                            <li><a href="#"><i class="mdi mdi-facebook"></i>&nbsp;&nbsp;Facebook</a>
-                            </li>
-                            <li><a href="#"><i class="mdi mdi-google-plus"></i>&nbsp;&nbsp;Google
-                                                                               Plus</a>
-                            </li>
-                            <li><a href="#"><i class="mdi mdi-twitter"></i>&nbsp;&nbsp;Twitter</a>
-                            </li>
-                            <li><a href="#"><i class="mdi mdi-linkedin"></i>&nbsp;&nbsp;LinkedIn</a>
-                            </li>
-                            <li><a href="#"><i
-                                    class="mdi mdi-pinterest"></i>&nbsp;&nbsp;Pinterest</a>
-                            </li>
-                        </ul>
+                <div class="drawer is-hidden" id="drawer">
+                    <nav class="drawer-items-list">
+                        <a href="#" class="active">
+                            <i class="mdi mdi-home mdi-18px"></i>&nbsp;&nbsp;Inicio
+                        </a>
+                        <hr>
+                        <a href="#" class="drawer-section-header">Biblioteca</a>
+                        <a href="#">
+                            <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
+                        </a>
+                        <a href="#">
+                            <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
+                        </a>
+                        <a href="#">
+                            <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
+                        </a>
+                        <a href="#">
+                            <i class="mdi mdi-collage mdi-18px"></i>&nbsp;&nbsp;Géneros
+                        </a>
+                        <hr>
+                        <a href="#" class="drawer-section-header">Playlists</a>
+                        <a href="#">
+                            <i class="mdi mdi-library-plus mdi-18px"></i>&nbsp;&nbsp;Nueva playlist
+                        </a>
                     </nav>
                 </div>
-                <div class="drawer-container"></div>
+                <div class="drawer-container" onclick="toggleDrawer();"></div>
             </div>
-        </section>
 
-        <section class="section hero is-fullheight">
             <div class="hero-body">
                 <div class="container">
                     <div class="content">
@@ -113,7 +123,7 @@
             </div>
         </section>
         <hr>
-        <section class="section hero is-fullheight">
+        <section class="hero is-fullheight">
             <div class="hero-body">
                 <div class="container">
                     <div class="content">
@@ -143,6 +153,8 @@
                                 presentan.
                             </li>
                         </ul>
+                        <br>
+                        <br>
                         <h2>Equipo</h2>
                         <br>
                         <div class="columns">
