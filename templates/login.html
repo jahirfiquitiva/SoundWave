@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="has-navbar-fixed-top">
+    <head>
+        <meta charset="UTF-8">
+        <title>SoundWave</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- 'theme-color' will set background color in Chrome browser on Android 5.0+ -->
+        <meta name="theme-color" content="#4285F4">
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="../static/favicons/sw72.png">
+        <link rel="apple-touch-icon" href="../static/favicons/sw57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw114.png">
+        <link rel="apple-touch-icon-precomposed" href="favicons/sw32.png">
+
+        <link rel="icon" href="../static/favicons/sw32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#4285F4">
+        <meta name="msapplication-TileImage" content="../static/favicons/sw72.png">
+
+        <link href="//cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css"
+              rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+        <link href="../static/fonts/font.css" rel="stylesheet"/>
+        <link href="../static/main.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="hero is-fullheight-with-navbar section-w-drawer">
+            <!-- Hero head: will stick at the top -->
+            <div class="hero-head">
+                <nav class="navbar is-fixed-top has-shadow" role="navigation"
+                     aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" onclick="toggleDrawer();">
+                            <i class="mdi mdi-menu mdi-24px"></i>
+                        </a>
+                        <a class="navbar-item" href="/">SoundWave</a>
+                    </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-centered" href="#">
+                            <i class="mdi mdi-account-circle mdi-24px"></i>
+                        </a>
+                    </div>
+                </nav>
+                <input type="checkbox" id="drawer-check"/>
+                <div class="drawer is-hidden" id="drawer">
+                    <nav class="drawer-items-list">
+                        <a href="/">
+                            <i class="mdi mdi-home mdi-18px"></i>&nbsp;&nbsp;Inicio
+                        </a>
+                        <hr>
+                        <a href="#" class="drawer-section-header">Biblioteca</a>
+                        <a href="#">
+                            <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
+                        </a>
+                        <a href="#">
+                            <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
+                        </a>
+                        <a href="#">
+                            <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
+                        </a>
+                        <a href="#">
+                            <i class="mdi mdi-collage mdi-18px"></i>&nbsp;&nbsp;Géneros
+                        </a>
+                        <hr>
+                        <a href="#" class="drawer-section-header">Playlists</a>
+                        <a href="#">
+                            <i class="mdi mdi-library-plus mdi-18px"></i>&nbsp;&nbsp;Nueva playlist
+                        </a>
+                    </nav>
+                </div>
+                <div class="drawer-container" onclick="toggleDrawer();"></div>
+            </div>
+
+            <div class="hero-body">
+                <div class="container">
+                    <div class="content">
+                        <div class="columns">
+                            <div class="column">
+                                <h4>Iniciar sesión</h4>
+                                <form>
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="email" placeholder="Email">
+                                            <span class="icon is-small is-left">
+                                              <i class="mdi mdi-email"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="password"
+                                                   placeholder="Contraseña">
+                                            <span class="icon is-small is-left">
+                                              <i class="mdi mdi-key"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <a href="mailto:support@soundwave.vip">Olvidé mi
+                                                                               contraseña</a>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control">
+                                            <button class="button is-primary">Iniciar sesión
+                                            </button>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="is-divider-vertical" data-content="O"></div>
+                            <div class="column">
+                                <h4>Crear una cuenta</h4>
+                                <form>
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="email" placeholder="Email">
+                                            <span class="icon is-small is-left">
+                                              <i class="mdi mdi-email"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="password"
+                                                   placeholder="Contraseña">
+                                            <span class="icon is-small is-left">
+                                              <i class="mdi mdi-key"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="password"
+                                                   placeholder="Confirmar Contraseña">
+                                            <span class="icon is-small is-left">
+                                              <i class="mdi mdi-key"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control">
+                                            <button class="button is-primary">Crear cuenta
+                                            </button>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="../static/js/main.js" lang="text/javascript"></script>
+    </body>
+</html>
