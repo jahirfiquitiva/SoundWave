@@ -1,7 +1,8 @@
 from typing import Optional
+
+from managers import BaseManager as bm
 from models import Album as al
 from repository.album import AlbumDAO as aldao
-from managers import BaseManager as bm
 
 
 class AlbumsManager(bm.BaseManager):

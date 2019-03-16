@@ -1,7 +1,8 @@
 from typing import Optional
+
+from managers import BaseManager as bm
 from models import Artist as ar
 from repository.artist import ArtistDAO as ardao
-from managers import BaseManager as bm
 
 
 class ArtistsManager(bm.BaseManager):

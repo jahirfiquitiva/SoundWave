@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar, Optional
-from repository import BaseDAO as bdao
+
 from models import BaseModel as bm
+from repository import BaseDAO as bdao
 
 T = TypeVar('T', bound=bm.BaseModel)
 DAO = TypeVar('DAO', bound=bdao.BaseDAO)

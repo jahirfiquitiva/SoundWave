@@ -1,8 +1,9 @@
 from typing import Optional
+
+from managers import BaseManager as bm
 from models import Playlist as pl
 from models import Song as so
 from repository.playlist import PlaylistDAO as pldao
-from managers import BaseManager as bm
 
 
 # noinspection PyBroadException

@@ -1,7 +1,8 @@
 from typing import Optional
+
+from managers import BaseManager as bm
 from models import Genre as ge
 from repository.genre import GenreDAO as gedao
-from managers import BaseManager as bm
 
 
 class GenresManager(bm.BaseManager):

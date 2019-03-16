@@ -1,7 +1,8 @@
 from typing import Optional
+
+from managers import BaseManager as bm
 from models import Song as so
 from repository.song import SongDAO as sodao
-from managers import BaseManager as bm
 
 
 class SongsManager(bm.BaseManager):

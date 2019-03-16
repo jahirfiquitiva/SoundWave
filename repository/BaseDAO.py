@@ -1,8 +1,8 @@
 from abc import ABC
 from typing import Generic, TypeVar
 
-from repository import BaseSQL as bq, DatabaseConnection as dao
 import log_utils as log
+from repository import BaseSQL as bq, DatabaseConnection as dao
 
 T = TypeVar('T', bound=bq.BaseSQL)
 

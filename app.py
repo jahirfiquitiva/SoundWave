@@ -1,5 +1,7 @@
 import socket
+
 from flask import Flask, request, render_template
+
 from api import UsersAPI as uapi
 
 app = Flask("SoundWave")
