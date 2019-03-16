@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
-from typing import Generic, TypeVar, Optional
+from typing import Generic, TypeVar
+
+from flask import jsonify, make_response
+
 from managers import BaseManager as man
-from flask import render_template, jsonify, request, make_response
 
 T = TypeVar('T')
 MANAGER = TypeVar('MANAGER', bound=man.BaseManager)
@@ -19,7 +21,7 @@ class BaseAPI(ABC, Generic[MANAGER, T]):
         return actual_response
 
     def create_error_response(self, error):
-        return jsonify({"status": "error", "error": str(error)})
+        return jsonify({"success": False, "error": str(repr(error))})
 
     @property
     @abstractmethod

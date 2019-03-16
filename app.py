@@ -1,5 +1,5 @@
 import socket
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 from api import UsersAPI as uapi
 
 app = Flask("SoundWave")
@@ -18,10 +18,21 @@ def login():
     return render_template('login.html')
 
 
+# Get endpoint arguments:
+# request.args.get('param')
 @app.route("/api/users", methods=['GET'])
-def get_sers():
-    users_api.get()
-    return "ok"
+def get_users():
+    return users_api.get()
+
+
+@app.route("/api/users", methods=['POST', 'OPTIONS'])
+def post_user():
+    return users_api.post(request)
+
+
+@app.route("/api/users", methods=['PUT'])
+def put_user():
+    return users_api.update(request)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,8 @@
-class User(object):
+from models import BaseModel as bm
+
+
+class User(bm.BaseModel):
+
     def __init__(self, item_id: int, name: str, last_name: str, age: int, nick: str, email: str,
                  password: str):
         self._id: int = item_id
@@ -36,6 +40,10 @@ class User(object):
     @property
     def password(self) -> str:
         return self._password
+
+    def as_json(self) -> {}:
+        return {"id": self.id, "name": self.name, "lastName": self.last_name, "age": self.age,
+                "nick": self.nick, "email": self.email}
 
     def validate(self, other_password: str) -> bool:
         return self._password.lower() == other_password.lower()

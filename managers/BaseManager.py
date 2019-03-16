@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar, Optional
 from repository import BaseDAO as bdao
+from models import BaseModel as bm
 
-T = TypeVar('T')
+T = TypeVar('T', bound=bm.BaseModel)
 DAO = TypeVar('DAO', bound=bdao.BaseDAO)
 
 
@@ -13,6 +14,12 @@ class BaseManager(ABC, Generic[DAO, T]):
 
     def get_items(self) -> [T]:
         return self._items.copy()
+
+    def get_items_as_json(self) -> {}:
+        json_items = []
+        for item in self.get_items():
+            json_items.append(self.item_to_json_item(item))
+        return json_items
 
     def add_item(self, item: T) -> bool:
         if item in self._items:
@@ -45,6 +52,9 @@ class BaseManager(ABC, Generic[DAO, T]):
                 item = self.tuple_to_item(q_tuple)
                 if item is not None:
                     self.add_item(item)
+
+    def item_to_json_item(self, item: bm.BaseModel) -> {}:
+        return item.as_json()
 
     @abstractmethod
     def tuple_to_item(self, tuple_ref: tuple) -> Optional[T]:
