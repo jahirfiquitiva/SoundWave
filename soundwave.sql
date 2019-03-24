@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`USER`
   `last_name_user` VARCHAR(24) NOT NULL,
   `age_user`       INT         NOT NULL,
   `nick_user`      VARCHAR(16) NOT NULL,
-  `photo_user`     VARCHAR(200) NOT NULL,
+  `photo_user`     VARCHAR(200),
   `email_user`     VARCHAR(45) NOT NULL,
   `password_user`  VARCHAR(40) NOT NULL,
 
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`USER`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `soundwave`.`GENRE`
 (
-  `id_genre`       INT          NOT NULL AUTO_INCREMENT,
-  `name_genre`     VARCHAR(24)  NOT NULL,
-  `img_path_genre` VARCHAR(200) NOT NULL,
+  `id_genre`       INT         NOT NULL AUTO_INCREMENT,
+  `name_genre`     VARCHAR(24) NOT NULL,
+  `img_path_genre` VARCHAR(200),
   PRIMARY KEY (`id_genre`),
   UNIQUE INDEX `img_path_genre_UNIQUE` (`img_path_genre` ASC),
   UNIQUE INDEX `name_genre_UNIQUE` (`name_genre` ASC)
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ARTIST`
   `id_artist`       INT         NOT NULL AUTO_INCREMENT,
   `name_artist`     VARCHAR(24) NOT NULL,
   `nick_artist`     VARCHAR(16) NOT NULL,
-  `photo_artist`    VARCHAR(200) NOT NULL,
+  `photo_artist`    VARCHAR(200),
   `email_artist`    VARCHAR(45) NOT NULL,
   `password_artist` VARCHAR(40) NOT NULL,
 
@@ -78,11 +78,11 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ARTIST`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `soundwave`.`ALBUM`
 (
-  `id_album`           INT          NOT NULL AUTO_INCREMENT,
-  `name_album`         VARCHAR(24)  NOT NULL,
-  `img_path_album`     VARCHAR(200) NOT NULL,
-  `release_year_album` INT          NOT NULL,
-  `ARTIST_id_artist`   INT          NOT NULL,
+  `id_album`           INT         NOT NULL AUTO_INCREMENT,
+  `name_album`         VARCHAR(24) NOT NULL,
+  `img_path_album`     VARCHAR(200),
+  `release_year_album` INT         NOT NULL,
+  `ARTIST_id_artist`   INT         NOT NULL,
   PRIMARY KEY (`id_album`, `ARTIST_id_artist`),
 
   INDEX `fk_ALBUM_SINGER1_idx` (`ARTIST_id_artist` ASC),
