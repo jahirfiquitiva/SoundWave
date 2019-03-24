@@ -9,9 +9,9 @@ class ArtistsManager(bm.BaseManager):
     def __init__(self):
         super().__init__()
 
-    def create(self, name: str, nick: str, email: str, password: str) -> bool:
+    def create(self, name: str, nick: str, photo: str, email: str, password: str) -> bool:
         created = self.dao.insert(
-            self.dao.get_insert_query(ar.Artist(0, name, nick, email, password)))
+            self.dao.get_insert_query(ar.Artist(0, name, nick, photo, email, password)))
         if created:
             self.load()
             return True
@@ -39,7 +39,8 @@ class ArtistsManager(bm.BaseManager):
     # noinspection PyBroadException
     def tuple_to_item(self, tuple_ref: tuple) -> Optional[ar.Artist]:
         try:
-            return ar.Artist(tuple_ref[0], tuple_ref[1], tuple_ref[2], tuple_ref[4], tuple_ref[3])
+            return ar.Artist(tuple_ref[0], tuple_ref[1], tuple_ref[2], tuple_ref[3], tuple_ref[4],
+                             tuple_ref[5])
         except Exception:
             pass
         return None

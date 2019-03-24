@@ -6,8 +6,8 @@ class ArtistSQL(bq.BaseSQL):
     def table_name(self):
         return "artist"
 
-    def insert_artist(self, name: str, nick: str, email: str, password: str) -> str:
-        return "insert into %s (name_%s, nick_%s, email_%s, password_%s) values ('%s', '%s', " \
-               "'%s', md5('%s'));" % (
+    def insert_artist(self, name: str, nick: str, photo: str, email: str, password: str) -> str:
+        return "insert into %s (name_%s, nick_%s, photo_%s, email_%s, password_%s) values ('%s', " \
+               "'%s', '%s', '%s', md5('%s'));" % (
                    self.table_name, self.table_name, self.table_name, self.table_name,
-                   self.table_name, name, nick, email, password)
+                   self.table_name, self.table_name, name, nick, photo, email, password)

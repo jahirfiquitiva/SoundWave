@@ -8,6 +8,7 @@ T = TypeVar('T', bound=bm.BaseModel)
 DAO = TypeVar('DAO', bound=bdao.BaseDAO)
 
 
+# noinspection PyMethodMayBeStatic
 class BaseManager(ABC, Generic[DAO, T]):
     def __init__(self):
         self._items: [T] = []

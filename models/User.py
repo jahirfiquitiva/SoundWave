@@ -54,5 +54,5 @@ class User(bm.BaseModel):
         return self._password.lower() == other_password.lower()
 
     def __str__(self):
-        return "Id: %d - Nombre: %s - Apellido: %s - Edad: %d - Nick: %s - Photo: %s - Email: %s" % (
+        return "Id: %d - Nombre: %s - Apellido: %s - Edad: %d - Nick: %s - Foto: %s - Email: %s" % (
             self.id, self.name, self.last_name, self.age, self.nick, self.photo, self.email)

@@ -20,8 +20,8 @@ class ArtistsAPI(bapi.BaseAPI):
         try:
             request_json = request.get_json(True)
             new_artist_nick = request_json['nick']
-            if self.manager.create(request_json['name'], new_artist_nick, request_json['email'],
-                                   request_json['password']):
+            if self.manager.create(request_json['name'], new_artist_nick, request_json['photo'],
+                                   request_json['email'], request_json['password']):
                 added_artist = self.manager.find_item(new_artist_nick)
                 if added_artist is not None:
                     return self.create_response({"success": True, "artist": added_artist.as_json()})
