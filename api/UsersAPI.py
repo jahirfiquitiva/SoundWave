@@ -41,3 +41,16 @@ class UsersAPI(bapi.BaseAPI):
             return self.create_error_response("Couldn't update user with id \"%s\"" % user_id)
         except Exception as e:
             return self.create_error_response(e)
+
+    def delete(self, request):
+        try:
+            request_json = request.get_json(True)
+            user_nick = request_json['nick']
+            del_user = self.manager.find_item(user_nick)
+            if del_user is not None:
+                self.manager.delete(int(del_user))
+                return self.create_response("User deleted")
+            else:
+                return self.create_error_response("Couldn't delete the user")
+        except Exception as e:
+            return self.create_error_response(e)
