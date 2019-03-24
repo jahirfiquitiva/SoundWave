@@ -2,15 +2,17 @@ import socket
 
 from flask import Flask, request, render_template
 
-from api import UsersAPI as uapi
-from api import ArtistsAPI as artapi
-from api import SongsAPI as songapi
 from api import AlbumsAPI as albapi
+from api import ArtistsAPI as artapi
 from api import GenreAPI as genapi
 from api import PlaylistsAPI as playapi
+from api import SongsAPI as songapi
+from api import StatusAPI as sapi
+from api import UsersAPI as uapi
 
 app = Flask("SoundWave")
 
+status_api = sapi.StatusAPI()
 users_api = uapi.UsersAPI()
 artists_api = artapi.ArtistsAPI()
 songs_api = songapi.SongsAPI()
@@ -28,6 +30,11 @@ def main():
 @app.route("/login.html")
 def login():
     return render_template('login.html')
+
+
+@app.route("/api", methods=['GET'])
+def get_api_status():
+    return status_api.get_status()
 
 
 # Get endpoint arguments:
@@ -100,5 +107,5 @@ def put_user():
 if __name__ == '__main__':
     # Flask WebApp
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host=socket.gethostbyname(socket.gethostname()))
-    # app.run()
+    app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
+    # app.run(host='0.0.0.0', port=8080)
