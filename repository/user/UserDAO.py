@@ -9,5 +9,5 @@ class UserDAO(bdao.BaseDAO):
         self.sql = usql.UserSQL()
 
     def get_insert_query(self, user: us.User):
-        return self.sql.insert_user(user.name, user.last_name, user.age, user.nick, user.email,
-                                    user.password)
+        return self.sql.insert_user(user.name, user.last_name, user.age, user.nick, user.photo,
+                                    user.email, user.password)
