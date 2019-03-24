@@ -1,3 +1,5 @@
+import socket
+
 from flask import Flask, render_template
 
 app = Flask("SoundWave")
@@ -14,8 +16,14 @@ def login():
     return render_template('login.html')
 
 
+@app.route("/artists")
+@app.route("/artists.html")
+def artists():
+    return render_template('artists.html')
+
+
 if __name__ == '__main__':
     # Flask WebApp
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    # app.run(host=socket.gethostbyname(socket.gethostname()))
-    app.run()
+    app.run(host=socket.gethostbyname(socket.gethostname()))
+    # app.run()
