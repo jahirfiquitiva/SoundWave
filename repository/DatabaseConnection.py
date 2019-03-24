@@ -20,7 +20,7 @@ class DatabaseConnection:
                     password='rick',
                     host='127.0.0.1',
                     port='3306',
-                    database='soundwaveco',
+                    database='soundwave',
                     auth_plugin='mysql_native_password')
             return self._connection is not None
         except Exception as ex:
