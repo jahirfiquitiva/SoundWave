@@ -1,4 +1,4 @@
-@import "css/divider.css";
+@import "divider.css";
 
 :root {
     --primary-text: rgba(0, 0, 0, .87);
@@ -351,7 +351,7 @@ a:focus {
 
 .drawer .drawer-items-list a.active:hover,
 .drawer .drawer-items-list a.active:focus {
-    background-color: rgba(66, 133, 244, 0.25);
+    background-color: rgba(66, 133, 244, 0.25) !important;
 }
 
 .drawer .drawer-items-list a i {
@@ -382,31 +382,31 @@ a:focus {
 }
 
 #avatar-julian {
-    background-image: url("../static/img/julian.jpeg") !important;
+    background-image: url("../img/julian.jpeg") !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #avatar-sebastian {
-    background-image: url("../static/img/sebastian.jpeg") !important;
+    background-image: url("../img/sebastian.jpeg") !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #avatar-christian {
-    background-image: url("../static/img/christian.jpg") !important;
+    background-image: url("../img/christian.jpg") !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #avatar-jahir {
-    background-image: url("../static/img/jahir.jpeg") !important;
+    background-image: url("../img/jahir.jpeg") !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #avatar-sergio {
-    background-image: url("../static/img/sergio.jpeg") !important;
+    background-image: url("../img/sergio.jpeg") !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -425,4 +425,31 @@ a:focus {
 .control.has-icons-left .icon,
 .control.has-icons-right .icon {
     z-index: 0 !important;
+}
+
+.has-same-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.has-same-height .card-footer {
+    margin-top: auto;
+}
+
+.mdi-search {
+    margin-left: 0.6rem !important;
+}
+
+.artist-name {
+    /* margin-top: .6rem; */
+    text-align: center;
+}
+
+.card {
+    border-radius: .2rem;
+}
+
+.card-content {
+    padding: 0;
 }

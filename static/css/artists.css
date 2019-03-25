@@ -1,0 +1,8 @@
+.avatar-artist {
+    width: 110px;
+    height: 110px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 50%;
+}
+

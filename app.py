@@ -27,9 +27,24 @@ def main():
 
 
 @app.route("/login")
+@app.route("/login/")
 @app.route("/login.html")
 def login():
     return render_template('login.html')
+
+
+@app.route("/artists")
+@app.route("/artists/")
+@app.route("/artists.html")
+def artists():
+    return render_template('artists.html')
+
+
+@app.route("/songs")
+@app.route("/songs/")
+@app.route("/songs.html")
+def songs():
+    return render_template('songs.html')
 
 
 @app.route("/api", methods=['GET'])
@@ -41,32 +56,32 @@ def get_api_status():
 # request.args.get('param')
 @app.route("/api/users", methods=['GET'])
 def get_users():
-    return users_api.get()
+    return users_api.get(request)
 
 
 @app.route("/api/artists", methods=['GET'])
 def get_artists():
-    return artists_api.get()
+    return artists_api.get(request)
 
 
 @app.route("/api/songs", methods=['GET'])
 def get_songs():
-    return songs_api.get()
+    return songs_api.get(request)
 
 
 @app.route("/api/albums", methods=['GET'])
 def get_albums():
-    return albums_api.get()
+    return albums_api.get(request)
 
 
 @app.route("/api/genres", methods=['GET'])
 def get_genres():
-    return genres_api.get()
+    return genres_api.get(request)
 
 
 @app.route("/api/playLists", methods=['GET'])
 def get_playlist():
-    return playList_api.get()
+    return playList_api.get(request)
 
 
 @app.route("/api/users", methods=['POST', 'OPTIONS'])
