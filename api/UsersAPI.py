@@ -2,19 +2,16 @@ from api import BaseAPI as bapi
 from managers import UsersManager as uman
 
 
-# noinspection PyMethodMayBeStatic
+# noinspection PyMethodMayBeStatic,PyBroadException
 class UsersAPI(bapi.BaseAPI):
+
     @property
     def manager(self) -> uman.UsersManager:
         return uman.UsersManager()
 
-    def get(self):
-        try:
-            self.manager.load()
-            return self.create_response(
-                {"success": True, "users": self.manager.get_items_as_json()})
-        except Exception as e:
-            return self.create_error_response(e)
+    @property
+    def response_key(self):
+        return "user"
 
     def post(self, request):
         try:

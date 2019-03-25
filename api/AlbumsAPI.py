@@ -3,23 +3,21 @@ from managers import AlbumsManager as alb
 
 
 class AlbumAPI(bapi.BaseAPI):
+
     @property
     def manager(self) -> alb.AlbumsManager:
         return alb.AlbumsManager()
 
-    def get(self):
-        try:
-            self.manager.load()
-            return self.create_response(
-                {"success": True, "albums": self.manager.get_items_as_json()})
-        except Exception as e:
-            return self.create_error_response(e)
+    @property
+    def response_key(self):
+        return "album"
 
     def post(self, request):
         try:
             request_json = request.get_json(True)
             new_album_name = request_json['name']
-            if self.manager.create(new_album_name, request_json['img_path'], int(request_json['release_year']),
+            if self.manager.create(new_album_name, request_json['img_path'],
+                                   int(request_json['release_year']),
                                    int(request_json['artist_id'])):
                 added_albums = self.manager.find_item(new_album_name)
                 if added_albums is not None:
@@ -30,6 +28,8 @@ class AlbumAPI(bapi.BaseAPI):
                 return self.create_error_response("Couldn't create album")
         except Exception as e:
             return self.create_error_response(e)
+
+
 """
     def update(self, request):
         try:

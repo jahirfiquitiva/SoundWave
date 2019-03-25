@@ -4,17 +4,14 @@ from managers import GenresManager as gen
 
 # noinspection PyMethodMayBeStatic
 class GenresAPI(bapi.BaseAPI):
+
     @property
     def manager(self) -> gen.GenresManager:
         return gen.GenresManager()
 
-    def get(self):
-        try:
-            self.manager.load()
-            return self.create_response(
-                {"success": True, "genres": self.manager.get_items_as_json()})
-        except Exception as e:
-            return self.create_error_response(e)
+    @property
+    def response_key(self):
+        return "genre"
 
     def post(self, request):
         try:
@@ -30,6 +27,8 @@ class GenresAPI(bapi.BaseAPI):
                 return self.create_error_response("Couldn't create genre")
         except Exception as e:
             return self.create_error_response(e)
+
+
 """
     def update(self, request):
         try:

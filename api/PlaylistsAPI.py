@@ -4,17 +4,14 @@ from managers import PlaylistsManager as play
 
 # noinspection PyMethodMayBeStatic
 class PlaylistsAPI(bapi.BaseAPI):
+
     @property
     def manager(self) -> play.PlaylistsManager:
         return play.PlaylistsManager()
 
-    def get(self):
-        try:
-            self.manager.load()
-            return self.create_response(
-                {"success": True, "playlist": self.manager.get_items_as_json()})
-        except Exception as e:
-            return self.create_error_response(e)
+    @property
+    def response_key(self):
+        return "playlist"
 
     def post(self, request):
         try:
@@ -23,13 +20,16 @@ class PlaylistsAPI(bapi.BaseAPI):
             if self.manager.create(new_playlist_name, int(request_json['user_id'])):
                 added_playlist = self.manager.find_item(new_playlist_name)
                 if added_playlist is not None:
-                    return self.create_response({"success": True, "playlist": added_playlist.as_json()})
+                    return self.create_response(
+                        {"success": True, "playlist": added_playlist.as_json()})
                 else:
                     return self.create_error_response("Couldn't find the new playlist")
             else:
                 return self.create_error_response("Couldn't create playlist")
         except Exception as e:
             return self.create_error_response(e)
+
+
 """
     def update(self, request):
         try:

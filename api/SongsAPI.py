@@ -3,25 +3,22 @@ from managers import SongsManager as son
 
 
 class SongsAPI(bapi.BaseAPI):
+
     @property
     def manager(self) -> son.SongsManager:
         return son.SongsManager()
 
-    def get(self):
-        try:
-            self.manager.load()
-            return self.create_response(
-                {"success": True, "songs": self.manager.get_items_as_json()})
-
-        except Exception as e:
-            return self.create_error_response(e)
+    @property
+    def response_key(self):
+        return "song"
 
     def post(self, request):
         try:
             request_json = request.get_json(True)
             new_song_name = request_json['name']
-            if self.manager.create(new_song_name, int(request_json['track']), int(request_json['length']),
-                                   request_json['path'], int(request_json['genre_id']), int(request_json['album_id'])):
+            if self.manager.create(new_song_name, int(request_json['track']),
+                                   int(request_json['length']), request_json['path'],
+                                   int(request_json['genre_id']), int(request_json['album_id'])):
                 added_song = self.manager.find_item(new_song_name)
                 if added_song is not None:
                     return self.create_response({"success": True, "song": added_song.as_json()})
@@ -31,6 +28,7 @@ class SongsAPI(bapi.BaseAPI):
                 return self.create_error_response("Couldn't create song")
         except Exception as e:
             return self.create_error_response(e)
+
 
 """
 def update(self, request):

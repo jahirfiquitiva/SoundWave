@@ -8,13 +8,9 @@ class ArtistsAPI(bapi.BaseAPI):
     def manager(self) -> art.ArtistsManager:
         return art.ArtistsManager()
 
-    def get(self):
-        try:
-            self.manager.load()
-            return self.create_response(
-                {"success": True, "artists": self.manager.get_items_as_json()})
-        except Exception as e:
-            return self.create_error_response(e)
+    @property
+    def response_key(self):
+        return "artist"
 
     def post(self, request):
         try:
