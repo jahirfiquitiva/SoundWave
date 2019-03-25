@@ -23,8 +23,8 @@ USE `soundwave`;
 CREATE TABLE IF NOT EXISTS `soundwave`.`USER`
 (
   `id_user`        INT         NOT NULL AUTO_INCREMENT,
-  `name_user`      VARCHAR(24) NOT NULL,
-  `last_name_user` VARCHAR(24) NOT NULL,
+  `name_user`      VARCHAR(40) NOT NULL,
+  `last_name_user` VARCHAR(40) NOT NULL,
   `age_user`       INT         NOT NULL,
   `nick_user`      VARCHAR(16) NOT NULL,
   `photo_user`     VARCHAR(200),
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`USER`
 CREATE TABLE IF NOT EXISTS `soundwave`.`GENRE`
 (
   `id_genre`       INT         NOT NULL AUTO_INCREMENT,
-  `name_genre`     VARCHAR(24) NOT NULL,
+  `name_genre`     VARCHAR(36) NOT NULL,
   `img_path_genre` VARCHAR(200),
   PRIMARY KEY (`id_genre`),
   UNIQUE INDEX `img_path_genre_UNIQUE` (`img_path_genre` ASC),
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`GENRE`
 CREATE TABLE IF NOT EXISTS `soundwave`.`ARTIST`
 (
   `id_artist`       INT         NOT NULL AUTO_INCREMENT,
-  `name_artist`     VARCHAR(24) NOT NULL,
+  `name_artist`     VARCHAR(40) NOT NULL,
   `nick_artist`     VARCHAR(16) NOT NULL,
   `photo_artist`    VARCHAR(200),
   `email_artist`    VARCHAR(45) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ARTIST`
 CREATE TABLE IF NOT EXISTS `soundwave`.`ALBUM`
 (
   `id_album`           INT         NOT NULL AUTO_INCREMENT,
-  `name_album`         VARCHAR(24) NOT NULL,
+  `name_album`         VARCHAR(36) NOT NULL,
   `img_path_album`     VARCHAR(200),
   `release_year_album` INT         NOT NULL,
   `ARTIST_id_artist`   INT         NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ALBUM`
 CREATE TABLE IF NOT EXISTS `soundwave`.`SONG`
 (
   `id_song`        INT          NOT NULL AUTO_INCREMENT,
-  `name_song`      VARCHAR(24)  NOT NULL,
+  `name_song`      VARCHAR(40)  NOT NULL,
   `track_song`     INT          NOT NULL,
   `length_song`    INT          NOT NULL,
   `path_song`      VARCHAR(200) NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`SONG`
 CREATE TABLE IF NOT EXISTS `soundwave`.`PLAYLIST`
 (
   `id_playlist`   INT         NOT NULL AUTO_INCREMENT,
-  `name_playlist` VARCHAR(24) NOT NULL,
+  `name_playlist` VARCHAR(40) NOT NULL,
   `USER_id_user`  INT         NOT NULL,
   PRIMARY KEY (`id_playlist`, `USER_id_user`),
   INDEX `fk_PLAYLIST_USER_idx` (`USER_id_user` ASC),
