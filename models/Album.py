@@ -1,4 +1,7 @@
-class Album(object):
+from models import BaseModel as bm
+
+
+class Album(bm.BaseModel):
     def __init__(self, item_id: int, name: str, img_path: str, release_year: int, artist_id: int):
         self._id: int = item_id
         self._name: str = name
@@ -25,6 +28,10 @@ class Album(object):
     @property
     def artist_id(self) -> int:
         return self._artist_id
+
+    def as_json(self) -> {}:
+        return {"id": self.id, "name": self.name, "imgPath": self.img_path,
+                "releaseYear": self.release_year, "artistId": self.artist_id}
 
     def __str__(self):
         return "Id: %d - Name: %s - Year: %d - Artist id: %d" % (

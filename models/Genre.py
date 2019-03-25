@@ -16,5 +16,8 @@ class Genre(object):
     def img_path(self) -> str:
         return self._img_path
 
+    def as_json(self) -> {}:
+        return {"id": self.id, "name": self.name, "imgPath": self.img_path}
+
     def __str__(self):
         return "Id: %d - Nombre: %s - Path: %s" % (self.id, self.name, self.img_path)

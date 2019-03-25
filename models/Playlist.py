@@ -16,5 +16,8 @@ class Playlist(object):
     def user_id(self) -> int:
         return self._user_id
 
+    def as_json(self) -> {}:
+        return {"id": self.id, "name": self.name, "userId": self.user_id}
+
     def __str__(self):
         return "Id: %d - Name: %s - UserId: %d" % (self.id, self.name, self.user_id)

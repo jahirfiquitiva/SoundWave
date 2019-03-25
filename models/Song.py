@@ -37,5 +37,10 @@ class Song(object):
     def album_id(self) -> int:
         return self._album_id
 
+    def as_json(self) -> {}:
+        return {"id": self.id, "name": self.name, "track": self.track,
+                "length": self.length, "path": self.path, "genreId": self.genre_id,
+                "albumId": self.album_id}
+
     def __str__(self):
         return "Id: %d - Name: %s - Album Id: %d" % (self.id, self.name, self.album_id)
