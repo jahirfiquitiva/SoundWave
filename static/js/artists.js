@@ -10,6 +10,16 @@ function loadArtists() {
 
                     const columns = document.getElementById('artists-columns');
                     if (columns) {
+                        const noFound = document.getElementById('no-artists');
+                        if (noFound) {
+                            if (artists.length > 0) {
+                                noFound.classList.add('is-hidden');
+                                columns.classList.remove('is-hidden');
+                            } else {
+                                noFound.classList.remove('is-hidden');
+                                columns.classList.add('is-hidden');
+                            }
+                        }
                         for (const artist of artists) {
                             const div = document.createElement('div');
                             div.classList.add('column');

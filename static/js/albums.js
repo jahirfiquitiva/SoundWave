@@ -10,9 +10,17 @@ function loadAlbums() {
 
                     const columns = document.getElementById('albums-columns');
                     if (columns) {
+                        const noFound = document.getElementById('no-albums');
+                        if (noFound) {
+                            if (albums.length > 0) {
+                                noFound.classList.add('is-hidden');
+                                columns.classList.remove('is-hidden');
+                            } else {
+                                noFound.classList.remove('is-hidden');
+                                columns.classList.add('is-hidden');
+                            }
+                        }
                         for (const album of albums) {
-
-                            console.log(album);
                             const div = document.createElement('div');
                             div.classList.add('column');
                             div.classList.add('is-3');

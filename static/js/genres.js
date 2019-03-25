@@ -1,18 +1,19 @@
-function loadSongs() {
+function loadGenres() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/songs', true);
+    xhr.open('GET', '/api/genres', true);
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 try {
                     const json = JSON.parse(xhr.responseText);
-                    const songs = json.songs || [];
+                    console.log(json);
+                    const genres = json.genres || [];
 
-                    const columns = document.getElementById('songs-columns');
+                    const columns = document.getElementById('genres-columns');
                     if (columns) {
-                        const noFound = document.getElementById('no-songs');
+                        const noFound = document.getElementById('no-genres');
                         if (noFound) {
-                            if (songs.length > 0) {
+                            if (genres.length > 0) {
                                 noFound.classList.add('is-hidden');
                                 columns.classList.remove('is-hidden');
                             } else {
@@ -20,8 +21,8 @@ function loadSongs() {
                                 columns.classList.add('is-hidden');
                             }
                         }
-                        for (const song of songs) {
-                            console.log(song);
+                        for (const genre of genres) {
+                            console.log(genre);
                             const div = document.createElement('div');
                             div.classList.add('column');
                             div.classList.add('is-3');
@@ -41,35 +42,20 @@ function loadSongs() {
                             divMed.classList.add('media');
 
                             const divAvatar = document.createElement('div');
-                            divAvatar.classList.add('avatar-song');
+                            divAvatar.classList.add('avatar-genre');
 
                             const divMedCon = document.createElement('div');
                             divMedCon.classList.add('media-content');
                             divMedCon.classList.add('has-text-centered');
 
-                            const songPhoto = document.createElement('img');
-                            divMedCon.appendChild(songPhoto);
-
-                            const photoXhr = new XMLHttpRequest();
-                            photoXhr.open('GET', `/api/albums?id=${song.albumId}`, true);
-                            photoXhr.onreadystatechange = () => {
-                                if (photoXhr.readyState === 4 && photoXhr.status === 200) {
-                                    try {
-                                        const json = JSON.parse(photoXhr.responseText);
-                                        const album = json.album;
-                                        if (album) {
-                                            songPhoto.src = album.imgPath || "";
-                                        }
-                                    } catch (e) {
-                                    }
-                                }
-                            };
-                            photoXhr.send(null);
+                            const genrePhoto = document.createElement('img');
+                            genrePhoto.src = genre.imgPath || "";
+                            divMedCon.appendChild(genrePhoto);
 
                             const p = document.createElement('p');
-                            p.classList.add('song-name');
+                            p.classList.add('genre-name');
                             p.classList.add('card-footer-item');
-                            p.innerText = song.name || "Unknown";
+                            p.innerText = genre.name || "Unknown";
                             divCardFoot.appendChild(p);
 
                             divMed.appendChild(divMedCon);
@@ -90,4 +76,4 @@ function loadSongs() {
     xhr.send(null);
 }
 
-loadSongs();
+loadGenres();
