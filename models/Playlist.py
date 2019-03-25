@@ -1,4 +1,7 @@
-class Playlist(object):
+from models import BaseModel as bm
+
+
+class Playlist(bm.BaseModel):
     def __init__(self, item_id: int, name: str, user_id: int):
         self._id: int = item_id
         self._name: str = name

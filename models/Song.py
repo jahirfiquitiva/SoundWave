@@ -1,4 +1,7 @@
-class Song(object):
+from models import BaseModel as bm
+
+
+class Song(bm.BaseModel):
     def __init__(self, item_id: int, name: str, track: int, length: int, path: str, genre_id: int,
                  album_id: int):
         self._id: int = item_id

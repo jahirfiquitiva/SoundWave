@@ -1,4 +1,7 @@
-class Genre(object):
+from models import BaseModel as bm
+
+
+class Genre(bm.BaseModel):
     def __init__(self, item_id: int, name: str, img_path: str):
         self._id: int = item_id
         self._name: str = name
