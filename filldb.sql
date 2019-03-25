@@ -51,7 +51,7 @@ INSERT INTO playlist VALUES('003', 'DRAWING', '1');
 INSERT INTO playlist VALUES('004', 'PROGRAMMING', '4');
 
 -- Insert songs
-INSERT INTO song VALUES('001', 'Spirit_of_Things','001', '192','https://raw.githubusercontent.com/jahirfiquitiva/SoundWave-Music/master/music/spirit_of_things_ncs.mp3','01','001');
+INSERT INTO song VALUES('001', 'Spirit of Things','001', '192','https://raw.githubusercontent.com/jahirfiquitiva/SoundWave-Music/master/music/spirit_of_things_ncs.mp3','01','001');
 INSERT INTO song VALUES('002', 'Sleepless', '001','270','https://raw.githubusercontent.com/jahirfiquitiva/SoundWave-Music/master/music/sleepless_ncs.mp3','01','003');
 INSERT INTO song VALUES('003', 'Lightning', '002', '213','https://raw.githubusercontent.com/jahirfiquitiva/SoundWave-Music/master/music/lightning_ncs.mp3','01','003');
 INSERT INTO song VALUES('004', 'Gave to me', '003', '212','https://raw.githubusercontent.com/jahirfiquitiva/SoundWave-Music/master/music/gave_to_me_ncs.mp3','02','003');
