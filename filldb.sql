@@ -32,7 +32,7 @@ INSERT INTO album VALUES('001','Phantom','https://i1.sndcdn.com/artworks-0002253
 INSERT INTO album VALUES('002','Uplifting','https://i1.sndcdn.com/artworks-000327485997-ge7z2h-t500x500.jpg','2009','003');
 INSERT INTO album VALUES('003','Phantom','https://i1.sndcdn.com/artworks-000227526682-qlodkc-t500x500.jpg','2007','002');
 INSERT INTO album VALUES('004','Prismo','https://i1.sndcdn.com/artworks-000228011793-1mp015-t500x500.jpg','2005','004');
-INSERT INTO album VALUES('005','Mosnters','https://i1.sndcdn.com/artworks-000228761930-uw4sqw-t500x500.jpg','2004','008');
+INSERT INTO album VALUES('005','Monsters','https://i1.sndcdn.com/artworks-000228761930-uw4sqw-t500x500.jpg','2004','008');
 INSERT INTO album VALUES('006','PaintHerad','https://i1.sndcdn.com/artworks-000222434012-2yqck6-t500x500.jpg','2003','006');
 INSERT INTO album VALUES('007','Broken','https://i1.sndcdn.com/artworks-000224856191-2t8qlj-t500x500.jpg','2004','007');
 INSERT INTO album VALUES('008','Ph','https://i1.sndcdn.com/artworks-000220484881-v2muub-t500x500.jpg','2017','005');

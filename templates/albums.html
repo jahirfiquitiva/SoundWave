@@ -25,7 +25,7 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
         <link href="../static/fonts/font.css" rel="stylesheet"/>
         <link href="../static/css/main.css" rel="stylesheet"/>
-        <!-- <link href="../static/css/songs.css" rel="stylesheet"/> -->
+        <link href="../static/css/artists.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -53,13 +53,13 @@
                         </a>
                         <hr>
                         <a href="#" class="drawer-section-header">Biblioteca</a>
-                        <a href="/songs" class="active">
+                        <a href="/songs">
                             <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
                         </a>
                         <a href="/artists">
                             <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
                         </a>
-                        <a href="/albums">
+                        <a href="/albums" class="active">
                             <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
                         </a>
                         <a href="#">
@@ -81,7 +81,7 @@
                     <div class="content">
                         <!-- Search -->
                         <div class="field has-addons">
-                            <input class="input" type="search" placeholder="Encuentra esa canción">
+                            <input class="input" type="search" placeholder="Encuentra ese álbum">
                             <div class="control">
                                 <button class="button is-link is-outlined has-text-centered">
                                     <span class="mdi mdi-search mdi-account-search mdi-18px is-white"></span>
@@ -90,16 +90,16 @@
                         </div>
                         <br>
                         <!-- End search -->
-                        <!-- Songs -->
-                        <div class="columns is-multiline" id="songs-columns">
+                        <!-- Artists -->
+                        <div class="columns is-multiline" id="albums-columns">
                         </div>
-                        <!-- End Songs -->
+                        <!-- End Artists -->
                     </div>
                 </div>
             </div>
         </section>
 
         <script src="../static/js/main.js" lang="text/javascript"></script>
-        <script src="../static/js/songs.js" lang="text/javascript"></script>
+        <script src="../static/js/albums.js" lang="text/javascript"></script>
     </body>
 </html>

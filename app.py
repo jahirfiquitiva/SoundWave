@@ -47,6 +47,13 @@ def songs():
     return render_template('songs.html')
 
 
+@app.route("/albums")
+@app.route("/albums/")
+@app.route("/albums.html")
+def albums():
+    return render_template('albums.html')
+
+
 @app.route("/api", methods=['GET'])
 def get_api_status():
     return status_api.get_status()
