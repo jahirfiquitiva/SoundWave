@@ -1,5 +1,3 @@
-import socket
-
 from flask import Flask, request, render_template
 
 from api import AlbumsAPI as albapi
@@ -139,5 +137,5 @@ def put_user():
 if __name__ == '__main__':
     # Flask WebApp
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
-    # app.run(host='0.0.0.0', port=8080)
+    # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
+    app.run()
