@@ -8,4 +8,4 @@ class GenreSQL(bq.BaseSQL):
 
     def insert_genre(self, name: str, img_path_genre: str) -> str:
         return "insert into %s (name_%s, img_path_%s) values ('%s', '%s');" % (
-            self.table_name, self.table_name, self.table_name, name, img_path_genre)
+            self.table_name.upper(), self.table_name, self.table_name, name, img_path_genre)

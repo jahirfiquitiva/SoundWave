@@ -10,5 +10,5 @@ class SongSQL(bq.BaseSQL):
                     album_id: int) -> str:
         return "insert into %s (name_%s, track_%s, length_%s, path_%s, genre_id_genre, " \
                "album_id_album) values('%s', %d, %d, '%s', %d, %d);" % (
-                   self.table_name, self.table_name, self.table_name, self.table_name,
+                   self.table_name.upper(), self.table_name, self.table_name, self.table_name,
                    self.table_name, name, track, length, path, genre_id, album_id)

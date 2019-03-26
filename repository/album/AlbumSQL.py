@@ -10,5 +10,5 @@ class AlbumSQL(bq.BaseSQL):
                      artist_id_artist: int) -> str:
         return "insert into %s (name_%s, img_path_%s, release_year_%s, " \
                "artist_id_artist) values('%s', '%s', %d, %d);" % (
-                   self.table_name, self.table_name, self.table_name, self.table_name,
+                   self.table_name.upper(), self.table_name, self.table_name, self.table_name,
                    name, img_path_album, release_year_album, artist_id_artist)
