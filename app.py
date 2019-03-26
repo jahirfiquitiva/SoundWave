@@ -66,11 +66,14 @@ def get_api_status():
     return status_api.get_status()
 
 
-# Get endpoint arguments:
-# request.args.get('param')
 @app.route("/api/users", methods=['GET'])
 def get_users():
     return users_api.get(request)
+
+
+@app.route("/api/users/validate", methods=['POST'])
+def validate_user():
+    return users_api.validate_user(request)
 
 
 @app.route("/api/artists", methods=['GET'])

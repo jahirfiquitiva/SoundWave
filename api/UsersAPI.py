@@ -13,13 +13,28 @@ class UsersAPI(bapi.BaseAPI):
     def response_key(self):
         return "user"
 
+    def validate_user(self, request):
+        try:
+            username = self.get_body_param(request, 'nick')
+            found_user = self.manager.find_item(username)
+            if found_user is None:
+                found_user = self.manager.find_item_by_email(username)
+            if found_user is not None:
+                pwd = self.get_body_param(request, 'pwd')
+                return self.create_response({"success": True, "valid": found_user.validate(pwd)})
+            return self.create_response({"success": True, "valid": False})
+        except Exception as e:
+            return self.create_error_response(e)
+
     def post(self, request):
         try:
-            request_json = request.get_json(True)
-            new_user_nick = request_json['nick']
-            if self.manager.create(request_json['name'], request_json['lastName'],
-                                   int(request_json['age']), new_user_nick, request_json['photo'],
-                                   request_json['email'], request_json['password']):
+            new_user_nick = self.get_body_param(request, 'nick')
+            if self.manager.create(self.get_body_param(request, 'name'),
+                                   self.get_body_param(request, 'lastName'),
+                                   int(self.get_body_param(request, 'age')), new_user_nick,
+                                   self.get_body_param(request, 'photo'),
+                                   self.get_body_param(request, 'email'),
+                                   self.get_body_param(request, 'password')):
                 added_user = self.manager.find_item(new_user_nick)
                 if added_user is not None:
                     return self.create_response({"success": True, "user": added_user.as_json()})

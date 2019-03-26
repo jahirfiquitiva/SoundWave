@@ -55,14 +55,26 @@ class UsersManager(bm.BaseManager):
         return None
 
     def find_item_by_id(self, user_id: int) -> Optional[us.User]:
+        if user_id is None:
+            return None
         for item in self.get_items():
             if item.id == user_id:
                 return item
         return None
 
     def find_item(self, s: str) -> Optional[us.User]:
+        if s is None:
+            return None
         for item in self.get_items():
-            if s.strip().lower() in item.nick.strip().lower():
+            if s.strip().lower() == item.nick.strip().lower():
+                return item
+        return None
+
+    def find_item_by_email(self, email: str) -> Optional[us.User]:
+        if email is None:
+            return None
+        for item in self.get_items():
+            if email.strip().lower() == item.email.strip().lower():
                 return item
         return None
 

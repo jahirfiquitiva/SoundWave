@@ -83,8 +83,9 @@
                                 <form>
                                     <div class="field">
                                         <p class="control has-icons-left">
-                                            <input class="input" type="email"
-                                                   placeholder="Nick o Email">
+                                            <input class="input" type="text"
+                                                   placeholder="Nick o Email"
+                                                   name="nick" id="nick-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-email"></i>
                                             </span>
@@ -93,7 +94,8 @@
                                     <div class="field">
                                         <p class="control has-icons-left">
                                             <input class="input" type="password"
-                                                   placeholder="Contraseña">
+                                                   placeholder="Contraseña"
+                                                   name="pwd" id="pwd-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-key"></i>
                                             </span>
@@ -105,7 +107,9 @@
                                     </div>
                                     <div class="field">
                                         <p class="control">
-                                            <button class="button is-primary">Iniciar sesión
+                                            <button class="button is-primary" type="button"
+                                                    onclick="login()">
+                                                Iniciar sesión
                                             </button>
                                         </p>
                                     </div>
@@ -189,5 +193,6 @@
         </section>
 
         <script src="../static/js/main.js" lang="text/javascript"></script>
+        <script src="../static/js/login.js" lang="text/javascript"></script>
     </body>
 </html>

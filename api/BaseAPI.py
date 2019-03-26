@@ -23,20 +23,30 @@ class BaseAPI(ABC, Generic[MANAGER, T]):
     def create_error_response(self, error):
         return jsonify({"success": False, "error": str(repr(error))})
 
+    def get_request_param(self, req, param: str):
+        try:
+            return req.args.get(param)
+        except Exception:
+            return None
+
+    def get_body_param(self, req, param: str):
+        try:
+            request_json = req.get_json(True)
+            return request_json[param]
+        except Exception:
+            return None
+
+    def get_form_field(self, req, param: str):
+        try:
+            return req.form[param]
+        except Exception:
+            return None
+
     def get(self, request):
         try:
             self.manager.load()
-            req_id = None
-            try:
-                req_id = request.args.get('id')
-            except Exception:
-                req_id = None
-
-            req_key = None
-            try:
-                req_key = request.args.get('key')
-            except Exception:
-                req_key = None
+            req_id = self.get_request_param(request, 'id')
+            req_key = self.get_request_param(request, 'key')
 
             res_key = self.response_key
             if req_id is not None:

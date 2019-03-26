@@ -1,3 +1,5 @@
+import hashlib
+
 from models import BaseModel as bm
 
 
@@ -51,7 +53,10 @@ class User(bm.BaseModel):
                 "nick": self.nick, "photo": self.photo, "email": self.email}
 
     def validate(self, other_password: str) -> bool:
-        return self._password.lower() == other_password.lower()
+        if other_password is None:
+            return False
+        md = hashlib.md5(other_password.encode('utf-8')).hexdigest()
+        return self._password.lower() == md.lower()
 
     def __str__(self):
         return "Id: %d - Nombre: %s - Apellido: %s - Edad: %d - Nick: %s - Foto: %s - Email: %s" % (
