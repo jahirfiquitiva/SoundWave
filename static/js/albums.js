@@ -23,7 +23,7 @@ function loadAlbums() {
                         for (const album of albums) {
                             const div = document.createElement('div');
                             div.classList.add('column');
-                            div.classList.add('is-3');
+                            div.classList.add('is-2');
 
                             const divCL = document.createElement('div');
                             divCL.classList.add('card');
