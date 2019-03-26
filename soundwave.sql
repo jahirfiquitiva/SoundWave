@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE = @@SQL_MODE, SQL_MODE = 'TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema soundwave
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `soundwave` DEFAULT CHARACTER SET utf8;
-USE `soundwave`;
+CREATE SCHEMA IF NOT EXISTS `soundwaveco$soundwave` DEFAULT CHARACTER SET utf8;
+USE `soundwaveco$soundwave`;
 
 -- -----------------------------------------------------
--- Table `soundwave`.`USER`
+-- Table `soundwaveco$soundwave`.`USER`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`USER`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`USER`
 (
   `id_user`        INT         NOT NULL AUTO_INCREMENT,
   `name_user`      VARCHAR(40) NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`USER`
 
 
 -- -----------------------------------------------------
--- Table `soundwave`.`GENRE`
+-- Table `soundwaveco$soundwave`.`GENRE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`GENRE`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`GENRE`
 (
   `id_genre`       INT         NOT NULL AUTO_INCREMENT,
   `name_genre`     VARCHAR(36) NOT NULL,
@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`GENRE`
 
 
 -- -----------------------------------------------------
--- Table `soundwave`.`ARTIST`
+-- Table `soundwaveco$soundwave`.`ARTIST`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`ARTIST`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`ARTIST`
 (
   `id_artist`       INT         NOT NULL AUTO_INCREMENT,
   `name_artist`     VARCHAR(40) NOT NULL,
@@ -74,9 +74,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ARTIST`
 
 
 -- -----------------------------------------------------
--- Table `soundwave`.`ALBUM`
+-- Table `soundwaveco$soundwave`.`ALBUM`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`ALBUM`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`ALBUM`
 (
   `id_album`           INT         NOT NULL AUTO_INCREMENT,
   `name_album`         VARCHAR(36) NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ALBUM`
   UNIQUE INDEX `img_path_album_UNIQUE` (`img_path_album` ASC),
   CONSTRAINT `fk_ALBUM_SINGER1`
     FOREIGN KEY (`ARTIST_id_artist`)
-      REFERENCES `soundwave`.`ARTIST` (`id_artist`)
+      REFERENCES `soundwaveco$soundwave`.`ARTIST` (`id_artist`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 )
@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`ALBUM`
 
 
 -- -----------------------------------------------------
--- Table `soundwave`.`SONG`
+-- Table `soundwaveco$soundwave`.`SONG`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`SONG`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`SONG`
 (
   `id_song`        INT          NOT NULL AUTO_INCREMENT,
   `name_song`      VARCHAR(40)  NOT NULL,
@@ -114,12 +114,12 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`SONG`
   UNIQUE INDEX `path_song_UNIQUE` (`path_song` ASC),
   CONSTRAINT `fk_SONG_GENRE1`
     FOREIGN KEY (`GENRE_id_genre`)
-      REFERENCES `soundwave`.`GENRE` (`id_genre`)
+      REFERENCES `soundwaveco$soundwave`.`GENRE` (`id_genre`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
   CONSTRAINT `fk_SONG_ALBUM1`
     FOREIGN KEY (`ALBUM_id_album`)
-      REFERENCES `soundwave`.`ALBUM` (`id_album`)
+      REFERENCES `soundwaveco$soundwave`.`ALBUM` (`id_album`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 )
@@ -127,9 +127,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`SONG`
 
 
 -- -----------------------------------------------------
--- Table `soundwave`.`PLAYLIST`
+-- Table `soundwaveco$soundwave`.`PLAYLIST`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`PLAYLIST`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`PLAYLIST`
 (
   `id_playlist`   INT         NOT NULL AUTO_INCREMENT,
   `name_playlist` VARCHAR(40) NOT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`PLAYLIST`
   INDEX `fk_PLAYLIST_USER_idx` (`USER_id_user` ASC),
   CONSTRAINT `fk_PLAYLIST_USER`
     FOREIGN KEY (`USER_id_user`)
-      REFERENCES `soundwave`.`USER` (`id_user`)
+      REFERENCES `soundwaveco$soundwave`.`USER` (`id_user`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 )
@@ -146,9 +146,9 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`PLAYLIST`
 
 
 -- -----------------------------------------------------
--- Table `soundwave`.`PLAYLIST_has_SONG`
+-- Table `soundwaveco$soundwave`.`PLAYLIST_has_SONG`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soundwave`.`PLAYLIST_has_SONG`
+CREATE TABLE IF NOT EXISTS `soundwaveco$soundwave`.`PLAYLIST_has_SONG`
 (
   `PLAYLIST_id_playlist` INT NOT NULL,
   `SONG_id_song`         INT NOT NULL,
@@ -157,12 +157,12 @@ CREATE TABLE IF NOT EXISTS `soundwave`.`PLAYLIST_has_SONG`
   INDEX `fk_PLAYLIST_has_SONG_PLAYLIST1_idx` (`PLAYLIST_id_playlist` ASC),
   CONSTRAINT `fk_PLAYLIST_has_SONG_PLAYLIST1`
     FOREIGN KEY (`PLAYLIST_id_playlist`)
-      REFERENCES `soundwave`.`PLAYLIST` (`id_playlist`)
+      REFERENCES `soundwaveco$soundwave`.`PLAYLIST` (`id_playlist`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
   CONSTRAINT `fk_PLAYLIST_has_SONG_SONG1`
     FOREIGN KEY (`SONG_id_song`)
-      REFERENCES `soundwave`.`SONG` (`id_song`)
+      REFERENCES `soundwaveco$soundwave`.`SONG` (`id_song`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 )
