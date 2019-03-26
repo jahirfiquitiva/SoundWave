@@ -6,7 +6,6 @@ function loadGenres() {
             if (xhr.status === 200) {
                 try {
                     const json = JSON.parse(xhr.responseText);
-                    console.log(json);
                     const genres = json.genres || [];
 
                     const columns = document.getElementById('genres-columns');
@@ -22,7 +21,6 @@ function loadGenres() {
                             }
                         }
                         for (const genre of genres) {
-                            console.log(genre);
                             const div = document.createElement('div');
                             div.classList.add('column');
                             div.classList.add('is-3');

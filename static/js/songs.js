@@ -21,7 +21,6 @@ function loadSongs() {
                             }
                         }
                         for (const song of songs) {
-                            console.log(song);
                             const div = document.createElement('div');
                             div.classList.add('column');
                             div.classList.add('is-3');
