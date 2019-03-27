@@ -1,6 +1,6 @@
-function loadSongs() {
+function loadSongs(key) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/songs', true);
+    xhr.open('GET', typeof key !== 'undefined' ? `/api/songs?key=${key}` : '/api/songs', true);
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -87,6 +87,14 @@ function loadSongs() {
         }
     };
     xhr.send(null);
+}
+
+function search() {
+    const searchInp = document.getElementById('search-input');
+    if (searchInp) {
+        const key = searchInp.value || '';
+        loadSongs(key.length > 0 ? key : undefined);
+    }
 }
 
 loadSongs();
