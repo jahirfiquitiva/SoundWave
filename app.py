@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, session
 
+# noinspection PyUnresolvedReferences
+import ses_conf
 from api import AlbumsAPI as albapi
 from api import ArtistsAPI as artapi
 from api import GenreAPI as genapi
@@ -9,6 +11,7 @@ from api import StatusAPI as sapi
 from api import UsersAPI as uapi
 
 app = Flask("SoundWave")
+app.config.from_object('ses_conf.SessionConfig')
 
 status_api = sapi.StatusAPI()
 users_api = uapi.UsersAPI()
@@ -72,11 +75,7 @@ def get_users():
 @app.route("/api/users/current", methods=['GET'])
 def get_current_user():
     try:
-        if 'uid' in session:
-            print("UID is available", flush=True)
-            print("UID is %s" % str(session['uid']), flush=True)
-            return users_api.create_response({"success": True, "userId": session['uid']})
-        return users_api.create_response({"success": True, "userId": None})
+        return users_api.create_response({"success": True, "userId": session.get('uid')})
     except Exception as e:
         return users_api.create_error_response(e)
 
@@ -86,6 +85,7 @@ def validate_user():
     response, valid, uid = users_api.validate_user(request)
     if valid:
         session['uid'] = uid
+        session.modified = True
         print("Saved session for user %s" % str(uid), flush=True)
     return response
 
@@ -152,7 +152,7 @@ def put_user():
 
 if __name__ == '__main__':
     # Flask WebApp
-    app.secret_key = 'soundwave'  # + str(date.now().strftime("%I:%M%p on %B %d, %Y"))
+    # app.secret_key = 'soundwave'  # + str(date.now().strftime("%I:%M%p on %B %d, %Y"))
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
