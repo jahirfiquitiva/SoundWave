@@ -10,7 +10,7 @@ from api import SongsAPI as songapi
 from api import StatusAPI as sapi
 from api import UsersAPI as uapi
 
-app = Flask("SoundWave")
+app = Flask(__name__)
 app.config.from_object('ses_conf.SessionConfig')
 
 status_api = sapi.StatusAPI()
@@ -155,5 +155,6 @@ if __name__ == '__main__':
     # app.secret_key = 'soundwave'  # + str(date.now().strftime("%I:%M%p on %B %d, %Y"))
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.config['DEBUG'] = True
     # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
     app.run(debug=True)
