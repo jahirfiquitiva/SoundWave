@@ -20,6 +20,7 @@ function loadSongs(key) {
                                 columns.classList.add('is-hidden');
                             }
                         }
+                        columns.innerHTML = '';
                         for (const song of songs) {
                             const div = document.createElement('div');
                             div.classList.add('column');

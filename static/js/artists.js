@@ -20,6 +20,7 @@ function loadArtists() {
                                 columns.classList.add('is-hidden');
                             }
                         }
+                        columns.innerHTML = '';
                         for (const artist of artists) {
                             const div = document.createElement('div');
                             div.classList.add('column');

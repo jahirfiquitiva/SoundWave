@@ -20,6 +20,7 @@ function loadAlbums() {
                                 columns.classList.add('is-hidden');
                             }
                         }
+                        columns.innerHTML = '';
                         for (const album of albums) {
                             const div = document.createElement('div');
                             div.classList.add('column');

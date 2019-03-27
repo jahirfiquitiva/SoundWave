@@ -20,6 +20,7 @@ function loadGenres() {
                                 columns.classList.add('is-hidden');
                             }
                         }
+                        columns.innerHTML = '';
                         for (const genre of genres) {
                             const div = document.createElement('div');
                             div.classList.add('column');
