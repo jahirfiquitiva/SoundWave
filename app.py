@@ -1,3 +1,5 @@
+from datetime import datetime as date
+
 from flask import Flask, request, render_template, session
 
 from api import AlbumsAPI as albapi
@@ -74,7 +76,7 @@ def get_current_user():
     try:
         if 'uid' in session:
             return users_api.create_response({"success": True, "userId": session['uid']})
-        return users_api.create_response({"success": False, "userId": None})
+        return users_api.create_response({"success": True, "userId": None})
     except Exception as e:
         return users_api.create_error_response(e)
 
@@ -149,6 +151,8 @@ def put_user():
 
 if __name__ == '__main__':
     # Flask WebApp
+    app.secret_key = 'soundwave' + str(date.now().strftime("%I:%M%p on %B %d, %Y"))
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
     app.run()
