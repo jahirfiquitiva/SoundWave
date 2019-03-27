@@ -21,7 +21,8 @@ class UsersAPI(bapi.BaseAPI):
                 found_user = self.manager.find_item_by_email(username)
             if found_user is not None:
                 pwd = self.get_body_param(request, 'pwd')
-                return self.create_response({"success": True, "valid": found_user.validate(pwd)})
+                return self.create_response({"success": True, "valid": found_user.validate(pwd),
+                                             "user": found_user.as_json()})
             return self.create_response({"success": True, "valid": False})
         except Exception as e:
             return self.create_error_response(e)

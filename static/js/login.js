@@ -20,10 +20,12 @@ function login() {
             try {
                 const json = JSON.parse(xhr.responseText);
                 const valid = json.valid || false;
+                const user = json.user || undefined;
                 if (valid) {
                     alert("Inicio de sesión exitoso");
                     if (loginInfo) {
-                        loginInfo.innerHTML = `<p>Iniciaste sesión como ${nick}</p>`
+                        loginInfo.innerHTML =
+                            `<h3>Iniciaste sesión como ${user.name || 'Unknown'}</h3>`;
                         loginInfo.classList.remove('is-hidden');
                     }
                     if (loginForms) {
