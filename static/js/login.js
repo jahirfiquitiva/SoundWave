@@ -77,7 +77,18 @@ function createUser() {
             xhr.open('POST', '/api/users', true);
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(xhr.responseText);
+                    try {
+                        const json = JSON.parse(xhr.responseText);
+                        const success = json.success || false;
+                        if (success) {
+                            alert("Usuario creado con éxito!");
+                            window.location.reload();
+                        } else {
+                            alert("Ocurrió un error inesperado");
+                        }
+                    } catch (e) {
+                        alert("Ocurrió un error inesperado");
+                    }
                 }
             };
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
