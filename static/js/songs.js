@@ -12,6 +12,7 @@ function loadSongs(key) {
             if (xhr.status === 200) {
                 try {
                     const json = JSON.parse(xhr.responseText);
+                    console.log(json);
                     const songs = json.songs || [];
 
                     const columns = document.getElementById('songs-columns');

@@ -49,14 +49,16 @@ class BaseAPI(ABC, Generic[MANAGER, T]):
             req_key = self.get_request_param(request, 'key')
 
             res_key = self.response_key
-            if req_id is not None:
+            if req_id is not None and len(req_id) > 0:
                 print("Getting by id: %s" % req_id)
                 return self.create_response(
-                    {"success": True, res_key: self.manager.find_item_by_id(int(req_id)).as_json()})
-            elif req_key is not None:
+                    {"success": True, "reqId": req_id,
+                     res_key: self.manager.find_item_by_id(int(req_id)).as_json()})
+            elif req_key is not None and len(req_key) > 0:
                 print("Getting by key: %s" % req_key)
                 return self.create_response(
-                    {"success": True, res_key: self.manager.find_item(req_key).as_json()})
+                    {"success": True, "reqKey": req_key,
+                     res_key: self.manager.find_item(req_key).as_json()})
             else:
                 res_key_pl = "%ss" % res_key
                 return self.create_response(
