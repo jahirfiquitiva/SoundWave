@@ -1,6 +1,12 @@
 function loadSongs(key) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', typeof key !== 'undefined' ? `/api/songs?key=${key}` : '/api/songs', true);
+    const actualKey = key || '';
+    let reqUrl = '/api/songs';
+    if (typeof actualKey !== 'undefined' && actualKey.length > 0) {
+        reqUrl += `?key=${key}`;
+    }
+    console.log(`Doing request to ${reqUrl}`);
+    xhr.open('GET', reqUrl, true);
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
