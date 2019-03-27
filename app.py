@@ -1,5 +1,3 @@
-from datetime import datetime as date
-
 from flask import Flask, request, render_template, session
 
 from api import AlbumsAPI as albapi
@@ -151,7 +149,7 @@ def put_user():
 
 if __name__ == '__main__':
     # Flask WebApp
-    app.secret_key = 'soundwave' + str(date.now().strftime("%I:%M%p on %B %d, %Y"))
+    app.secret_key = 'soundwave'  # + str(date.now().strftime("%I:%M%p on %B %d, %Y"))
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
