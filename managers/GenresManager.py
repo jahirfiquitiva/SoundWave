@@ -55,6 +55,13 @@ class GenresManager(bm.BaseManager):
                 return item
         return None
 
+    def find_all_items(self, s: str) -> [Optional[ge.Genre]]:
+        found = []
+        for item in self.get_items():
+            if s.strip().lower() in item.name.strip().lower():
+                found.append(item)
+        return found
+
     @property
     def dao(self) -> gedao.GenreDAO:
         return gedao.GenreDAO()

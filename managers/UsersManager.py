@@ -78,6 +78,13 @@ class UsersManager(bm.BaseManager):
                 return item
         return None
 
+    def find_all_items(self, s: str) -> [Optional[us.User]]:
+        found = []
+        for item in self.get_items():
+            if s.strip().lower() == item.nick.strip().lower():
+                found.append(item)
+        return found
+
     @property
     def dao(self) -> udao.UserDAO:
         return udao.UserDAO()

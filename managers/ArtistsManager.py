@@ -57,6 +57,13 @@ class ArtistsManager(bm.BaseManager):
                 return item
         return None
 
+    def find_all_items(self, s: str) -> [Optional[ar.Artist]]:
+        found = []
+        for item in self.get_items():
+            if s.strip().lower() in item.nick.strip().lower():
+                found.append(item)
+        return found
+
     @property
     def dao(self) -> ardao.ArtistDAO:
         return ardao.ArtistDAO()

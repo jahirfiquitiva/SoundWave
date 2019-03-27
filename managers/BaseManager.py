@@ -70,6 +70,16 @@ class BaseManager(ABC, Generic[DAO, T]):
     def find_item(self, s: str) -> Optional[T]:
         raise Exception("You have not implemented this method")
 
+    @abstractmethod
+    def find_all_items(self, s: str) -> [Optional[T]]:
+        raise Exception("You have not implemented this method")
+
+    def find_all_items_as_json(self, s: str) -> {}:
+        json_items = []
+        for item in self.find_all_items(s):
+            json_items.append(self.item_to_json_item(item))
+        return json_items
+
     @property
     @abstractmethod
     def dao(self) -> DAO:
