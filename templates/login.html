@@ -123,7 +123,8 @@
                                 <form>
                                     <div class="field">
                                         <p class="control has-icons-left">
-                                            <input class="input" type="text" placeholder="Nombre">
+                                            <input class="input" type="text" placeholder="Nombre"
+                                                   id="new-name-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-account"></i>
                                             </span>
@@ -131,7 +132,8 @@
                                     </div>
                                     <div class="field">
                                         <p class="control has-icons-left">
-                                            <input class="input" type="text" placeholder="Apellido">
+                                            <input class="input" type="text" placeholder="Apellido"
+                                                   id="new-surname-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-account"></i>
                                             </span>
@@ -140,7 +142,7 @@
                                     <div class="field">
                                         <p class="control has-icons-left">
                                             <input class="input" type="number" placeholder="Edad"
-                                                   min="0">
+                                                   min="0" id="new-age-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-account"></i>
                                             </span>
@@ -148,7 +150,8 @@
                                     </div>
                                     <div class="field">
                                         <p class="control has-icons-left">
-                                            <input class="input" type="text" placeholder="Nick">
+                                            <input class="input" type="text" placeholder="Nick"
+                                                   id="new-nick-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-account"></i>
                                             </span>
@@ -156,7 +159,8 @@
                                     </div>
                                     <div class="field">
                                         <p class="control has-icons-left">
-                                            <input class="input" type="email" placeholder="Email">
+                                            <input class="input" type="email" placeholder="Email"
+                                                   id="new-email-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-email"></i>
                                             </span>
@@ -165,7 +169,8 @@
                                     <div class="field">
                                         <p class="control has-icons-left">
                                             <input class="input" type="password"
-                                                   placeholder="Contraseña">
+                                                   placeholder="Contraseña"
+                                                   id="new-pwd-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-key"></i>
                                             </span>
@@ -174,7 +179,8 @@
                                     <div class="field">
                                         <p class="control has-icons-left">
                                             <input class="input" type="password"
-                                                   placeholder="Confirmar Contraseña">
+                                                   placeholder="Confirmar Contraseña"
+                                                   id="new-pwdc-input">
                                             <span class="icon is-small is-left">
                                               <i class="mdi mdi-key"></i>
                                             </span>
@@ -182,7 +188,9 @@
                                     </div>
                                     <div class="field">
                                         <p class="control">
-                                            <button class="button is-primary">Crear cuenta
+                                            <button class="button is-primary" type="button"
+                                                    onclick="createUser()">
+                                                Crear cuenta
                                             </button>
                                         </p>
                                     </div>

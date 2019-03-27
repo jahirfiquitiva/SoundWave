@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session
 
 from api import AlbumsAPI as albapi
 from api import ArtistsAPI as artapi
@@ -69,9 +69,22 @@ def get_users():
     return users_api.get(request)
 
 
+@app.route("/api/users/current", methods=['GET'])
+def get_current_user():
+    try:
+        if 'uid' in session:
+            return users_api.create_response({"success": True, "userId": session['uid']})
+        return users_api.create_response({"success": False, "userId": None})
+    except Exception as e:
+        return users_api.create_error_response(e)
+
+
 @app.route("/api/users/validate", methods=['POST'])
 def validate_user():
-    return users_api.validate_user(request)
+    response, valid, uid = users_api.validate_user(request)
+    if valid:
+        session['uid'] = uid
+    return response
 
 
 @app.route("/api/artists", methods=['GET'])

@@ -22,10 +22,10 @@ class UsersAPI(bapi.BaseAPI):
             if found_user is not None:
                 pwd = self.get_body_param(request, 'pwd')
                 return self.create_response({"success": True, "valid": found_user.validate(pwd),
-                                             "user": found_user.as_json()})
-            return self.create_response({"success": True, "valid": False})
+                                             "user": found_user.as_json()}), False, found_user.id
+            return self.create_response({"success": True, "valid": False, "user": None}), False, 0
         except Exception as e:
-            return self.create_error_response(e)
+            return self.create_error_response(e), False, 0
 
     def post(self, request):
         try:
@@ -35,7 +35,7 @@ class UsersAPI(bapi.BaseAPI):
                                    int(self.get_body_param(request, 'age')), new_user_nick,
                                    self.get_body_param(request, 'photo'),
                                    self.get_body_param(request, 'email'),
-                                   self.get_body_param(request, 'password')):
+                                   self.get_body_param(request, 'pwd')):
                 added_user = self.manager.find_item(new_user_nick)
                 if added_user is not None:
                     return self.create_response({"success": True, "user": added_user.as_json()})
