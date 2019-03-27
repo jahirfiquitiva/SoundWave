@@ -73,6 +73,8 @@ def get_users():
 def get_current_user():
     try:
         if 'uid' in session:
+            print("UID is available")
+            print("UID is %s" % str(session['uid']))
             return users_api.create_response({"success": True, "userId": session['uid']})
         return users_api.create_response({"success": True, "userId": None})
     except Exception as e:
@@ -84,6 +86,7 @@ def validate_user():
     response, valid, uid = users_api.validate_user(request)
     if valid:
         session['uid'] = uid
+        print("Saved session for user %s" % str(uid))
     return response
 
 
@@ -153,4 +156,4 @@ if __name__ == '__main__':
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
-    app.run()
+    app.run(debug=True)
