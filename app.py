@@ -1,7 +1,5 @@
 from flask import Flask, request, render_template, session
 
-# noinspection PyUnresolvedReferences
-import ses_conf
 from api import AlbumsAPI as albapi
 from api import ArtistsAPI as artapi
 from api import GenreAPI as genapi
@@ -11,7 +9,6 @@ from api import StatusAPI as sapi
 from api import UsersAPI as uapi
 
 app = Flask(__name__)
-app.config.from_object('ses_conf.SessionConfig')
 
 status_api = sapi.StatusAPI()
 users_api = uapi.UsersAPI()
