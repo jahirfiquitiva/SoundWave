@@ -1,6 +1,11 @@
-function loadAlbums() {
+function loadAlbums(key) {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/albums', true);
+    const actualKey = key || '';
+    let reqUrl = '/api/albums';
+    if (typeof actualKey !== 'undefined' && actualKey.length > 0) {
+        reqUrl += `?key=${key}`;
+    }
+    xhr.open('GET', reqUrl, true);
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -73,6 +78,14 @@ function loadAlbums() {
         }
     };
     xhr.send(null);
+}
+
+function search() {
+    const searchInp = document.getElementById('search-input');
+    if (searchInp) {
+        const key = searchInp.value || '';
+        loadAlbums(key.length > 0 ? key : undefined);
+    }
 }
 
 loadAlbums();

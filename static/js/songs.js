@@ -5,7 +5,6 @@ function loadSongs(key) {
     if (typeof actualKey !== 'undefined' && actualKey.length > 0) {
         reqUrl += `?key=${key}`;
     }
-    console.log(`Doing request to ${reqUrl}`);
     xhr.open('GET', reqUrl, true);
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
