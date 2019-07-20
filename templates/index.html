@@ -14,7 +14,6 @@
         <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw114.png">
         <link rel="apple-touch-icon-precomposed" href="favicons/sw32.png">
-
         <link rel="icon" href="../static/favicons/sw32.png" sizes="32x32">
         <meta name="msapplication-TileColor" content="#4285F4">
         <meta name="msapplication-TileImage" content="../static/favicons/sw72.png">
@@ -26,180 +25,173 @@
         <link href="../static/fonts/font.css" rel="stylesheet"/>
         <link href="../static/main.css" rel="stylesheet"/>
     </head>
-    <body>
-        <section class="hero is-fullheight-with-navbar section-w-drawer">
-            <!-- Hero head: will stick at the top -->
-            <div class="hero-head">
-                <nav class="navbar is-fixed-top has-shadow" role="navigation"
-                     aria-label="main navigation">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" onclick="toggleDrawer();">
-                            <i class="mdi mdi-menu mdi-24px"></i>
-                        </a>
-                        <a class="navbar-item" href="/">SoundWave</a>
-                    </div>
-                    <div class="navbar-end">
-                        <a class="navbar-item has-text-centered" href="/login">
-                            <i class="mdi mdi-account-circle mdi-24px"></i></a>
-                    </div>
-                </nav>
-                <input type="checkbox" id="drawer-check"/>
-                <div class="drawer is-hidden" id="drawer">
-                    <nav class="drawer-items-list">
-                        <a href="#" class="active">
-                            <i class="mdi mdi-home mdi-18px"></i>&nbsp;&nbsp;Inicio
-                        </a>
-                        <hr>
-                        <a href="#" class="drawer-section-header">Biblioteca</a>
-                        <a href="#">
-                            <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
-                        </a>
-                        <a href="#">
-                            <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
-                        </a>
-                        <a href="#">
-                            <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
-                        </a>
-                        <a href="#">
-                            <i class="mdi mdi-collage mdi-18px"></i>&nbsp;&nbsp;Géneros
-                        </a>
-                        <hr>
-                        <a href="#" class="drawer-section-header">Playlists</a>
-                        <a href="#">
-                            <i class="mdi mdi-library-plus mdi-18px"></i>&nbsp;&nbsp;Nueva playlist
-                        </a>
+        <body>
+            <section class="hero is-fullheight-with-navbar section-w-drawer">
+                <!-- Hero head: will stick at the top -->
+                <div class="hero-head">
+                    <nav class="navbar is-fixed-top has-shadow" role="navigation"
+                         aria-label="main navigation">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" onclick="toggleDrawer();">
+                                <i class="mdi mdi-menu mdi-24px"></i>
+                            </a>
+                            <a class="navbar-item" href="/">SoundWave</a>
+                        </div>
+                        <div class="navbar-end">
+                            <a class="navbar-item has-text-centered" href="/login">
+                                <i class="mdi mdi-account-circle mdi-24px"></i></a>
+                        </div>
                     </nav>
+                    <input type="checkbox" id="drawer-check"/>
+                    <div class="drawer is-hidden" id="drawer">
+                        <nav class="drawer-items-list">
+                            <a href="#" class="active">
+                                <i class="mdi mdi-home mdi-18px"></i>&nbsp;&nbsp;Inicio
+                            </a>
+                            <hr>
+                            <a href="#" class="drawer-section-header">Biblioteca</a>
+                            <a href="#">
+                                <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
+                            </a>
+                            <a href="#">
+                                <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
+                            </a>
+                            <a href="#">
+                                <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
+                            </a>
+                            <a href="#">
+                                <i class="mdi mdi-collage mdi-18px"></i>&nbsp;&nbsp;Géneros
+                            </a>
+                            <hr>
+                            <a href="#" class="drawer-section-header">Playlists</a>
+                            <a href="#">
+                                <i class="mdi mdi-library-plus mdi-18px"></i>&nbsp;&nbsp;Nueva playlist
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="drawer-container" onclick="toggleDrawer();"></div>
                 </div>
-                <div class="drawer-container" onclick="toggleDrawer();"></div>
-            </div>
 
-            <div class="hero-body">
-                <div class="container">
-                    <div class="content">
-                        <h2>Presentación</h2>
-                        <br>
-                        <div class="columns">
-                            <div class="column is-6">
-                                <!--
-                                <p>SoundWave es un aplicativo multiplataforma que pretende proveer el
-                                   servicio de
-                                   reproducción de música via streaming de modo abierto y transparente.</p>
-                                <br>
-                                -->
-                                <p>
-                                    Con SoundWave, es fácil encontrar la mejor música de artistas
-                                    independientes, para cada momento, desde el celular,
-                                    computadora,
-                                    tablet y mucho más.<br><br>Hay miles de canciones en SoundWave.
-                                    Así
-                                    que cuando estés haciendo ejercicio, de fiesta o descansando,
-                                    tendrás siempre la mejor música al alcance de tu mano. Elige lo
-                                    que
-                                    quieras escuchar o deja que SoundWave te sorprenda.<br><br>También
-                                    puedes buscar en las colecciones de música de artistas
-                                    relajarte.<br><br>Ponle música a tu vida con SoundWave.
-                                    Suscríbete o
-                                    escucha gratis.
-                                </p>
-                                <br>
-                                <h5>Funcionalidades:</h5>
-                                <ul>
-                                    <li>Gestión de cuentas de usuario</li>
-                                    <li>Reproducir canciones</li>
-                                    <li>Crear listas de reproducción</li>
-                                    <li>Publicar canciones (como artista)</li>
-                                    <li>Administración de la biblioteca de música</li>
-                                </ul>
-                            </div>
-                            <div class="column is-1"></div>
-                            <div class="column is-5">
-                                <img class="preview" src="../static/img/prev.png">
-                                <br><br>
-                                <p class="is-small is-italic has-text-centered">Prototipo de
-                                                                                Interfaz</p>
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="content">
+                            <h2>Presentación</h2>
+                            <br>
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <!--
+                                    <p>SoundWave es un aplicativo multiplataforma que pretende proveer el
+                                       servicio de
+                                       reproducción de música via streaming de modo abierto y transparente.</p>
+                                    <br>
+                                    -->
+                                    <p>
+                                        Con SoundWave, es fácil encontrar la mejor música de artistas
+                                        independientes, para cada momento, desde el celular,
+                                        computadora,
+                                        tablet y mucho más.<br><br>Hay miles de canciones en SoundWave.
+                                        Así
+                                        que cuando estés haciendo ejercicio, de fiesta o descansando,
+                                        tendrás siempre la mejor música al alcance de tu mano. Elige lo
+                                        que
+                                        quieras escuchar o deja que SoundWave te sorprenda.<br><br>También
+                                        puedes buscar en las colecciones de música de artistas
+                                        relajarte.<br><br>Ponle música a tu vida con SoundWave.
+                                        Suscríbete o
+                                        escucha gratis.
+                                    </p>
+                                    <br>
+                                    <h5>Funcionalidades:</h5>
+                                    <ul>
+                                        <li>Gestión de cuentas de usuario</li>
+                                        <li>Reproducir canciones</li>
+                                        <li>Crear listas de reproducción</li>
+                                        <li>Publicar canciones (como artista)</li>
+                                        <li>Administración de la biblioteca de música</li>
+                                    </ul>
+                                </div>
+                                <div class="column is-1"></div>
+                                <div class="column is-5">
+                                    <img class="preview" src="../static/img/prev.png">
+                                    <br><br>
+                                    <p class="is-small is-italic has-text-centered">Prototipo de
+                                                                                    Interfaz</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <hr>
-        <section class="hero is-fullheight">
-            <div class="hero-body">
-                <div class="container">
-                    <div class="content">
-                        <h2>Metodología</h2>
-                        <br>
-                        <p>
-                            Para el desarrollo de este proyecto se planea usar la metodología SCRUM:
-                            un
-                            modelo de referencia que define un conjunto de prácticas y roles, y que
-                            puede tomarse como punto de partida para definir el proceso de
-                            desarrollo
-                            que se ejecutará durante un proyecto.<br><br>
-                        </p>
-                        <ul>
-                            <li>Gestión regular de las expectativas del cliente, resultados
-                                anticipados,
-                                flexibilidad y adaptación, retorno de inversión, mitigación de
-                                riesgos,
-                                productividad y calidad, alineamiento entre cliente y equipo, por
-                                último, equipo motivado.
-                            </li>
-                            <li>Se hace uso de equipos auto-dirigidos y auto-organizados.</li>
-                            <li>Se realiza a diario una reunión de Scrum, que es una reunión de
-                                avance
-                                diaria que no dura más de 15 minutos con el objetivo de obtener
-                                realimentación sobre las tareas del equipo y los obstáculos que se
-                                presentan.
-                            </li>
-                        </ul>
-                        <br>
-                        <br>
-                        <h2>Equipo</h2>
-                        <br>
-                        <div class="columns">
-                            <div class="column">
-                                <div id="avatar-jahir" class="avatar circular"></div>
-                                <br>
-                                <h5 class="has-text-centered">Jahir Fiquitiva</h5>
-                                <p class="has-text-centered">Product Owner</p>
-                                <p class="has-text-centered">Front-End Engineer</p>
-                            </div>
-                            <div class="column">
-                                <div id="avatar-julian" class="avatar circular"></div>
-                                <br>
-                                <h5 class="has-text-centered">Julian Gonzalez</h5>
-                                <p class="has-text-centered">Scrum Master</p>
-                                <p class="has-text-centered">Back-End Engineer</p>
-                            </div>
-                            <div class="column">
-                                <div id="avatar-sergio" class="avatar circular"></div>
-                                <br>
-                                <h5 class="has-text-centered">Sergio Rojas</h5>
-                                <p class="has-text-centered">Database Administrator</p>
-                                <p class="has-text-centered">Web Designer</p>
-                            </div>
-                            <div class="column">
-                                <div id="avatar-sebastian" class="avatar circular"></div>
-                                <br>
-                                <h5 class="has-text-centered">Sebastian Mayorga</h5>
-                                <p class="has-text-centered">Mobile Engineer</p>
-                                <p class="has-text-centered">Tests Engineer</p>
-                            </div>
-                            <div class="column">
-                                <div id="avatar-christian" class="avatar circular"></div>
-                                <br>
-                                <h5 class="has-text-centered">Christian Carrero</h5>
-                                <p class="has-text-centered">Solutions Architect</p>
-                                <p class="has-text-centered">Business Analyst</p>
+            </section>
+            <hr>
+            <section class="hero is-fullheight">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="content">
+                            <h2>Metodología</h2>
+                            <br>
+                            <p>
+                                Para el desarrollo de este proyecto se planea usar la metodología SCRUM:
+                                un
+                                modelo de referencia que define un conjunto de prácticas y roles, y que
+                                puede tomarse como punto de partida para definir el proceso de
+                                desarrollo
+                                que se ejecutará durante un proyecto.<br><br>
+                            </p>
+                            <ul>
+                                <li>Gestión regular de las expectativas del cliente, resultados
+                                    anticipados,
+                                    flexibilidad y adaptación, retorno de inversión, mitigación de
+                                    riesgos,
+                                    productividad y calidad, alineamiento entre cliente y equipo, por
+                                    último, equipo motivado.
+                                </li>
+                                <li>Se hace uso de equipos auto-dirigidos y auto-organizados.</li>
+                                <li>Se realiza a diario una reunión de Scrum, que es una reunión de
+                                    avance
+                                    diaria que no dura más de 15 minutos con el objetivo de obtener
+                                    realimentación sobre las tareas del equipo y los obstáculos que se
+                                    presentan.
+                                </li>
+                            </ul>
+                            <br>
+                            <br>
+                            <h2>Fundadores</h2>
+                            <br>
+                            <div class="columns">
+                                <div class="column">
+                                    <div id="avatar-jahir" class="avatar circular"></div>
+                                    <br>
+                                    <h5 class="has-text-centered">Jahir Fiquitiva</h5>
+                                    <p class="has-text-centered">Product Owner</p>
+                                    <p class="has-text-centered">Front-End Engineer</p>
+                                </div>
+                                <div class="column">
+                                    <div id="avatar-julian" class="avatar circular"></div>
+                                    <br>
+                                    <h5 class="has-text-centered">Julian Gonzalez</h5>
+                                    <p class="has-text-centered">Scrum Master</p>
+                                    <p class="has-text-centered">Back-End Engineer</p>
+                                </div>
+                                <div class="column">
+                                    <div id="avatar-sergio" class="avatar circular"></div>
+                                    <br>
+                                    <h5 class="has-text-centered">Sergio Rojas</h5>
+                                    <p class="has-text-centered">Database Administrator</p>
+                                    <p class="has-text-centered">Web Designer</p>
+                                </div>
+                                <div class="column">
+                                    <div id="avatar-sebastian" class="avatar circular"></div>
+                                    <br>
+                                    <h5 class="has-text-centered">Sebastian Mayorga</h5>
+                                    <p class="has-text-centered">Mobile Engineer</p>
+                                    <p class="has-text-centered">Tests Engineer</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <script src="../static/js/main.js" lang="text/javascript"></script>
-    </body>
+            <script src="../static/js/main.js" lang="text/javascript"></script>
+        </body>
 </html>
