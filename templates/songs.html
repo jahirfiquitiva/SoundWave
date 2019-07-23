@@ -1,110 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" class="has-navbar-fixed-top">
-    <head>
-        <meta charset="UTF-8">
-        <title>SoundWave</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>SoundWave</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- 'theme-color' will set background color in Chrome browser on Android 5.0+ -->
-        <meta name="theme-color" content="#4285F4">
+    <!-- 'theme-color' will set background color in Chrome browser on Android 5.0+ -->
+    <meta name="theme-color" content="#4285F4">
 
-        <!-- Favicons -->
-        <link rel="shortcut icon" href="../static/favicons/sw72.png">
-        <link rel="apple-touch-icon" href="../static/favicons/sw57.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw114.png">
-        <link rel="apple-touch-icon-precomposed" href="favicons/sw32.png">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../static/favicons/sw72.png">
+    <link rel="apple-touch-icon" href="../static/favicons/sw57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/sw72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/sw114.png">
+    <link rel="apple-touch-icon-precomposed" href="favicons/sw32.png">
 
-        <link rel="icon" href="../static/favicons/sw32.png" sizes="32x32">
-        <meta name="msapplication-TileColor" content="#4285F4">
-        <meta name="msapplication-TileImage" content="../static/favicons/sw72.png">
+    <link rel="icon" href="../static/favicons/sw32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#4285F4">
+    <meta name="msapplication-TileImage" content="../static/favicons/sw72.png">
 
-        <link href="//cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css"
-              rel="stylesheet">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-        <link href="../static/fonts/font.css" rel="stylesheet"/>
-        <link href="../static/css/main.css" rel="stylesheet"/>
-        <!-- <link href="../static/css/songs.css" rel="stylesheet"/> -->
-    </head>
+    <link href="//cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link href="../static/fonts/font.css" rel="stylesheet"/>
+    <link href="../static/css/main.css" rel="stylesheet"/>
+    <link href="../static/css/styles.css" rel="stylesheet"/>
+    <!-- <link href="../static/css/songs.css" rel="stylesheet"/> -->
+</head>
 
-    <body>
-        <section class="hero is-fullheight-with-navbar section-w-drawer">
-            <!-- Hero head: will stick at the top -->
-            <div class="hero-head">
-                <nav class="navbar is-fixed-top has-shadow" role="navigation"
-                     aria-label="main navigation">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" onclick="toggleDrawer();">
-                            <i class="mdi mdi-menu mdi-24px"></i>
-                        </a>
-                        <a class="navbar-item" href="/">SoundWave</a>
-                    </div>
-                    <div class="navbar-end">
-                        <a class="navbar-item has-text-centered" href="/login">
-                            <i class="mdi mdi-account-circle mdi-24px"></i></a>
-                    </div>
-                </nav>
-                <input type="checkbox" id="drawer-check"/>
-                <div class="drawer is-hidden" id="drawer">
-                    <nav class="drawer-items-list">
-                        <a href="/">
-                            <i class="mdi mdi-home mdi-18px"></i>&nbsp;&nbsp;Inicio
-                        </a>
-                        <hr>
-                        <a href="#" class="drawer-section-header">Biblioteca</a>
-                        <a href="/songs" class="active">
-                            <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
-                        </a>
-                        <a href="/artists">
-                            <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
-                        </a>
-                        <a href="/albums">
-                            <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
-                        </a>
-                        <a href="/genres">
-                            <i class="mdi mdi-collage mdi-18px"></i>&nbsp;&nbsp;Géneros
-                        </a>
-                        <hr>
-                        <a href="#" class="drawer-section-header">Playlists</a>
-                        <a href="#">
-                            <i class="mdi mdi-library-plus mdi-18px"></i>&nbsp;&nbsp;Nueva playlist
-                        </a>
-                    </nav>
-                </div>
-                <div class="drawer-container" onclick="toggleDrawer();"></div>
+<body>
+<section class="hero is-fullheight-with-navbar section-w-drawer">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <nav class="navbar is-fixed-top has-shadow" role="navigation"
+             aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" onclick="toggleDrawer();">
+                    <i class="mdi mdi-menu mdi-24px"></i>
+                </a>
+                <a class="navbar-item" href="/">SoundWave</a>
             </div>
+            <div class="navbar-end">
+                <a class="navbar-item has-text-centered" href="/login">
+                    <i class="mdi mdi-account-circle mdi-24px"></i></a>
+            </div>
+        </nav>
+        <input type="checkbox" id="drawer-check"/>
+        <div class="drawer is-hidden" id="drawer">
+            <nav class="drawer-items-list">
+                <a href="/">
+                    <i class="mdi mdi-home mdi-18px"></i>&nbsp;&nbsp;Inicio
+                </a>
+                <hr>
+                <a href="#" class="drawer-section-header">Biblioteca</a>
+                <a href="/songs" class="active">
+                    <i class="mdi mdi-music-note mdi-18px"></i>&nbsp;&nbsp;Canciones
+                </a>
+                <a href="/artists">
+                    <i class="mdi mdi-account-tie mdi-18px"></i>&nbsp;&nbsp;Artistas
+                </a>
+                <a href="/albums">
+                    <i class="mdi mdi-album mdi-18px"></i>&nbsp;&nbsp;Álbumes
+                </a>
+                <a href="/genres">
+                    <i class="mdi mdi-collage mdi-18px"></i>&nbsp;&nbsp;Géneros
+                </a>
+                <hr>
+                <a href="#" class="drawer-section-header">Playlists</a>
+                <a href="#">
+                    <i class="mdi mdi-library-plus mdi-18px"></i>&nbsp;&nbsp;Nueva playlist
+                </a>
+            </nav>
+        </div>
+        <div class="drawer-container" onclick="toggleDrawer();"></div>
+    </div>
 
 
-            <div class="hero-body">
-                <div class="container">
-                    <div class="content">
-                        <!-- Search -->
-                        <div class="field has-addons">
-                            <input class="input" type="search" placeholder="Encuentra esa canción"
-                                   id="search-input">
-                            <div class="control">
-                                <button class="button is-link is-outlined has-text-centered"
-                                        onclick="search()">
-                                    <span class="mdi mdi-search mdi-account-search mdi-18px is-white"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <br>
-                        <!-- End search -->
-                        <!-- Songs -->
-                        <div id="no-songs" class="has-text-centered is-hidden">
-                            <p>No se encontraron canciones</p>
-                        </div>
-                        <div class="columns is-multiline" id="songs-columns">
-                        </div>
-                        <!-- End Songs -->
+    <div class="hero-body">
+        <div class="container">
+            <div class="content">
+                <!-- Search -->
+                <div class="field has-addons">
+                    <input class="input" type="search" placeholder="Encuentra esa canción"
+                           id="search-input">
+                    <div class="control">
+                        <button class="button is-link is-outlined has-text-centered"
+                                onclick="search()">
+                            <span class="mdi mdi-search mdi-account-search mdi-18px is-white"></span>
+                        </button>
                     </div>
                 </div>
+                <br>
+                <!-- End search -->
             </div>
-        </section>
+        </div>
+    </div>
+    <!-- Play the music-->
+    <div class="content">
+        <div class="player">
+            <div class="progress" onmousedown="moveSong(event)">
+                <div class="determinate" id="song-progress" style="width: 0"></div>
+            </div>
+            <!-- image of the song changes-->
+            <div id="song-picture">
+                <img id="current-album" src="" crossorigin=""
+                     class="responsive-img player-img"/>
+            </div>
+            <div class="song-details">
+                <h5 id="song-detail-name" class="primary-text"></h5>
+                <h6 id="song-detail-artist" class="secondary-text"></h6>
+                <h6 id="song-detail-duration" class="secondary-text"></h6>
+            </div>
 
-        <script src="../static/js/main.js" lang="text/javascript"></script>
-        <script src="../static/js/songs.js" lang="text/javascript"></script>
-    </body>
+            <div class="buttons">
+                <i class="mdi mdi-star waves-ripple" onclick="addToFavorites()"></i>
+                <i class="mdi mdi-skip-previous waves-ripple" onclick="playPrevious()"></i>
+
+                <a class="waves-ripple pulse" onclick="playPauseSong(true)">
+                    <i id="play-button" class="mdi mdi-play-circle"></i>
+                </a>
+                <a class="waves-ripple pulse" onclick="playPauseSong(false)">
+                    <i id="pause-button" class="mdi mdi-pause-circle"></i>
+                </a>
+                <a class="waves-ripple" onclick="seek(true)">
+                    <i class="mdi mdi-skip-forward waves-ripple"></i>
+                </a>
+                <i class="mdi mdi-skip-next waves-ripple" onclick="playNext()"></i>
+
+                <a onclick="validateLogin()">
+                    <i class="mdi mdi-playlist-plus waves-ripple"></i>
+                </a>
+            </div>
+            <div class="whole-volume-container">
+                <i class="mdi mdi-volume-high volume-icon-low" onclick="volumeUp()"></i>
+                <div class="volume-container">
+                    <form>
+                        <p class="range-field">
+                            <input type="range" id="volume-slider" min="0" max="100" value="100"
+                                   oninput="updateVolume()" onchange="updateVolume()"/>
+                        </p>
+                    </form>
+                </div>
+                <i class="mdi mdi-volume-low volume-icon" onclick="volumeDown()"></i>
+            </div>
+            <!-- look update song-->
+            <audio id="song-player" preload="none" ontimeupdate="updateSongProgress()"
+                   current-song-id="" crossorigin="">
+                <source src="" type="audio/*"/>
+            </audio>
+        </div>
+        <!-- fin player -->
+
+        <!-- Inicio modal playlists -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Añadir a Lista de Reproducción</h4>
+                <p>Listas de Reproducción:</p>
+                <select id="lists" class="browser-default"></select>
+                <p>
+                    Nueva Lista:<br> <input type="text" id="new-list-name"><br>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
+                   onclick="songsToPlaylistProcess()">Añadir
+                </a>
+            </div>
+        </div>
+        <!-- Fin modal playlists -->
+    </div>
+    <!-- End the play music-->
+    <!-- Songs -->
+    <div id="no-songs" class="has-text-centered is-hidden">
+        <p>No se encontraron canciones</p>
+    </div>
+    <div class="columns is-multiline" id="songs-columns">
+    </div>
+    <!-- End Songs -->
+</section>
+
+<script src="../static/js/main.js" lang="text/javascript"></script>
+<script src="../static/js/music.js" lang="text/javascript"></script>
+<script src="../static/js/songs.js" lang="text/javascript"></script>
+</body>
 </html>

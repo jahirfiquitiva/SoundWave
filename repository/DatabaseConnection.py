@@ -16,11 +16,13 @@ class DatabaseConnection:
         try:
             if self._connection is None or not self._connection.is_connected():
                 self._connection = sqlcon.connect(
-                    user='soundwaveco',
-                    password='sw-db-321',
-                    host='soundwaveco.mysql.pythonanywhere-services.com',
-                    database='soundwaveco$soundwave',
-                    auth_plugin='mysql_native_password')
+                        user='rick',
+                        password='rick',
+                        host='localhost',
+                        port=3306,
+                        database='soundwaveco$soundwave',
+                        auth_plugin='mysql_native_password'
+                        )
             return self._connection is not None
         except Exception as ex:
             print(ex)
@@ -34,3 +36,12 @@ class DatabaseConnection:
 
     def close(self):
         self._connection.close()
+
+
+"""
+                            user='soundwaveco',
+                            password='sw-db-321',
+                            host='soundwaveco.mysql.pythonanywhere-services.com',
+                            database='soundwaveco$soundwave',
+                            auth_plugin='mysql_native_password'
+                            """

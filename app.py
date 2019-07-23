@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, session
 
+import socket
+
 from api import AlbumsAPI as albapi
 from api import ArtistsAPI as artapi
 from api import GenreAPI as genapi
@@ -153,5 +155,5 @@ if __name__ == '__main__':
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['DEBUG'] = True
-    # app.run(host=socket.gethostbyname(socket.gethostname()), port=8080)
-    app.run(debug=True)
+    app.run(host=socket.gethostbyname(socket.gethostname()), port=8081)
+    # app.run(debug=True)
