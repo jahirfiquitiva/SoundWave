@@ -36,6 +36,12 @@ function loadSongs(key) {
                             divCL.classList.add('large');
                             divCL.classList.add('has-same-height');
 
+                            divCL.setAttribute('data-song-id', song.id);
+                            divCL.setAttribute('data-song-path', song.path);
+                            divCL.setAttribute('data-song-name', song.name);
+                            divCL.setAttribute('data-song-album', song.albumId);
+                            divCL.setAttribute('onClick', 'playSong(event);');
+
                             const divCardCon = document.createElement('div');
                             divCardCon.classList.add('card-content');
 
@@ -69,8 +75,8 @@ function loadSongs(key) {
                                     }
                                 }
                             };
-                            photoXhr.send(null);
 
+                            photoXhr.send(null);
                             const p = document.createElement('p');
                             p.classList.add('song-name');
                             p.classList.add('card-footer-item');

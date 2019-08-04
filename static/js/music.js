@@ -8,7 +8,7 @@ function playPauseSong(play) {
         pauseIcon.style.display = "none";
         return;
     }
-    //Ruta esta en src cambiar
+    //Ruta src cambiar https://github.com/jahirfiquitiva/SoundWave-Music/tree/master/music/.....
     if (player.getAttribute("src").length > 0) {
         playIcon.style.display = !play ? "inline-block" : "none";
         pauseIcon.style.display = play ? "inline-block" : "none";
@@ -32,16 +32,18 @@ function updateSongProgress() {
         if (player.currentTime >= player.duration) {
             if (player.getAttribute("from-search") === "false") {
                 playAnother(true, player.getAttribute("current-song-id"),
-                            player.getAttribute("data-playlist-id"));
+                    player.getAttribute("data-playlist-id"));
             } else {
                 clearPlayer();
             }
             return;
         }
-        var played = (100 * player.currentTime) / player.duration;
-        document.getElementById("song-progress").style.width = played + "%";
-        var cTimeText = readableDuration(player.currentTime);
-        var dTimeText = readableDuration(player.duration);
+        var played = player.duration > 0 ? (100 * player.currentTime) / player.duration : 0;
+        if (played <= 0) played = 0;
+        if (played >= 100) played = 100;
+        document.getElementById("song-progress").value = played;
+        var cTimeText = readableDuration(player.currentTime || 0);
+        var dTimeText = readableDuration(player.duration || 0);
         document.getElementById("song-detail-duration").innerHTML = cTimeText + " - " + dTimeText;
     }
 }
@@ -74,8 +76,11 @@ function moveSong(e) {
         realWidth = w.innerWidth || el.clientWidth || g.clientWidth,
         realHeight = w.innerHeight || el.clientHeight || g.clientHeight;
 
-    var newProgress = (100 * e.pageX) / realWidth;
-    player.currentTime = (player.duration * newProgress) / 100;
+    var newProgress = ((100 * e.pageX) / realWidth) + 1;
+    if (newProgress <= 0) newProgress = 0;
+    if (newProgress >= 100) newProgress = 100;
+    var newTime = (player.duration * newProgress) / 100;
+    player.currentTime = newTime;
     updateSongProgress();
 }
 
@@ -84,33 +89,30 @@ function playSong(e, fromSearch) {
     try {
         var panel = e.target.parentElement;
         if (panel !== null && panel !== undefined) {
-            var contains = panel.classList.contains("grid-item");
+            var contains = panel.classList.contains("has-same-height");
             while (!contains) {
                 panel = panel.parentElement;
-                contains = panel.classList.contains("grid-item");
+                contains = panel.classList.contains("has-same-height");
             }
-            var path = panel.getAttribute("data-path");
-            document.getElementById("song-detail-name").innerHTML =
-                panel.getAttribute("data-name");
-            document.getElementById("song-detail-artist").innerHTML =
-                panel.getAttribute("data-artist");
-            if (path !== null && path !== undefined) {
+            var imgSrc = "";
+            try {
+                const imgEle = panel.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+                imgSrc = imgEle ? imgEle.src || "" : "";
+            } catch (e) {
+                console.error(e)
+            }
+
+            const songUrl = panel.getAttribute("data-song-path");
+            const songId = panel.getAttribute("data-song-id");
+            const songName = panel.getAttribute("data-song-name");
+            document.getElementById("song-detail-name").innerText = songName;
+            document.getElementById("current-album").src = imgSrc;
+            const songAlbum = panel.getAttribute("data-song-album");
+
+            if (typeof songUrl !== 'undefined' && songUrl !== null && songUrl.length > 0) {
                 var player = document.getElementById("song-player");
-                player.setAttribute("current-song-id", panel.getAttribute("data-song-id"));
-                player.setAttribute("from-search", fromSearch);
-                player.setAttribute("from-playlist", false);
-                player.setAttribute("data-playlist-id", "");
-                player.src = path;
-                for (var i = 0; i < panel.childNodes.length; i++) {
-                    var child = panel.childNodes[i];
-                    if (child.classList.contains("album")) {
-                        var albumPath = child.getAttribute("src");
-                        if (albumPath !== undefined && albumPath.length > 0) {
-                            document.getElementById("current-album")
-                                .setAttribute("src", albumPath);
-                        }
-                    }
-                }
+                player.setAttribute("current-song-id", songId);
+                player.setAttribute("src", songUrl)
                 playPauseSong(true);
             }
         }
@@ -178,16 +180,16 @@ function playAnother(next, current, listId) {
 function playPrevious() {
     var player = document.getElementById("song-player");
     playAnother(false, player.getAttribute("current-song-id"),
-                player.getAttribute("data-playlist-id"));
+        player.getAttribute("data-playlist-id"));
 }
 
 function playNext() {
     var player = document.getElementById("song-player");
     playAnother(true, player.getAttribute("current-song-id"),
-                player.getAttribute("data-playlist-id"));
+        player.getAttribute("data-playlist-id"));
 }
 
-function readableDuration(seconds) {
+function readableDuration(seconds = 0) {
     var sec = Math.floor(seconds);
     var min = Math.floor(sec / 60);
     min = min >= 10 ? min : "0" + min;
@@ -223,7 +225,7 @@ function clearPlayer() {
         player.setAttribute("from-playlist", "");
         player.setAttribute("data-playlist-id", "");
         player.setAttribute("src", "");
-        document.getElementById("song-progress").style.width = "0%";
+        document.getElementById("song-progress").value = 0;
         document.getElementById("current-album").setAttribute("src", "");
         document.getElementById("song-detail-name").innerHTML = "";
         document.getElementById("song-detail-artist").innerHTML = "";

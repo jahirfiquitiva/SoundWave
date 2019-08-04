@@ -16,10 +16,9 @@ class DatabaseConnection:
         try:
             if self._connection is None or not self._connection.is_connected():
                 self._connection = sqlcon.connect(
-                        user='rick',
-                        password='rick',
-                        host='localhost',
-                        port=3306,
+                        user='soundwaveco',
+                        password='sw-db-321',
+                        host='soundwaveco.mysql.pythonanywhere-services.com',
                         database='soundwaveco$soundwave',
                         auth_plugin='mysql_native_password'
                         )
@@ -39,9 +38,10 @@ class DatabaseConnection:
 
 
 """
-                            user='soundwaveco',
-                            password='sw-db-321',
-                            host='soundwaveco.mysql.pythonanywhere-services.com',
-                            database='soundwaveco$soundwave',
-                            auth_plugin='mysql_native_password'
+                        user='rick',
+                        password='rick',
+                        host='localhost',
+                        port=3306,
+                        database='soundwaveco$soundwave',
+                        auth_plugin='mysql_native_password'
                             """
